@@ -1579,7 +1579,7 @@ function v827Fit({preserve=false}={}){const entries=v813Entries().filter(v814Fil
  let start=preserve?Math.max(v827Universe.lo,Math.min(v827Universe.hi-desired,state.min)):v827ChooseAnchor(entries,v827Universe.lo,v827Universe.hi,desired);
  state.min=Math.floor(start);state.max=Math.min(v827Universe.hi,Math.ceil(start+desired));v827UpdatePan();return true}
 v814AutoFit=function(){if(!v827Ready)return v827NativeAutoFit();return v827Fit({preserve:false})};
-function v827MoveViewport(start){const width=state.max-state.min;const min=v827Universe.lo,max=Math.max(min,v827Universe.hi-width);state.min=Math.floor(Math.min(max,Math.max(min,start)));state.max=Math.ceil(state.min+width);renderAll();v827UpdatePan()}
+function v827MoveViewport(start){const width=state.max-state.min;const min=-3900000,max=2100-width;const next=Math.floor(Math.min(max,Math.max(min,start)));if(next===state.min)return;state.min=next;state.max=Math.ceil(next+width);const padding=Math.max(width,100);v827Universe.lo=Math.max(-3900000,Math.min(v827Universe.lo,next-padding));v827Universe.hi=Math.min(2100,Math.max(v827Universe.hi,state.max+padding));renderAll();v827UpdatePan()}
 const v827Pan=el('v827PanSlider');v827Pan.addEventListener('input',()=>{const delta=Math.max(0,v827Universe.hi-v827Universe.lo-(state.max-state.min));v827MoveViewport(v827Universe.lo+Number(v827Pan.value)/10000*delta)});
 el('v827PanLeft').onclick=()=>v827MoveViewport(state.min-(state.max-state.min)*.65);el('v827PanRight').onclick=()=>v827MoveViewport(state.min+(state.max-state.min)*.65);
 // Intercept the two legacy zoom buttons so they zoom the visible section, not the entire research universe.
@@ -1813,8 +1813,8 @@ renderExplore=function(){
 let v829Located=null;
 function v829HighlightTarget(id,scroll=false){
  document.querySelectorAll('.v829-target').forEach(n=>n.classList.remove('v829-target'));
- const nodes=[...el('lanes').querySelectorAll('[data-v828-id],[data-id],[data-v813-id],[data-v83read]')];
- const node=nodes.find(n=>[n.dataset.v828Id,n.dataset.id,n.dataset.v813Id,n.dataset.v83read].includes(id));
+ const nodes=[...el('lanes').querySelectorAll('[data-v828-id],[data-v827-id],[data-id],[data-v813-id],[data-v83read]')];
+ const node=nodes.find(n=>[n.dataset.v828Id,n.dataset.v827Id,n.dataset.id,n.dataset.v813Id,n.dataset.v83read].includes(id));
  if(node){node.classList.add('v829-target');if(scroll)requestAnimationFrame(()=>{if(node.isConnected)node.scrollIntoView({block:'center',inline:'nearest',behavior:'instant'});});return true}
  return false;
 }
