@@ -63,3 +63,8 @@ Granskningen utförs endast i aktiva arbetspass. En GitHub-branch eller plan inn
 - Dokumentation: `docs/V8_33_KALLKONTROLL_02.md`.
 - Sammanlagt åtta poster har nu dokumenterade delkontroller i omgång 01–02; inga poster markeras slutgranskade.
 - Återstår bland annat genomgång av H008–H010, H012, specialistlitteratur för H006 samt fullständig kontroll av O-poster.
+
+## Källkontroll 03 dokumenterad 2026-10-13
+- H008, H009, H010, H012 och H013 genomgångna på delpåståendenivå: se `docs/V8_33_KALLKONTROLL_03.md`.
+- 13 av 193 poster har nu dokumenterade delkontroller, 0 slutgranskade.
+- Prioriterade öppna frågor: berättad kontra belagd tid för Abraham och uttåget, senbronsålderns vassalstater, etnicitet i höglandsbosättningar och innebörden av Tel Dan-inskriften.
