@@ -21,3 +21,14 @@ V8.32 är godkänd av användaren och ligger på `main`. C3 (grafisk kontext i T
 - Validera kod och dataladdning innan Preview.
 - Godkänn inte produktion utan användartest av berörda användarflöden.
 - Hosting och tekniska beroenden ska inte kräva extra löpande kostnader.
+
+## Inventering genomförd 2026-10-13
+- 193 poster inventerade i `V8_33_POSTINVENTERING.csv`: 129 originalposter (O) och 64 bearbetade tidslinjeposter (H).
+- Samtliga 129 originalposter har en post i `allOriginalResearchV828`; detta är **innehållstäckning, inte vetenskapligt godkännande**.
+- 38 av 64 bearbetade poster har tomt direktfält `source`; kontrollera andra forskningsreferenser innan slutsats om saknade källor.
+- 23 bearbetade poster har äldre `reviewed: true`. Dessa är **inte** automatiskt slutgranskade enligt V8.33-kraven.
+- Ingen post har i detta steg fått status vetenskapligt slutgranskad.
+- Se maskinläsbar sammanfattning `V8_33_INVENTERING.json`.
+
+## Nästa sakgranskning
+Börja med poster där direktkällan saknas och förankra textpåståenden i verifierbara primär- och sekundärkällor. Undvik att jämställa ett tillgängligt allmänt uppslagsverk med en primärkälla.
