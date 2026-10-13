@@ -1,0 +1,29 @@
+/* V8.33 – sammanhållen undersökningsmiljö. */
+.v833-study{background:#fff;border:2px solid #b3cfe8;border-radius:16px;padding:18px;margin-bottom:14px;box-shadow:0 3px 18px #19466d10;min-width:0}
+.v833-kicker,.v833-origin-label{color:#255e96;font-weight:800;letter-spacing:.06em;font-size:11px}
+.v833-study h2{color:#173d62;font-size:23px;line-height:1.2;margin:8px 0}
+.v833-description{color:#405e77;line-height:1.55;font-size:13px;max-width:800px}
+.v833-choose{display:grid;gap:7px;color:#234767;font-weight:700;font-size:13px;max-width:620px;margin-top:13px}
+.v833-choose select{width:100%;max-width:100%;min-width:0;background:white;border:1px solid #a9c7df;padding:11px;border-radius:9px;font-size:14px;color:#173d62}
+.v833-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.v833-actions:empty{display:none}
+.v833-actions button,.v833-neighbors button{background:#eaf3fc;border:1px solid #a8c8e5;border-radius:9px;padding:9px 12px;color:#174e84;font-size:12px;font-weight:700;cursor:pointer}
+.v833-status{margin-top:11px;padding:9px 11px;background:#fffaeb;border-left:3px solid #cb9632;font-size:12px;color:#73551a}
+.v833-choices-heading{margin:16px 2px 8px}
+.v833-choices-heading h3{margin:0;color:#244d75;font-size:16px}
+.v833-choices-heading p{margin:4px 0 9px;color:#536d85;font-size:12px}
+.v833-self{width:100%;min-width:0}
+.v833-selflead{border-radius:11px;border:1px solid #b0cee9;background:#edf6ff;padding:13px;margin-bottom:10px}
+.v833-selflead h3{margin:8px 0;color:#153c65;font-size:17px}
+.v833-selflead p{font-size:12px;line-height:1.6;color:#385c7a}
+.v833-undated{padding:13px;background:#fff9e9;border:1px solid #e6ce89;border-radius:10px;font-size:13px;color:#705523}
+.v833-undated p{line-height:1.6;margin-bottom:0}
+.v833-period{font-size:12px;line-height:1.6}
+.v833-period p{color:#47657e}
+.v833-neighbors{list-style:none;padding:0;display:grid;gap:7px}
+.v833-neighbors li{display:grid;grid-template-columns:minmax(125px,180px) 1fr auto;gap:10px;align-items:center;border:1px solid #d9e4f0;background:white;border-radius:9px;padding:10px;font-size:12px}
+.v833-neighbors li span{color:#617993}
+.v833-neighbors .v833-active{background:#eaf5ff;border-color:#9abfe2}
+.v833-neighbors li small{font-size:11px;font-weight:700;color:#256394}
+#v827RelationFocus[hidden],.v83-panel[hidden],.v83-context[hidden],.v83-toolbar-actions[hidden]{display:none!important}
+@media(max-width:760px){.v833-study{padding:13px}.v833-study h2{font-size:20px}.v833-actions{flex-direction:column}.v833-actions button{width:100%}.v833-neighbors li{grid-template-columns:1fr auto}.v833-neighbors li span{grid-column:1 / -1}.v833-neighbors li b{min-width:0;overflow-wrap:anywhere}}
