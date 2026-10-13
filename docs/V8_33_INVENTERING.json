@@ -1,0 +1,19 @@
+{
+  "schema": "tidens-vav-audit-v1",
+  "generatedFrom": "data/data.generated.js",
+  "coverage": {
+    "original": 129,
+    "research": 64,
+    "total": 193,
+    "originalWithResearch": 129,
+    "researchEntriesMissingDirectSource": 38,
+    "legacyReviewedFlagsTrue": 23
+  },
+  "sourceFieldMeans": "direct source property, not all references",
+  "reviewStatus": "inventory only; no claims verified in V8.33",
+  "linking": {
+    "idPattern": "O### or H###",
+    "stableIdPolicy": "Never reuse IDs; link by ID not title",
+    "urlProposal": "?post=O087 (future implementation; not yet functional)"
+  }
+}
