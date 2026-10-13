@@ -74,3 +74,8 @@ Granskningen utförs endast i aktiva arbetspass. En GitHub-branch eller plan inn
 - H017 har nu kontrollerade delpåståenden mot British Museum och Metropolitan Museum. Övriga poster i gruppen har preciserade öppna frågor, **inte** extern sakverifiering.
 - Taylorprismat kontrollerat som sidoreferens: händelse 701 f.Kr. respektive artefaktdatering cirka 691 f.Kr.
 - Räknat som delvis källkontrollerade mot externa belägg: 14/193. Vetenskapligt slutgranskade: 0/193.
+
+## Källkontroll 06 dokumenterad 2026-10-13
+- H022 (Alexander), H023 (Daniels tillkomst) och H024 (Mackabeerupprorets tidiga fas) är delvis källkontrollerade med akademiskt källstöd. Se `docs/V8_33_KALLKONTROLL_06.md`.
+- Väsentligt förtydligande: 167–160 f.Kr. gäller en första fas av mackabeisk revolt, inte hela hasmoneiska självständighetshistorien.
+- 17 av 193 poster har nu dokumenterade delkontroller mot externa källor, 0 slutgranskade.
