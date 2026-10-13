@@ -45,7 +45,7 @@
     study.querySelector('#v833PostSelect').onchange=e=>{
       v829Focus.id = e.target.value || null;
       v827RelationFocus = e.target.value || v827RelationFocus;
-      renderExplore();
+      if(v829Focus.id) setSelected(v829Focus.id); else renderExplore();
     };
     const read = study.querySelector('#v833Read');
     if(read)read.onclick=()=>{setSelected(focus.id);if(window.innerWidth<=900 && typeof v84OpenReader==='function')v84OpenReader()};
@@ -81,13 +81,15 @@
       }
       if(map) {
         map.innerHTML=`<div class="v833-self"><div class="v833-selflead"><span class="v833-origin-label">UTGÅNGSPOST</span><h3>${safe(focus.title)}</h3><p>${safe(focus.description || 'Beskrivning saknas i denna post.')}</p></div>${contextFor(focus)}</div>`;
-        map.querySelectorAll('[data-v833-open]').forEach(b=>b.onclick=()=>{v829Focus.id=b.dataset.v833Open;v827RelationFocus=v829Focus.id;renderExplore()});
+        map.querySelectorAll('[data-v833-open]').forEach(b=>b.onclick=()=>{v829Focus.id=b.dataset.v833Open;v827RelationFocus=v829Focus.id;setSelected(v829Focus.id)});
       }
       const caution = host.querySelector('.v83-context');if(caution)caution.hidden=true;
       host.querySelectorAll('.v83-panel').forEach(p=>{if(p.querySelector('.v83-connections'))p.hidden=true});
     }
   }
   renderExplore=function(){ oldRender();enhance(); };
+  const oldShowRelations=v827ShowRelations;
+  v827ShowRelations=function(id){oldShowRelations(id);requestAnimationFrame(()=>document.getElementById('v833Study')?.scrollIntoView({block:'start',behavior:'instant'}))};
   const explore = document.getElementById('exploreView');
   if(explore)explore.addEventListener('click', e => {if(e.target.closest('[data-v83theme]'))v829Focus.id=null}, true);
 })();
