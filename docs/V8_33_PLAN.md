@@ -57,3 +57,9 @@ Användaren har begärt att V8.33 ska drivas som en fullständig vetenskaplig sl
 
 ### Genomförandebegränsning
 Granskningen utförs endast i aktiva arbetspass. En GitHub-branch eller plan innebär inte att arbete fortsätter obevakat i bakgrunden. Dokumentera faktiskt uppnådda kontroller; lova inte kvalitetssäkring som inte är genomförd.
+
+## Källkontroll 02 dokumenterad 2026-10-13
+- H002, H003, H006, H007 och H011 delvis källkontrollerade mot British Museum, Metropolitan Museum of Art, Louvre och University of Chicago.
+- Dokumentation: `docs/V8_33_KALLKONTROLL_02.md`.
+- Sammanlagt åtta poster har nu dokumenterade delkontroller i omgång 01–02; inga poster markeras slutgranskade.
+- Återstår bland annat genomgång av H008–H010, H012, specialistlitteratur för H006 samt fullständig kontroll av O-poster.
