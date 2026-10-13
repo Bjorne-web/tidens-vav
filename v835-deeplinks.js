@@ -57,6 +57,7 @@
     }else if(route.view==='research'){
       view('research');
       setSelected(route.id);
+      if(window.innerWidth<=900 && typeof v84OpenReader==='function')v84OpenReader();
     }
     return true;
   }
@@ -76,15 +77,16 @@
   function linkToolbar(id) {
     const link=makeLink(id,'explore');
     if(!link)return null;
+    const isPreview=new URL(window.location.href).hostname!=='tidens-vav.pages.dev';
     const wrap=document.createElement('div');
     wrap.className='v835-share';
     const title=document.createElement('span');
     title.className='v835-share-title';
-    title.textContent='Dela historisk undersökning';
+    title.textContent=isPreview?'Dela testversionen (förhandsvisning)':'Dela historisk undersökning';
     const copy=document.createElement('button');
     copy.type='button';
     copy.className='v835-copy';
-    copy.textContent='Kopiera länk';
+    copy.textContent=isPreview?'Kopiera testlänk':'Kopiera länk';
     const anchor=document.createElement('a');
     anchor.href=link;
     anchor.target='_blank';
@@ -96,6 +98,7 @@
     status.setAttribute('aria-live','polite');
     copy.addEventListener('click',()=>copyLink(link,copy,status));
     wrap.append(title,copy,anchor,status);
+    if(isPreview){const caution=document.createElement('span');caution.className='v835-preview-note';caution.textContent='Detta är en tillfällig testadress. Permanenta postlänkar använder tidens-vav.pages.dev efter publicering.';wrap.append(caution)}
     return wrap;
   }
 
