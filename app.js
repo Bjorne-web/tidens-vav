@@ -1930,10 +1930,29 @@ renderExplore=function(){
  const vetted=v813Entries().find(e=>e.id===id&&e.v813Status!=='original'&&Number.isFinite(e.start)&&Number.isFinite(e.end));
  if(graph){
   if(vetted){
-   const timeLabel=v83FmtYear(vetted.start)+(vetted.start===vetted.end?'':' – '+v83FmtYear(vetted.end));
-   graph.innerHTML='<div class="v83-panel" style="border-left:4px solid #2269a4"><b>Vald forskningspost i kronologin</b><p>'+enc(item.title)+' · '+enc(timeLabel)+'</p><p class="small">Denna datering tillhör forskningspostens bearbetade tidsplacering; öppna huvudtidslinjen för att granska den.</p><button type="button" id="v832TimelineFocus">Visa och markera i huvudtidslinjen →</button></div>';
+   // Show a real proportionally dated graph for the selected entry plus neighbouring, independently dated records.
+   const records=v813Entries().filter(e=>e.v813Status!=='original'&&Number.isFinite(e.start)&&Number.isFinite(e.end));
+   const centre=(vetted.start+vetted.end)/2;
+   const near=records.filter(e=>e.id!==id).sort((a,b)=>Math.abs((a.start+a.end)/2-centre)-Math.abs((b.start+b.end)/2-centre)).slice(0,12);
+   const related=[vetted,...near].sort((a,b)=>a.start-b.start);
+   const min=Math.min(...related.map(e=>e.start));
+   const max=Math.max(...related.map(e=>e.end));
+   const span=Math.max(1,max-min);
+   const theme={id:'investigation',min:min-Math.max(1,span*.035),max:max+Math.max(1,span*.035)};
+   graph.innerHTML='<div class="v83-panel" style="border-left:4px solid #2269a4"><b>Grafisk historisk kontext för '+enc(item.title)+'</b><p class="small">Vald forskningspost och upp till tolv närliggande daterade poster. Närhet i tid innebär inte orsakssamband eller direkt påverkan. Klicka på en post för att läsa den.</p></div>'+v83Graph(theme,related);
+   graph.querySelectorAll('[data-v83read]').forEach(b=>b.onclick=()=>{setSelected(b.dataset.v83read)});
   }else{
-   graph.innerHTML='<div class="v83-panel" style="border-left:4px solid #b47a22"><b>Utgångsposten '+enc(id)+' saknar säkerställd kronologisk placering</b><p>'+enc(item.title)+'</p><p class="small">Originalarkivets årtal används inte som vetenskapligt belagd datering. Posten visas här som vald undersökning, men placeras inte på en uppdiktad tidsaxel. Utforska belagda kontakthändelser och källkritiska jämförelser i sambandspanelen nedan.</p></div>';
+   const linked=v827LinksFor(id).map(x=>x.from===id?x.to:x.from);
+   const candidates=(v829ResearchLinks[id]||[]).map(x=>x.id);
+   const related=[...new Set([...linked,...candidates])].map(k=>v813Entries().find(e=>e.id===k&&e.v813Status!=='original'&&Number.isFinite(e.start)&&Number.isFinite(e.end))).filter(Boolean);
+   if(related.length){
+    const min=Math.min(...related.map(e=>e.start)),max=Math.max(...related.map(e=>e.end));
+    const span=Math.max(1,max-min);
+    graph.innerHTML='<div class="v83-panel" style="border-left:4px solid #b47a22"><b>'+enc(item.title)+' – kontext, inte datering av utgångsposten</b><p class="small">Den valda originalposten saknar källprövad datering. Grafen visar enbart daterade jämförelseposter som redan förekommer i forskningsmaterialets relationer. Placeringen bevisar inget direkt beroende.</p></div>'+v83Graph({id:'investigation',min:min-Math.max(1,span*.05),max:max+Math.max(1,span*.05)},related);
+    graph.querySelectorAll('[data-v83read]').forEach(b=>b.onclick=()=>setSelected(b.dataset.v83read));
+   }else{
+    graph.innerHTML='<div class="v83-panel" style="border-left:4px solid #b47a22"><b>Ingen daterad graf kan byggas för '+enc(id)+'</b><p class="small">Posten saknar källprövad tidsplacering och har ännu inga källprövade tidsatta jämförelseposter registrerade. Inga datum eller relationer har hittats på.</p></div>';
+   }
   }
   const focus=graph.querySelector('#v832TimelineFocus');
   if(focus)focus.onclick=()=>{view('timeline');v829LocateResearch(id)};
@@ -1957,7 +1976,15 @@ renderExplore=function(){
  const limitLo=-3900000,limitHi=2100;
  let drag=null;
  const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
- const universe=()=>({lo:v827Universe.lo,hi:v827Universe.hi});
+ let controlDomain=null;
+ const universe=()=>{
+  const span=Math.max(1,state.max-state.min);
+  // Map slider handles to a window around the visible period, not the entire multi-million-year archive.
+  if(!controlDomain||state.min<controlDomain.lo||state.max>controlDomain.hi){
+   controlDomain={lo:Math.max(limitLo,state.min-span),hi:Math.min(limitHi,state.max+span)};
+  }
+  return controlDomain;
+ };
  function redraw(){
   const {lo,hi}=universe();const span=Math.max(1,hi-lo);
   const a=clamp((state.min-lo)/span,0,1)*100,b=clamp((state.max-lo)/span,0,1)*100;
