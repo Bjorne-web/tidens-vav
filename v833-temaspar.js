@@ -26,6 +26,7 @@
     const original = focus && !!focus.original;
     const intro = host.querySelector('.v83-path-hero');
     if (!intro) return;
+    const titleTag = intro.querySelector('.kicker'); if(titleTag)titleTag.textContent='TIDENS VÄV · TEMASPÅR V8.33';
     const introduction = intro.querySelector('p');
     if (introduction) introduction.innerHTML = 'Följ ett färdigt forskningsspår eller välj valfri post för en egen undersökning. Historiska samband ska alltid gå att kontrollera; tidsmässig närhet räcker inte som belägg för påverkan.';
     const metrics = intro.querySelector('.v83-metrics');
