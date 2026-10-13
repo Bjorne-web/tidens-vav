@@ -16,4 +16,6 @@ jobs:
         with:
           node-version: '22'
       - name: Verify data, review ledger and JavaScript
-        run: node tests/smoke-v834.mjs
+        run: |
+          node tests/smoke-v834.mjs
+          node tests/smoke-v835.mjs
