@@ -1,0 +1,19 @@
+name: Tidens väv – statiska kontroller
+on:
+  push:
+    branches:
+      - main
+      - 'v8.*'
+  pull_request:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify data, review ledger and JavaScript
+        run: node tests/smoke-v834.mjs
