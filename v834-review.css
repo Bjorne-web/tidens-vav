@@ -1,0 +1,20 @@
+/* V8.34 – tydlig, tillgänglig forskningsstatus utan ogrundade kvalitetsstämplar. */
+.v834-review{margin:12px 0 18px;padding:15px;border:1px solid #a4bfd7;border-radius:12px;background:#f7fbff;color:#233e58;font-size:13px;line-height:1.55}
+.v834-header{display:flex;align-items:start;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.v834-eyebrow{font-size:11px;font-weight:800;letter-spacing:.07em;color:#426b90}
+.v834-review h3{margin:3px 0 6px;font-size:17px;color:#163a5c}
+.v834-state{display:inline-block;border:1px solid #c9a259;border-radius:20px;background:#fff9e9;padding:5px 9px;font-size:11px;font-weight:800;color:#70521a;max-width:100%}
+.v834-intro{margin:9px 0}
+.v834-audit{border-top:1px solid #cddde9;padding-top:10px}
+.v834-audit summary{cursor:pointer;color:#215a87;font-weight:800;padding:3px 0}
+.v834-audit ol{margin:10px 0 5px;padding-left:21px}
+.v834-claim{padding-bottom:9px;margin:0 0 12px;border-bottom:1px dotted #b9c9d8}
+.v834-claim p{margin:5px 0;overflow-wrap:anywhere}
+.v834-source a,.v834-existing a{color:#165d9b}
+.v834-existing{margin-top:12px;overflow-wrap:anywhere}
+.v834-existing span{font-size:12px;color:#576d82}
+.v834-reminder{border-left:3px solid #a8c1d7;background:white;padding:9px;margin-top:10px;font-size:12px;color:#516980}
+.v834-library-status{background:#fff9ed;color:#4e5260;border:1px solid #e9d4a8;border-radius:10px;padding:12px;margin-top:12px;font-size:12px;line-height:1.5}
+.v834-library-status p{margin:5px 0 0}
+.v834-focus-note{margin:11px 0 2px;padding:9px;border-left:3px solid #d8a03e;background:#fffaf0;font-size:12px;line-height:1.5}
+@media(max-width:760px){.v834-review{padding:11px}.v834-review h3{font-size:15px}.v834-header{display:block}.v834-state{margin-top:6px}}
