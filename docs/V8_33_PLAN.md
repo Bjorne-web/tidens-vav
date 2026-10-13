@@ -79,3 +79,9 @@ Granskningen utförs endast i aktiva arbetspass. En GitHub-branch eller plan inn
 - H022 (Alexander), H023 (Daniels tillkomst) och H024 (Mackabeerupprorets tidiga fas) är delvis källkontrollerade med akademiskt källstöd. Se `docs/V8_33_KALLKONTROLL_06.md`.
 - Väsentligt förtydligande: 167–160 f.Kr. gäller en första fas av mackabeisk revolt, inte hela hasmoneiska självständighetshistorien.
 - 17 av 193 poster har nu dokumenterade delkontroller mot externa källor, 0 slutgranskade.
+
+## Källkontroll 07 – romerska Judeen och tidig kristendom
+- H026–H032 genomgångna; se `docs/V8_33_KALLKONTROLL_07.md`.
+- Extern delkontroll av H026, H029, H031, H032; endast ramkontroll för H028 och H030; H027 är identifierad kronologisk källlucka.
+- Räknat med verifierade externa delpåståenden: 21/193 poster; slutgranskade: 0/193. Den siffran anger inte hur mycket av varje post som är granskat.
+- H033–H036 står näst i kö; bibeltextens berättade tid och texttillkomst hålls separata.
