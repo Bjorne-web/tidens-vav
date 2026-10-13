@@ -6,3 +6,5 @@
 .v835-copy-status{font-size:12px;color:#3e637d;width:100%;min-height:0}
 .v835-link-notice{padding:12px 14px;margin:8px 0 12px;border-left:4px solid #b57b27;background:#fff8e9;color:#6a4b1e;font-size:13px}
 @media(max-width:760px){.v835-share{padding:9px}.v835-share-title{width:100%}.v835-copy{flex:1}}
+
+.v835-preview-note{width:100%;font-size:11px;color:#805713;border-left:3px solid #d6ae51;padding-left:8px}
