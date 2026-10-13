@@ -32,3 +32,28 @@ V8.32 är godkänd av användaren och ligger på `main`. C3 (grafisk kontext i T
 
 ## Nästa sakgranskning
 Börja med poster där direktkällan saknas och förankra textpåståenden i verifierbara primär- och sekundärkällor. Undvik att jämställa ett tillgängligt allmänt uppslagsverk med en primärkälla.
+
+
+## Beslutad omfattning: färdigställ hela C6 som ett sammanhållet uppdrag
+Användaren har begärt att V8.33 ska drivas som en fullständig vetenskaplig slutgranskning och inte avrapporteras efter varje enskild liten grupp. Detta är prioriterat framför nya funktioner och separat integrationsutveckling.
+
+**Omfattning:** samtliga 64 bearbetade tidslinjeposter och samtliga 129 originalposter inklusive forskningsfördjupningar, samt övergripande kronologi och de viktigaste korshänvisningarna.
+
+### Obligatorisk prövning per post
+1. Bryt ut prövbara historiska påståenden och skilj dem från förklarande och teologiskt språk.
+2. Särskilj berättad tid, händelsedatering, textkomposition, redaktion och bevarat textvittne.
+3. Verifiera central arkeologi och primärtexter mot föremålskatalog, edition eller inskrift när tillämpligt.
+4. Kontrollera tolkning och datering mot relevant vetenskaplig sekundärlitteratur; redovisa när forskare är oense.
+5. Märk historiska samband enligt typ och evidens, så textlikhet inte automatiskt blir direkt påverkan.
+6. Jämför med andra poster så kategorier, årtal och formuleringar inte motsäger varandra.
+7. Korrigera brister i källmaterialet och dokumentera både åtgärd och kvarstående begränsning.
+
+### Acceptanskriterier
+- Ett tydligt statusfält per post med individuellt dokumenterade kontroller; äldre `reviewed: true` räknas inte som godkännande.
+- Inget samlat påstående om slutgranskning förrän alla 193 poster faktiskt passerat kontrollerna.
+- En gemensam slutrapport med korrigerade poster, kvarstående öppna frågor och källförteckning.
+- Nya fakta kräver granskningsbara referenser; formuleringar av typen ”enligt forskningen” utan källstöd måste förtydligas.
+- Produktion V8.32 ändras inte före genomgång, teknisk Preview-testning och användarens godkännande.
+
+### Genomförandebegränsning
+Granskningen utförs endast i aktiva arbetspass. En GitHub-branch eller plan innebär inte att arbete fortsätter obevakat i bakgrunden. Dokumentera faktiskt uppnådda kontroller; lova inte kvalitetssäkring som inte är genomförd.
