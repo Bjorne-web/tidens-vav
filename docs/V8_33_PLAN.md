@@ -68,3 +68,9 @@ Granskningen utförs endast i aktiva arbetspass. En GitHub-branch eller plan inn
 - H008, H009, H010, H012 och H013 genomgångna på delpåståendenivå: se `docs/V8_33_KALLKONTROLL_03.md`.
 - 13 av 193 poster har nu dokumenterade delkontroller, 0 slutgranskade.
 - Prioriterade öppna frågor: berättad kontra belagd tid för Abraham och uttåget, senbronsålderns vassalstater, etnicitet i höglandsbosättningar och innebörden av Tel Dan-inskriften.
+
+## Källkontroll 04 dokumenterad 2026-10-13
+- Assyrien, Babylonien och Persien: genomgång av H014–H018, se `docs/V8_33_KALLKONTROLL_04.md`.
+- H017 har nu kontrollerade delpåståenden mot British Museum och Metropolitan Museum. Övriga poster i gruppen har preciserade öppna frågor, **inte** extern sakverifiering.
+- Taylorprismat kontrollerat som sidoreferens: händelse 701 f.Kr. respektive artefaktdatering cirka 691 f.Kr.
+- Räknat som delvis källkontrollerade mot externa belägg: 14/193. Vetenskapligt slutgranskade: 0/193.
