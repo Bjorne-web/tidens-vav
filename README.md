@@ -1,22 +1,39 @@
-# Tidens väv — V8.30 publiceringsklar statisk webbapp
+# Tidens väv – webbutveckling
 
-Denna mapp innehåller en fristående publiceringsversion (ingen backend).
+Publicerad statisk webbapp: https://tidens-vav.pages.dev
 
-## Gratis publicering via GitHub + Cloudflare Pages
+## Arkitektur och kostnad
+- Hosting: Cloudflare Pages (statisk webbplats på gratisnivån).
+- Källkod: GitHub. Produktionsgren: `main`.
+- Ändringar görs i separata utvecklingsgrenar och testas via Cloudflare Preview innan de förs över till `main`.
+- Ingen betal-API, backend eller extra domän behövs för detta upplägg.
+- Den fullständiga källdatan och `build.py` finns fortfarande i det separata projektpaketet. Filen `data/data.generated.js` är genererad, inte den primära forskningskällan.
 
-1. Skapa ett separat GitHub-repository, exempelvis `tidens-vav`, och ladda upp **innehållet i denna mapp till repositoryts rot**.
-2. I Cloudflare Dashboard: Workers & Pages → Create → Pages → Connect to Git → välj repository.
-3. Produktionsgren: `main`. Framework preset: `None`. Build command: lämna tomt. Build output directory: `/` (repo-roten; välj `.` om gränssnittet kräver ett värde).
-4. Publicera och öppna den tilldelade `*.pages.dev`-adressen.
-5. För utveckling: skapa en separat branch, gör ändringarna där och kontrollera Preview-URL innan merge till `main`.
+## Mappstruktur i detta repository
+- `index.html` – ingångssida (i roten).
+- `app.js` och `styles.css` – befintligt program (i roten, inte i `src/`).
+- `data/data.generated.js` – levererade forsknings- och tidslinjedata.
+- `assets/` – exempelvis bakgrundskarta.
+- `v833-temaspar.js` och `v833-temaspar.css` – avgränsade förbättringar från V8.33.
 
-**Observera:** Detta är ett publiceringspaket. Behåll det fullständiga V8.30-projektpaketet för redigering av JSON och regenerering med `python3 build.py`; kopiera då uppdaterade webbfiler (`index.html`, `src/`, `data/data.generated.js`, `assets/`) till detta repository.
+## V8.33 – temaspår för granskning
+- Valfri forsknings- eller originalpost kan väljas som **Aktuell undersökning**.
+- De sex färdiga temaspåren finns kvar, som en **separat** ingång.
+- Den valda posten syns även i avsnittet för historiskt sammanhang.
+- För en dateringsbar forskningspost visas kronologiskt närliggande poster som jämförelsepunkter, **inte** som bevisade orsakssamband.
+- En ursprungspost utan vetenskapligt försvarbar tidsplacering får ingen påhittad placering.
+- Historiska relationer från den tidigare modellen behålls utan nya konstruerade beroenden.
 
-Ingen domän behövs. Under gratisplanernas användningsgränser ska detta inte skapa extra hostingkostnader. Kontrollera inställningarna och aktuella villkor innan godkännande.
+## Testlista före merge
+1. Välj Temaspår på dator och mobil, kontrollera att Aktuell undersökning ligger överst.
+2. Välj `O030` (Zoroastrism). Kontrollera att utgångsposten syns och att inget ogrundat årtal visas.
+3. Välj `H017` (Persien erövrar Babylon). Kontrollera kronologisk kontext och att närhet i tid inte beskrivs som beroende.
+4. Byt till ett av de sex färdiga temaspåren, kontrollera att egen undersökning återställs.
+5. Gå från Fördjupningar till Visa sambanden i Temaspår. Kontrollera orienteringen och återgång.
+6. Kontrollera knapparna Läs vald post och Se posten i huvudtidslinjen, mobilmenyer, karta och JavaScript-konsol.
 
-## Kända begränsningar
-
-- Inga ändringar av Temaspårs konceptuella struktur.
-- Forskningsmaterialet har inte blivit fullständigt vetenskapligt slutgranskat.
-- Kartan hämtar Leaflet från unpkg och kan därför vara beroende av extern åtkomst.
-- Detta paket innebär inte att webbpublicering har genomförts.
+## Gränser
+- V8.33 innebär **inte** en vetenskaplig slutgranskning av forskningsposter.
+- Kortens närhet i tid innebär inte att geografiska eller religiösa relationer har belagts.
+- Externa källor och Leaflet kan påverkas av nätverksåtkomst.
+- The World Behind the Word ändras inte; integration ska ske stegvis med stabila post-id och tydligt källunderlag.
