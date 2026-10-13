@@ -1,0 +1,50 @@
+{
+  "schema": "tidens-vav-claim-review-v1",
+  "date": "2026-10-13",
+  "policy": "post status remains not-final until all relevant claims and bibliographic dating have been verified",
+  "records": [
+    {
+      "id": "H001",
+      "status": "delvis_kallkontrollerad",
+      "verified": [
+        "monumental Neolithic structures",
+        "UNESCO interval 9600-8200 BCE"
+      ],
+      "open": [
+        "function and interpretation of site",
+        "specialist secondary scholarship"
+      ],
+      "sources": [
+        "https://whc.unesco.org/en/list/1572/"
+      ]
+    },
+    {
+      "id": "H004",
+      "status": "delvis_kallkontrollerad",
+      "verified": [
+        "Neo-Assyrian Atrahasis copy DT.42 is a flood narrative"
+      ],
+      "open": [
+        "independent Old Babylonian date evidence",
+        "specific text-level parallels"
+      ],
+      "sources": [
+        "https://www.britishmuseum.org/collection/object/W_DT-42"
+      ]
+    },
+    {
+      "id": "H005",
+      "status": "delvis_kallkontrollerad",
+      "verified": [
+        "Neo-Assyrian tablet XI fragment K.2252 relates the flood"
+      ],
+      "open": [
+        "full compositional chronology",
+        "motif transmission versus parallel"
+      ],
+      "sources": [
+        "https://www.britishmuseum.org/collection/object/W_K-2252"
+      ]
+    }
+  ]
+}
