@@ -85,3 +85,9 @@ Granskningen utförs endast i aktiva arbetspass. En GitHub-branch eller plan inn
 - Extern delkontroll av H026, H029, H031, H032; endast ramkontroll för H028 och H030; H027 är identifierad kronologisk källlucka.
 - Räknat med verifierade externa delpåståenden: 21/193 poster; slutgranskade: 0/193. Den siffran anger inte hur mycket av varje post som är granskat.
 - H033–H036 står näst i kö; bibeltextens berättade tid och texttillkomst hålls separata.
+
+## Källkontroll 08 dokumenterad 2026-10-13
+- H033–H036: synoptisk datering, Johannesevangeliets textvittnen, Uppenbarelsebokens romerska kontext och Bar Kokhba-upproret. Se `docs/V8_33_KALLKONTROLL_08.md`.
+- H033, H035 och H036 har källstödda delpåståenden; H034:s P52-problem är verifierat men dess kompositionsintervall 90–110 är inte därmed bekräftat.
+- 25 av 193 poster har nu någon dokumenterad extern delkontroll (inklusive källkritisk kontroll av ett missvisande dateringsargument), 0 av 193 är vetenskapligt slutgranskade.
+- Efter dokumentationsfasen krävs **faktiska justeringar i appens forskningsdata**, inte enbart rapporter.
