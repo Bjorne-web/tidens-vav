@@ -1579,15 +1579,15 @@ function v827Fit({preserve=false}={}){const entries=v813Entries().filter(v814Fil
  let start=preserve?Math.max(v827Universe.lo,Math.min(v827Universe.hi-desired,state.min)):v827ChooseAnchor(entries,v827Universe.lo,v827Universe.hi,desired);
  state.min=Math.floor(start);state.max=Math.min(v827Universe.hi,Math.ceil(start+desired));v827UpdatePan();return true}
 v814AutoFit=function(){if(!v827Ready)return v827NativeAutoFit();return v827Fit({preserve:false})};
-function v827MoveViewport(start){const width=state.max-state.min;const min=v827Universe.lo,max=Math.max(min,v827Universe.hi-width);state.min=Math.floor(Math.min(max,Math.max(min,start)));state.max=Math.ceil(state.min+width);renderAll();v827UpdatePan()}
+function v827MoveViewport(start){const width=state.max-state.min;const min=-3900000,max=2100-width;const next=Math.floor(Math.min(max,Math.max(min,start)));if(next===state.min)return;state.min=next;state.max=Math.ceil(next+width);const padding=Math.max(width,100);v827Universe.lo=Math.max(-3900000,Math.min(v827Universe.lo,next-padding));v827Universe.hi=Math.min(2100,Math.max(v827Universe.hi,state.max+padding));renderAll();v827UpdatePan()}
 const v827Pan=el('v827PanSlider');v827Pan.addEventListener('input',()=>{const delta=Math.max(0,v827Universe.hi-v827Universe.lo-(state.max-state.min));v827MoveViewport(v827Universe.lo+Number(v827Pan.value)/10000*delta)});
 el('v827PanLeft').onclick=()=>v827MoveViewport(state.min-(state.max-state.min)*.65);el('v827PanRight').onclick=()=>v827MoveViewport(state.min+(state.max-state.min)*.65);
 // Intercept the two legacy zoom buttons so they zoom the visible section, not the entire research universe.
 function v827Zoom(factor){const old=state.max-state.min,full=v827Universe.hi-v827Universe.lo;const desired=Math.max(Math.min(full,old*factor),Math.min(1,full));const center=(state.max+state.min)/2;state.min=Math.max(v827Universe.lo,Math.min(v827Universe.hi-desired,center-desired/2));state.max=state.min+desired;renderAll();v827UpdatePan()}
 for(const [id,factor] of [['zoomIn',.6],['zoomOut',1.65]])el(id).addEventListener('click',e=>{e.stopImmediatePropagation();v827Zoom(factor)},true);
 // Hoverless drag on chart background, avoiding event buttons and scroll gesture conflicts.
-let v827Dragging=null;const plot=el('lanes');plot.addEventListener('pointerdown',e=>{if(v827Order!=='category'||e.target.closest('button,a,input,select')||e.button!==0)return;v827Dragging={x:e.clientX,start:state.min,id:e.pointerId};});
-window.addEventListener('pointerup',()=>v827Dragging=null);window.addEventListener('pointermove',e=>{if(!v827Dragging||!e.buttons)return;const dx=e.clientX-v827Dragging.x;if(Math.abs(dx)<5)return;const width=Math.max(300,plot.getBoundingClientRect().width-220);const delta=dx/width*(state.max-state.min);v827MoveViewport(v827Dragging.start-delta)});
+let v827Dragging=null;const plot=el('lanes');plot.addEventListener('pointerdown',e=>{if(e.target.closest('button,a,input,select')||e.button!==0)return;v827Dragging={x:e.clientX,start:state.min,id:e.pointerId};});
+window.addEventListener('pointerup',()=>v827Dragging=null);window.addEventListener('pointercancel',()=>v827Dragging=null);window.addEventListener('pointermove',e=>{if(!v827Dragging||e.pointerId!==v827Dragging.id||!e.buttons)return;const dx=e.clientX-v827Dragging.x;if(Math.abs(dx)<5)return;const width=Math.max(300,plot.getBoundingClientRect().width-220);const delta=dx/width*(state.max-state.min);v827MoveViewport(v827Dragging.start-delta)});
 function v827Chronological(){const entries=v813Entries().filter(v814FilterMatch).sort((a,b)=>a.start-b.start||a.end-b.end);el('lanes').innerHTML=`<section class="v827-chronological"><header><h3>Alla kategorier – kronologiskt</h3><p>Sorterat efter startdatum. Berättad tid, historiska händelser och texttillkomst är olika typer av dateringar.</p></header>${entries.map(e=>`<button type="button" class="v827-chronoitem" data-v827-id="${enc(e.id)}"><span class="v827-chrono-when">${enc(v813DateString(e))}</span><span><b>${enc(e.v813Label||e.title)}</b><small>${enc(e.category)} · ${enc(v813StatusText(e))}</small></span></button>`).join('')||'<p>Inga poster matchar filtret.</p>'}</section>`;
  el('v7stats').textContent=`${entries.length} kronologiskt sorterade poster · alla kategorier`;el('v815CollapseStatus').textContent='';el('timelineView').classList.add('v827-chrono-mode');el('lanes').querySelectorAll('[data-v827-id]').forEach(b=>b.onclick=()=>setSelected(b.dataset.v827Id));}
 const v827BeforeTimeline=renderTimeline;
@@ -1813,9 +1813,9 @@ renderExplore=function(){
 let v829Located=null;
 function v829HighlightTarget(id,scroll=false){
  document.querySelectorAll('.v829-target').forEach(n=>n.classList.remove('v829-target'));
- const nodes=[...el('lanes').querySelectorAll('[data-v828-id],[data-id],[data-v813-id],[data-v83read]')];
- const node=nodes.find(n=>[n.dataset.v828Id,n.dataset.id,n.dataset.v813Id,n.dataset.v83read].includes(id));
- if(node){node.classList.add('v829-target');if(scroll)node.scrollIntoView({block:'center',inline:'nearest',behavior:'instant'});return true}
+ const nodes=[...el('lanes').querySelectorAll('[data-v828-id],[data-v827-id],[data-id],[data-v813-id],[data-v83read]')];
+ const node=nodes.find(n=>[n.dataset.v828Id,n.dataset.v827Id,n.dataset.id,n.dataset.v813Id,n.dataset.v83read].includes(id));
+ if(node){node.classList.add('v829-target');if(scroll)requestAnimationFrame(()=>{if(node.isConnected)node.scrollIntoView({block:'center',inline:'nearest',behavior:'instant'});});return true}
  return false;
 }
 function v829LocateResearch(id){
@@ -1842,7 +1842,7 @@ function v829LocateResearch(id){
  const pad=Math.max(100,span*.8);
  v827Universe={lo:Math.max(-3900000,state.min-pad),hi:Math.min(2100,state.max+pad)};
  renderAll();v827UpdatePan();
- const found=v829HighlightTarget(target.id);
+ const found=v829HighlightTarget(target.id,true);
  info.textContent=(found?'Markerad i tidslinjen: ':'Tidsintervallet visas men markören kunde inte hittas: ')+(target.v813Label||target.title);
  return found;
 }
@@ -1902,3 +1902,133 @@ const v829PrevDetail=renderDetail;
 renderDetail=function(){v829PrevDetail();const r=el('detail');if(!r.querySelector('#v829ReaderGrip'))r.prepend(v829Grip);const bar=r.querySelector('.v84-reader-bar');if(bar)bar.after(v829WidthControls);else r.prepend(v829WidthControls);v829UpdateSelections()};
 // Finish with a consistent initial state.
 v829UpdateBack();v829UpdateSelections();renderDetail();
+
+
+// V8.32 – C3: The originating research record owns the active investigation.
+const v832PriorExplore=renderExplore;
+renderExplore=function(){
+ v832PriorExplore();
+ const id=v829Focus?.id;
+ const item=id&&idEvent(id);
+ if(!item)return;
+ const host=el('exploreView');
+ const section=host.querySelector('.v83-panel');
+ const toolbar=host.querySelector('.v83-toolbar');
+ if(!section||!toolbar)return;
+ section.querySelector('.kicker').textContent='AKTUELL UNDERSÖKNING · VALD FORSKNINGSPOST';
+ section.querySelector('h3').textContent=(item.title||id)+' · '+id;
+ const summary=section.querySelector('p');
+ if(summary)summary.textContent=item.description||'Undersökning av den valda forskningsposten.';
+ const metrics=section.querySelector('.v83-metrics');
+ if(metrics)metrics.innerHTML='<span>Utgångspost: '+enc(id)+'</span><span>Förberedda temaspår är alternativa ingångar</span>';
+ const title=toolbar.querySelector('b');
+ if(title)title.textContent='Följ undersökningen – historisk kontext';
+ const subtitle=toolbar.querySelector('.tiny');
+ if(subtitle)subtitle.textContent='Skilj daterade historiska händelser från odaterade originalposter och hypoteser.';
+ const graph=host.querySelector('.v83-explore-map');
+ const original=!!allOriginalResearchV828[id];
+ const vetted=v813Entries().find(e=>e.id===id&&e.v813Status!=='original'&&Number.isFinite(e.start)&&Number.isFinite(e.end));
+ if(graph){
+  if(vetted){
+   // Show a real proportionally dated graph for the selected entry plus neighbouring, independently dated records.
+   const records=v813Entries().filter(e=>e.v813Status!=='original'&&Number.isFinite(e.start)&&Number.isFinite(e.end));
+   const centre=(vetted.start+vetted.end)/2;
+   const near=records.filter(e=>e.id!==id).sort((a,b)=>Math.abs((a.start+a.end)/2-centre)-Math.abs((b.start+b.end)/2-centre)).slice(0,12);
+   const related=[vetted,...near].sort((a,b)=>a.start-b.start);
+   const min=Math.min(...related.map(e=>e.start));
+   const max=Math.max(...related.map(e=>e.end));
+   const span=Math.max(1,max-min);
+   const theme={id:'investigation',min:min-Math.max(1,span*.035),max:max+Math.max(1,span*.035)};
+   graph.innerHTML='<div class="v83-panel" style="border-left:4px solid #2269a4"><b>Grafisk historisk kontext för '+enc(item.title)+'</b><p class="small">Vald forskningspost och upp till tolv närliggande daterade poster. Närhet i tid innebär inte orsakssamband eller direkt påverkan. Klicka på en post för att läsa den.</p></div>'+v83Graph(theme,related);
+   graph.querySelectorAll('[data-v83read]').forEach(b=>b.onclick=()=>{setSelected(b.dataset.v83read)});
+  }else{
+   const linked=v827LinksFor(id).map(x=>x.from===id?x.to:x.from);
+   const candidates=(v829ResearchLinks[id]||[]).map(x=>x.id);
+   const related=[...new Set([...linked,...candidates])].map(k=>v813Entries().find(e=>e.id===k&&e.v813Status!=='original'&&Number.isFinite(e.start)&&Number.isFinite(e.end))).filter(Boolean);
+   if(related.length){
+    const min=Math.min(...related.map(e=>e.start)),max=Math.max(...related.map(e=>e.end));
+    const span=Math.max(1,max-min);
+    graph.innerHTML='<div class="v83-panel" style="border-left:4px solid #b47a22"><b>'+enc(item.title)+' – kontext, inte datering av utgångsposten</b><p class="small">Den valda originalposten saknar källprövad datering. Grafen visar enbart daterade jämförelseposter som redan förekommer i forskningsmaterialets relationer. Placeringen bevisar inget direkt beroende.</p></div>'+v83Graph({id:'investigation',min:min-Math.max(1,span*.05),max:max+Math.max(1,span*.05)},related);
+    graph.querySelectorAll('[data-v83read]').forEach(b=>b.onclick=()=>setSelected(b.dataset.v83read));
+   }else{
+    graph.innerHTML='<div class="v83-panel" style="border-left:4px solid #b47a22"><b>Ingen daterad graf kan byggas för '+enc(id)+'</b><p class="small">Posten saknar källprövad tidsplacering och har ännu inga källprövade tidsatta jämförelseposter registrerade. Inga datum eller relationer har hittats på.</p></div>';
+   }
+  }
+  const focus=graph.querySelector('#v832TimelineFocus');
+  if(focus)focus.onclick=()=>{view('timeline');v829LocateResearch(id)};
+ }
+ const main=host.querySelector('#v83ShowMain');
+ if(main){main.textContent='Se vald post i huvudtidslinjen ↗';main.onclick=()=>{view('timeline');v829LocateResearch(id)}}
+ const connections=host.querySelector('#v827RelationFocus');
+ if(connections)connections.parentNode.insertBefore(connections,toolbar.nextSibling);
+ const legacy=host.querySelector('.v83-context');if(legacy)legacy.hidden=true;
+ const themeLinks=host.querySelector('.v83-panel:last-child');if(themeLinks&&themeLinks!==section)themeLinks.hidden=true;
+};
+
+// V8.32 – C5: independent left/right range handles and draggable centre.
+(function v832IntervalControl(){
+ const old=el('v827PanSlider');
+ if(!old)return;
+ old.hidden=true;old.setAttribute('aria-hidden','true');old.tabIndex=-1;
+ const container=document.createElement('div');container.id='v832Interval';container.style.cssText='position:relative;flex:1;min-width:160px;height:40px;touch-action:none;user-select:none;cursor:grab;';
+ container.innerHTML='<div style="position:absolute;left:0;right:0;top:17px;height:7px;border-radius:6px;background:#d8e3ef"></div><div id="v832Window" style="position:absolute;top:13px;height:15px;background:#72a1cf;border-radius:5px;cursor:grab"></div><button type="button" id="v832Left" aria-label="Ändra starttid" style="position:absolute;top:4px;width:18px;height:32px;border:2px solid #164c86;background:white;border-radius:6px;cursor:ew-resize;touch-action:none"></button><button type="button" id="v832Right" aria-label="Ändra sluttid" style="position:absolute;top:4px;width:18px;height:32px;border:2px solid #164c86;background:white;border-radius:6px;cursor:ew-resize;touch-action:none"></button>';
+ old.after(container);
+ const limitLo=-3900000,limitHi=2100;
+ let drag=null;
+ const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+ let controlDomain=null;
+ const universe=()=>{
+  const span=Math.max(1,state.max-state.min);
+  // Map slider handles to a window around the visible period, not the entire multi-million-year archive.
+  if(!controlDomain||state.min<controlDomain.lo||state.max>controlDomain.hi){
+   controlDomain={lo:Math.max(limitLo,state.min-span),hi:Math.min(limitHi,state.max+span)};
+  }
+  return controlDomain;
+ };
+ function redraw(){
+  const {lo,hi}=universe();const span=Math.max(1,hi-lo);
+  const a=clamp((state.min-lo)/span,0,1)*100,b=clamp((state.max-lo)/span,0,1)*100;
+  const win=container.querySelector('#v832Window');
+  win.style.left=a+'%';win.style.width=Math.max(0,b-a)+'%';
+  container.querySelector('#v832Left').style.left='calc('+a+'% - 9px)';
+  container.querySelector('#v832Right').style.left='calc('+b+'% - 9px)';
+ }
+ const previousUpdate=v827UpdatePan;
+ v827UpdatePan=function(){previousUpdate();redraw()};
+ const change=(lo,hi)=>{
+  const a=clamp(Math.floor(lo),limitLo,limitHi-1);
+  const b=clamp(Math.ceil(hi),a+1,limitHi);
+  state.min=a;state.max=b;
+  v827Universe.lo=Math.min(v827Universe.lo,a);
+  v827Universe.hi=Math.max(v827Universe.hi,b);
+  renderAll();v827UpdatePan();
+ };
+ container.addEventListener('pointerdown',e=>{
+  const handle=e.target.closest('#v832Left,#v832Right,#v832Window');
+  if(!handle)return;
+  e.preventDefault();
+  drag={mode:handle.id==='v832Left'?'left':handle.id==='v832Right'?'right':'move',x:e.clientX,min:state.min,max:state.max,range:universe()};
+  container.setPointerCapture(e.pointerId);
+ });
+ container.addEventListener('pointermove',e=>{
+  if(!drag)return;
+  const px=Math.max(100,container.getBoundingClientRect().width);
+  const amount=(e.clientX-drag.x)/px*(drag.range.hi-drag.range.lo);
+  if(drag.mode==='left')change(clamp(drag.min+amount,limitLo,drag.max-1),drag.max);
+  else if(drag.mode==='right')change(drag.min,clamp(drag.max+amount,drag.min+1,limitHi));
+  else{
+   const span=drag.max-drag.min;
+   const start=clamp(drag.min+amount,limitLo,limitHi-span);
+   change(start,start+span);
+  }
+ });
+ const finish=()=>drag=null;
+ container.addEventListener('pointerup',finish);
+ container.addEventListener('pointercancel',finish);
+ container.querySelectorAll('button').forEach((b,i)=>b.addEventListener('keydown',e=>{
+  if(!['ArrowLeft','ArrowRight'].includes(e.key))return;
+  e.preventDefault();const step=Math.max(1,Math.round((state.max-state.min)/30))*(e.key==='ArrowRight'?1:-1);
+  if(i===0)change(state.min+step,state.max);else change(state.min,state.max+step);
+ }));
+ redraw();
+})();
