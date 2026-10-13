@@ -1586,8 +1586,8 @@ el('v827PanLeft').onclick=()=>v827MoveViewport(state.min-(state.max-state.min)*.
 function v827Zoom(factor){const old=state.max-state.min,full=v827Universe.hi-v827Universe.lo;const desired=Math.max(Math.min(full,old*factor),Math.min(1,full));const center=(state.max+state.min)/2;state.min=Math.max(v827Universe.lo,Math.min(v827Universe.hi-desired,center-desired/2));state.max=state.min+desired;renderAll();v827UpdatePan()}
 for(const [id,factor] of [['zoomIn',.6],['zoomOut',1.65]])el(id).addEventListener('click',e=>{e.stopImmediatePropagation();v827Zoom(factor)},true);
 // Hoverless drag on chart background, avoiding event buttons and scroll gesture conflicts.
-let v827Dragging=null;const plot=el('lanes');plot.addEventListener('pointerdown',e=>{if(v827Order!=='category'||e.target.closest('button,a,input,select')||e.button!==0)return;v827Dragging={x:e.clientX,start:state.min,id:e.pointerId};});
-window.addEventListener('pointerup',()=>v827Dragging=null);window.addEventListener('pointermove',e=>{if(!v827Dragging||!e.buttons)return;const dx=e.clientX-v827Dragging.x;if(Math.abs(dx)<5)return;const width=Math.max(300,plot.getBoundingClientRect().width-220);const delta=dx/width*(state.max-state.min);v827MoveViewport(v827Dragging.start-delta)});
+let v827Dragging=null;const plot=el('lanes');plot.addEventListener('pointerdown',e=>{if(e.target.closest('button,a,input,select')||e.button!==0)return;v827Dragging={x:e.clientX,start:state.min,id:e.pointerId};});
+window.addEventListener('pointerup',()=>v827Dragging=null);window.addEventListener('pointercancel',()=>v827Dragging=null);window.addEventListener('pointermove',e=>{if(!v827Dragging||e.pointerId!==v827Dragging.id||!e.buttons)return;const dx=e.clientX-v827Dragging.x;if(Math.abs(dx)<5)return;const width=Math.max(300,plot.getBoundingClientRect().width-220);const delta=dx/width*(state.max-state.min);v827MoveViewport(v827Dragging.start-delta)});
 function v827Chronological(){const entries=v813Entries().filter(v814FilterMatch).sort((a,b)=>a.start-b.start||a.end-b.end);el('lanes').innerHTML=`<section class="v827-chronological"><header><h3>Alla kategorier – kronologiskt</h3><p>Sorterat efter startdatum. Berättad tid, historiska händelser och texttillkomst är olika typer av dateringar.</p></header>${entries.map(e=>`<button type="button" class="v827-chronoitem" data-v827-id="${enc(e.id)}"><span class="v827-chrono-when">${enc(v813DateString(e))}</span><span><b>${enc(e.v813Label||e.title)}</b><small>${enc(e.category)} · ${enc(v813StatusText(e))}</small></span></button>`).join('')||'<p>Inga poster matchar filtret.</p>'}</section>`;
  el('v7stats').textContent=`${entries.length} kronologiskt sorterade poster · alla kategorier`;el('v815CollapseStatus').textContent='';el('timelineView').classList.add('v827-chrono-mode');el('lanes').querySelectorAll('[data-v827-id]').forEach(b=>b.onclick=()=>setSelected(b.dataset.v827Id));}
 const v827BeforeTimeline=renderTimeline;
@@ -1815,7 +1815,7 @@ function v829HighlightTarget(id,scroll=false){
  document.querySelectorAll('.v829-target').forEach(n=>n.classList.remove('v829-target'));
  const nodes=[...el('lanes').querySelectorAll('[data-v828-id],[data-id],[data-v813-id],[data-v83read]')];
  const node=nodes.find(n=>[n.dataset.v828Id,n.dataset.id,n.dataset.v813Id,n.dataset.v83read].includes(id));
- if(node){node.classList.add('v829-target');if(scroll)node.scrollIntoView({block:'center',inline:'nearest',behavior:'instant'});return true}
+ if(node){node.classList.add('v829-target');if(scroll)requestAnimationFrame(()=>{if(node.isConnected)node.scrollIntoView({block:'center',inline:'nearest',behavior:'instant'});});return true}
  return false;
 }
 function v829LocateResearch(id){
@@ -1842,7 +1842,7 @@ function v829LocateResearch(id){
  const pad=Math.max(100,span*.8);
  v827Universe={lo:Math.max(-3900000,state.min-pad),hi:Math.min(2100,state.max+pad)};
  renderAll();v827UpdatePan();
- const found=v829HighlightTarget(target.id);
+ const found=v829HighlightTarget(target.id,true);
  info.textContent=(found?'Markerad i tidslinjen: ':'Tidsintervallet visas men markören kunde inte hittas: ')+(target.v813Label||target.title);
  return found;
 }
