@@ -34,3 +34,11 @@ Därutöver krävs **riktiga webbläsartester** på dator och mobil före merge,
 
 ## Långsiktig integrering
 The World Behind the Word är den långsiktiga huvudappen. Tidens väv förblir ett fristående, kostnadsfritt historiskt verktyg fram till en beslutad integration med gemensamma stabila post-ID och forskningsunderlag.
+
+## V8.35 – permanenta postlänkar som integrationsgrund
+- En post kan öppnas direkt via `?tv_id=H054&tv_view=explore` utan att användaren behöver hitta den manuellt.
+- Tillåtna vyer är `explore`, `timeline` och `research`; felaktiga ID:n ger en tydlig förklaring.
+- Läskortet och Aktuell undersökning får en knapp för att kopiera direktlänken.
+- Stabil postidentifiering, ingen delad backend och inget betaltillägg.
+- Se [integrationskontraktet](docs/integration-contract-v1.md) för begränsningar och framtida koppling till The World Behind the Word.
+- Testa med `node tests/smoke-v835.mjs` plus befintligt `node tests/smoke-v834.mjs`.
