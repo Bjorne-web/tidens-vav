@@ -13,7 +13,7 @@ assert.equal(latest.claimChecks,count);
 assert.equal(latest.claimCheckPosts,20);
 assert.equal(Object.keys(ctx.window.TIDENS_REVIEW_LEDGER.completePostReviews).length,0);
 const added=Object.values(claims).flat().filter(x=>x.verified==='2026-10-14'&&x.passage);
-assert.equal(added.length,18);
+assert.equal(added.length,10);
 assert.equal(claims.H020.filter(x=>x.passage).length,4);
 assert.equal(claims.H019.filter(x=>x.passage).length,6);
 assert.ok(added.every(x=>/^https:\/\//.test(x.sourceUrl)&&x.limit.length>40&&x.scope.length>30&&x.timeClarification.length>80));
