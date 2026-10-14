@@ -304,7 +304,7 @@ window.TIDENS_C6_PROGRESS=Object.freeze({
       "wholeApproved": 0,
       "claimCheckPosts": 22,
       "claimChecks": 62,
-      "note": "V8.65: tre nya avgränsade kontroller H051, H055, H058. C6-journalens faktiska antal unika kontrollerade poster är 22, medan V8.64 av misstag angav 20 trots 19 registrerade poster före denna etapp. Avvikelser redovisas öppet; 0 slutgranskade."
+      "note": "V8.65: tre nya avgränsade kontroller H051, H055, H058. C6-journalens faktiska antal unika kontrollerade poster är 23, medan V8.64 av misstag angav 20 trots 19 registrerade poster före denna etapp. Avvikelser redovisas öppet; 0 slutgranskade."
     }
   ],
   "caveat": "Måtten överlappar. De får inte summeras till ett totalt färdigställande. Källkontroll av ett påstående betyder inte fullständig postgranskning.",
