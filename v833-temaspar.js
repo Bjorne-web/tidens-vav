@@ -9,7 +9,63 @@
   const vetted = () => v813Entries().filter(e => e.v813Status !== 'original' && Number.isFinite(e.start) && Number.isFinite(e.end));
   const currentFocus = () => v829Focus.id && idEvent(v829Focus.id) ? idEvent(v829Focus.id) : null;
 
+  // Endast uttryckligen underbyggda tidslägen för originalposter får
+  // visas som daterade stadier. Övriga importerade årtal hålls utanför
+  // grafens datering tills motsvarande källkontroll genomförts.
+  const sourcedOriginalPeriods = Object.freeze({
+    O049: {
+      from: -264, to: -146,
+      note: 'Tre skilda krig mellan Rom och Kartago, inte oavbruten strid under hela intervallet.',
+      sourceTitle: 'Dexter Hoyos, Punic Wars (2011), Wiley',
+      sourceUrl: 'https://onlinelibrary.wiley.com/doi/abs/10.1002/9781444338232.wbeow506',
+      corroborationTitle: 'Metropolitan Museum of Art – Italienska halvöns kronologi',
+      corroborationUrl: 'https://www.metmuseum.org/pt/toah/ht/04/eust.html',
+      phases: [
+        {title:'Första puniska kriget',start:-264,end:-241},
+        {title:'Andra puniska kriget',start:-218,end:-201},
+        {title:'Tredje puniska kriget',start:-149,end:-146}
+      ]
+    }
+  });
+  function sourcedOriginalTimeline(item,positions){
+    const period=sourcedOriginalPeriods[item.id];
+    if(!period)return null;
+    // Alla tre faserna har samma befintliga post-ID: klick öppnar O049.
+    // Ingen ny, okänd post skapas i databasen.
+    const phases=period.phases.map(x=>({
+      id:item.id,title:x.title,start:x.start,end:x.end,
+      description:period.note,category:'Historia',original:false
+    }));
+    // Närliggande poster visas som kronologisk kontext och inte som
+    // orsakskedja. Begränsa urvalet till axelns faktiska område.
+    const comparison=positions.filter(e=>e.id!==item.id && e.start<=period.to+35 &&
+      e.end>=period.from-35).sort((a,b)=>{
+        const middle=(period.from+period.to)/2;
+        const ad=Math.abs((a.start+a.end)/2-middle),bd=Math.abs((b.start+b.end)/2-middle);
+        return ad-bd||a.start-b.start;
+      }).slice(0,4);
+    const entries=[...phases,...comparison].sort((a,b)=>a.start-b.start || a.end-b.end);
+    const theme={id:'own-inquiry',min:period.from-35,max:period.to+35};
+    const plot=v83Display==='list'?v83TimelineRows(entries):v83Graph(theme,entries);
+    return '<div class="v835-timeline-explainer v838-sourced-original"><strong>Utgångsposten '+
+      safe(item.title)+' visas nu i rätt tidsläge.</strong> '+safe(period.note)+
+      ' Tidsläget har kontrollerats separat från det äldre originalarkivets övriga uppgifter. '+
+      '<strong>Samtidighet visar inte påverkan.</strong><div class="v838-timeline-sources">Källor: '+
+      '<a href="'+safe(period.sourceUrl)+'" target="_blank" rel="noopener noreferrer">'+safe(period.sourceTitle)+' ↗</a>'+
+      ' · <a href="'+safe(period.corroborationUrl)+'" target="_blank" rel="noopener noreferrer">'+safe(period.corroborationTitle)+' ↗</a></div></div>'+
+      '<div class="v835-actual-timeline v838-sourced-timeline">'+plot+'</div>';
+  }
+
   function contextFor(item) {
+    const period=sourcedOriginalPeriods[item.id];
+    if(period){
+      return '<div class="v833-period"><div class="v833-period-heading">Källstödd historisk datering: '+
+        safe(v83FmtYear(period.from))+' – '+safe(v83FmtYear(period.to))+
+        '</div><p>'+safe(period.note)+' Denna kontroll gäller de tre krigens historiska intervall och innebär inte en fullständig faktagranskning av originalposten.</p>'+
+        '<ol class="v833-neighbors">'+period.phases.map(p=>'<li class="v833-active"><span>'+
+          safe(v83FmtYear(p.start))+' – '+safe(v83FmtYear(p.end))+
+          '</span><b>'+safe(p.title)+'</b><small>Krigsfas</small></li>').join('')+'</ol></div>';
+    }
     const research = vetted();
     const position = !item.original && research.find(e => e.id === item.id);
     if (!position) return `<div class="v833-undated" role="note"><b>Ingen vetenskapligt försvarbar placering i huvudtidslinjen har hittats.</b><p>Posten kan undersökas och jämföras här, men vi använder inte ett ursprungligt Excel-årtal eller en annan händelses datering som ersättning.</p></div>`;
@@ -24,6 +80,8 @@
   // Tidssamband är kronologiska jämförelser, inte evidens för överföring.
   function focusTimeline(item) {
     const positions = vetted();
+    const sourced=sourcedOriginalTimeline(item,positions);
+    if(sourced)return sourced;
     const focusPosition = !item.original ? positions.find(e=>e.id===item.id) : null;
     if(!focusPosition) {
       const theme=v83Current();
@@ -86,7 +144,12 @@
     const read = study.querySelector('#v833Read');
     if(read)read.onclick=()=>{setSelected(focus.id);if(window.innerWidth<=900 && typeof v84OpenReader==='function')v84OpenReader()};
     const toTime = study.querySelector('#v833Timeline');
-    if(toTime)toTime.onclick=()=>{view('timeline');v829LocateResearch(focus.id)};
+    if(toTime){
+      // En källstödd originaltidslinje visas här i Temaspår, inte som
+      // en påstått färdiggranskad post i den separata huvudtidslinjen.
+      if(sourcedOriginalPeriods[focus.id]){toTime.hidden=true;}
+      else toTime.onclick=()=>{view('timeline');v829LocateResearch(focus.id)};
+    }
     const clear = study.querySelector('#v833Clear');
     if(clear)clear.onclick=()=>{v829Focus.id=null;renderExplore()};
 
@@ -121,7 +184,7 @@
         if(graphButton)graphButton.hidden=false;
       }
       if(map) {
-        map.innerHTML=`<div class="v833-self"><div class="v833-selflead"><span class="v833-origin-label">UTGÅNGSPOST</span><h3>${safe(focus.title)}</h3><p>${safe(focus.description || 'Beskrivning saknas i denna post.')}</p></div>${focusTimeline(focus)}<details class="v835-extra-context"><summary>Visa dateringar och jämförelsepunkter i text</summary>${contextFor(focus)}</details></div>`;
+        map.innerHTML=`<div class="v833-self"><div class="v833-selflead"><span class="v833-origin-label">UTGÅNGSPOST</span><h3>${safe(focus.title)}</h3><p>${safe(focus.description || (typeof sourceCardsV86!=='undefined' && sourceCardsV86[focus.id]?.summary) || 'Beskrivning saknas i denna post.')}</p></div>${focusTimeline(focus)}<details class="v835-extra-context"><summary>Visa dateringar och jämförelsepunkter i text</summary>${contextFor(focus)}</details></div>`;
         map.querySelectorAll('[data-v833-open]').forEach(b=>b.onclick=()=>{v829Focus.id=b.dataset.v833Open;v827RelationFocus=v829Focus.id;setSelected(v829Focus.id)});
         // v83Graph/v83TimelineRows returnerar HTML; bind läsknapparna efter
         // att den nya tidslinjen har infogats.
