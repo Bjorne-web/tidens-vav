@@ -52,11 +52,11 @@
     const grid=h('div','c6-meter-grid');
     grid.append(
       progressRow('Strukturellt inventerade poster',m.inventory,total,'Alla poster är kartlagda. Detta är inte en vetenskaplig kvalitetsstämpel.'),
-      progressRow('Poster med C6-delgranskningsrapport',m.partialReports,total,
+      progressRow('Poster med C6-delgranskningsrapporter',m.partialReports,total,
         m.partialReports+' olika poster behandlas i '+project.totalReports+' rapporter på en separat arbetsgren. Kontrollerna är inte fullständiga.'),
-      progressRow('Poster med registrerad källprövning i denna testversion',m.journalPosts,total,
+      progressRow('Poster med registrerade påståendekontroller',m.journalPosts,total,
         m.journalClaims+' avgränsade påståenden i källjournalen. Överlapp med C6-rapporterna förekommer.'),
-      progressRow('Införda textförtydliganden från C6',m.implementedCorrections,m.corrections,
+      progressRow('Införda textförtydliganden',m.implementedCorrections,m.corrections,
         'Av de 11 dokumenterade ändringsförslagen. Ändrad formulering är inte samma sak som helgranskning.'),
       progressRow('Fullständigt vetenskapligt slutgranskade',m.fullyReviewed,total,
         'Först efter genomgång av källor, dateringar, alternativ forskning och samtliga bärande påståenden.')
