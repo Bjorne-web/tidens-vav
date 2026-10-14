@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+const read=p=>fs.readFileSync(new URL('../'+p,import.meta.url),'utf8');
+const ctx={window:{}};
+for(const p of ['data/review-ledger.js','data/c6-progress.js','data/bible-books-v857.js'])vm.runInNewContext(read(p),ctx);
+const l=ctx.window.TIDENS_REVIEW_LEDGER;
+const h=ctx.window.TIDENS_C6_PROGRESS.history.at(-1);
+const n=Object.values(l.claimChecks).reduce((x,a)=>x+a.length,0);
+assert.equal(n,83);
+assert.equal(Object.keys(l.claimChecks).length,38);
+assert.equal(h.claimChecks,n);
+assert.equal(h.claimCheckPosts,38);
+assert.equal(ctx.window.TIDENS_BIBLE_BOOK_RESEARCH.B030.status,'delgranskad');
+assert.equal(Object.keys(l.completePostReviews).length,0);
+assert.ok(read('index.html').includes('Version 8.72'));
+console.log('OK V8.72');
