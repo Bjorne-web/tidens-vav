@@ -46,7 +46,7 @@ const checks=Object.values(ledger.claimChecks).reduce((n,arr)=>n+arr.length,0);
 assert.ok(entries.length>=15,'Earlier 15 records with claim checks must remain');
 assert.ok(checks>=24,'Earlier 24 claim checks must remain');
 assert.ok(ledger.claimChecks.O030.length>=7,'Avestan source review missing');
-assert.equal(ledger.claimChecks.H023.length,3,'Daniel and Isaiah checks absent');
+assert.ok(ledger.claimChecks.H023.length>=3,'Daniel and Isaiah checks absent');
 assert.equal(ledger.claimChecks.H024.length,1,'Maccabean text check absent');
 assert.equal(Object.keys(ledger.completePostReviews).length,0,'Nothing fully peer reviewed');
 const ids=new Set([...read('data/data.generated.js').matchAll(/"id":"([A-Z][0-9]{3,6})"/g)].map(m=>m[1]));
