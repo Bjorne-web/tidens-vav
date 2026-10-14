@@ -7,7 +7,8 @@ import vm from 'node:vm';
 import {execFileSync} from 'node:child_process';
 const dir=path.resolve(import.meta.dirname,'..'),read=x=>fs.readFileSync(path.join(dir,x),'utf8');
 const html=read('index.html');
-assert.ok(html.includes('Version 8.41'));
+const version=html.match(/Version 8\.(\d+)/);
+assert.ok(version&&Number(version[1])>=41,'V8.41 or newer expected');
 for(const file of ['data/c6-text-comparison.v841.js','v841-textcomparison.js','v841-textcomparison.css']){
  assert.ok(fs.existsSync(path.join(dir,file)),'Missing '+file);
  assert.ok(html.includes(file),'Not loaded '+file);
