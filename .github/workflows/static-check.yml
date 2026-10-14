@@ -41,3 +41,4 @@ jobs:
           node tests/smoke-v870.mjs
           node tests/smoke-v871.mjs
           node tests/smoke-v872.mjs
+          node tests/smoke-v872-panfix.mjs
