@@ -111,8 +111,26 @@
     const nextLane=afterTextIndex>=0?lanes.children[afterTextIndex+1]:null;
     lanes.insertBefore(lane,nextLane||null);
   }
+  // Keep the guide lines of EVERY timeline lane aligned with calendar years.
+  function syncGuideLines(){
+    const span=Math.max(1,state.max-state.min);
+    const step=span>5000?2000:span>1800?500:span>700?200:span>250?100:span>100?50:25;
+    document.querySelectorAll('#lanes .laneplot:not(.tv-book-lane .laneplot)').forEach(plot=>{
+      plot.querySelector('.tv-calendar-guide')?.remove();
+      plot.style.backgroundImage='none';
+      const guide=document.createElement('div');
+      guide.className='tv-calendar-guide';
+      guide.style.cssText='position:absolute;inset:0;pointer-events:none;';
+      for(let y=Math.ceil(state.min/step)*step;y<=state.max;y+=step){
+        const line=document.createElement('span');
+        line.style.cssText='position:absolute;top:0;bottom:0;width:1px;background:rgba(34,62,97,.10);left:'+((y-state.min)/span*100)+'%;pointer-events:none;';
+        guide.append(line);
+      }
+      plot.prepend(guide);
+    });
+  }
   const previous=renderTimeline;
-  renderTimeline=function(){previous();renderLane()};
-  renderLane();
+  renderTimeline=function(){previous();renderLane();syncGuideLines()};
+  renderLane();syncGuideLines();
   window.TidensBookTimelineV859=Object.freeze({count:books.length,category:CATEGORY});
 })();
