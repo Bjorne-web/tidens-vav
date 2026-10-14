@@ -56,3 +56,29 @@ Testa i Cloudflare Preview på både dator och mobil:
 6. Grafisk tidslinje i Temaspår, direktlänkar, C6-panel och mobilläsning fungerar som före ändringen.
 
 **Inget av detta gör de historiska posterna vetenskapligt slutgranskade.** C6-måtten förblir oförändrade av en layoutförändring.
+
+
+## Komplettering efter test: Puniska krigen saknades i Temaspårs tidslinje
+
+Användarens skärmbild visade att **O049 Puniska krigen** valdes som utgångspost, men att den grafiska tidslinjen i stället visade det färdiga spåret **Israels framväxt**. Orsaken var att V8.33:s rutin för egna undersökningar avfärdade *samtliga originalposter* som odaterbara, även sådana där en separat källförankrad genomgång redan anger väletablerade årtal.
+
+V8.38 korrigerar nu enbart den uttryckligen källkontrollerade originalposten **O049**. Tidslinjen visar tre avgränsade faser med gemensamt original-ID (så läsknappen leder till den verkliga posten):
+
+- **Första puniska kriget:** 264–241 f.Kr.
+- **Andra puniska kriget:** 218–201 f.Kr.
+- **Tredje puniska kriget:** 149–146 f.Kr.
+
+Källor: [Dexter Hoyos, *Punic Wars*, Wiley 2011](https://onlinelibrary.wiley.com/doi/abs/10.1002/9781444338232.wbeow506) och [Metropolitan Museum of Art – Italian Peninsula, 1000 B.C.–1 A.D.](https://www.metmuseum.org/pt/toah/ht/04/eust.html).
+
+Detta är en **avgränsad kontroll av datum och krigsindelning**, inte en helgranskning av O049. Originalpostens importerade intervall och forskningsjournalen ändras inte. Inga nya, icke-existerande post-ID:n skapas. I listläge ska samma tre krig finnas.
+
+**Övriga originalposter** utan separat försvarbar datering förblir odaterade i undersökningsläget och kan endast få separat orienteringsspår med tydlig varning. När fler originalposter källkontrolleras kan de föras in i samma avgränsade datumregister.
+
+### Att kontrollera efter denna rättning
+1. Välj O049 under Temaspår. Det ska stå **De puniska krigen** som utgångspost och visa **första, andra och tredje puniska kriget** inom cirka 300–110 f.Kr.
+2. Växla **Grafisk tidslinje / Kronologisk lista**. Alla tre faserna ska finnas i båda.
+3. Öppna något av krigskorten. Samtliga leder till originalpost **O049**, inte till ett påhittat underpost-ID.
+4. Välj t.ex. **O030**. Det får fortfarande inte en påhittad dateringsmarkör.
+5. Kontrollera att sidopanelens godkända utformning och de färdiga temaspåren fungerar som förut.
+
+CI inkluderar utökade tester i `tests/smoke-v835.mjs` för krigsintervallen, att tidsaxeln har eget tema, att sammanhängande originalperiod inte maskeras som ett enda krig och att listvyn fungerar.
