@@ -1,4 +1,4 @@
-/* C6 – avgränsade källkontroller är inte slutgranskning. */
+/* C6 – dokumenterad status; källkontroll är inte slutgranskning. */
 window.TIDENS_C6_PROGRESS = Object.freeze({
   "schemaVersion": 1,
   "updated": "2026-10-14",
@@ -229,6 +229,17 @@ window.TIDENS_C6_PROGRESS = Object.freeze({
       "claimCheckPosts": 17,
       "claimChecks": 36,
       "note": "V8.58: en ny avgränsad textkontroll H020 jämför Elohim i Genesis 1 med YHWH Elohim i Genesis 2–3 och redaktionell tolkning enligt Konrad Schmid (2023). Bibelboksregistret får gemensam sidopanelsläsning; ingen fullgranskning."
+    },
+    {
+      "date": "2026-10-14",
+      "inventory": 193,
+      "partialReports": 36,
+      "proposedCorrections": 11,
+      "implementedCorrections": 11,
+      "wholeApproved": 0,
+      "claimCheckPosts": 17,
+      "claimChecks": 37,
+      "note": "V8.59: H034 separat kontroll av Joh 21:24:s vittnespåstående kontra senare traditionell författartillskrivning. Bokposterna får full läsarstruktur och Gantt-vy; ingen helgranskning."
     }
   ],
   "caveat": "Måtten överlappar. De får inte summeras till ett totalt färdigställande. Källkontroll av ett påstående betyder inte fullständig postgranskning.",
