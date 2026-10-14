@@ -59,7 +59,7 @@ assert.ok(!m.groups.some(g=>g.entries.some(x=>x.id==='H109')),'World history sho
 const view=api.renderFor(m,'graph');
 assert.ok(view.includes('Första puniska kriget')&&view.includes('Andra puniska kriget')&&view.includes('Tredje puniska kriget'));
 for(const name of ['Religion & texter','Bibelberättelser – berättad tid','Textens tillkomst','Arkeologi','Religioner','Bibeltexter och berättelser · olika tidstyper']){
- assert.ok(view.includes(name),'Missing visible category '+name);
+ assert.ok(view.includes(name.replaceAll('&','&amp;')),'Missing visible category '+name);
 }
 assert.ok(view.includes('data-v839-read="O049"'),'Punic phases must point to real focus post');
 assert.ok(view.includes('Kronologisk samtidighet innebär inte belagt inflytande'),'Causal inference warning missing');
