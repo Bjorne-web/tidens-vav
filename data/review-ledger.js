@@ -10,6 +10,20 @@ window.TIDENS_REVIEW_LEDGER = Object.freeze({
   completePostReviews: {},
   claimChecks: {
     O030: [
+{
+  "claim": "Yngre Avesta Yašt 19:89 skildrar framtida Saošyant och en uppståndelse av döda, men daterar inte i sig direkt idélån till Daniel 12.",
+  "verified": "2026-10-14",
+  "sourceTitle": "Encyclopaedia Iranica – Saošyant och Yašt 19:89",
+  "sourceUrl": "https://www.iranicaonline.org/articles/saosyant/",
+  "evidenceType": "Akademiskt referensverk med utpekad avestisk passage",
+  "claimType": "Avestisk primärtext i forskningsöversikt",
+  "sourceType": "Signerat uppslagsverk",
+  "timeLevel": "Avestisk texttradition och senare bevaring",
+  "timeClarification": "Yašt 19 hör till Yngre Avesta, men versens exakta kompositionsår är inte säkert fastställt.",
+  "scholarlyStanding": "Motivet belagt; överföringsvägen omstridd",
+  "scope": "Texten hänvisar uttryckligen till dödas återuppståndelse och världens förnyelse i Yašt 19:89.",
+  "limit": "Motivet belägger inte en särskild direkt textkontakt mellan Yašt och Daniel eller påverkan under just 500-talet f.Kr."
+},
   {
     "claim": "Forskning om andra templets judendom diskuterar iranskt inflytande i samband med persisk politisk och kulturell dominans.",
     "verified": "2026-10-14",
@@ -93,6 +107,66 @@ window.TIDENS_REVIEW_LEDGER = Object.freeze({
     "scholarlyStanding": "Påvisbara språkliga inslag; teologisk kausalitet prövas separat",
     "scope": "Neusner nämner persiska ord, motiv, religiösa paralleller och regionala villkor kring babyloniska Talmud.",
     "limit": "Artikeln ger inte en direkt överföringskedja för varje enskilt begrepp i en tidigare judisk skrift."
+  }
+],
+    H023: [
+  {
+    "claim": "Daniel 12:2 beskriver de dödas uppvaknande till skilda framtida öden.",
+    "verified": "2026-10-14",
+    "sourceTitle": "Sefaria – Daniel 12:2",
+    "sourceUrl": "https://www.sefaria.org/Daniel.12.2?lang2=he&with=all",
+    "evidenceType": "Hebreisk text med tillgänglig engelsk översättning",
+    "claimType": "Motiv i primärtext",
+    "sourceType": "Textbibliotek med hebreisk grundtext",
+    "timeLevel": "Berättad tid kontra tillkomsttid",
+    "timeClarification": "Danielgestaltens babyloniska miljö ska inte likställas med kompositionsdatering för Daniel 7–12.",
+    "scholarlyStanding": "Textinnehåll tydligt; idéöverföring ej fastställd",
+    "scope": "Texten säger att människor vaknar ur stoftet till olika framtida öden.",
+    "limit": "Versen identifierar inte en viss iransk källa eller historisk överföringsväg."
+  },
+  {
+    "claim": "Daniel 7–12:s apokalyptiska slutform brukar dateras till perioden omkring 167–164 f.Kr., skild från berättelsens 500-talsmiljö.",
+    "verified": "2026-10-14",
+    "sourceTitle": "Oxford Handbook – Reading Daniel as Part of the Writings",
+    "sourceUrl": "https://academic.oup.com/edited-volume/28060/chapter-abstract/212047368",
+    "evidenceType": "Akademiskt abstract om textkomposition och Antiochos IV",
+    "claimType": "Kompositionsdatering",
+    "sourceType": "Vetenskapligt handbokskapitel, öppet abstract",
+    "timeLevel": "Textens redaktion omkring 167–164 f.Kr.",
+    "timeClarification": "Scenernas historiska bakgrund på 500-talet f.Kr. är inte ett dokumenterat kompositionsdatum.",
+    "scholarlyStanding": "Bred akademisk datering",
+    "scope": "Oxford-sammandraget daterar den färdiga skriften till 164 f.Kr. och behandlar kapitel 7–12 som apokalyptiska visioner.",
+    "limit": "Dateringen ger ingen direkt bevisad relation till Yašt 19:89."
+  },
+  {
+    "claim": "Jesaja 26:19 innehåller livs- och uppståndelsespråk, men både tolkningen och dateringen av Jesaja 24–27 är omdiskuterade.",
+    "verified": "2026-10-14",
+    "sourceTitle": "Oxford Handbook of Isaiah – Introduction och Jesaja 24–27",
+    "sourceUrl": "https://academic.oup.com/edited-volume/38588/chapter/334627304",
+    "evidenceType": "Vetenskaplig introduktion om skilda strata och osäker uppståndelsetolkning",
+    "claimType": "Tolkning och textredaktion",
+    "sourceType": "Akademisk handbok, offentlig introduktion",
+    "timeLevel": "Jesaja 24–27:s omstridda komposition",
+    "timeClarification": "Avsaknad av tydliga daterbara historiska referenser gör en exakt placering osäker.",
+    "scholarlyStanding": "Uppståndelsespråk belagt; innebörd osäker",
+    "scope": "Oxford-introduktionen betonar att uppståndelsefrågan och dateringen av Jesaja 24–27 är omstridda.",
+    "limit": "Likheten med Daniel bevisar inte direkt textlån, och uttrycket kan förstås kollektivt."
+  }
+],
+    H024: [
+  {
+    "claim": "2 Mackabeerboken 7:9 och 7:14 visar judiska martyrers hopp om uppståndelse efter döden.",
+    "verified": "2026-10-14",
+    "sourceTitle": "BibleGateway – 2 Maccabees 7:9–14 (NRSVCE)",
+    "sourceUrl": "https://www.biblegateway.com/passage/?search=2+Maccabees+7%3A9-14&version=NRSVCE",
+    "evidenceType": "Antik judisk martyrtext i modern engelsk översättning",
+    "claimType": "Martyrteologi och uppståndelsemotiv",
+    "sourceType": "Primärtext i översättning",
+    "timeLevel": "Berättad mackabeertid kontra skriftens redaktion",
+    "timeClarification": "100-talets f.Kr. förföljelseberättelse får inte automatiskt likställas med dokumenterat datum för skriftens sammanställning.",
+    "scholarlyStanding": "Tydlig judisk textförväntan; motivets ursprung ej fastställt",
+    "scope": "Verserna uttrycker att Gud ska återge liv åt martyrer som dör för sin tro.",
+    "limit": "Orden bevisar inte direkt lån av samma motiv från Yašt 19 eller Daniel."
   }
 ],
     H019: [

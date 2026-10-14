@@ -1,0 +1,24 @@
+/* V8.41 – fokuserad och källspårbar textjämförelse. */
+.v841-text-compare{border:1px solid #b7d2e5;border-left:4px solid #397f9f;border-radius:10px;background:#f8fcff;margin:18px 0;padding:14px;color:#284962;max-width:100%;min-width:0}
+.v841-text-compare>h3{font-size:16px!important;line-height:1.35;margin:0 0 8px!important;color:#184e72}
+.v841-intro{font-size:12px;line-height:1.65}
+.v841-text-compare details{border:1px solid #d0e1ec;border-radius:8px;margin:11px 0;background:white;padding:10px 12px}
+.v841-text-compare summary{font-weight:800;font-size:12px;line-height:1.55;color:#245d86;cursor:pointer}
+.v841-text-compare h4{font-size:13px;margin:15px 0 8px}
+.v841-sources{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+.v841-source{background:#f7fafc;border:1px solid #e0e9f0;border-radius:8px;padding:11px;min-width:0}
+.v841-source h5{font-size:12px;margin:0 0 7px;color:#21587e}
+.v841-source p{font-size:11px;line-height:1.55;margin:6px 0}
+.v841-type{color:#356987;font-weight:800}
+.v841-time{background:#e8f3fb;padding:7px 9px;border-radius:6px;color:#2e5773}
+.v841-limit{color:#745c2c}
+.v841-links{display:flex;gap:9px;flex-wrap:wrap;margin-top:9px}
+.v841-links a,.v841-comparison>a{font-size:11px;text-decoration:underline;color:#21628d}
+.v841-comparison summary{font-size:12px}
+.v841-pair-meta{font-size:11px;color:#597389}
+.v841-comparison-point{margin:9px 0;font-size:11px;line-height:1.55}
+.v841-comparison-point strong{color:#2c5d7c}
+.v841-comparison-point p{font-size:11px;margin:4px 0}
+.v841-conclusion{margin:13px 0 8px;background:#e9f3fb;border-left:3px solid #497da1;padding:10px 12px;font-size:12px;line-height:1.7;font-weight:600}
+.v841-boundary{font-size:11px;line-height:1.6;color:#745a29;margin:9px 0 0}
+@media(max-width:780px){.v841-sources{grid-template-columns:minmax(0,1fr)}.v841-text-compare{padding:10px}.v841-text-compare>h3{font-size:14px!important}}
