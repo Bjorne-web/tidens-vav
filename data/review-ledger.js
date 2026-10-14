@@ -5,10 +5,98 @@
    som motsvarande vetenskaplig kontroll.
 */
 window.TIDENS_REVIEW_LEDGER = Object.freeze({
-  schemaVersion: 2,
+  schemaVersion: 3,
   updated: "2026-10-14",
   completePostReviews: {},
   claimChecks: {
+    H019: [
+  {
+    "claim": "Pentateukens komposition förklaras inom forskningen med flera litterära och redaktionshistoriska modeller, inte ett empiriskt säkerställt enda färdigställandeår.",
+    "verified": "2026-10-14",
+    "sourceTitle": "Reinhard Müller (2021), Positions on Redaction – Oxford Handbook of the Pentateuch",
+    "sourceUrl": "https://academic.oup.com/edited-volume/34227/chapter-abstract/290228469",
+    "evidenceType": "Sakkunnigt redigerat forskningskapitel som jämför redaktionsteorier",
+    "claimType": "Forskningsmodeller för redaktion",
+    "sourceType": "Akademisk forskningsöversikt (öppet abstract)",
+    "timeLevel": "Textens tillkomst / forskningsmodell",
+    "timeClarification": "Ett föreslaget redaktionsintervall är inte en daterad bevarad handskrift.",
+    "scope": "Kapitelabstractet beskriver uttryckligen olika teorier om pentateukal redaktion och empiriska textvittnen från persisk och hellenistisk tid.",
+    "limit": "Abstractet styrker att flera modeller existerar, men fastställer inte vilken modell som är riktig eller ett exakt datum för den färdiga Pentateuken."
+  }
+],
+    H020: [
+  {
+    "claim": "Forskningen om Genesis 1–11 rymmer modeller med prästerliga och icke-prästerliga textlager samt komplexa relationer till äldre mesopotamiska litterära traditioner.",
+    "verified": "2026-10-14",
+    "sourceTitle": "David M. Carr (2020), The Formation of Genesis 1–11: Biblical and Other Precursors – Oxford University Press",
+    "sourceUrl": "https://academic.oup.com/book/32142",
+    "evidenceType": "Specialiserad forskningsmonografis beskrivning av textlager och jämförelser",
+    "claimType": "Komposition och litterär traditionshistoria",
+    "sourceType": "Akademisk monografi (förlagsabstract och kapitelöversikt)",
+    "timeLevel": "Textens komposition och redaktion",
+    "timeClarification": "Flodberättelsens berättade tid är skild från möjliga redaktionsfaser och från bevarade handskrifter.",
+    "scope": "Förlagsabstractet redovisar Carrs modell med P/icke-P-strata, textutvidgningar och samspel med mesopotamiska litteraturtraditioner.",
+    "limit": "Det är en presenterad forskningsmodell, inte konsensus om exakt lagerindelning eller bevis för en historisk global flod eller en entydig kopieringskedja från ett visst epos."
+  }
+],
+    H025: [
+  {
+    "claim": "1 Henok utgör en samling äldre skrifter som tillkommit vid olika tider och vars olika delar inte bör ges en enda gemensam kompositionsdatering.",
+    "verified": "2026-10-14",
+    "sourceTitle": "James C. VanderKam (2011), The Book of Enoch and the Qumran Scrolls – Oxford Handbook of the Dead Sea Scrolls",
+    "sourceUrl": "https://academic.oup.com/edited-volume/34366/chapter-abstract/291495493",
+    "evidenceType": "Forskningsöversikt över Henoksbokens skilda skrifter och textvittnen",
+    "claimType": "Textsamlingens kompositionshistoria",
+    "sourceType": "Akademiskt handbokskapitel (öppet abstract)",
+    "timeLevel": "Textens tillkomst / flertal skrifter",
+    "timeClarification": "Skilda Henokskrifter kan ha olika tillkomsttider; deras senare handskrifter är separata dateringsnivåer.",
+    "scope": "VanderKams abstract beskriver flera häften, flera författare och huvudsakligen arameisk komposition.",
+    "limit": "Källan ger inte en enhetlig säker datering för alla delböcker eller bevis för att hela den senare etiopiska texten fanns i denna form på Qumrans tid."
+  },
+  {
+    "claim": "Det arameiska Henokfragmentet 4Q201, som hör till Qumranfynden, dateras som handskriftskopia till ungefär 200–150 f.Kr.",
+    "verified": "2026-10-14",
+    "sourceTitle": "Library of Congress – The Enoch Scroll, 4Q201 (exhibition caption)",
+    "sourceUrl": "https://www.loc.gov/exhibits/scrolls/scr3.html",
+    "evidenceType": "Utställningskatalog över faktiskt manuskriptfragment",
+    "claimType": "Datering av bevarat textvittne",
+    "sourceType": "Institutionell manuskriptbeskrivning (LoC/Israel Antiquities Authority)",
+    "timeLevel": "Bevarat manuskript",
+    "timeClarification": "Ca 200–150 f.Kr. avser kopieringen av 4Q201, inte Enoks berättade tid eller hela 1 Henoks ursprung.",
+    "scope": "Library of Congress anger fragmentets siglum 4Q201 och uppgiften 'Copied ca. 200–150 B.C.E.'.",
+    "limit": "4Q201 bevisar inte att alla delarna av 1 Henok var färdigkomponerade vid denna tid och daterar inte berättelsens föreflodliga handling."
+  }
+],
+    H034: [
+  {
+    "claim": "P52:s ofta uppgivna precisionsdatering omkring år 125 e.Kr. bygger på paleografi och kan inte betraktas som säker; dateringsmöjligheterna kan enligt Nongbri nå in i 200-talet.",
+    "verified": "2026-10-14",
+    "sourceTitle": "Brent Nongbri (2020), Palaeography, Precision and Publicity – New Testament Studies",
+    "sourceUrl": "https://www.cambridge.org/core/journals/new-testament-studies/article/abs/palaeography-precision-and-publicity-further-thoughts-on-pryliii457-p52/1D4E56BF0E9D4DDDA313D0C2754E2F28",
+    "evidenceType": "Fackgranskad forskningsartikel om handskriftsdatering",
+    "claimType": "Paleografi och manuskriptdatering",
+    "sourceType": "Vetenskaplig tidskriftsartikel (abstract verifierat)",
+    "timeLevel": "Bevarat manuskript (P52)",
+    "timeClarification": "P52:s möjliga kopieringsdatum är inte ett exakt datum för Johannesevangeliets komposition eller slutredaktion.",
+    "scope": "Det publicerade abstractet anger uttryckligen att tidpunkten cirka 125 är oprecis och att möjliga paleografiska dateringar sträcker sig in i tredje århundradet.",
+    "limit": "Nongbris argument ger inte i sig ett exakt alternativt datum och bevisar inte att evangeliet komponerades så sent som under 200-talet."
+  }
+],
+    H056: [
+  {
+    "claim": "Qumranfyndens handskriftsmaterial omfattar många olika judiska verk och fragment daterade från omkring 200-talet f.Kr. fram till 68 e.Kr., snarare än en sammanhållen bok med ett enda tillkomstår.",
+    "verified": "2026-10-14",
+    "sourceTitle": "Library of Congress – The Qumran Library / Scrolls from the Dead Sea",
+    "sourceUrl": "https://loc.gov/exhibits/scrolls/libr.html",
+    "evidenceType": "Institutionell översikt över manuskriptsamling, språk och dateringsram",
+    "claimType": "Manuskriptsamlingens dateringar",
+    "sourceType": "Institutionsutställning baserad på manuskriptfynd",
+    "timeLevel": "Bevarade manuskript (samling)",
+    "timeClarification": "Tidsramen gäller de bevarade kopiorna i samlingen, inte när varje verk ursprungligen skrevs.",
+    "scope": "Library of Congress beskriver manuskript från tredje århundradet f.Kr. till 68 e.Kr. och verk på hebreiska, arameiska och grekiska.",
+    "limit": "Samlingens dateringsram daterar inte varje enskild biblisk komposition; delars författarskap, kanonstatus och överföringsvägar måste prövas var för sig."
+  }
+],
     H001: [{
       claim: "Göbekli Tepes monumentala byggnader hör till förkeramisk neolitikum, ungefär 9600–8200 f.Kr.",
       verified: "2026-10-14",
