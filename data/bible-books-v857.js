@@ -188,3 +188,6 @@ window.TIDENS_BIBLE_VARIANTS=Object.freeze({B002:[{"bookId":"B002","passage":"An
 
 // V8.64 passage study: B001. Textual difference does not date the creation event.
 window.TIDENS_BIBLE_BOOK_RESEARCH.B001.passageNotes=[{passage:'Genesis 1:27 / 2:7',note:'Two distinct literary portrayals of human creation, with composition models still disputed.',source:'https://www.thetorah.com/article/genesis-two-creation-accounts-compiled-and-interpreted-as-one'}];
+
+// V8.64 passage study: B005. Distinct motivations for the Sabbath command.
+window.TIDENS_BIBLE_BOOK_RESEARCH.B005.passageNotes=[{passage:'Deuteronomy 5:12-15 / Exodus 20:8-11',note:'The Sabbath command invokes liberation from Egypt in Deuteronomy and creation in Exodus; literary relation is debated.',source:'https://www.thetorah.com/article/speculating-about-the-original-text-of-the-decalogue'}];
