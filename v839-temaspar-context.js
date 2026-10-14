@@ -21,6 +21,11 @@
  ]);
  // Samma sex som är ikryssade i användarens bild.
  const selected=new Set(['Religion & texter','Bibelberättelse','Bibeltext','Arkeologi','Religion','Bibelberättelser']);
+ function setCategory(id,checked){
+  if(!definitions.some(category=>category.id===id))return false;
+  if(checked)selected.add(id);else selected.delete(id);
+  return true;
+ }
  const esc=value=>enc(String(value==null?'':value));
  const fmt=y=>v83FmtYear(y);
  const finite=e=>Number.isFinite(e.start)&&Number.isFinite(e.end)&&e.end>=e.start;
@@ -168,11 +173,13 @@
   if(obsolete)obsolete.remove();
   const previousText=container.querySelector('.v835-extra-context');
   if(previousText){
-    previousText.hidden=true;
-    previousText.setAttribute('aria-hidden','true');
+    // Behåll den äldre källkritiska textjämförelsen som ett frivilligt
+    // komplement, även när den nya, gemensamma tidslinjen används.
+    const summary=previousText.querySelector('summary');
+    if(summary)summary.textContent='Visa fördjupad daterings- och jämförelsekommentar';
   }
   wrapper.querySelectorAll('[data-v839-cat]').forEach(cb=>cb.addEventListener('change',()=>{
-    if(cb.checked)selected.add(cb.dataset.v839Cat);else selected.delete(cb.dataset.v839Cat);
+    setCategory(cb.dataset.v839Cat,cb.checked);
     renderExplore();
   }));
   wrapper.querySelectorAll('[data-v839-read]').forEach(b=>b.addEventListener('click',()=>{
@@ -188,6 +195,7 @@
  window.TidensTemasparV839=Object.freeze({
   categories:definitions.map(x=>({id:x.id,label:x.label})),
   selected:()=>[...selected],
+  setCategory,
   modelFor,
   renderFor
  });
