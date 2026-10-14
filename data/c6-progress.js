@@ -196,6 +196,17 @@ window.TIDENS_C6_PROGRESS = Object.freeze({
       "claimCheckPosts": 17,
       "claimChecks": 33,
       "note": "V8.55: H011:s egyptiska determinativ för folkgrupp granskat mot Hasel 1994; inte liktydigt med belägg för en israelitisk stat. Inga fullgranskade poster."
+    },
+    {
+      "date": "2026-10-14",
+      "inventory": 193,
+      "partialReports": 36,
+      "proposedCorrections": 11,
+      "implementedCorrections": 11,
+      "wholeApproved": 0,
+      "claimCheckPosts": 17,
+      "claimChecks": 34,
+      "note": "V8.56: kopplingen H011–H012 kontrollerad mot Miller 2004 och Faust 2015. Tidsmässig och forskningsmässig relation är möjlig men inte direkt belagd gruppidentitet. Ingen post slutgranskad."
     }
   ],
   "caveat": "Måtten överlappar. De får inte summeras till ett totalt färdigställande. Källkontroll av ett påstående betyder inte fullständig postgranskning.",
