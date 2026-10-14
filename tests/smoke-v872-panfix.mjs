@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+const read=p=>fs.readFileSync(new URL('../'+p,import.meta.url),'utf8');
+const code=read('v843-timeline-workspace.js');
+const app=read('app.js');
+const html=read('index.html');
+assert.ok(code.includes("if(node.parentNode!==sticky)sticky.appendChild(node)"),'Do not detach timeline controls during render');
+assert.ok(code.includes("if(chart.previousElementSibling!==sticky)sticky.insertAdjacentElement('afterend',chart)"),'Do not detach chart during render');
+assert.ok(!code.includes('sticky.append(tools,pan,axis)'),'Unconditional remount would release pointer capture');
+assert.ok(app.includes('state.max=clamp(state.max,-3900000,2100)'),'Pan and range normalization must share max boundary');
+assert.ok(app.includes("container.setPointerCapture(e.pointerId)"),'Retain draggable interval pointer capture');
+assert.ok(app.includes("v827MoveViewport(state.min-(state.max-state.min)*.65)"),'Older button moves viewport');
+assert.ok(app.includes("v827MoveViewport(state.min+(state.max-state.min)*.65)"),'Newer button moves viewport');
+assert.ok(html.includes('Bygge v8.72-panfix-20261014'),'Distinct corrected deployment marker');
+for(const path of ['app.js','v843-timeline-workspace.js'])new vm.Script(read(path),{filename:path});
+console.log('V8.72 pan fix: controls retain DOM identity across rerenders; navigation bounds agree');
