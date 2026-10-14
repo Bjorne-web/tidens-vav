@@ -340,6 +340,7 @@ window.TIDENS_REVIEW_LEDGER = Object.freeze({
         claimType: "Textvittne och redaktionell tolkningsmodell",
         sourceType: "Bibelforskningsartikel av Konrad Schmid, University of Zurich",
         timeLevel: "Hebreisk berättelsetext och dess föreslagna redaktion, inte berättad skapelse-urtid",
+        timeClarification: "Den litterära skapelseurtiden och den senare redaktionella sammanfogningen är olika tidsnivåer; språkbruket ger inte ett säkert årtal för redaktörens ingrepp.",
         scholarlyStanding: "Skillnaden i namnbruk direkt observerbar; dess redaktionella uppkomst en forskningshypotes",
         scope: "Gäller Genesis 1:1–2:4a och 2:4b–3:24; visar hur språkliga drag används vid kompositionsanalys.",
         limit: "Det är inte bevisat att en viss redaktör vid en känd tidpunkt lade till 'Elohim'. Namnbruket avgör inte ensam dateringen av Moseböckerna."
