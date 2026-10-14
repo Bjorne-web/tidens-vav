@@ -43,6 +43,9 @@
         if(savedRange){[state.min,state.max]=savedRange}
         toggle.checked=state.cat.has(CATEGORY);savedCategories=null;savedRange=null;
       }
+      for(const input of filters.querySelectorAll('input[type="checkbox"]')){
+        if(input.id!=='tvOnlyBooks')input.checked=state.cat.has(input.value);
+      }
       renderAll();
     });
   }
