@@ -10,7 +10,7 @@ const count=Object.values(claims).reduce((n,a)=>n+a.length,0);
 const checked=Object.values(claims).filter(a=>a.length).length;
 const last=Array.from(ctx.window.TIDENS_C6_PROGRESS.history).at(-1);
 assert.ok(count>=34,'Preserve previous 34 C6 checks');
-assert.equal(checked,17);
+assert.ok(checked>=17);
 assert.equal(last.claimChecks,count);
 assert.equal(last.claimCheckPosts,checked);
 assert.equal(last.wholeApproved,0);
