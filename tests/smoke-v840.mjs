@@ -55,9 +55,10 @@ assert.equal(Object.keys(ledger.claimChecks).length,13,'13 posts with check entr
 assert.equal(Object.values(ledger.claimChecks).reduce((n,a)=>n+a.length,0),19,'19 scoped claims in all');
 assert.equal(ledger.claimChecks.O030.length,6,'6 distinct Zoroastrian research checks');
 for(const claim of ledger.claimChecks.O030){
- for(const key of ['claim','scope','limit','sourceTitle','sourceUrl','sourceType','evidenceType','verified','scholarlyStanding','timeLevel','timeClarification']){
+ for(const key of ['claim','scope','limit','sourceTitle','sourceUrl','sourceType','evidenceType','scholarlyStanding','timeLevel','timeClarification']){
   assert.ok(typeof claim[key]==='string'&&claim[key].length>10,'O030 missing '+key);
  }
+ assert.match(claim.verified,/^20\d{2}-\d{2}-\d{2}$/,'Verification date should be ISO date');
  assert.ok(articleModel.sources.some(s=>s.url===claim.sourceUrl),'Claim source not represented in reader: '+claim.sourceTitle);
 }
 const progress=sandbox.window.TIDENS_C6_PROGRESS;
