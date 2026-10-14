@@ -113,4 +113,25 @@ const undatedView=graph({id:'O030',title:'Zoroastrism',original:true});
 assert.ok(undatedView.includes('GRAFISK TIDSLINJE'),'Odaterat fokus måste ha ett separat referensspår');
 assert.ok(undatedView.includes('separat valda'),'Odaterat fokus måste få tydlig avgränsning');
 assert.ok(!graphCalls.at(-1).entries.some(e=>e.id==='O030'),'Odaterad originalpost får inte placeras på grafisk axel');
+
+// Användarregression V8.38: Puniska krigen måste ligga på sin faktiska
+// tidsaxel även om O049 fortfarande är en ej helgranskad originalpost.
+const callsBeforePunic=graphCalls.length;
+const punic=graph({id:'O049',title:'Puniska krigen',original:true,start:-264,end:-146,category:'Krig'});
+assert.ok(punic.includes('Utgångsposten'),'O049 måste vara utgångsposten, inte ett annat färdigt tema');
+assert.ok(punic.includes('Tre skilda krig'),'Dateringsnotisen måste skilja krigens faser');
+assert.ok(punic.includes('onlinelibrary.wiley.com'),'Källan till de kontrollerade årtalen ska visas');
+assert.equal(graphCalls.length,callsBeforePunic+1,'O049 ska generera egen grafisk tidslinje');
+const punicPlot=graphCalls.at(-1);
+assert.equal(punicPlot.theme.id,'own-inquiry','O049 får inte ärva Israels framväxt');
+const punicPhases=punicPlot.entries.filter(e=>e.id==='O049');
+assert.equal(punicPhases.length,3,'Alla tre separata puniska krigen ska synas');
+assert.deepEqual(punicPhases.map(e=>[e.start,e.end]),[[-264,-241],[-218,-201],[-149,-146]],'Varje krigsfas måste dateras korrekt');
+assert.ok(!punicPlot.entries.some(e=>e.id==='O049'&&e.start===-264&&e.end===-146),'Den sammanhängande originalperioden får inte visas som ett enda krig');
+env.v83Display='list';
+const punicList=graph({id:'O049',title:'Puniska krigen',original:true});
+assert.ok(punicList.includes('KRONOLOGISK LISTA'),'O049 ska fungera också i listläge');
+assert.equal(rowCalls.at(-1).filter(e=>e.id==='O049').length,3,'Alla faser ska finnas även i listläget');
+env.v83Display='graph';
+
 console.log('OK: Temaspår har grafisk tidslinje, kronologisk lista och källkritisk odaterad referens.');
