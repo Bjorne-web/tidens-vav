@@ -123,3 +123,12 @@ The World Behind the Word är den långsiktiga huvudappen. Tidens väv förblir 
 - I Tidslinje döps växlingsknappen **Alla poster** om till **Detaljerad tidslinje**; separat postlista påverkas inte.
 - Ändrar **inga** originaldata, C6-granskningsresultat eller den godkända funktionen i Temaspår. [Detaljerad plan och testchecklista](docs/lasarordning-v842.md).
 - Ny regression: `node tests/smoke-v842.mjs` tillsammans med hela tidigare testsviten.
+
+## V8.43 – tidslinjen med fast tidsstyrning och bredare kategorifilter
+- På sidan **Tidslinje** ligger nu **Ordning**, **Flytta i tiden** och **tidsskalan** i en gemensam fast kontrollpanel ovanför tidslinjen, så de förblir åtkomliga vid scrollning. Befintliga reglage och sorteringsfunktioner återanvänds.
+- Övrig information som tidigare tog plats **före** tidslinjen visas nu **under** själva tidslinjen, utan att tas bort eller förlora klickfunktionerna.
+- Vänsterkanten får mer bredd på desktop och kategoriernas synliga etiketter kortas (exempelvis *Bibeltexter · olika tidstyper*). Alla 13 kategori-ID:n, fullständiga benämningar i hjälptext och urvalets värden bevaras.
+- Mobilbehållning: utfällbara filter och kompakt fast kontrollpanel. Temaspårs separata tidslinje påverkas inte.
+- Inga ändringar i originaldata, C6, granskningsjournal eller den godkända V8.42-sidopanelen.
+- Läs [V8.43 – layout, avgränsningar och testplan](docs/tidslinjearbetsyta-v843.md).
+- GitHub Actions kör det nya `node tests/smoke-v843.mjs` tillsammans med alla tidigare tester.
