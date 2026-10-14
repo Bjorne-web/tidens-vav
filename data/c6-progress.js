@@ -1,3 +1,4 @@
+/* C6 – avgränsade källkontroller, ej postslutgranskning. */
 window.TIDENS_C6_PROGRESS=Object.freeze({
   "schemaVersion": 1,
   "updated": "2026-10-14",
@@ -291,9 +292,9 @@ window.TIDENS_C6_PROGRESS=Object.freeze({
       "proposedCorrections": 11,
       "implementedCorrections": 11,
       "wholeApproved": 0,
-      "claimCheckPosts": 17,
-      "claimChecks": 51,
-      "note": "V8.64: ten new scoped research checks (4 Genesis H020 and 6 Pentateuch H019), 41 to 51. No newly completed dossiers."
+      "claimCheckPosts": 20,
+      "claimChecks": 59,
+      "note": "V8.64: 18 nya avgränsade påståendekontroller fördelade på 10 olika C6-poster: H001,H003,H004,H005,H006,H007,H017,H019,H020,H054. Antalet poster med minst en kontroll ökar från 17 till 20. Ingen post är fullständigt vetenskapligt slutgranskad."
     }
   ],
   "caveat": "Måtten överlappar. De får inte summeras till ett totalt färdigställande. Källkontroll av ett påstående betyder inte fullständig postgranskning.",
