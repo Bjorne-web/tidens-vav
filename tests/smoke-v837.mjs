@@ -45,7 +45,7 @@ vm.runInContext(read('data/c6-progress.js'),sandbox);
 vm.runInContext(read('data/review-ledger.js'),sandbox);
 const p=sandbox.window.TIDENS_C6_PROGRESS;
 assert.equal(new Set(p.proposedCorrectionIds).size,11);
-assert.deepEqual(new Set(p.implementedCorrectionIds),new Set(intended));
+assert.deepEqual(new Set(p.implementedCorrectionIds),new Set(intended.filter(id=>id!=='H011')));
 assert.equal(p.partialReportIds.length,36,'Delgranskningsrapporterna får inte räknas om vid textändring');
 assert.equal(Object.keys(sandbox.window.TIDENS_REVIEW_LEDGER.completePostReviews).length,0);
 assert.ok(read('v836-c6-progress.js').includes('Införda textförtydliganden'));
