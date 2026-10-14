@@ -42,3 +42,10 @@ The World Behind the Word är den långsiktiga huvudappen. Tidens väv förblir 
 - Stabil postidentifiering, ingen delad backend och inget betaltillägg.
 - Se [integrationskontraktet](docs/integration-contract-v1.md) för begränsningar och framtida koppling till The World Behind the Word.
 - Testa med `node tests/smoke-v835.mjs` plus befintligt `node tests/smoke-v834.mjs`.
+
+## V8.36 – sökbar granskningsöversikt
+- En ny granskningsöversikt i Forskningsbiblioteket visar alla poster, filter på källprövning och direkt öppning av posten.
+- Fem enskilda påståenden källprövade i fem poster (H001, H017, H041, H042 och H054). Tre tillkom i V8.36.
+- Källtyp och påståendetyp redovisas utan att posten märks som slutgranskad. Noll fullständiga slutgranskningar är registrerade.
+- Läs forskningsprotokollet i docs/kallprovningsprotokoll-v836.md.
+- Testkörning: node tests/smoke-v836.mjs plus de tidigare testerna.
