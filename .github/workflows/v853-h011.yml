@@ -1,0 +1,15 @@
+name: V8.53 H011 content check
+on:
+  push:
+    branches:
+      - 'v8.*'
+  pull_request:
+jobs:
+  h011:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/smoke-v853.mjs
