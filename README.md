@@ -88,3 +88,12 @@ The World Behind the Word är den långsiktiga huvudappen. Tidens väv förblir 
 - Ingen direkt religionshistorisk påverkan påstås enbart genom samtidighet; läs de källkritiska fördjupningarna separat.
 - Se [metod, kategorier och testplan](docs/temaspar-samtidighet-v839.md).
 - Automatisk kontroll: `node tests/smoke-v839.mjs`, tillsammans med äldre regressionstester.
+
+## V8.39 – enhetlig sidopanel för hela Väven
+- Den sidopanel som godkänts för **Puniska krigen** används nu konsekvent för **alla 193 poster** (64 forskningsposter och 129 originalposter).
+- Innehållsskillnader finns kvar: vetenskapliga källor används när de faktiskt finns; otillräckligt underlag märks öppet som inte källgranskat.
+- **Gilgamesheposet – flodberättelsen (O067)** och forskningspost **H005** får samma rubrikstruktur och den samlade forskningsöversikten som övriga poster, samtidigt som gamla beskrivningar, källor och varningar bevaras.
+- Den tidigare **V8.6-artikeln för Puniska krigen (O049)** behålls oförändrad; inga parallella artiklar skapas.
+- Den nya Temaspår-tidslinjen med sex förvalda samtidskategorier ändras inte.
+- Se [gemensam sidopanel och granskningsprinciper](docs/gemensam-sidopanel-v839.md).
+- Nytt automatiskt test: `node tests/smoke-reader-universal-v839.mjs` för samtliga 193 poster och knutna underlagsstrukturer.
