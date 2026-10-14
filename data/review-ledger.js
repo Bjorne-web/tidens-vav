@@ -9,6 +9,36 @@ window.TIDENS_REVIEW_LEDGER = Object.freeze({
   updated: "2026-10-14",
   completePostReviews: {},
   claimChecks: {
+    H011: [
+      {
+        claim: "Merneptahstelen nämner en grupp kallad Israel i Kanaan omkring slutet av 1200-talet f.Kr.; beteckningen används inte som ett kanaaneiskt stadsnamn.",
+        verified: "2026-10-14",
+        sourceTitle: "Michael G. Hasel (1994), Israel in the Merneptah Stela – BASOR 296",
+        sourceUrl: "https://www.journals.uchicago.edu/doi/10.2307/1357179",
+        evidenceType: "Fackgranskad analys av egyptisk beteckning, versstruktur och historisk lokalisering",
+        claimType: "Egyptisk kungainskrift och namnidentifiering",
+        sourceType: "Vetenskaplig tidskriftsartikel, verifierat abstract",
+        timeLevel: "Inskriftens tillkomst under Merneptahs regering, inte Israels grundläggningsdatum",
+        timeClarification: "Cirka 1207 f.Kr. är en vanlig kronologi; alternativa egyptiska kronologiförslag diskuteras.",
+        scholarlyStanding: "Identifieringen Israel brett accepterad; gruppens politiska och sociala karaktär omdiskuterad",
+        scope: "Hasel argumenterar utifrån namnform och inskriftens struktur för Israel som en sociokulturell grupp i Kanaan.",
+        limit: "Stelen bevisar inte uttågsberättelsen, en specifik bosättningsprocess eller biblisk tolvstamsorganisation."
+      },
+      {
+        claim: "Merneptahstelens Israel kan inte ensamt identifieras med en särskild arkeologisk bosättning eller användas som bevis för en färdig israelitisk stat.",
+        verified: "2026-10-14",
+        sourceTitle: "Robert D. Miller II (2004), Identifying Earliest Israel – BASOR 333",
+        sourceUrl: "https://www.journals.uchicago.edu/doi/10.2307/1357794",
+        evidenceType: "Fackgranskad forskningsdiskussion om etnicitet, höglandsbosättningar och identifikation",
+        claimType: "Arkeologisk-historisk rekonstruktion",
+        sourceType: "Vetenskaplig tidskriftsartikel, verifierat abstract",
+        timeLevel: "Övergången till järnålder I och efterföljande identitetsbildning",
+        timeClarification: "Järnålder I:s materiella kultur bör inte utan särskild analys likställas med ett samtida etniskt namn.",
+        scholarlyStanding: "Föreslagen koppling mellan höglandsbosättningar och tidigt Israel; detaljer om etnicitet debatteras",
+        scope: "Miller prövar hur bosättningsmönster och etnicitet kan analyseras utan att utgå från den bibliska berättelsen.",
+        limit: "En arkeologisk modell om etnicitet ger inte säker information om alla medlemmars ursprung, religion eller migrationshistoria."
+      }
+    ],
     O030: [
 {
   "claim": "Yngre Avesta Yašt 19:89 skildrar framtida Saošyant och en uppståndelse av döda, men daterar inte i sig direkt idélån till Daniel 12.",
