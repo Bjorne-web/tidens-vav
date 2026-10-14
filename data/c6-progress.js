@@ -327,6 +327,17 @@ window.TIDENS_C6_PROGRESS=Object.freeze({
       "claimCheckPosts": 29,
       "claimChecks": 68,
       "note": "V8.67: tre avgränsade påståendekontroller i H045, H046, H047; forskningsprofil för B025 Klagovisorna. Versionsmärkningen i index.html rättad från den kvarstående 8.59 till 8.67. Fortfarande inga fullständiga C6-granskningar."
+    },
+    {
+      "date": "2026-10-14",
+      "inventory": 193,
+      "partialReports": 36,
+      "proposedCorrections": 11,
+      "implementedCorrections": 11,
+      "wholeApproved": 0,
+      "claimCheckPosts": 31,
+      "claimChecks": 71,
+      "note": "V8.68: tre C6-delkontroller av H048, H049 och H055 samt delgranskad forskningsprofil B026 Hesekiel. Två tidigare okontrollerade historiska poster tillkommer; ingen fullständig slutgranskning."
     }
   ],
   "caveat": "Måtten överlappar. De får inte summeras till ett totalt färdigställande. Källkontroll av ett påstående betyder inte fullständig postgranskning.",
