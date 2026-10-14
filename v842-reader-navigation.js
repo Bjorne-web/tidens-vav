@@ -48,6 +48,16 @@
   if(stats && stats.textContent.includes('Alla poster')){
     stats.textContent=stats.textContent.replaceAll('Alla poster','Detaljerad tidslinje');
   }
+  // Äldre V7/V8-kort har korta hjälptexter som också syftar på samma
+  // växlingsknapp. Uppdatera endast rena textnoder, aldrig klickbara kort.
+  const lanes=document.getElementById('lanes');
+  if(lanes){
+    for(const note of lanes.querySelectorAll('.tiny')){
+      if(!note.children.length && note.textContent.includes('Alla poster')){
+        note.textContent=note.textContent.replaceAll('Alla poster','Detaljerad tidslinje');
+      }
+    }
+  }
  }
 
  const previousReader=renderDetail;
