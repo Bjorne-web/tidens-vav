@@ -89,7 +89,9 @@
     const legend=document.createElement('div');legend.className='tv-book-legend';
     legend.textContent='Tunt band = preliminärt tillkomst-/redaktionsintervall. Mörk markering = intervallets osäkra slutgräns, inte ett fastställelsedatum. Klicka på bandet för forskningsposten.';
     lane.append(legend);
-    lanes.append(lane);
+    const afterTextIndex=Object.keys(laneNames).indexOf('Bibeltext');
+    const nextLane=afterTextIndex>=0?lanes.children[afterTextIndex+1]:null;
+    lanes.insertBefore(lane,nextLane||null);
   }
   const previous=renderTimeline;
   renderTimeline=function(){previous();renderLane()};
