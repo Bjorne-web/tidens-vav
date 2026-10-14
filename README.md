@@ -65,3 +65,10 @@ The World Behind the Word är den långsiktiga huvudappen. Tidens väv förblir 
 - Du kan expandera listan över elva reviderade poster direkt i C6-statuspanelen; varje sådant läskort märks `Texten förtydligad` och uttryckligen `inte slutgranskad`.
 - Se [C6 V8.37: källunderlag och exakta ändringar](docs/c6-implementation-v837.md).
 - `node tests/smoke-v837.mjs` säkerställer att exakt elva beskrivningar ändras, att referenskort finns och att datumen är oförändrade.
+
+## V8.38 – tydligare tidsperspektiv vid källprövning
+- Fem ytterligare poster (H019, H020, H025, H034 och H056) har nu sex precist avgränsade påståendekontroller. **12 poster / 13 påståenden** i journalen totalt; **0 helgranskade**.
+- I **Fördjupningar** visar källprövningskortet nu om varje nytt påstående gäller textens tillkomst, forskningsmodeller eller bevarade manuskript. 4Q201 och P52 används inte för att datera hela Henoksboken respektive Johannesevangeliets ursprung exakt.
+- C6-statusens grafiska staplar räknar fortsatt poster med enskilda källkontroller och visar den uppdaterade historiken.
+- Se [dokumenterad källkontroll och begränsningar](docs/c6-kallkontroll-v838.md).
+- GitHub Actions kör `node tests/smoke-v838.mjs` med samtliga tidigare testfall.
