@@ -34,3 +34,4 @@ jobs:
           node tests/smoke-v845.mjs
           node tests/smoke-v864.mjs
           node tests/smoke-v865.mjs
+          node tests/smoke-v866.mjs
