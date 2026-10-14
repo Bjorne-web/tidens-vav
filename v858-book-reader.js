@@ -13,6 +13,16 @@
   article.append(make('div',b.testament+' · '+b.genre+' · FORSKNINGSPOST '+b.id));
   article.append(make('h2',b.title));
   article.append(make('p','Bibelbok och textens tillkomst. Preliminärt forskningsunderlag, inte fullständigt vetenskapligt slutgranskad.'));
+  article.append(make('h3','Vad var det?'));
+  article.append(make('p',b.title+' är en biblisk skrift inom '+b.genre+'. Bokposten avser textens tillkomst och bearbetning, inte att händelser som skildras därmed är historiskt verifierade.'));
+  article.append(make('h3','Historiskt sammanhang'));
+  article.append(make('p',b.critical));
+  article.append(make('h3','Konsekvenser och betydelse'));
+  article.append(make('p','Textens betydelse inom religiösa traditioner ska skiljas från belagda historiska följder. En individuell konsekvensanalys återstår.'));
+  article.append(make('h3','Betydelse för Israels religion, judendomen och kristendomen'));
+  article.append(make('p','Boken ingår i en eller flera kanoniska och historiska tolkningsgemenskaper. Dess specifika religionshistoriska betydelse behöver granskas med källunderlag för respektive bok.'));
+  article.append(make('h3','Osäkerheter och viktiga preciseringar'));
+  article.append(make('p','Författartillskrivningen är traditionshistorisk. Föreslagen texttillkomst är en forskningsrekonstruktion med osäkerheter och möjlig flerstegskomposition.'));
   const dl=make('dl');dl.className='tv-book-reader-facts';
   const fields=[
    ['Traditionell författartillskrivning',b.attributed],
@@ -30,12 +40,12 @@
    article.append(make('h3','Historisk och religionshistorisk kontext'));
    article.append(make('p',profile.context));
    if(profile.sources?.length){
-    article.append(make('h3','Källor'));
+    article.append(make('h3','Källor och läsvägar'));
     const list=make('ul');
     for(const item of profile.sources){const li=make('li'),a=make('a',item.title);a.href=item.url;a.target='_blank';a.rel='noopener noreferrer';li.append(a);list.append(li);}
     article.append(list);
    }
-  }else article.append(make('p','En individuell forskningsfördjupning med källor och konkurrerande dateringsmodeller återstår.'));
+  }else {article.append(make('h3','Källor och läsvägar'));article.append(make('p','Individuella akademiska källor och konkurrerande dateringsmodeller återstår att dokumentera.'));}
   const links=make('section');links.className='v827-reader-rel';
   links.append(make('h3','Historiska samband'));
   const related=researchLinks[b.id];
