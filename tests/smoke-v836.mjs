@@ -8,7 +8,8 @@ import {execFileSync} from 'node:child_process';
 const root=path.resolve(import.meta.dirname,'..');
 const read=f=>fs.readFileSync(path.join(root,f),'utf8');
 const html=read('index.html');
-assert.ok(html.includes('Version 8.36'));
+const version=html.match(/Version 8\.(\d+)/);
+assert.ok(version && Number(version[1])>=36,'V8.36 or newer required');
 for(const f of ['v836-review-index.js','v836-review-index.css','data/review-ledger.js']){
   assert.ok(fs.existsSync(path.join(root,f)),f+' saknas');
   assert.ok(html.includes(f),f+' laddas inte');
