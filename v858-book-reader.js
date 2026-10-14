@@ -93,17 +93,23 @@
   if(b){showBook(b);return;}
   previous();
  };
- const parent=document.getElementById('timelineView');
- if(parent)parent.addEventListener('click',e=>{
-  const button=e.target.closest('[data-tv-book]');
-  if(!button)return;
-  const b=bookById.get(button.dataset.tvBook);if(!b)return;
+ // Public, stable book selection also works when timeline rows are recreated.
+ function openBook(id){
+  const b=bookById.get(id);if(!b)return false;
   state.selected=b.id;
   renderDetail();
   const mini=document.getElementById('selectedMini');
   if(mini)mini.textContent=b.id+' · '+b.title;
   if(typeof v84Mobile==='function'&&v84Mobile()&&typeof v84OpenReader==='function')v84OpenReader();
   else document.getElementById('detail')?.scrollTo({top:0,behavior:'smooth'});
+  return true;
+ }
+ window.TidensOpenBookV858=openBook;
+ const parent=document.getElementById('timelineView');
+ if(parent)parent.addEventListener('click',e=>{
+  const button=e.target.closest('[data-tv-book]');
+  if(!button)return;
+  openBook(button.dataset.tvBook);
  });
  window.TidensBookReaderV858=Object.freeze({bookCount:books.length,relatedBookCount:Object.keys(researchLinks).length});
 })();
