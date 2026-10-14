@@ -30,3 +30,15 @@
 
 #v827RelationFocus label[hidden]{display:none!important}
 #v833Study{scroll-margin-top:135px}
+
+/* Regressionsfix för V8.35: behåll grafisk tidslinje i egna Temaspår. */
+.v835-actual-timeline{width:100%;min-width:0;overflow:hidden;margin:12px 0;border-radius:10px}
+.v835-actual-timeline .v83-plot-scroller{max-width:100%;overflow-x:auto;scrollbar-width:auto;touch-action:pan-x pan-y}
+.v835-timeline-explainer,.v835-reference-warning{padding:11px 12px;margin:12px 0 8px;line-height:1.55;font-size:12px;background:#edf6ff;border-left:3px solid #477bab;color:#284e6f}
+.v835-reference-warning{background:#fff7e5;border-left-color:#bc8b2b;color:#76551e}
+.v835-actual-timeline .v83-event-card.v835-origin-on-timeline{outline:3px solid #225b93;outline-offset:2px;background:#e5f1ff;font-weight:700}
+.v835-extra-context{margin-top:12px;border:1px solid #d5e3ee;border-radius:10px;padding:10px;background:white;font-size:12px}
+.v835-extra-context>summary{cursor:pointer;font-weight:700;color:#255987;padding:5px}
+.v835-extra-context .v833-period,.v835-extra-context .v833-undated{margin-top:10px}
+.v83-toolbar-actions #v83ShowMain[hidden]{display:none!important}
+@media(max-width:760px){.v835-reference-warning,.v835-timeline-explainer{padding:10px;font-size:12px}.v835-actual-timeline .v83-plot-scroller{max-width:100%}}

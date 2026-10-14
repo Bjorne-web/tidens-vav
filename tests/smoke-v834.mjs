@@ -15,7 +15,8 @@ for (const file of ['app.js','styles.css','data/data.generated.js','data/review-
 for (const file of ['app.js','data/data.generated.js','data/review-ledger.js','v833-temaspar.js','v834-review.js']){
   execFileSync(process.execPath,['--check',path.join(root,file)]);
 }
-assert.ok(html.includes('Version 8.34'), 'Wrong version banner');
+const versionMatch=html.match(/Version 8\.(\d+)/);
+assert.ok(versionMatch && Number(versionMatch[1])>=34, 'Version must be V8.34 or newer');
 const sandbox={window:{}};
 vm.runInNewContext(read('data/review-ledger.js'),sandbox);
 const ledger=sandbox.window.TIDENS_REVIEW_LEDGER;
