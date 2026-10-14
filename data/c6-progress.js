@@ -60,7 +60,7 @@ window.TIDENS_C6_PROGRESS = Object.freeze({
     "H042",
     "H034"
   ],
-  "description": "193 poster inventerade. 36 ingår i C6-delgranskningsrapporter. 11 textförtydliganden införda. 28 avgränsade påståenden källkontrollerade i 17 poster. En jämförelse av fyra iranska och judiska textpassager har lagts till, utan att fastslå direkt litterär påverkan. 0 vetenskapligt helgranskade poster.",
+  "description": "193 poster inventerade. 36 ingår i C6-delgranskningsrapporter. 11 textförtydliganden införda. 29 avgränsade påståenden källkontrollerade i 17 poster. En jämförelse av fyra iranska och judiska textpassager har lagts till, utan att fastslå direkt litterär påverkan. 0 vetenskapligt helgranskade poster.",
   "history": [
     {
       "date": "2026-10-13",
@@ -141,6 +141,17 @@ window.TIDENS_C6_PROGRESS = Object.freeze({
       "claimCheckPosts": 17,
       "claimChecks": 28,
       "note": "V8.49: två avgränsade C6-kontroller av H012 om järnålderns höglandsbosättningar och skilda modeller för israelitisk etnogenes. Inga poster slutgranskade."
+    },
+    {
+      "date": "2026-10-14",
+      "inventory": 193,
+      "partialReports": 36,
+      "proposedCorrections": 11,
+      "implementedCorrections": 11,
+      "wholeApproved": 0,
+      "claimCheckPosts": 17,
+      "claimChecks": 29,
+      "note": "V8.50: H011 inledd som kandidat för fullständig granskning, med en ny metodkritisk forskningskontroll och protokoll för granskningsgrind. Ingen post slutgranskad."
     }
   ],
   "caveat": "Måtten överlappar. De får inte summeras till ett totalt färdigställande. Källkontroll av ett påstående betyder inte fullständig postgranskning.",
