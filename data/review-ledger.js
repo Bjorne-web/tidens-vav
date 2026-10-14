@@ -331,6 +331,21 @@ window.TIDENS_REVIEW_LEDGER = Object.freeze({
   }
 ],
     H020: [
+      {
+        claim: "Genesis 1:1–2:4a och 2:4b–3:24 innehåller två litterärt åtskilda skapelseframställningar som enligt etablerad historisk-kritisk forskning sammanfogats redaktionellt; ordningsskillnaderna är textobservationer, medan källornas exakta tillkomsttid är rekonstruktioner.",
+        verified: "2026-10-14",
+        sourceTitle: "Konrad Schmid (2023), Genesis’ Two Creation Accounts Compiled and Interpreted as One",
+        sourceUrl: "https://www.thetorah.com/article/genesis-two-creation-accounts-compiled-and-interpreted-as-one",
+        secondSourceUrl: "https://www.thetorah.com/article/differing-conceptions-of-the-divine-creator",
+        evidenceType: "Textnära vetenskaplig analys av två skapelsesekvenser och redaktionella anpassningar",
+        claimType: "Textkomposition, källskikt och tolkningsbegränsning",
+        sourceType: "Publicerade analyser av Konrad Schmid och Marc Zvi Brettler",
+        timeLevel: "Berättad skapelse-urtid skiljs från de två litterära framställningarnas tillkomst och sammanfogning",
+        timeClarification: "Inget historiskt årtal för skapelsen följer ur forskningsmodellerna om Genesis redaktion.",
+        scholarlyStanding: "De två skilda skapelseframställningarna är brett erkända; den exakta redaktionshistorien är omdiskuterad.",
+        scope: "Kontrollen gäller sekvenserna Genesis 1–3 och deras litterära förhållande, inte Genesisbokens alla övriga delar.",
+        limit: "Kontrollen gör inte hela Genesis till en slutgranskad forskningspost och kan inte ensam fastställa dateringen av prästerligt och icke-prästerligt material."
+      },
   {
     "claim": "Forskningen om Genesis 1–11 rymmer modeller med prästerliga och icke-prästerliga textlager samt komplexa relationer till äldre mesopotamiska litterära traditioner.",
     "verified": "2026-10-14",
