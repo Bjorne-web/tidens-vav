@@ -55,6 +55,18 @@ assert.deepEqual(Array.from(m.segments,p=>[p.start,p.end]),[[-264,-241],[-218,-2
 assert.equal(m.window.historical,true,'Punic Wars separately sourced interval');
 assert.equal(m.groups.length,6,'Show contemporaries from all six marked categories');
 assert.equal(m.count,6,'No duplicate focus or unchecked categories in comparison');
+assert.equal(api.setCategory('Historia',true),true);
+const withWorld=api.modelFor(originalFocus);
+assert.equal(withWorld.count,7,'Activating world history must add contemporaneous event');
+assert.ok(withWorld.groups.some(group=>group.id==='Historia'));
+assert.equal(api.setCategory('Historia',false),true);
+assert.equal(api.setCategory('Religion & texter',false),true);
+const reduced=api.modelFor(originalFocus);
+assert.equal(reduced.count,5,'Unchecking one category must update the timeline');
+assert.equal(reduced.segments.length,3,'Focus must remain when categories are unchecked');
+assert.equal(api.setCategory('Religion & texter',true),true);
+assert.equal(api.setCategory('NON_EXISTENT_CATEGORY',true),false);
+assert.equal(api.modelFor(originalFocus).count,6,'Restored category selections must restore all entries');
 assert.ok(!m.groups.some(g=>g.entries.some(x=>x.id==='H109')),'World history should not appear by default');
 const view=api.renderFor(m,'graph');
 assert.ok(view.includes('Första puniska kriget')&&view.includes('Andra puniska kriget')&&view.includes('Tredje puniska kriget'));
