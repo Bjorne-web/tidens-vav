@@ -41,6 +41,20 @@ window.TIDENS_REVIEW_LEDGER = Object.freeze({
     ],
     H011: [
       {
+        claim: "Merneptahstelen är en egyptisk kunglig segerinskrift vars Israelomnämnande måste läsas i en propagandistisk framställning; en segerformel är inte ett neutralt demografiskt eller militärhistoriskt protokoll.",
+        verified: "2026-10-14",
+        sourceTitle: "Dermot Nestor (2015), Merneptah's 'Israel' and the Absence of Origins in Biblical Scholarship",
+        sourceUrl: "https://journals.sagepub.com/doi/abs/10.1177/1476993X14534792",
+        evidenceType: "Referentgranskad metodkritisk forskningsöversikt, verifierat öppet abstract",
+        claimType: "Källkritisk läsning av kunglig propagandatext",
+        sourceType: "Vetenskaplig tidskriftsartikel, tillgängligt abstract",
+        timeLevel: "Inskriftens historiska tillkomst och senare forskningsrekonstruktion",
+        timeClarification: "En samtida inskrift kan belägga ett omnämnande utan att verifiera hela segerframställningen eller Israels ursprung.",
+        scholarlyStanding: "Källa för metodisk försiktighet; forskningshistorisk slutsats, inte egen primärtextedition",
+        scope: "Artikeln analyserar hur forskare har använt Israelomnämnandet för rekonstruktion av ursprung och etnicitet och granskar arkeologiska och antropologiska metoder.",
+        limit: "Abstractet ger inte självständigt full tillgång till hieroglyfisk transkription och kan inte avgöra den exakta utsträckningen av fälttåget."
+      },
+      {
         claim: "Merneptahstelen nämner en grupp kallad Israel i Kanaan omkring slutet av 1200-talet f.Kr.; beteckningen används inte som ett kanaaneiskt stadsnamn.",
         verified: "2026-10-14",
         sourceTitle: "Michael G. Hasel (1994), Israel in the Merneptah Stela – BASOR 296",
