@@ -8,7 +8,8 @@ const root=path.resolve(import.meta.dirname,'..');
 const read=f=>fs.readFileSync(path.join(root,f),'utf8');
 const html=read('index.html');
 const js='v839-temaspar-context.js',css='v839-temaspar-context.css';
-assert.ok(html.includes('Version 8.39'));
+const version=html.match(/Version 8\.(\d+)/);
+assert.ok(version && Number(version[1])>=39,'V8.39 or newer required');
 for(const file of [js,css]){
  assert.ok(fs.existsSync(path.join(root,file)),file+' missing');
  assert.ok(html.includes(file),file+' not loaded');
