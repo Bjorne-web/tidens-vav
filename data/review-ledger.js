@@ -332,6 +332,20 @@ window.TIDENS_REVIEW_LEDGER = Object.freeze({
 ],
     H020: [
       {
+        claim: "Genesis 1 använder i sin skapelseberättelse gudsbeteckningen Elohim, medan Genesis 2–3 i regel använder YHWH Elohim. Konrad Schmid tolkar den sammansatta beteckningen som ett möjligt redaktionellt sätt att knyta samman två ursprungligen självständiga skapelseframställningar.",
+        verified: "2026-10-14",
+        sourceTitle: "Konrad Schmid (2023), Genesis’ Two Creation Accounts Compiled and Interpreted as One",
+        sourceUrl: "https://www.thetorah.com/article/genesis-two-creation-accounts-compiled-and-interpreted-as-one",
+        evidenceType: "Textnära jämförelse av de hebreiska gudsbeteckningarna och en akademisk kompositionshypotes",
+        claimType: "Textvittne och redaktionell tolkningsmodell",
+        sourceType: "Bibelforskningsartikel av Konrad Schmid, University of Zurich",
+        timeLevel: "Hebreisk berättelsetext och dess föreslagna redaktion, inte berättad skapelse-urtid",
+        timeClarification: "Den litterära skapelseurtiden och den senare redaktionella sammanfogningen är olika tidsnivåer; språkbruket ger inte ett säkert årtal för redaktörens ingrepp.",
+        scholarlyStanding: "Skillnaden i namnbruk direkt observerbar; dess redaktionella uppkomst en forskningshypotes",
+        scope: "Gäller Genesis 1:1–2:4a och 2:4b–3:24; visar hur språkliga drag används vid kompositionsanalys.",
+        limit: "Det är inte bevisat att en viss redaktör vid en känd tidpunkt lade till 'Elohim'. Namnbruket avgör inte ensam dateringen av Moseböckerna."
+      },
+      {
         claim: "Genesis 1:1–2:4a och 2:4b–3:24 innehåller två litterärt åtskilda skapelseframställningar som enligt etablerad historisk-kritisk forskning sammanfogats redaktionellt; ordningsskillnaderna är textobservationer, medan källornas exakta tillkomsttid är rekonstruktioner.",
         verified: "2026-10-14",
         sourceTitle: "Konrad Schmid (2023), Genesis’ Two Creation Accounts Compiled and Interpreted as One",
@@ -389,6 +403,20 @@ window.TIDENS_REVIEW_LEDGER = Object.freeze({
   }
 ],
     H034: [
+      {
+            "claim": "Johannesevangeliets traditionella tillskrivning till aposteln Johannes är inte samma sak som en identifierad författarsignatur i själva evangeliet; den anonyma berättarrösten och uppgiften om lärjungen som vittne i Joh 21:24 behöver hållas isär.",
+            "verified": "2026-10-14",
+            "sourceTitle": "Johannesevangeliet 21:24; Richard Bauckham (2006), Jesus and the Eyewitnesses",
+            "sourceUrl": "https://www.biblegateway.com/passage/?search=John%2021%3A24&version=NRSVUE",
+            "evidenceType": "Primärtextreferens tillsammans med identifierat forskningsalternativ",
+            "claimType": "Textens tillskrivning och vittnesfunktion",
+            "sourceType": "Antik bibeltext; akademisk forskningsmonografi",
+            "timeLevel": "Textens redaktion och författartillskrivning, inte berättad Jesu verksamhet",
+            "timeClarification": "Textens påstående om vittnesförankring fastställer inte en modern verifierbar upphovsperson eller ett exakt skrivår.",
+            "scholarlyStanding": "Anonymt berättarjag och senare kyrklig författartradition; forskningsmodeller om vittnesmaterial omdiskuterade",
+            "scope": "Avgränsad kontroll av skillnaden mellan textens egen vittnesformulering och en historiskt säker identifikation.",
+            "limit": "Detta identifierar varken evangeliets huvudförfattare eller antal redaktionella skikt och fullgranskar inte Johannesevangeliet."
+      },
   {
     "claim": "P52:s ofta uppgivna precisionsdatering omkring år 125 e.Kr. bygger på paleografi och kan inte betraktas som säker; dateringsmöjligheterna kan enligt Nongbri nå in i 200-talet.",
     "verified": "2026-10-14",

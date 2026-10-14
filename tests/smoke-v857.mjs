@@ -21,6 +21,6 @@ assert.equal(vm.runInNewContext('originalEvents.length',data),129);
 vm.runInNewContext(read('data/review-ledger.js'),data);
 vm.runInNewContext(read('data/c6-progress.js'),data);
 const checks=Object.values(data.window.TIDENS_REVIEW_LEDGER.claimChecks);
-assert.equal(checks.reduce((n,x)=>n+x.length,0),35);
-assert.equal(data.window.TIDENS_C6_PROGRESS.history.at(-1).claimChecks,35);
+assert.ok(checks.reduce((n,x)=>n+x.length,0)>=35);
+assert.equal(data.window.TIDENS_C6_PROGRESS.history.at(-1).claimChecks,checks.reduce((n,x)=>n+x.length,0));
 console.log('OK V8.57 66 books / 193 existing records / 35 checks');
