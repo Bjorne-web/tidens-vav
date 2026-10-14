@@ -80,5 +80,6 @@ if(research.H020)research.H020.caution="Intervallet för Genesis 1–11 visar en
 if(research.H025)research.H025.caution="Datera Väktarboken och övriga Henokskrifter var för sig. Qumrans arameiska fragment och senare grekiska/etiopiska handskrifter är skilda textvittnen och får inte ges samma datering.";
 // Logga enbart införandet av begränsade textförtydliganden.
 // Dessa får aldrig förväxlas med journalens godkända sakpåståenden.
+const h011=events.find(e=>e.id==='H011');if(h011){h011.description='Merneptahs egyptiska segerinskrift omkring 1207 f.Kr. nämner Israel i Kanaan. Namnformen är belagd, men textens militära anspråk och gruppens ursprung är inte därmed verifierade.';h011.bible='';h011.source='Merneptahstelen JE 31408; UCL Digital Egypt; Hasel (1994).';}
 window.TIDENS_C6_CORRECTIONS=Object.freeze({schemaVersion:1,appliedIds:Object.freeze(Object.keys(corrections)),source:'v8.33-forskningskvalitet – C6',status:'text clarification, not full scientific review'});
 })();
