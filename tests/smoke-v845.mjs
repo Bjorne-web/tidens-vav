@@ -6,6 +6,12 @@ import path from 'node:path';
 const root=path.resolve(import.meta.dirname,'..');
 const read=p=>fs.readFileSync(path.join(root,p),'utf8');
 const html=read('index.html'), dashboard=read('v836-c6-progress.js');
+const pageVersion=html.match(/<title>Tidens väv V(\d+\.\d+)/)?.[1];
+assert.ok(pageVersion,'Missing browser title version');
+assert.ok(html.includes('Version '+pageVersion+' · upptäck'),'Header must match browser title version');
+assert.ok(html.includes('Om Tidens väv V'+pageVersion),'About page must match current version');
+assert.ok(!html.includes('· testversion'),'Public About page must not be labelled testversion');
+
 const context={window:{}};
 vm.runInNewContext(read('data/review-ledger.js'),context);
 vm.runInNewContext(read('data/c6-progress.js'),context);
