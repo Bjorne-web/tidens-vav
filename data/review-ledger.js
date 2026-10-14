@@ -332,6 +332,20 @@ window.TIDENS_REVIEW_LEDGER = Object.freeze({
 ],
     H020: [
       {
+        claim: "Genesis 1 använder i sin skapelseberättelse gudsbeteckningen Elohim, medan Genesis 2–3 i regel använder YHWH Elohim. Konrad Schmid tolkar den sammansatta beteckningen som ett möjligt redaktionellt sätt att knyta samman två ursprungligen självständiga skapelseframställningar.",
+        verified: "2026-10-14",
+        sourceTitle: "Konrad Schmid (2023), Genesis’ Two Creation Accounts Compiled and Interpreted as One",
+        sourceUrl: "https://www.thetorah.com/article/genesis-two-creation-accounts-compiled-and-interpreted-as-one",
+        evidenceType: "Textnära jämförelse av de hebreiska gudsbeteckningarna och en akademisk kompositionshypotes",
+        claimType: "Textvittne och redaktionell tolkningsmodell",
+        sourceType: "Bibelforskningsartikel av Konrad Schmid, University of Zurich",
+        timeLevel: "Hebreisk berättelsetext och dess föreslagna redaktion, inte berättad skapelse-urtid",
+        timeClarification: "Den litterära skapelseurtiden och den senare redaktionella sammanfogningen är olika tidsnivåer; språkbruket ger inte ett säkert årtal för redaktörens ingrepp.",
+        scholarlyStanding: "Skillnaden i namnbruk direkt observerbar; dess redaktionella uppkomst en forskningshypotes",
+        scope: "Gäller Genesis 1:1–2:4a och 2:4b–3:24; visar hur språkliga drag används vid kompositionsanalys.",
+        limit: "Det är inte bevisat att en viss redaktör vid en känd tidpunkt lade till 'Elohim'. Namnbruket avgör inte ensam dateringen av Moseböckerna."
+      },
+      {
         claim: "Genesis 1:1–2:4a och 2:4b–3:24 innehåller två litterärt åtskilda skapelseframställningar som enligt etablerad historisk-kritisk forskning sammanfogats redaktionellt; ordningsskillnaderna är textobservationer, medan källornas exakta tillkomsttid är rekonstruktioner.",
         verified: "2026-10-14",
         sourceTitle: "Konrad Schmid (2023), Genesis’ Two Creation Accounts Compiled and Interpreted as One",

@@ -1,4 +1,4 @@
-/* C6 – dokumenterad status; källkontroll är inte slutgranskning. */
+/* C6 – avgränsade källkontroller är inte slutgranskning. */
 window.TIDENS_C6_PROGRESS = Object.freeze({
   "schemaVersion": 1,
   "updated": "2026-10-14",
@@ -218,6 +218,17 @@ window.TIDENS_C6_PROGRESS = Object.freeze({
       "claimCheckPosts": 17,
       "claimChecks": 35,
       "note": "V8.57: H020 kontrollerar Genesis 1–3:s två olika skapelseframställningar mot Schmid och Brettler. 66 bibelböcker införda som separat preliminärt forskningsregister, ej del av de 193 historiska C6-posterna."
+    },
+    {
+      "date": "2026-10-14",
+      "inventory": 193,
+      "partialReports": 36,
+      "proposedCorrections": 11,
+      "implementedCorrections": 11,
+      "wholeApproved": 0,
+      "claimCheckPosts": 17,
+      "claimChecks": 36,
+      "note": "V8.58: en ny avgränsad textkontroll H020 jämför Elohim i Genesis 1 med YHWH Elohim i Genesis 2–3 och redaktionell tolkning enligt Konrad Schmid (2023). Bibelboksregistret får gemensam sidopanelsläsning; ingen fullgranskning."
     }
   ],
   "caveat": "Måtten överlappar. De får inte summeras till ett totalt färdigställande. Källkontroll av ett påstående betyder inte fullständig postgranskning.",
