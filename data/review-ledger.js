@@ -41,6 +41,21 @@ window.TIDENS_REVIEW_LEDGER = Object.freeze({
     ],
     H011: [
       {
+        claim: "Merneptahstelens dateringspunkt är kungens femte regeringsår, ungefär 1208 f.Kr. i den vanliga egyptiska kronologin; omnämnandet av Israel daterar inte säkert en särskild strid till samma år.",
+        verified: "2026-10-14",
+        sourceTitle: "Posen Library, Stela of Merneptah; Society of Biblical Literature, Israel's Prehistory (2024)",
+        sourceUrl: "https://www.posenlibrary.com/entry/stela-merneptah",
+        secondSourceUrl: "https://www.sbl-site.org/wp-content/uploads/2024/12/9781628375121.pdf",
+        evidenceType: "Textpresentation med femte regeringsåret och forskningsöversikt som skiljer inskrift från militärhistorisk rekonstruktion",
+        claimType: "Datering av källvittne kontra möjlig tidpunkt för beskrivet fälttåg",
+        sourceType: "Akademisk källutgåva och akademisk forskningsöversikt",
+        timeLevel: "Inskriftens tillkomst (femte regeringsåret), inte säkert en strids exakta tid",
+        timeClarification: "Cirka 1208 f.Kr. är en kronologisk omräkning med osäkerhet. Historiska händelser som skildras kan ha inträffat tidigare.",
+        scholarlyStanding: "Brett belagt femte regeringsår; absolut årtal kronologiskt approximativt; krigshändelsernas exakta datering osäker",
+        scope: "Skiljer den daterade segerinskriftens tillkomst från eventuella tidigare expeditioner och noterar akademiska framställningar av Israelomnämnandets textkontext.",
+        limit: "Stelen verifierar inte att ett visst slag mot Israel ägde rum år 1208 f.Kr. En astronomisk kronologimodell är inte ett oberoende bevis för Josuabokens historicitet."
+      },
+      {
         claim: "University College Londons digitala egyptologiska material identifierar Merneptahstelen som en segerinskrift på baksidan av en äldre stele från Amenhotep III och återger läsningen av Israel.",
         verified: "2026-10-14",
         sourceTitle: "UCL Digital Egypt – Merenptah's Israel stela",
