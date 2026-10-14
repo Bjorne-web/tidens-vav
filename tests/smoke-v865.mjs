@@ -10,8 +10,8 @@ const ledger=ctx.window.TIDENS_REVIEW_LEDGER;
 const ids=Object.keys(ledger.claimChecks);
 const count=Object.values(ledger.claimChecks).reduce((n,rows)=>n+rows.length,0);
 const current=ctx.window.TIDENS_C6_PROGRESS.history.at(-1);
-assert.equal(count,62);
-assert.equal(ids.length,23);
+assert.ok(count>=62);
+assert.ok(ids.length>=23);
 assert.equal(current.claimChecks,count);
 assert.equal(current.claimCheckPosts,ids.length);
 for(const id of ['H051','H055','H058']){

@@ -305,6 +305,17 @@ window.TIDENS_C6_PROGRESS=Object.freeze({
       "claimCheckPosts": 23,
       "claimChecks": 62,
       "note": "V8.65: tre nya avgränsade kontroller H051, H055, H058. C6-journalens faktiska antal unika kontrollerade poster är 23, medan V8.64 av misstag angav 20 trots 20 registrerade poster före denna etapp. Avvikelser redovisas öppet; 0 slutgranskade."
+    },
+    {
+      "date": "2026-10-14",
+      "inventory": 193,
+      "partialReports": 36,
+      "proposedCorrections": 11,
+      "implementedCorrections": 11,
+      "wholeApproved": 0,
+      "claimCheckPosts": 26,
+      "claimChecks": 65,
+      "note": "V8.66: tre avgränsade kontroller H050, H052 och H053; ny forskningsprofil B024 Jeremia om kort grekisk och längre hebreisk text. Inga helt granskade poster."
     }
   ],
   "caveat": "Måtten överlappar. De får inte summeras till ett totalt färdigställande. Källkontroll av ett påstående betyder inte fullständig postgranskning.",
