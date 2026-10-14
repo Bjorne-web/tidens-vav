@@ -68,7 +68,7 @@
   const sources=d.sources.map(s=>external(s.name,s.url)).filter(Boolean).join('');
   const status=!d.sourceBasis?'Inga individuella forskningskällor redovisade för denna post – texten är inte källgranskad.':
     'Underlaget är källhänvisat men samtliga historiska påståenden är inte vetenskapligt slutgranskade.';
-  return `<div class="kicker">TIDENS VÄV · ENHETLIG FORSKNINGSGENOMGÅNG</div>
+  return `<div class="kicker">TIDENS VÄV · ${d.sourceBasis?'KÄLLFÖRANKRAD GENOMGÅNG · AVGRÄNSAT UNDERLAG':'GENOMGÅNG · KÄLLGRANSKNING ÅTERSTÅR'}</div>
     <h2>${esc(d.heading)}</h2>
     <p class="v839-unified-status">${esc(status)}${d.original?' Originalpostens importerade årtal är inte automatiskt verifierade.':''}</p>
     <h3>Vad var det?</h3>${paragraph(d.summary,'Sammanfattning saknas ännu. Originalpostens titel och arkivuppgifter finns i den samlade översikten nedan.')}
