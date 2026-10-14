@@ -19,13 +19,13 @@ for(const f of ['v836-review-index.js','data/review-ledger.js'])
 
 // Data innehåller alla ID:n som journalen hänvisar till. Inga falska fullgranskningar.
 const ids=new Set([...read('data/data.generated.js').matchAll(/"id":"([A-Z]\d{3,6})"/g)].map(m=>m[1]));
-const env={window:{},events:[{id:'H001',title:'Göbekli Tepe'},{id:'H017',title:'Babylon'},{id:'H041',title:'Tel Dan'},{id:'H042',title:'Lakish'},{id:'H054',title:'Kyroscylindern'}],originalEvents:[{id:'O030',title:'Zoroastrism',original:true}],renderResearch(){},renderDetail(){},idEvent(){return null}};
+const env={window:{},events:[{id:'H001',title:'Göbekli Tepe'},{id:'H004',title:'Atrahasis'},{id:'H005',title:'Gilgamesh'},{id:'H017',title:'Babylon'},{id:'H041',title:'Tel Dan'},{id:'H042',title:'Lakish'},{id:'H054',title:'Kyroscylindern'}],originalEvents:[{id:'O030',title:'Zoroastrism',original:true}],renderResearch(){},renderDetail(){},idEvent(){return null}};
 vm.createContext(env);
 vm.runInContext(read('data/review-ledger.js'),env);
 const ledger=env.window.TIDENS_REVIEW_LEDGER;
 assert.equal(ledger.schemaVersion,2);
 assert.equal(Object.keys(ledger.completePostReviews).length,0);
-assert.equal(Object.keys(ledger.claimChecks).length,5);
+assert.equal(Object.keys(ledger.claimChecks).length,7);
 for(const [id,checks] of Object.entries(ledger.claimChecks)){
   assert.ok(ids.has(id),'Okänd post i journalen: '+id);
   for(const claim of checks){
@@ -35,12 +35,12 @@ for(const [id,checks] of Object.entries(ledger.claimChecks)){
     assert.ok(!claim.claim.includes('bevisar Bibeln'),'Undvik absoluta generaliseringar');
   }
 }
-const newClaims=['H001','H017','H042'];
+const newClaims=['H001','H004','H005','H017','H042'];
 for(const id of newClaims)assert.ok(ledger.claimChecks[id]?.length>0,'Källprövningen saknas: '+id);
 vm.runInContext(read('v836-review-index.js'),env);
 const idx=env.window.TidensKalloversikt;
-assert.equal(idx.overall().total,6);
-assert.equal(idx.overall().checkedPosts,5);
+assert.equal(idx.overall().total,8);
+assert.equal(idx.overall().checkedPosts,7);
 assert.equal(idx.overall().fullReviews,0);
 assert.equal(idx.overall().pendingPosts,1);
 assert.equal(idx.statusFor('H001'),'partial');
