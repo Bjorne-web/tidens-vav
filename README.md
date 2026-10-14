@@ -115,3 +115,11 @@ The World Behind the Word är den långsiktiga huvudappen. Tidens väv förblir 
 - Samtliga originalårtal, kategorier, Temaspårs tidslinje och sidopanelens redan godkända grundstruktur förblir oförändrade.
 - [Källnära forskningsrapport, textställen, motargument och fullständiga begränsningar](docs/c6-textjamforelse-v841.md).
 - Nytt regressionstest `node tests/smoke-v841.mjs` i GitHub Actions, förpassat till testgren tills användaren godkänt Cloudflare Preview.
+
+## V8.42 – justerad sidopanel och ”Detaljerad tidslinje”
+- Byter plats på **Temaspår** och **Samlad forskningsöversikt** i samtliga posters sidopanel. Den nya ordningen är genomgång → Temaspår → eventuella bibeltextlänkar → samlad forskningsöversikt.
+- **Läs de angivna bibeltexterna** flyttas direkt under Temaspår om rutan finns. Inga bibellänkar skapas där postens referenser saknas.
+- **KÄLLGRANSKNING · V8.34** och **Dela historisk undersökning** flyttas sist, utan att ersätta informations- eller klickfunktionerna.
+- I Tidslinje döps växlingsknappen **Alla poster** om till **Detaljerad tidslinje**; separat postlista påverkas inte.
+- Ändrar **inga** originaldata, C6-granskningsresultat eller den godkända funktionen i Temaspår. [Detaljerad plan och testchecklista](docs/lasarordning-v842.md).
+- Ny regression: `node tests/smoke-v842.mjs` tillsammans med hela tidigare testsviten.
