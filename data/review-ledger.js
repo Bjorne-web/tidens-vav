@@ -9,6 +9,36 @@ window.TIDENS_REVIEW_LEDGER = Object.freeze({
   updated: "2026-10-14",
   completePostReviews: {},
   claimChecks: {
+    H012: [
+      {
+        claim: "Höglandsbosättningarnas arkeologiska material under järnålder I är centralt för att studera framväxten av tidig israelitisk identitet, men etnicitet kan inte avläsas direkt ur en enda keramiktyp.",
+        verified: "2026-10-14",
+        sourceTitle: "Israel Finkelstein (1996), Ethnicity and Origin of the Iron I Settlers in the Highlands of Canaan",
+        sourceUrl: "https://www.journals.uchicago.edu/doi/10.2307/3210562",
+        evidenceType: "Vetenskaplig diskussion av arkeologiska bosättningsmönster kontra keramik och etnisk identifiering",
+        claimType: "Bosättningsarkeologi och identitetsrekonstruktion",
+        sourceType: "Fackvetenskaplig artikel; offentligt abstract",
+        timeLevel: "Järnålder I:s höglandsbosättningar kontra senare politisk och etnisk identitet",
+        timeClarification: "Datering av bosättningsmönster är skild från när beteckningen Israel fick social och politisk betydelse.",
+        scholarlyStanding: "Omfattande arkeologiska data; omdiskuterad koppling till en tidig sammanhållen israelitisk etnicitet",
+        scope: "Finkelstein beskriver hundratals små järnåldersbyar och ifrågasätter modeller som gör keramiska likheter till en entydig folkidentifiering.",
+        limit: "Artikeln belägger debatten och hans modell, inte att alla forskare accepterar hans sena datering av en distinkt israelitisk identitet."
+      },
+      {
+        claim: "Forskningsmodeller om Israels uppkomst använder ett samspel mellan bosättningar, levnadssätt, social organisation och textkällor snarare än att likställa ett arkeologiskt föremål med en bestämd etnisk grupp.",
+        verified: "2026-10-14",
+        sourceTitle: "Avraham Faust (2006), Israel's Ethnogenesis: Settlement, Interaction, Expansion and Resistance",
+        sourceUrl: "https://www.routledge.com/Israels-Ethnogenesis-Settlement-Interaction-Expansion-and-Resistance/Faust/p/book/9781904768982",
+        evidenceType: "Akademisk monografis öppna presentation av arkeologiska och antropologiska indikatorer",
+        claimType: "Etnogenes och tvärvetenskaplig forskningsmetod",
+        sourceType: "Vetenskaplig monografi; tillgänglig förlagsbeskrivning",
+        timeLevel: "Bosättningsmönster och successiva identitetsprocesser under järnåldern",
+        timeClarification: "Modellens rekonstruktion är inte ett direkt samtida textvittne till invånarnas självdefinition.",
+        scholarlyStanding: "Etablerad forskningsansats; tolkningen av specifika identitetsmarkörer omdiskuterad",
+        scope: "Förlagsbeskrivningen redogör för att Faust kombinerar arkeologi och antropologi och diskuterar bland annat husformer, keramik, kost och samhällshierarki.",
+        limit: "Presentation av metoden bevisar inte att en viss by eller ett visst artefaktkomplex entydigt tillhörde en grupp med namnet Israel."
+      }
+    ],
     H011: [
       {
         claim: "Merneptahstelen nämner en grupp kallad Israel i Kanaan omkring slutet av 1200-talet f.Kr.; beteckningen används inte som ett kanaaneiskt stadsnamn.",
