@@ -8,7 +8,8 @@ import {execFileSync} from 'node:child_process';
 const root=path.resolve(import.meta.dirname,'..');
 const read=p=>fs.readFileSync(path.join(root,p),'utf8');
 const html=read('index.html');
-assert.ok(html.includes('Version 8.40'),'Wrong version');
+const version=html.match(/Version 8\.(\d+)/);
+assert.ok(version&&Number(version[1])>=40,'V8.40 or newer expected');
 const req=['data/special-research.v840.js','data/c6-review-method.v840.js','v840-audit-method.js','v840-audit-method.css'];
 for(const file of req){
  assert.ok(fs.existsSync(path.join(root,file)),'Missing '+file);
@@ -51,9 +52,9 @@ assert.ok(reader.includes('inte ett exakt'),'Cautious time-level claims must rem
 for(const source of articleModel.sources)assert.ok(source.url.startsWith('https://'),'Secure provenance URLs required');
 const ledger=sandbox.window.TIDENS_REVIEW_LEDGER;
 assert.equal(Object.keys(ledger.completePostReviews).length,0,'No whole article approved');
-assert.equal(Object.keys(ledger.claimChecks).length,13,'13 posts with check entries');
-assert.equal(Object.values(ledger.claimChecks).reduce((n,a)=>n+a.length,0),19,'19 scoped claims in all');
-assert.equal(ledger.claimChecks.O030.length,6,'6 distinct Zoroastrian research checks');
+assert.ok(Object.keys(ledger.claimChecks).length>=13,'Previous audited posts may not disappear');
+assert.ok(Object.values(ledger.claimChecks).reduce((n,a)=>n+a.length,0)>=19,'Earlier source checks may not disappear');
+assert.ok(ledger.claimChecks.O030.length>=6,'Original six Zoroastrian checks must remain');
 for(const claim of ledger.claimChecks.O030){
  for(const key of ['claim','scope','limit','sourceTitle','sourceUrl','sourceType','evidenceType','scholarlyStanding','timeLevel','timeClarification']){
   assert.ok(typeof claim[key]==='string'&&claim[key].length>10,'O030 missing '+key);
@@ -63,8 +64,8 @@ for(const claim of ledger.claimChecks.O030){
 }
 const progress=sandbox.window.TIDENS_C6_PROGRESS;
 assert.equal(progress.total,193);
-assert.equal(progress.history.at(-1).claimCheckPosts,13);
-assert.equal(progress.history.at(-1).claimChecks,19);
+assert.equal(progress.history.at(-1).claimCheckPosts,Object.keys(ledger.claimChecks).length);
+assert.equal(progress.history.at(-1).claimChecks,Object.values(ledger.claimChecks).reduce((n,a)=>n+a.length,0));
 assert.equal(progress.history.at(-1).wholeApproved,0);
 const protocol=sandbox.window.TIDENS_AUDIT_METHOD;
 assert.equal(protocol.criteria.length,6,'Every approval must pass the six mandatory gates');
