@@ -404,6 +404,20 @@ window.TIDENS_REVIEW_LEDGER = Object.freeze({
 ],
     H034: [
       {
+        "claim": "Johannesevangeliets långa tal, teckenberättelser och återkommande teman om ljus, sanning och att se/skåda skiljer sig litterärt från synoptikernas berättarformer. Skillnaden motiverar en särskild kompositionsdiskussion, men bevisar inte i sig en exakt redaktionshistoria.",
+        "verified": "2026-10-14",
+        "sourceTitle": "Dale B. Martin, Open Yale Courses RLST 152, Lecture 11: Johannine Christianity: the Gospel",
+        "sourceUrl": "https://oyc.yale.edu/religious-studies/rlst-152/lecture-11",
+        "evidenceType": "Universitetsföreläsning med jämförelse mellan Johannes och de synoptiska evangelierna",
+        "claimType": "Litterär jämförelse och redaktionsmodell",
+        "sourceType": "Akademisk universitetskurs",
+        "timeLevel": "Litterär gestaltning och tillkomstmodeller, skild från berättad tid om Jesus",
+        "timeClarification": "Litterära skillnader mellan evangelierna innebär inte en säker datering av den slutliga utgåvan eller ett visst redaktionsled.",
+        "scholarlyStanding": "Allmänt observerbar litterär skillnad; specifika samhälls- och redaktionsmodeller omdiskuterade",
+        "scope": "Avgränsad analys av Johannes särdrag i förhållande till de synoptiska evangelierna.",
+        "limit": "Yale-föreläsningen utgör ett introducerande forskningsunderlag; den räcker inte ensam för att vetenskapligt slutgranska Johannesevangeliet."
+      },
+      {
             "claim": "Johannesevangeliets traditionella tillskrivning till aposteln Johannes är inte samma sak som en identifierad författarsignatur i själva evangeliet; den anonyma berättarrösten och uppgiften om lärjungen som vittne i Joh 21:24 behöver hållas isär.",
             "verified": "2026-10-14",
             "sourceTitle": "Johannesevangeliet 21:24; Richard Bauckham (2006), Jesus and the Eyewitnesses",
