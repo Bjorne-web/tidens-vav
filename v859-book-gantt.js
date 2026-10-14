@@ -3,7 +3,6 @@
   const books=window.TIDENS_BIBLE_BOOKS||[];
   if(!books.length||typeof renderTimeline!=='function'||typeof state==='undefined')return;
   const CATEGORY='Bibelns böcker';
-  laneNames[CATEGORY]=CATEGORY;
   colors[CATEGORY]='#e3eef8';
   dark[CATEGORY]='#497baa';
   state.cat.add(CATEGORY);
@@ -18,7 +17,7 @@
   .tv-book-hit:focus-visible{outline:3px solid #285da0;outline-offset:2px}
   .tv-book-label{font-size:12px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;position:absolute;left:0;top:8px;max-width:100%;pointer-events:none;color:#264966}
   .tv-book-row{position:absolute;height:26px;left:0;right:0}
-  .tv-book-legend{padding:7px 10px;font-size:.75rem;color:#4a6680}
+  .tv-book-legend{grid-column:1/-1;padding:7px 10px;font-size:.75rem;color:#4a6680}
   .tv-only-filter{display:inline-flex;gap:6px;align-items:center;padding:3px 6px;border:1px solid #cbd9e6;border-radius:6px}
   `;document.head.append(style);
   const filters=document.getElementById('catFilters');
@@ -86,7 +85,7 @@
     lane.append(head,plot);
     const legend=document.createElement('div');legend.className='tv-book-legend';
     legend.textContent='Tunt band = preliminärt tillkomst-/redaktionsintervall. Mörk markering = intervallets osäkra slutgräns, inte ett fastställelsedatum. Klicka på bandet för forskningsposten.';
-    plot.append(legend);
+    lane.append(legend);
     lanes.append(lane);
   }
   const previous=renderTimeline;
