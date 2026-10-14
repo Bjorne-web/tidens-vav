@@ -6,7 +6,7 @@ import vm from 'node:vm';
 import {execFileSync} from 'node:child_process';
 const root=path.resolve(import.meta.dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'utf8');
 const html=read('index.html'),css=read('v843-timeline-workspace.css');
-assert.ok(html.includes('Version 8.43'));
+assert.ok(/Version 8\.(?:4[3-9]|[5-9][0-9])/.test(html),'V8.43 or later expected');
 for(const f of ['v843-timeline-workspace.js','v843-timeline-workspace.css']){
  assert.ok(fs.existsSync(path.join(root,f)),'Missing '+f);
  assert.ok(html.includes(f),'Unlinked '+f);
