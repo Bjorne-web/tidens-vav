@@ -73,7 +73,7 @@ for(const key of Object.keys(full)){
 let renderCount=0;
 const env={
  window:{},
- document:{getElementById:id=>id==='timelineView'?timeline:id==='catFilters'?catFilters:null,createElement:tag=>n(tag)},
+ document:{getElementById:id=>({timelineView:timeline,catFilters,v7toolbar:controls,v827PanControls:pan,axis,v843StickyControls:timeline.querySelector('#v843StickyControls')})[id]||null,createElement:tag=>n(tag)},
  laneNames:full,
  renderTimeline(){renderCount++}
 };
