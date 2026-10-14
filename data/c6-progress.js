@@ -1,7 +1,5 @@
-/* C6 – källdokumenterad arbetsstatus, senast avstämd 2026-10-14.
-   Statusen uppdateras som del av en granskad GitHub-ändring vid varje ny C6-etapp.
-   'Delvis undersökt' och 'slutgranskad' är medvetet separata mått.
-*/
+/* C6 – dokumenterad status, uppdaterad 2026-10-14, V8.37 testgren.
+   Införd textkorrigering är inte vetenskapligt slutgranskad post. */
 window.TIDENS_C6_PROGRESS = Object.freeze({
   "schemaVersion": 1,
   "updated": "2026-10-14",
@@ -63,7 +61,7 @@ window.TIDENS_C6_PROGRESS = Object.freeze({
     "H042",
     "H034"
   ],
-  "description": "36 unika poster förekommer som egna avsnitt i åtta delgranskningsrapporter på C6-arbetsgrenen. 11 förslag till textkorrigeringar ligger ännu separat och är inte publicerade. Ingen post har avslutad helgranskning.",
+  "description": "36 poster behandlas i åtta C6-delgranskningsrapporter. Elva textförtydliganden har förts in i V8.37:s testgren. Inga numeriska dateringar eller vetenskapliga slutgranskningsflaggor har ändrats.",
   "history": [
     {
       "date": "2026-10-13",
@@ -80,7 +78,29 @@ window.TIDENS_C6_PROGRESS = Object.freeze({
       "proposedCorrections": 11,
       "wholeApproved": 0,
       "note": "Status sammanställd för visning i appen; journalen i V8.36 kontrolleras separat."
+    },
+    {
+      "date": "2026-10-14",
+      "inventory": 193,
+      "partialReports": 36,
+      "proposedCorrections": 11,
+      "implementedCorrections": 11,
+      "wholeApproved": 0,
+      "note": "Elva förberedda textförtydliganden integrerade i V8.37:s separata datalager. Helgranskning återstår."
     }
   ],
-  "caveat": "Måtten överlappar. De får inte summeras till ett totalt färdigställande. Källkontroll av ett påstående betyder inte fullständig postgranskning."
+  "caveat": "Måtten överlappar. De får inte summeras till ett totalt färdigställande. Källkontroll av ett påstående betyder inte fullständig postgranskning.",
+  "implementedCorrectionIds": [
+    "H019",
+    "H020",
+    "H021",
+    "H023",
+    "H024",
+    "H025",
+    "H009",
+    "H017",
+    "H037",
+    "H042",
+    "H034"
+  ]
 });
