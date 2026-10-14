@@ -43,8 +43,8 @@ assert.ok(d.comparisons[0].grade.includes('omdiskuterad'),'Direction of influenc
 const ledger=env.window.TIDENS_REVIEW_LEDGER;
 const entries=Object.keys(ledger.claimChecks);
 const checks=Object.values(ledger.claimChecks).reduce((n,arr)=>n+arr.length,0);
-assert.equal(entries.length,15,'15 records with claim checks');
-assert.equal(checks,24,'24 individually documented source checks');
+assert.ok(entries.length>=15,'Earlier 15 records with claim checks must remain');
+assert.ok(checks>=24,'Earlier 24 claim checks must remain');
 assert.ok(ledger.claimChecks.O030.length>=7,'Avestan source review missing');
 assert.equal(ledger.claimChecks.H023.length,3,'Daniel and Isaiah checks absent');
 assert.equal(ledger.claimChecks.H024.length,1,'Maccabean text check absent');
