@@ -115,7 +115,7 @@
   function syncGuideLines(){
     const span=Math.max(1,state.max-state.min);
     const step=span>5000?2000:span>1800?500:span>700?200:span>250?100:span>100?50:25;
-    document.querySelectorAll('#lanes .laneplot:not(.tv-book-lane .laneplot)').forEach(plot=>{
+    document.querySelectorAll('#lanes .lane:not(.tv-book-lane) .laneplot').forEach(plot=>{
       plot.querySelector('.tv-calendar-guide')?.remove();
       plot.style.backgroundImage='none';
       const guide=document.createElement('div');
