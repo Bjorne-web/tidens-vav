@@ -40,7 +40,7 @@
    article.append(make('p',profile.composition));
    article.append(make('h3','Historisk och religionshistorisk kontext'));
    article.append(make('p',profile.context));
-   if(profile.passageNotes?.length){for(const n of profile.passageNotes){article.append(make('h4',n.passage),make('p',n.note));}}
+   if(profile.passageNotes?.length){for(const n of profile.passageNotes){article.append(make('h4',n.passage),make('p',n.note));const sourceLink=make('a','Forskningskälla ↗');sourceLink.href=n.source;sourceLink.target='_blank';sourceLink.rel='noopener noreferrer';article.append(sourceLink);}}
    if(profile.sources?.length){
     article.append(make('h3','Källor och läsvägar'));
     const list=make('ul');
