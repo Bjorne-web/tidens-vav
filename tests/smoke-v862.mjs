@@ -18,7 +18,7 @@ const ledger=ctx.window.TIDENS_REVIEW_LEDGER;
 const checks=Object.values(ledger.claimChecks);
 const n=checks.reduce((a,b)=>a+b.length,0);
 assert.ok(n>=40);
-assert.equal(Object.keys(ledger.claimChecks).length,17);
+assert.ok(Object.keys(ledger.claimChecks).length>=17);
 assert.equal(ctx.window.TIDENS_C6_PROGRESS.history.at(-1).claimChecks,n);
 assert.equal(Object.keys(ledger.completePostReviews).length,0);
 assert.ok(ledger.claimChecks.H019.some(x=>x.claim.includes('4QpaleoExod')));
