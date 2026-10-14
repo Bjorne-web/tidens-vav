@@ -29,6 +29,7 @@ class Node{
   return this.tagName===tag.toLowerCase()&&(!cls||this.className.split(/\s+/).includes(cls));
  }
  append(...nodes){for(const n of nodes){if(n.parentNode)n.parentNode.children=n.parentNode.children.filter(x=>x!==n);this.children.push(n);n.parentNode=this}}
+ appendChild(n){this.append(n);return n}
  querySelector(selector){
   for(const node of this.children){if(node.matches(selector))return node;const nested=node.querySelector(selector);if(nested)return nested}
   return null;
