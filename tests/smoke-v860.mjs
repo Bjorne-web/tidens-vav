@@ -16,7 +16,7 @@ for(const id of ['B040','B041','B042','B043']){
 vm.runInNewContext(read('data/review-ledger.js'),ctx);
 vm.runInNewContext(read('data/c6-progress.js'),ctx);
 const checks=Object.values(ctx.window.TIDENS_REVIEW_LEDGER.claimChecks);
-assert.equal(checks.reduce((n,a)=>n+a.length,0),38);
-assert.equal(ctx.window.TIDENS_C6_PROGRESS.history.at(-1).claimChecks,38);
+assert.ok(checks.reduce((n,a)=>n+a.length,0)>=38);
+assert.equal(ctx.window.TIDENS_C6_PROGRESS.history.at(-1).claimChecks,checks.reduce((n,a)=>n+a.length,0));
 assert.equal(Object.keys(ctx.window.TIDENS_REVIEW_LEDGER.completePostReviews).length,0);
 console.log('V8.60: four gospel dossiers, C6 38 checks, zero complete reviews');

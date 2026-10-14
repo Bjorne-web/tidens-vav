@@ -1,5 +1,5 @@
-/* C6 – avgränsade forskningskontroller är inte vetenskaplig slutgranskning. */
-window.TIDENS_C6_PROGRESS = Object.freeze({
+/* C6: scoped checks are not whole reviews. */
+window.TIDENS_C6_PROGRESS=Object.freeze({
   "schemaVersion": 1,
   "updated": "2026-10-14",
   "total": 193,
@@ -251,6 +251,17 @@ window.TIDENS_C6_PROGRESS = Object.freeze({
       "claimCheckPosts": 17,
       "claimChecks": 38,
       "note": "V8.60: fyra källfördjupade evangelieprofiler B040–B043; en avgränsad C6-kontroll H034 om Johannesevangeliets litterära särdrag mot synoptikerna. Ingen helgranskning."
+    },
+    {
+      "date": "2026-10-14",
+      "inventory": 193,
+      "partialReports": 36,
+      "proposedCorrections": 11,
+      "implementedCorrections": 11,
+      "wholeApproved": 0,
+      "claimCheckPosts": 17,
+      "claimChecks": 39,
+      "note": "V8.61: fem preliminärt källförankrade Pentateukprofiler B001–B005 samt en avgränsad C6-kontroll i H019 av deuteronomisk lagtolkning och osäker redaktionsdatering. Ingen helgranskning."
     }
   ],
   "caveat": "Måtten överlappar. De får inte summeras till ett totalt färdigställande. Källkontroll av ett påstående betyder inte fullständig postgranskning.",
