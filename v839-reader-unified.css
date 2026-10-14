@@ -1,0 +1,23 @@
+/* V8.39 – gemensam läsarstruktur i hela Tidens väv, H- och O-poster. */
+#detail.v839-unified-reader>.v86-article{margin-top:0;margin-bottom:14px;max-width:100%;min-width:0}
+#detail.v839-unified-reader>.v839-unified-overview{margin:0 0 14px;padding:12px 14px;background:#f7fbff;border:1px solid #c2d8e9;border-radius:11px;max-width:100%;min-width:0}
+.v839-unified-overview>summary{cursor:pointer;font-weight:800;color:#225b85;font-size:14px;line-height:1.6}
+.v839-unified-overview>.v828-dossier{margin-top:13px;margin-bottom:10px}
+.v839-archive-metadata{border-top:1px solid #d6e3ef;margin-top:11px;padding-top:10px}
+.v839-archive-metadata>h3{font-size:13px;color:#376080;margin:0 0 10px}
+.v839-archive-metadata>.meta{margin:10px 0;max-width:100%}
+.v839-archive-metadata>.note,.v839-archive-metadata>.warn,.v839-archive-metadata>.sources{margin:9px 0}
+.v839-archive-metadata>figure{max-width:100%;margin:10px 0}
+.v839-archive-metadata img{max-width:100%;height:auto}
+.v839-unified-article h2{font-size:19px;line-height:1.3;margin:6px 0 10px;overflow-wrap:anywhere}
+.v839-unified-article h3{font-size:14px;line-height:1.45;color:#234e70;margin:15px 0 6px}
+.v839-unified-article p{line-height:1.65;overflow-wrap:anywhere}
+.v839-unified-status{border-left:3px solid #a77f39;background:#fff8eb;padding:10px 11px;font-size:12px;color:#725727;line-height:1.6}
+.v839-unified-sources{padding-left:20px;margin:8px 0 12px;display:grid;gap:7px;font-size:12px;overflow-wrap:anywhere}
+.v839-unified-sources a{color:#1a6198;text-decoration:underline}
+.v839-unified-missing{font-size:12px;color:#825f26}
+.v839-unified-caveat{font-size:11px;color:#5e7486;border-top:1px solid #d7e4ee;padding-top:10px}
+#detail.v839-unified-reader>.v827-reader-rel{margin:0 0 14px}
+#detail.v839-unified-reader>.v84-reader-bar{margin-top:5px;margin-bottom:12px}
+#detail.v839-unified-reader>h2{margin:4px 0 11px;overflow-wrap:anywhere}
+@media(max-width:760px){#detail.v839-unified-reader>.v839-unified-overview{padding:10px} .v839-unified-article h2{font-size:17px}.v839-unified-article h3{font-size:13px}}
