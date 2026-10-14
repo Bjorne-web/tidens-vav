@@ -60,7 +60,7 @@ window.TIDENS_C6_PROGRESS = Object.freeze({
     "H042",
     "H034"
   ],
-  "description": "193 poster inventerade. 36 ingår i C6-delgranskningsrapporter. 11 textförtydliganden införda. 24 avgränsade påståenden källkontrollerade i 15 poster. En jämförelse av fyra iranska och judiska textpassager har lagts till, utan att fastslå direkt litterär påverkan. 0 vetenskapligt helgranskade poster.",
+  "description": "193 poster inventerade. 36 ingår i C6-delgranskningsrapporter. 11 textförtydliganden införda. 26 avgränsade påståenden källkontrollerade i 16 poster. En jämförelse av fyra iranska och judiska textpassager har lagts till, utan att fastslå direkt litterär påverkan. 0 vetenskapligt helgranskade poster.",
   "history": [
     {
       "date": "2026-10-13",
@@ -119,6 +119,17 @@ window.TIDENS_C6_PROGRESS = Object.freeze({
       "claimCheckPosts": 15,
       "claimChecks": 24,
       "note": "V8.41: fyra källpassager (Yašt 19:89, Daniel 12:2, Jes 26:19, 2 Mack 7) och tre jämförande analyser, plus fem nya individuella källkontroller i O030, H023 och H024. Påverkan är fortfarande omdiskuterad; ingen helgranskning."
+    },
+    {
+      "date": "2026-10-14",
+      "inventory": 193,
+      "partialReports": 36,
+      "proposedCorrections": 11,
+      "implementedCorrections": 11,
+      "wholeApproved": 0,
+      "claimCheckPosts": 16,
+      "claimChecks": 26,
+      "note": "V8.48: två avgränsade källkontroller har lagts till för H011, Merneptahstelen: namnet Israel och begränsningarna vid koppling till arkeologiska bosättningar. Ingen helgranskning."
     }
   ],
   "caveat": "Måtten överlappar. De får inte summeras till ett totalt färdigställande. Källkontroll av ett påstående betyder inte fullständig postgranskning.",
