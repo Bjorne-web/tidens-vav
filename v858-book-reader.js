@@ -58,6 +58,20 @@
    for(const src of torah.sources){const a=make('a',src.title);a.href=src.url;a.target='_blank';a.rel='noopener noreferrer';const li=make('li');li.append(a);sources.append(li)}
    article.append(make('h3','Källor för handskriftstraditionerna'),sources);
   }
+  const variants=window.TIDENS_BIBLE_VARIANTS?.[b.id]||[];
+  if(variants.length){
+   article.append(make('h3','Konkreta textvarianter'));
+   for(const variant of variants){
+    article.append(make('h4',variant.passage+' · '+variant.witness));
+    article.append(make('p',variant.variant));
+    article.append(make('p','Jämförelse: '+variant.comparison));
+    article.append(make('p','Forskningsläge: '+variant.standing));
+    article.append(make('p','Begränsning: '+variant.limits));
+    const list=make('ul');
+    for(const src of variant.sources){const li=make('li'),link=make('a',src.title);link.href=src.url;link.rel='noopener noreferrer';link.target='_blank';li.append(link);list.append(li);}
+    article.append(list);
+   }
+  }
   const caveat=make('p','Ett enskilt källstöd eller en dateringsmodell innebär inte att boken är fullständigt historisk-kritiskt granskad.');caveat.className='v839-unified-caveat';article.append(caveat);
   const links=make('section');links.className='v827-reader-rel';
   links.append(make('h3','Historiska samband'));
