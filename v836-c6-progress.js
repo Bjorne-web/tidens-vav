@@ -17,6 +17,7 @@
       inventory:project.inventoryComplete?total:0,
       partialReports:unique(project.partialReportIds).size,
       corrections:unique(project.proposedCorrectionIds).size,
+      implementedCorrections:unique(project.implementedCorrectionIds).size,
       journalPosts:unique(journalIds).size,
       journalClaims:journalIds.reduce((sum,id)=>sum+ledger.claimChecks[id].length,0),
       fullyReviewed:unique(whole).size
@@ -55,13 +56,33 @@
         m.partialReports+' olika poster behandlas i '+project.totalReports+' rapporter på en separat arbetsgren. Kontrollerna är inte fullständiga.'),
       progressRow('Poster med registrerad källprövning i denna testversion',m.journalPosts,total,
         m.journalClaims+' avgränsade påståenden i källjournalen. Överlapp med C6-rapporterna förekommer.'),
+      progressRow('Införda textförtydliganden från C6',m.implementedCorrections,m.corrections,
+        'Av de 11 dokumenterade ändringsförslagen. Ändrad formulering är inte samma sak som helgranskning.'),
       progressRow('Fullständigt vetenskapligt slutgranskade',m.fullyReviewed,total,
         'Först efter genomgång av källor, dateringar, alternativ forskning och samtliga bärande påståenden.')
     );
     panel.append(grid);
     const pending=h('p','c6-pending',
-      m.corrections+' textkorrigeringar är föreslagna i den separata C6-arbetsgrenen och ännu inte införda i denna version.');
+      m.implementedCorrections+' av '+m.corrections+' föreslagna textförtydliganden finns nu i denna testversion. De innebär inte att berörda poster har slutgranskats.');
     panel.append(pending);
+    const corrected=project.implementedCorrectionIds||[];
+    if(corrected.length){
+      const listDetails=h('details','c6-corrections-list');
+      listDetails.append(h('summary','','Visa de '+corrected.length+' uppdaterade texterna'));
+      const list=h('ul','');
+      corrected.forEach(id=>{
+        const item=idEvent(id);
+        if(!item)return;
+        const li=h('li','');
+        const button=h('button','c6-correction-link',item.title+' · '+id);
+        button.type='button';
+        button.addEventListener('click',()=>setSelected(id));
+        li.append(button);
+        list.append(li);
+      });
+      listDetails.append(list);
+      panel.append(listDetails);
+    }
     const caveat=h('p','c6-caveat',project.caveat);
     panel.append(caveat);
     const details=h('details','c6-progress-detail');
@@ -86,4 +107,17 @@
   const old=renderResearch;
   renderResearch=function(){old();mount()};
   window.TidensC6Status=Object.freeze({measures});
+  const priorDetail=renderDetail;
+  renderDetail=function(){
+    priorDetail();
+    const meta=window.TIDENS_C6_CORRECTIONS;
+    const id=state?.selected;
+    if(!meta||!meta.appliedIds.includes(id))return;
+    const panel=document.getElementById('detail');
+    if(!panel)return;
+    const note=h('p','c6-text-note','C6: Beskrivningen förtydligad i V8.37, med källkritiska reservationer. Detta är inte en vetenskaplig slutgranskning.');
+    const audit=panel.querySelector('.v834-review');
+    if(audit)audit.insertAdjacentElement('beforebegin',note);
+    else panel.prepend(note);
+  };
 })();

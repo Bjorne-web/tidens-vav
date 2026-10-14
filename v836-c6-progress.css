@@ -16,3 +16,13 @@
 .c6-history{line-height:1.65;margin:8px 0;padding-left:24px}
 .c6-references a{color:#235f93;text-decoration:underline}
 @media(max-width:780px){.c6-meter-grid{grid-template-columns:minmax(0,1fr)}.c6-progress{padding:12px}.c6-progress h3{font-size:16px}.c6-meter-row{padding:11px}}
+
+/* C6 V8.37 – visa uppdaterade texter, men inte som slutgranskade. */
+.c6-corrections-list{margin:9px 0;padding:9px 11px;border:1px solid #ccdeec;border-radius:9px;background:white;font-size:12px}
+.c6-corrections-list summary{font-weight:800;color:#265d86;cursor:pointer}
+.c6-corrections-list ul{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.c6-corrections-list li{min-width:0}
+.c6-correction-link{width:100%;text-align:left;padding:8px 9px;border:1px solid #dae5ef;background:#f9fcff;border-radius:7px;color:#235881;cursor:pointer;font-size:12px;overflow-wrap:anywhere}
+.c6-correction-link:focus-visible{outline:2px solid #236a9e}
+.c6-text-note{padding:9px 12px;margin:10px 0;background:#f0f6ff;border-left:3px solid #437ea8;color:#325875;font-size:12px;line-height:1.55}
+@media(max-width:760px){.c6-corrections-list ul{grid-template-columns:minmax(0,1fr)}}

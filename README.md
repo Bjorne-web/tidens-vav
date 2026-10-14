@@ -57,3 +57,11 @@ The World Behind the Word är den långsiktiga huvudappen. Tidens väv förblir 
 - Vissa poster finns i både C6-rapporterna och källjournalen. Siffrorna får **inte summeras** eller tolkas som andel helt färdigt forskningsarbete.
 - Underliggande källnära statusdata ligger i `data/c6-progress.js`. Vid varje faktisk C6-uppdatering ska man uppdatera listorna över dokumenterat berörda post-ID:n, korrigerings-ID:n, datum och historik. Ändringar kontrolleras av `node tests/smoke-c6-progress.mjs` och GitHub Actions.
 - Panelen uppdateras genom en ny kodpublicering. Det finns **ingen bakgrundsprocess** som forskar kontinuerligt mellan samtalen.
+
+## V8.37 – elva C6-textförtydliganden
+- Elva redan dokumenterade förtydliganden från C6:s separata arbetsgren finns nu i `data/c6-text-clarifications.v837.js` (laddas efter genererad data, före appen).
+- Gamla numeriska dateringar, evidensgrader och `reviewed`-flaggor ändras inte. Förbättrade källkort finns för samtliga elva berörda poster.
+- Panelen under **Fördjupningar** visar nu införda textförtydliganden som separat mått (11 av 11). Ingen av de 193 posterna markeras fullständigt vetenskapligt slutgranskad.
+- Du kan expandera listan över elva reviderade poster direkt i C6-statuspanelen; varje sådant läskort märks `Texten förtydligad` och uttryckligen `inte slutgranskad`.
+- Se [C6 V8.37: källunderlag och exakta ändringar](docs/c6-implementation-v837.md).
+- `node tests/smoke-v837.mjs` säkerställer att exakt elva beskrivningar ändras, att referenskort finns och att datumen är oförändrade.
