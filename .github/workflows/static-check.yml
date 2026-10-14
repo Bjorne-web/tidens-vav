@@ -30,3 +30,4 @@ jobs:
           node tests/smoke-v841.mjs
           node tests/smoke-v842.mjs
           node tests/smoke-v843.mjs
+          node tests/smoke-v844-c6-audit.mjs
