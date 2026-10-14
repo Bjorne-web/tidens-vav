@@ -22,3 +22,4 @@ jobs:
           node tests/smoke-v836.mjs
           node tests/smoke-c6-progress.mjs
           node tests/smoke-v837.mjs
+          node tests/smoke-v838.mjs
