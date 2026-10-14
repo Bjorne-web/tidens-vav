@@ -515,7 +515,7 @@ window.TIDENS_REVIEW_LEDGER = Object.freeze({
       scope: "Kontrollen gäller UNESCO:s datering och beskrivning av monumentala anläggningar och T-formade pelare.",
       limit: "Källan belägger inte en historisk identifikation med Edens trädgård och fastställer inte en slutgiltig religiös funktion för alla byggnader."
     }],
-    H004: [{
+    H004: [{"claim":"British Museum identifierar DT.42 som en senare avskrift av Atrahasis flodberättelse.","verified":"2026-10-14","sourceTitle":"British Museum DT.42","sourceUrl":"https://www.britishmuseum.org/collection/object/W_DT-42","sourceType":"Museikatalog","evidenceType":"Bevarad kilskriftstavla","claimType":"Manuskriptvittne","timeLevel":"Senare avskrift","timeClarification":"Datering av en avskrift anger inte originalberättelsens uppkomst.","scope":"Den katalogiserade tavlan","limit":"Fyndet bevisar inte en historisk översvämning eller ursprungstid."},{
       claim: "Den gammalbabyloniska Atrahasistraditionen berättar att gudarnas beslut om floden motiveras av människornas störande oväsen; Enki varnar Atrahasis så att han kan bygga en båt.",
       verified: "2026-10-14",
       sourceTitle: "British Museum – Babylonian flood story, bilddokumentation 510209001",
@@ -526,7 +526,7 @@ window.TIDENS_REVIEW_LEDGER = Object.freeze({
       scope: "Kontrollen gäller museets redovisning av motivet gudarnas störning, flodbeslutet och Enkis varning av Atrahasis.",
       limit: "Skillnaden mot Genesis är relevant för jämförelse, men dokumentet bevisar inte en direkt litterär överföringskedja till Genesis eller daterar dess slutliga redaktion."
     }],
-    H005: [{
+    H005: [{"claim":"British Museum identifierar K.2252 som ett fragment av Gilgamesheposets elfte tavla.","verified":"2026-10-14","sourceTitle":"British Museum K.2252","sourceUrl":"https://www.britishmuseum.org/collection/object/W_K-2252","sourceType":"Museikatalog","evidenceType":"Bevarad kilskriftstavla","claimType":"Manuskriptvittne","timeLevel":"Senare avskrift","timeClarification":"Datering av en avskrift anger inte originalberättelsens uppkomst.","scope":"Den katalogiserade tavlan","limit":"Fyndet bevisar inte en historisk översvämning eller ursprungstid."},{
       claim: "Gilgamesheposets tavla XI innehåller en flodberättelse som finns bevarad i nyassyriska kilskriftsfragment från Nineve.",
       verified: "2026-10-14",
       sourceTitle: "British Museum – Gilgamesh tablet 11, föremål K.2252",
