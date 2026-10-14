@@ -537,7 +537,7 @@ window.TIDENS_REVIEW_LEDGER = Object.freeze({
       scope: "Kontrollen gäller museets identifiering av tavla XI:s flodtema och att fragmentet hör till nyassyrisk handskriftstradition.",
       limit: "Dateringen av ett nyassyriskt manuskript är inte detsamma som berättelsens eller eposets första komposition. Likheter med Genesis räcker inte i sig för en säker direkt beroendekedja."
     }],
-    H017: [{
+    H017: [{"claim":"Kyroscylindern presenterar Kyros erövring av Babylon år 539 f.Kr. genom en berättelse om guden Marduks vilja.","verified":"2026-10-14","sourceTitle":"British Museum Cyrus Cylinder 90920","sourceUrl":"https://www.britishmuseum.org/collection/object/W_1880-0617-1941","sourceType":"Museikatalog med föremålsbeskrivning","evidenceType":"Babylonisk kungainskrift","claimType":"Kunglig självframställning","timeLevel":"Inskrift efter 539 f.Kr.","timeClarification":"Inskriftens tillkomst gäller kunglig propaganda, inte exakt datering av Esras återvändande.","scope":"Kyroscylinderns eget innehåll","limit":"Dokumentet nämner inte Jerusalem och ger inte universella rättighetsprinciper."},{
       claim: "Kyros erövring av Babylon dateras till 539 f.Kr.; Kyroscylindern framställer erövringen i babyloniskt kungligt och religiöst språk.",
       verified: "2026-10-14",
       sourceTitle: "British Museum – The Cyrus Cylinder, föremål 90920",
@@ -570,7 +570,7 @@ window.TIDENS_REVIEW_LEDGER = Object.freeze({
       scope: "Kontrollen gäller fyndets datering på sekelnivå och benämningen 'Davids hus'.",
       limit: "Inskriften bevisar inte detaljerna i de bibliska kungaberättelserna eller omfattningen av Davids rike."
     }],
-    H054: [{
+    H054: [{"claim":"Kyroscylindern handlar om återställande av kult och deporterade grupper men är inte en modern deklaration om allmänna mänskliga rättigheter.","verified":"2026-10-14","sourceTitle":"British Museum Cyrus Cylinder 90920","sourceUrl":"https://www.britishmuseum.org/collection/object/W_1880-0617-1941","sourceType":"Museikatalog med föremålsbeskrivning","evidenceType":"Babylonisk kungainskrift","claimType":"Kunglig självframställning","timeLevel":"Inskrift efter 539 f.Kr.","timeClarification":"Inskriftens tillkomst gäller kunglig propaganda, inte exakt datering av Esras återvändande.","scope":"Kyroscylinderns eget innehåll","limit":"Dokumentet nämner inte Jerusalem och ger inte universella rättighetsprinciper."},{
       claim: "Kyroscylindern är en babylonisk kungainskrift från efter erövringen av Babylon 539 f.Kr. som beskriver Kyros och restaurering av lokala kulter.",
       verified: "2026-10-13",
       sourceTitle: "British Museum – The Cyrus Cylinder, föremål 90920",
