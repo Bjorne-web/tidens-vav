@@ -1,0 +1,8 @@
+/* V8.42 – prioriterad navigation i hela sidopanelen. */
+#detail.v842-reader-order>.v827-reader-rel{margin:7px 0 12px}
+#detail.v842-reader-order>.v89-bible-panel{margin:0 0 14px;max-width:100%;min-width:0}
+#detail.v842-reader-order>.v839-unified-overview{margin:5px 0 14px}
+#detail.v842-reader-order>.v834-review{margin-top:20px;border-top:1px solid #c9d8e6;padding-top:14px}
+#detail.v842-reader-order>.v835-share{margin-top:12px;margin-bottom:9px}
+#v7expanded{white-space:normal;line-height:1.35;text-wrap:balance}
+@media(max-width:760px){#detail.v842-reader-order>.v834-review{margin-top:16px}#v7expanded{font-size:12px}}
