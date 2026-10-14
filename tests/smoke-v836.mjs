@@ -24,9 +24,9 @@ const env={window:{},events:[{id:'H001',title:'Göbekli Tepe'},{id:'H004',title:
 vm.createContext(env);
 vm.runInContext(read('data/review-ledger.js'),env);
 const ledger=env.window.TIDENS_REVIEW_LEDGER;
-assert.equal(ledger.schemaVersion,2);
+assert.ok(ledger.schemaVersion>=2,'Journal schema must preserve V8.36 fields');
 assert.equal(Object.keys(ledger.completePostReviews).length,0);
-assert.equal(Object.keys(ledger.claimChecks).length,7);
+assert.ok(Object.keys(ledger.claimChecks).length>=7,'Earlier claim checks must be preserved');
 for(const [id,checks] of Object.entries(ledger.claimChecks)){
   assert.ok(ids.has(id),'Okänd post i journalen: '+id);
   for(const claim of checks){

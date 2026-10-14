@@ -42,3 +42,12 @@
 .v835-extra-context .v833-period,.v835-extra-context .v833-undated{margin-top:10px}
 .v83-toolbar-actions #v83ShowMain[hidden]{display:none!important}
 @media(max-width:760px){.v835-reference-warning,.v835-timeline-explainer{padding:10px;font-size:12px}.v835-actual-timeline .v83-plot-scroller{max-width:100%}}
+
+/* V8.38: källunderbyggda originalposter får egen tidslinje, inte ett orelaterat färdigt spår. */
+.v838-sourced-original{background:#ecf6ff;border-left-color:#3376aa}
+.v838-timeline-sources{margin-top:8px;font-size:11px;line-height:1.55;overflow-wrap:anywhere}
+.v838-timeline-sources a{color:#155d96;font-weight:700;text-decoration:underline}
+.v838-sourced-timeline .v83-event-card.v835-origin-on-timeline{
+ outline:3px solid #235c95;outline-offset:2px;background:#e1f1ff
+}
+#v833Study #v833Timeline[hidden]{display:none!important}

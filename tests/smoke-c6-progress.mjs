@@ -40,7 +40,7 @@ for(const id of [...p.partialReportIds,...p.proposedCorrectionIds,...Object.keys
 }
 assert.ok(p.history.length>0&&p.updated===p.history.at(-1).date,'Status date and history must agree');
 const journalIds=Object.keys(ledger.claimChecks);
-assert.equal(journalIds.length,7,'Journal records in V8.36 must match audit');
+assert.ok(journalIds.length>=7,'Earlier journal records may not disappear');
 const source=read('v836-c6-progress.js');
 assert.ok(source.includes("FÖRDJUPNINGAR"),'Visible section must use actual menu label');
 assert.ok(source.includes("h('progress'"),'Progress panel must be graphical, not just a text count');

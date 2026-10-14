@@ -65,3 +65,16 @@ The World Behind the Word är den långsiktiga huvudappen. Tidens väv förblir 
 - Du kan expandera listan över elva reviderade poster direkt i C6-statuspanelen; varje sådant läskort märks `Texten förtydligad` och uttryckligen `inte slutgranskad`.
 - Se [C6 V8.37: källunderlag och exakta ändringar](docs/c6-implementation-v837.md).
 - `node tests/smoke-v837.mjs` säkerställer att exakt elva beskrivningar ändras, att referenskort finns och att datumen är oförändrade.
+
+## V8.38 – tydligare tidsperspektiv vid källprövning
+- Fem ytterligare poster (H019, H020, H025, H034 och H056) har nu sex precist avgränsade påståendekontroller. **12 poster / 13 påståenden** i journalen totalt; **0 helgranskade**.
+- I **Fördjupningar** visar källprövningskortet nu om varje nytt påstående gäller textens tillkomst, forskningsmodeller eller bevarade manuskript. 4Q201 och P52 används inte för att datera hela Henoksboken respektive Johannesevangeliets ursprung exakt.
+- C6-statusens grafiska staplar räknar fortsatt poster med enskilda källkontroller och visar den uppdaterade historiken.
+- Se [dokumenterad källkontroll och begränsningar](docs/c6-kallkontroll-v838.md).
+- GitHub Actions kör `node tests/smoke-v838.mjs` med samtliga tidigare testfall.
+
+## V8.38 – uppdaterad sidopanel enligt användarens skiss
+- Läsarpanelens kärninnehåll visas nu i ordningen vald post/titel → källförankrad genomgång → samlad forskningsöversikt → historiska samband. Ej prioriterade äldre rutor ligger kvar längre ned.
+- Ny underrubrik i V8.6-artiklar: **Betydelse för Israels religion, judendomen och kristendomen**. O049 (Puniska krigen), O043 (Perserriket) och O044 (Romarriket) har källhänvisad, försiktigt avgränsad kontext. Övriga poster märks uttryckligen ännu inte särskilt källprövade.
+- Ingen automatisk slutsats om direkta religionshistoriska orsakssamband eller nya C6-godkännanden. [Detaljer och testplan](docs/lasarpanel-och-religionshistoria-v838.md).
+- CI innehåller nu `node tests/smoke-reader-layout-v838.mjs`, som testar prioriterad ordning utan förlust av äldre innehåll.
