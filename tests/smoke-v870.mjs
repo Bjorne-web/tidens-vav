@@ -4,7 +4,7 @@ import vm from 'node:vm';
 const read=p=>fs.readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const html=read('index.html');
 assert.ok(html.includes('Version 8.72 · upptäck, jämför och granska källorna'));
-assert.ok(html.includes('Bygge v8.72-panfix-20261014'));
+assert.ok(html.includes('Bygge v8.72-controlsfix-20261014'));
 assert.ok(!html.includes('Version 8.69'));
 const ctx={window:{}};
 for(const p of ['data/review-ledger.js','data/c6-progress.js','data/bible-books-v857.js'])vm.runInNewContext(read(p),ctx);
