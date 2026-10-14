@@ -317,6 +317,21 @@ window.TIDENS_REVIEW_LEDGER = Object.freeze({
 ],
     H019: [
       {
+        "claim": "Qumranfynden visar flera hebreiska textformer av Pentateuken under andra templets tid, inklusive för-samaritanska texter. 4QpaleoExodᵐ har harmoniserande tillägg som överlappar den samaritanska Pentateuken, vilket inte betyder att rullen själv är en senare samaritansk religionsskrift.",
+        "verified": "2026-10-14",
+        "sourceTitle": "Emanuel Tov, Proto-Samaritan Texts and the Samaritan Pentateuch; Ronald S. Hendel (2011), Assessing the Text-Critical Theories of the Hebrew Bible after Qumran",
+        "sourceUrl": "https://www.emanueltov.info/docs/varia/67.Proto-SamaritanTexts.2.pdf?v=1.0",
+        "secondSourceUrl": "https://academic.oup.com/edited-volume/34366/chapter-abstract/291495648",
+        "sourceType": "Specialiststudie av texttraditioner och vetenskapligt bokkapitel",
+        "evidenceType": "Textkritisk jämförelse av manuskriptfamiljer och harmoniseringar",
+        "claimType": "Handskriftsvittnen och historisk textvariation",
+        "timeLevel": "Kopierings- och manuskripttid skiljs från grundkomposition och kanonisk slutform",
+        "timeClarification": "Qumranmanuskriptens ålder visar när bevarade textvittnen förekommer, men kan inte direkt datera den första nedskrivningen eller när Moseböckerna fick en gemensam slutform.",
+        "scholarlyStanding": "Flera textformer väl belagda; relationen mellan enskilda rullar och senare traditioner analyseras nyanserat",
+        "scope": "Avser Pentateukens textöverföring, särskilt harmoniserande för-samaritanska textformer, inte Pentateukens fullständiga tillkomsthistoria.",
+        "limit": "Vittnenas variation visar inte att varje bok saknade stabil text eller när en tänkt originaltext slutligen fastställdes."
+      },
+      {
         "claim": "Femte Mosebokens lagmaterial kan innehålla innovation i förhållande till äldre förbundslagar; kopplingen till Josias reformmiljöer är en historisk rekonstruktion och anger inte med säkerhet bokens slutredaktionsdatum.",
         "verified": "2026-10-14",
         "sourceTitle": "Bernard M. Levinson (1997), Deuteronomy and the Hermeneutics of Legal Innovation",
