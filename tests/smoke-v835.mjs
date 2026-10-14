@@ -126,7 +126,7 @@ const punicPlot=graphCalls.at(-1);
 assert.equal(punicPlot.theme.id,'own-inquiry','O049 får inte ärva Israels framväxt');
 const punicPhases=punicPlot.entries.filter(e=>e.id==='O049');
 assert.equal(punicPhases.length,3,'Alla tre separata puniska krigen ska synas');
-assert.deepEqual(punicPhases.map(e=>[e.start,e.end]),[[-264,-241],[-218,-201],[-149,-146]],'Varje krigsfas måste dateras korrekt');
+assert.deepEqual(Array.from(punicPhases,e=>[e.start,e.end]),[[-264,-241],[-218,-201],[-149,-146]],'Varje krigsfas måste dateras korrekt');
 assert.ok(!punicPlot.entries.some(e=>e.id==='O049'&&e.start===-264&&e.end===-146),'Den sammanhängande originalperioden får inte visas som ett enda krig');
 env.v83Display='list';
 const punicList=graph({id:'O049',title:'Puniska krigen',original:true});
