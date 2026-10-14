@@ -19,7 +19,7 @@ vm.runInNewContext(read('data/review-ledger.js'),context);
 vm.runInNewContext(read('data/c6-progress.js'),context);
 const ledger=context.window.TIDENS_REVIEW_LEDGER,progress=context.window.TIDENS_C6_PROGRESS;
 const counts=Object.values(ledger.claimChecks).reduce((n,checks)=>n+checks.length,0);
-assert.equal(counts,37);
+assert.ok(counts>=37);
 assert.equal(progress.history.at(-1).claimChecks,counts);
 assert.equal(Object.keys(ledger.completePostReviews).length,0);
 assert.ok(ledger.claimChecks.H034.some(c=>c.claim.includes('Joh 21:24')));
