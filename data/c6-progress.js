@@ -1,4 +1,4 @@
-/* C6: avgränsad källkontroll är inte helgranskning. */
+/* C6 scoped source checks do not imply complete review. */
 window.TIDENS_C6_PROGRESS=Object.freeze({
   "schemaVersion": 1,
   "updated": "2026-10-14",
@@ -273,6 +273,17 @@ window.TIDENS_C6_PROGRESS=Object.freeze({
       "claimCheckPosts": 17,
       "claimChecks": 40,
       "note": "V8.62: dokumenterad C6-kontroll H019 av mångformig Pentateuktext i Qumran, särskilt för-samaritanska former, med Tov och Hendel. Fem bokprofiler får separat handskriftsavsnitt. Ingen helgranskning."
+    },
+    {
+      "date": "2026-10-14",
+      "inventory": 193,
+      "partialReports": 36,
+      "proposedCorrections": 11,
+      "implementedCorrections": 11,
+      "wholeApproved": 0,
+      "claimCheckPosts": 17,
+      "claimChecks": 41,
+      "note": "V8.63: 4Q22/4QpaleoExodm och textvarianter i Exodus 20 jämförda med samaritanska traditionen i H019; bok B002 har källbunden textvariant. Ingen helgranskning."
     }
   ],
   "caveat": "Måtten överlappar. De får inte summeras till ett totalt färdigställande. Källkontroll av ett påstående betyder inte fullständig postgranskning.",

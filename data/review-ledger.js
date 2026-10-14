@@ -316,6 +316,7 @@ window.TIDENS_REVIEW_LEDGER = Object.freeze({
   }
 ],
     H019: [
+      {claim:"4Q22 (4QpaleoExodm) bevarar harmoniserande Exodus-text i nära relation till Samaritanska Pentateuken. Det specifikt samaritanska Gerisimtillägget i Exodus 20 är däremot inte belagt i 4Q22.",verified:"2026-10-14",sourceTitle:"The Samaritan and Jewish Versions of the Pentateuch: A Survey (2020)",sourceUrl:"https://www.mdpi.com/2077-1444/11/2/85",evidenceType:"Jämförande textkritisk manuskriptanalys",claimType:"Textvariant Exodus 20",sourceType:"Vetenskaplig tidskriftsartikel",timeLevel:"Manuskriptvittne, inte ursprunglig komposition",timeClarification:"Kopians ålder daterar inte skriftens första tillkomst.",scholarlyStanding:"Textrelationen dokumenterad; rekonstruktioner av luckor kräver försiktighet.",scope:"Gerisimtillägget och Exodus 20:s harmoniseringar.",limit:"Avsaknad i bevarade fragment är inte fullständig textåtergivning av skadade delar."},
       {
         "claim": "Qumranfynden visar flera hebreiska textformer av Pentateuken under andra templets tid, inklusive för-samaritanska texter. 4QpaleoExodᵐ har harmoniserande tillägg som överlappar den samaritanska Pentateuken, vilket inte betyder att rullen själv är en senare samaritansk religionsskrift.",
         "verified": "2026-10-14",
