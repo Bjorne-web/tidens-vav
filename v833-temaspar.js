@@ -19,6 +19,41 @@
     return `<div class="v833-period"><div class="v833-period-heading">Forskningsbedömt tidsläge: <b>${describe(position)}</b></div><p>Följande poster ligger nära i tid, men kan höra till andra platser och kulturer. <strong>Kronologisk närhet är inte belägg för påverkan eller beroende.</strong></p><ol class="v833-neighbors"><li class="v833-active"><span>${describe(position)}</span><b>${safe(item.title)}</b><small>Utgångspost</small></li>${near.map(e=>`<li><span>${describe(e)}</span><b>${safe(e.title)}</b><button type="button" data-v833-open="${safe(e.id)}">Undersök →</button></li>`).join('')}</ol></div>`;
   }
 
+
+  // Bevara tidslinjen i Temaspår även när en enskild forskningspost är vald.
+  // Tidssamband är kronologiska jämförelser, inte evidens för överföring.
+  function focusTimeline(item) {
+    const positions = vetted();
+    const focusPosition = !item.original ? positions.find(e=>e.id===item.id) : null;
+    if(!focusPosition) {
+      const theme=v83Current();
+      const reference=v83TopicEvents(theme);
+      const historical = (v83Display==='list'||theme.id==='humans')
+        ? v83TimelineRows(reference) : v83Graph(theme,reference);
+      return '<div class="v835-reference-warning" role="note"><strong>Ingen säker tidsplacering för den valda posten.</strong> Nedan visas tidslinjen för det separat valda, färdiga temaspåret <b>'+
+        safe(theme.name)+'</b>, enbart som orientering. Den valda posten placeras inte på ett uppfunnet årtal och tillhör inte automatiskt detta spår.</div>'+
+        '<div class="v835-actual-timeline v835-reference-timeline">'+historical+'</div>';
+    }
+    const mid=(focusPosition.start+focusPosition.end)/2;
+    const neighbors = positions.filter(e=>e.id!==item.id)
+      .map(e=>({event:e,distance:Math.abs((e.start+e.end)/2-mid)}))
+      .sort((a,b)=>a.distance-b.distance || a.event.start-b.event.start)
+      .filter((e,i,all)=>all.findIndex(x=>x.event.id===e.event.id)===i)
+      .slice(0,7).map(x=>x.event);
+    const entries=[focusPosition,...neighbors].sort((a,b)=>a.start-b.start||a.end-b.end);
+    const min=Math.min(...entries.map(e=>e.start));
+    const max=Math.max(...entries.map(e=>e.end));
+    const span=Math.max(1,max-min);
+    const pad=Math.max(25,Math.round(span*.08));
+    const timelineTheme={id:'own-inquiry',min:min-pad,max:max+pad};
+    const graphic=v83Display==='list'?v83TimelineRows(entries):v83Graph(timelineTheme,entries);
+    return '<div class="v835-timeline-explainer">Utgångsposten <b>'+safe(item.title)+
+      '</b> är markerad i tidslinjen tillsammans med närliggande daterade poster. '+
+      '<strong>Närhet i tid innebär inte bevisad påverkan.</strong> '+
+      'Jämförelserna kan gälla olika områden och kulturer.</div>'+
+      '<div class="v835-actual-timeline">'+graphic+'</div>';
+  }
+
   function enhance() {
     const host = document.getElementById('exploreView');
     if (!host) return;
@@ -78,11 +113,24 @@
       if(toolbar) {
         const heading=toolbar.querySelector('b');if(heading)heading.textContent='Följ undersökningens historiska sammanhang';
         const hint=toolbar.querySelector('.tiny');if(hint)hint.textContent='Vald post visas här. Närliggande poster är jämförelsepunkter, inte en orsakskedja.';
-        const actions=toolbar.querySelector('.v83-toolbar-actions');if(actions)actions.hidden=true;
+        const actions=toolbar.querySelector('.v83-toolbar-actions');
+        // Behåll växlingen Grafisk tidslinje / Kronologisk lista. Den gamla
+        // huvudtidslinje-knappen visar temaområdet, inte den valda posten.
+        if(actions){actions.hidden=false;const oldJump=actions.querySelector('#v83ShowMain');if(oldJump)oldJump.hidden=true;}
+        const graphButton=actions?.querySelector('[data-v83mode="graph"]');
+        if(graphButton)graphButton.hidden=false;
       }
       if(map) {
-        map.innerHTML=`<div class="v833-self"><div class="v833-selflead"><span class="v833-origin-label">UTGÅNGSPOST</span><h3>${safe(focus.title)}</h3><p>${safe(focus.description || 'Beskrivning saknas i denna post.')}</p></div>${contextFor(focus)}</div>`;
+        map.innerHTML=`<div class="v833-self"><div class="v833-selflead"><span class="v833-origin-label">UTGÅNGSPOST</span><h3>${safe(focus.title)}</h3><p>${safe(focus.description || 'Beskrivning saknas i denna post.')}</p></div>${focusTimeline(focus)}<details class="v835-extra-context"><summary>Visa dateringar och jämförelsepunkter i text</summary>${contextFor(focus)}</details></div>`;
         map.querySelectorAll('[data-v833-open]').forEach(b=>b.onclick=()=>{v829Focus.id=b.dataset.v833Open;v827RelationFocus=v829Focus.id;setSelected(v829Focus.id)});
+        // v83Graph/v83TimelineRows returnerar HTML; bind läsknapparna efter
+        // att den nya tidslinjen har infogats.
+        map.querySelectorAll('[data-v83read]').forEach(b=>b.onclick=()=>setSelected(b.dataset.v83read));
+        map.querySelectorAll('[data-v83read]').forEach(b=>{
+          if(b.dataset.v83read===focus.id){b.classList.add('v835-origin-on-timeline');b.setAttribute('aria-label','Utgångspost: '+focus.title);}
+        });
+        const scroller=map.querySelector('.v83-plot-scroller');
+        if(scroller){scroller.setAttribute('tabindex','0');scroller.setAttribute('role','region');scroller.setAttribute('aria-label','Grafisk tidslinje för undersökningen, svep i sidled vid behov');}
       }
       const caution = host.querySelector('.v83-context');if(caution)caution.hidden=true;
       host.querySelectorAll('.v83-panel').forEach(p=>{if(p.querySelector('.v83-connections'))p.hidden=true});
