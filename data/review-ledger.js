@@ -329,7 +329,7 @@ window.TIDENS_REVIEW_LEDGER = Object.freeze({
         "scholarlyStanding": "Lagarnas litterära relationer analyseras brett; deras exakta historiska placering och redaktion diskuteras",
         "scope": "Avgränsad kontroll av deuteronomisk bearbetning av äldre israelitisk lag och skiljelinjen mellan texthistoria och berättad tid.",
         "limit": "Kontrollen bevisar inte Mosaiskt författarskap, daterar inte slutformen säkert och utgör inte en fullständig vetenskaplig granskning av Femte Moseboken."
-      },,
+      },
   {
     "claim": "Pentateukens komposition förklaras inom forskningen med flera litterära och redaktionshistoriska modeller, inte ett empiriskt säkerställt enda färdigställandeår.",
     "verified": "2026-10-14",
