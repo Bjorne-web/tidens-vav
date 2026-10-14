@@ -1,0 +1,110 @@
+/* V8.43 – mer plats åt filter, scrollfast tidsstyrning och karta-liknande tidsaxel. */
+
+/* Ge tidspanelen större bredd utan att påverka andra forskningsvyer. */
+@media (min-width:1201px) {
+  body[data-v827-view="timeline"] main{
+    grid-template-columns:345px minmax(0,1fr) 355px;
+  }
+}
+@media (min-width:901px) and (max-width:1200px) {
+  body[data-v827-view="timeline"] main{
+    grid-template-columns:330px minmax(0,1fr);
+  }
+}
+/* De förkortade, begripliga kategorietiketterna får var sin rad. */
+@media(min-width:901px){
+  body[data-v827-view="timeline"] #catFilters .check{
+    display:flex!important;white-space:nowrap;gap:7px;margin:8px 0;
+    font-size:12px;line-height:1.45;width:max-content;max-width:none;
+    align-items:center;
+  }
+  body[data-v827-view="timeline"] #catFilters .check input,
+  body[data-v827-view="timeline"] #catFilters .check .dot{flex:0 0 auto}
+  body[data-v827-view="timeline"] #v84Sidebar{padding-left:17px;padding-right:10px}
+}
+#timelineView.v843-timeline-layout{
+  overflow:visible!important;isolation:auto;
+}
+#timelineView.v843-timeline-layout .v843-sticky-controls{
+  position:sticky;
+  top:var(--tv-header-height,0px);
+  z-index:47;
+  background:#fff;
+  border:1px solid #c9dbea;
+  border-radius:11px 11px 0 0;
+  box-shadow:0 5px 13px rgba(29,62,96,.12);
+  padding:7px 9px 0;
+  margin-bottom:0;
+  min-width:0;
+}
+#timelineView.v843-timeline-layout .v843-sticky-controls #v7toolbar{
+  margin-bottom:6px;
+  padding:6px 6px;
+  background:#f9fcff;
+  border-radius:8px;
+}
+#timelineView.v843-timeline-layout .v843-sticky-controls #v827PanControls{
+  margin:0 0 5px;
+  padding:8px 12px;
+  border-radius:8px;
+}
+#timelineView.v843-timeline-layout .v843-sticky-controls .v827-panrow{margin:6px 0}
+#timelineView.v843-timeline-layout .v843-sticky-controls #axis{
+  position:relative!important;
+  top:auto!important;
+  z-index:1!important;
+  height:43px;
+  min-height:43px;
+  margin-left:160px!important;
+  margin-right:18px!important;
+  width:auto!important;
+  padding:0;
+  border-radius:5px 5px 0 0;
+  box-shadow:none;
+  background:#edf5fc;
+}
+#timelineView.v843-timeline-layout.v814-scale-mode .v843-sticky-controls #axis{
+  margin-left:12px!important;margin-right:126px!important;
+}
+#timelineView.v843-timeline-layout.v815-hierarchical:not(.v814-scale-mode) .v843-sticky-controls #axis{
+  margin-left:12px!important;margin-right:126px!important;
+}
+#timelineView.v843-timeline-layout.v828-chrono-gantt .v843-sticky-controls #axis{
+  position:relative!important;top:auto!important;z-index:1!important;
+  margin-left:217px!important;margin-right:131px!important;width:auto!important;
+}
+#timelineView.v843-timeline-layout .v843-sticky-controls #axis .tick{top:9px}
+#timelineView.v843-timeline-layout>.timeline-card{
+  margin-top:0;
+  border-radius:0 0 11px 11px;
+  border-top:0;
+}
+#timelineView.v843-timeline-layout>.timeline-card #epochs{border-top:0}
+/* Mindre skärmar får alltid sin fulla bredd, ingen dold kategorirad. */
+@media(max-width:900px){
+  #timelineView.v843-timeline-layout .v843-sticky-controls{
+    top:0;padding:4px 5px 0;border-radius:7px 7px 0 0;
+  }
+  #timelineView.v843-timeline-layout .v843-sticky-controls #v7toolbar{
+    gap:4px!important;padding:4px;margin-bottom:4px;
+  }
+  #timelineView.v843-timeline-layout .v843-sticky-controls #v827PanControls{
+    padding:6px;margin-bottom:4px;
+  }
+  #timelineView.v843-timeline-layout .v843-sticky-controls #v827PanControls>.v827-pantop{font-size:11px}
+  #timelineView.v843-timeline-layout .v843-sticky-controls #v827PanControls>small{display:none}
+  #timelineView.v843-timeline-layout .v843-sticky-controls #axis,
+  #timelineView.v843-timeline-layout.v814-scale-mode .v843-sticky-controls #axis,
+  #timelineView.v843-timeline-layout.v828-chrono-gantt .v843-sticky-controls #axis{
+    margin-left:0!important;margin-right:0!important;height:38px;min-height:38px;
+  }
+  #timelineView.v843-timeline-layout .v843-sticky-controls #axis .tick{font-size:9px}
+  #v84Sidebar #catFilters .check{white-space:normal}
+}
+@media(max-width:520px){
+  #timelineView.v843-timeline-layout .v843-sticky-controls{box-shadow:0 2px 7px rgba(29,62,96,.13)}
+  #timelineView.v843-timeline-layout .v843-sticky-controls .v827-pantop small{display:none}
+  #timelineView.v843-timeline-layout .v843-sticky-controls #v7stats,
+  #timelineView.v843-timeline-layout .v843-sticky-controls #v815CollapseStatus{display:none}
+  #timelineView.v843-timeline-layout .v843-sticky-controls #v7toolbar select{min-height:35px}
+}
