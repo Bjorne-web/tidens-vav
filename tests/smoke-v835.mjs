@@ -13,7 +13,8 @@ for(const name of [script,style]){
   assert.ok(fs.existsSync(path.join(root,name)),'Missing '+name);
   assert.ok(page.includes(name),'Not referenced by index.html: '+name);
 }
-assert.ok(page.includes('Version 8.35'),'Incorrect version');
+const versionMatch=page.match(/Version 8\.(\d+)/);
+assert.ok(versionMatch && Number(versionMatch[1])>=35,'Version must be V8.35 or newer');
 assert.ok(page.indexOf('v834-review.js')<page.indexOf(script),'Scripts loaded out of order');
 execFileSync(process.execPath,['--check',path.join(root,script)]);
 

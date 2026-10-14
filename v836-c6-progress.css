@@ -1,0 +1,18 @@
+/* V8.36 – läsbar grafisk progresspanel för C6 i Fördjupningar. */
+.c6-progress{background:#f7faff;border:1px solid #b5d0e7;border-radius:14px;padding:17px;margin:16px 0 18px;max-width:100%;min-width:0}
+.c6-progress-eyebrow{font-size:11px;letter-spacing:.08em;font-weight:800;color:#2a6b9d}
+.c6-progress h3{font-size:18px;line-height:1.3;color:#18456b;margin:6px 0}
+.c6-progress-summary{font-size:12px;color:#4b6680;line-height:1.55;margin:0 0 14px}
+.c6-meter-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.c6-meter-row{min-width:0;background:white;border:1px solid #dce8f2;border-radius:10px;padding:12px}
+.c6-meter-heading{display:flex;flex-wrap:wrap;align-items:start;justify-content:space-between;gap:5px 10px;font-size:12px;line-height:1.5;color:#2c5275;font-weight:700}
+.c6-meter-heading strong{font-size:13px;white-space:nowrap;font-variant-numeric:tabular-nums;color:#154a79}
+.c6-meter{display:block;appearance:auto;width:100%;height:15px;margin:10px 0 7px;accent-color:#447eaa}
+.c6-meter-note{font-size:11px;color:#5c7186;line-height:1.55;margin:0}
+.c6-pending{margin:12px 0 8px;padding:10px 12px;font-size:12px;line-height:1.55;background:#eef4fa;border-left:3px solid #4c789b}
+.c6-caveat{font-size:11px;color:#705622;line-height:1.55;margin:0;padding:7px 0}
+.c6-progress-detail{font-size:12px;color:#365875;border-top:1px solid #d0dfec;padding-top:10px}
+.c6-progress-detail summary{font-weight:700;cursor:pointer}
+.c6-history{line-height:1.65;margin:8px 0;padding-left:24px}
+.c6-references a{color:#235f93;text-decoration:underline}
+@media(max-width:780px){.c6-meter-grid{grid-template-columns:minmax(0,1fr)}.c6-progress{padding:12px}.c6-progress h3{font-size:16px}.c6-meter-row{padding:11px}}

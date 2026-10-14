@@ -42,3 +42,18 @@ The World Behind the Word är den långsiktiga huvudappen. Tidens väv förblir 
 - Stabil postidentifiering, ingen delad backend och inget betaltillägg.
 - Se [integrationskontraktet](docs/integration-contract-v1.md) för begränsningar och framtida koppling till The World Behind the Word.
 - Testa med `node tests/smoke-v835.mjs` plus befintligt `node tests/smoke-v834.mjs`.
+
+## V8.36 – sökbar granskningsöversikt
+- En ny granskningsöversikt i Forskningsbiblioteket visar alla poster, filter på källprövning och direkt öppning av posten.
+- Sju enskilda påståenden källprövade i sju poster (H001, H004, H005, H017, H041, H042 och H054). Fem tillkom i V8.36.
+- Källtyp och påståendetyp redovisas utan att posten märks som slutgranskad. Noll fullständiga slutgranskningar är registrerade.
+- Läs forskningsprotokollet i docs/kallprovningsprotokoll-v836.md.
+- Testkörning: node tests/smoke-v836.mjs plus de tidigare testerna.
+
+## C6 – grafisk framdrift i Fördjupningar (V8.36)
+- Gå till **Fördjupningar** (inte ”Forskningsbiblioteket”; det var en äldre intern benämning). Under rubriken finns en synlig panel ”C6 – Så långt har den vetenskapliga granskningen kommit”.
+- Fyra **separata** progressmått på totalt 193 poster: inventerade 193, C6-delgranskningsrapporter för 36, poster med enskild källprövning i V8.36-journalen 7 och fullständigt vetenskapligt slutgranskade 0.
+- De åtta delgranskningsrapporterna och elva föreslagna textkorrigeringarna finns i den separata C6-arbetsgrenen `v8.33-forskningskvalitet` (PR #2). Korrigeringarna är ännu inte införda i V8.36.
+- Vissa poster finns i både C6-rapporterna och källjournalen. Siffrorna får **inte summeras** eller tolkas som andel helt färdigt forskningsarbete.
+- Underliggande källnära statusdata ligger i `data/c6-progress.js`. Vid varje faktisk C6-uppdatering ska man uppdatera listorna över dokumenterat berörda post-ID:n, korrigerings-ID:n, datum och historik. Ändringar kontrolleras av `node tests/smoke-c6-progress.mjs` och GitHub Actions.
+- Panelen uppdateras genom en ny kodpublicering. Det finns **ingen bakgrundsprocess** som forskar kontinuerligt mellan samtalen.

@@ -1,0 +1,20 @@
+/* V8.36 – granskningsregister i forskningsbiblioteket. */
+.v836-index{margin-top:14px;border:1px solid #b4cde0;background:#fbfdff;border-radius:12px;padding:11px 14px;color:#214565;max-width:100%;min-width:0}
+.v836-index-summary{cursor:pointer;font-size:14px;font-weight:800;line-height:1.5}
+.v836-index-intro{font-size:12px;line-height:1.65;max-width:810px;color:#4b6175;margin:12px 0 8px}
+.v836-index-metrics{background:#ecf5fe;border-left:3px solid #3b70a2;padding:9px 11px;font-size:12px;line-height:1.55;margin:8px 0}
+.v836-index-controls{display:flex;flex-wrap:wrap;gap:12px;margin:12px 0}
+.v836-index-controls label{font-size:12px;display:grid;flex:1 1 230px;gap:5px;font-weight:700;color:#315474;min-width:0}
+.v836-index-controls input,.v836-index-controls select{border:1px solid #b7c9da;background:white;padding:9px 10px;border-radius:8px;min-width:0;width:100%;font-size:13px;color:#254565}
+.v836-index-results{font-size:12px;color:#54708a;margin:7px 0}
+.v836-index-list{margin:0;padding:0;list-style:none;display:grid;gap:6px}
+.v836-index-row{background:white;border:1px solid #e1eaf2;border-radius:9px;padding:8px 10px;display:flex;justify-content:space-between;gap:10px;align-items:center;min-width:0}
+.v836-index-open{background:transparent;border:0;text-align:left;color:#205b90;font-size:13px;font-weight:700;cursor:pointer;overflow-wrap:anywhere;min-width:0}
+.v836-index-open:hover,.v836-index-open:focus-visible{text-decoration:underline}
+.v836-status{font-size:11px;line-height:1.45;text-align:right;flex:0 0 auto;max-width:45%;color:#667d91}
+.v836-status-partial{color:#85621f;font-weight:700}
+.v836-status-full{color:#1e7658;font-weight:700}
+.v836-index-more{margin-top:10px;border:1px solid #abc5db;border-radius:8px;background:white;color:#205b90;font-weight:700;cursor:pointer;padding:8px 12px;font-size:12px}
+.v836-index-more[hidden]{display:none!important}
+.v836-source-classification{background:#eff5fb;padding:7px 9px;border-radius:6px;font-size:12px;line-height:1.5}
+@media(max-width:720px){.v836-index{padding:10px}.v836-index-row{align-items:flex-start;flex-direction:column}.v836-status{max-width:100%;text-align:left}.v836-index-open{padding:2px 0}.v836-index-controls{gap:8px}}
