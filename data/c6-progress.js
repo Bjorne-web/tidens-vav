@@ -316,6 +316,17 @@ window.TIDENS_C6_PROGRESS=Object.freeze({
       "claimCheckPosts": 26,
       "claimChecks": 65,
       "note": "V8.66: tre avgränsade kontroller H050, H052 och H053; ny forskningsprofil B024 Jeremia om kort grekisk och längre hebreisk text. Inga helt granskade poster."
+    },
+    {
+      "date": "2026-10-14",
+      "inventory": 193,
+      "partialReports": 36,
+      "proposedCorrections": 11,
+      "implementedCorrections": 11,
+      "wholeApproved": 0,
+      "claimCheckPosts": 29,
+      "claimChecks": 68,
+      "note": "V8.67: tre avgränsade påståendekontroller i H045, H046, H047; forskningsprofil för B025 Klagovisorna. Versionsmärkningen i index.html rättad från den kvarstående 8.59 till 8.67. Fortfarande inga fullständiga C6-granskningar."
     }
   ],
   "caveat": "Måtten överlappar. De får inte summeras till ett totalt färdigställande. Källkontroll av ett påstående betyder inte fullständig postgranskning.",
