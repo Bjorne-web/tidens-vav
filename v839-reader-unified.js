@@ -16,20 +16,21 @@
  const has=key=>typeof window!=='undefined' && Object.prototype.hasOwnProperty.call(window,key);
  function dataFor(e){
   if(!e)return null;
+  const targeted=window.TIDENS_SPECIAL_RESEARCH?.[e.id]||null;
   const dossier=typeof allOriginalResearchV828!=='undefined'?allOriginalResearchV828[e.id]:null;
   const researchInfo=typeof research!=='undefined'?research[e.id]:null;
   const library=typeof v82Library!=='undefined'?v82Library[e.id]:null;
   const sourceCard=typeof sourceCardsV86!=='undefined'?sourceCardsV86[e.id]:null;
   const otherCard=typeof sourceCardsV87!=='undefined'?sourceCardsV87[e.id]:null;
   const sourceCard810=typeof sourceCardsV810!=='undefined'?sourceCardsV810[e.id]:null;
-  const material=dossier||sourceCard||sourceCard810||otherCard||library||researchInfo||null;
+  const material=targeted||dossier||sourceCard||sourceCard810||otherCard||library||researchInfo||null;
   const sources=[],seen=new Set();
   function addSource(name,url){
    const address=safeUrl(url);
    if(!address||seen.has(address))return;
    sources.push({name:name||'Källa',url:address});seen.add(address);
   }
-  for(const obj of [dossier,sourceCard,sourceCard810,otherCard,library,researchInfo]){
+  for(const obj of [targeted,dossier,sourceCard,sourceCard810,otherCard,library,researchInfo]){
    if(!obj||!Array.isArray(obj.sources))continue;
    for(const s of obj.sources) {
     if(Array.isArray(s))addSource(s[0],s[1]);
@@ -37,10 +38,10 @@
    }
   }
   if(e.source)addSource('Postens registrerade källänk',e.source);
-  const summary=dossier?.summary||sourceCard?.summary||sourceCard810?.summary||otherCard?.summary||library?.summary||researchInfo?.overview||e.description||e.sub||null;
-  const context=dossier?.context||sourceCard?.context||sourceCard810?.context||otherCard?.context||library?.context||researchInfo?.parallels||null;
-  const impact=sourceCard?.impact||sourceCard810?.impact||otherCard?.impact||library?.impact||null;
-  const limits=dossier?.limits||sourceCard?.limits||sourceCard810?.limits||otherCard?.limits||library?.limits||researchInfo?.caution||null;
+  const summary=targeted?.summary||dossier?.summary||sourceCard?.summary||sourceCard810?.summary||otherCard?.summary||library?.summary||researchInfo?.overview||e.description||e.sub||null;
+  const context=targeted?.context||dossier?.context||sourceCard?.context||sourceCard810?.context||otherCard?.context||library?.context||researchInfo?.parallels||null;
+  const impact=targeted?.impact||sourceCard?.impact||sourceCard810?.impact||otherCard?.impact||library?.impact||null;
+  const limits=targeted?.limits||dossier?.limits||sourceCard?.limits||sourceCard810?.limits||otherCard?.limits||library?.limits||researchInfo?.caution||null;
   return {
    id:e.id,title:e.title,heading:material?.heading||e.title,
    summary,context,impact,limits,sources,
@@ -49,6 +50,8 @@
   };
  }
  function religionFor(e){
+  const targeted=window.TIDENS_SPECIAL_RESEARCH?.[e.id];
+  if(targeted?.religion)return targeted.religion;
   if(e.id==='O067'||e.id==='H005')return {
    level:'Textparalleller – direkt beroende inte slutgiltigt fastställt',
    paragraph:'Gilgamesheposets flodberättelse har tydliga motivparalleller till Genesis 6–9, bland annat en stor översvämning, en båt och fåglar som sänds ut. Textvittnenas olika tillkomst- och kopieringstider måste skiljas åt. Att motiven liknar varandra är inte ensamt bevis för en direkt kopieringskedja.'
