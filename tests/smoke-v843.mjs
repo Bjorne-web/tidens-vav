@@ -47,15 +47,15 @@ class Node{
  setAttribute(key,val){this.attrs[key]=val}
 }
 const n=(tag,cls)=>new Node(tag,cls);
-const root=n('section');root.id='timelineView';
+const timeline=n('section');timeline.id='timelineView';
 const toolbar=n('div','toolbar'),callout=n('div','v83-inline-callout'),panel=n('div','v813-panel');
 const controls=n('div','v7toolbar');controls.id='v7toolbar';
 const pan=n('div','v827-pancontrols');pan.id='v827PanControls';
 const card=n('div','timeline-card'),axis=n('div','axis');axis.id='axis',epochs=n('div');epochs.id='epochs',lanes=n('div');lanes.id='lanes';
 card.append(axis,epochs,lanes);
 const foot=n('div','footcard');
-root.append(toolbar,callout,panel,controls,pan,card,foot);
-const initial=[...root.children,axis,epochs,lanes];
+timeline.append(toolbar,callout,panel,controls,pan,card,foot);
+const initial=[...timeline.children,axis,epochs,lanes];
 const catFilters=n('div');catFilters.id='catFilters';
 const full={
  'Historia':'Världshistoria','Religion & texter':'Religion & texter','Bibelberättelse':'Bibelberättelser – berättad tid',
@@ -72,20 +72,20 @@ for(const key of Object.keys(full)){
 let renderCount=0;
 const env={
  window:{},
- document:{getElementById:id=>id==='timelineView'?root:id==='catFilters'?catFilters:null,createElement:tag=>n(tag)},
+ document:{getElementById:id=>id==='timelineView'?timeline:id==='catFilters'?catFilters:null,createElement:tag=>n(tag)},
  laneNames:full,
  renderTimeline(){renderCount++}
 };
 vm.runInNewContext(read('v843-timeline-workspace.js'),env,{filename:'v843-timeline-workspace.js'});
 const api=env.window.TidensTimelineV843;
 assert.ok(api?.structure&&api?.categoryLabels);
-const sticky=root.children[0];
+const sticky=timeline.children[0];
 assert.equal(sticky.id,'v843StickyControls','Controls should be first');
 assert.deepEqual(sticky.children,[controls,pan,axis],'Order, pan and scale must be together');
-assert.equal(root.children[1],card,'Actual timeline goes directly below sticky tools');
-assert.deepEqual(root.children.slice(2),[toolbar,callout,panel,foot],'All previous content moved below chart');
+assert.equal(timeline.children[1],card,'Actual timeline goes directly below sticky tools');
+assert.deepEqual(timeline.children.slice(2),[toolbar,callout,panel,foot],'All previous content moved below chart');
 assert.deepEqual(card.children,[epochs,lanes],'Existing plotted epochs and rows must not disappear');
-for(const e of initial)assert.ok(root.children.includes(e)||sticky.children.includes(e)||card.children.includes(e),'Old DOM node missing');
+for(const e of initial)assert.ok(timeline.children.includes(e)||sticky.children.includes(e)||card.children.includes(e),'Old DOM node missing');
 for(const {key,label,checkbox,t} of labels){
  assert.equal(checkbox.value,key,'Filter ID must remain stable');
  assert.equal(checkbox.checked,true,'Original selection unchanged');
@@ -96,9 +96,9 @@ for(const {key,label,checkbox,t} of labels){
 assert.equal(api.shortNames['Bibelberättelser'],'Bibeltexter · olika tidstyper');
 env.renderTimeline();
 assert.equal(renderCount,1,'Existing rendering should still run');
-assert.equal(root.children.filter(x=>x.id==='v843StickyControls').length,1,'Must never add second sticky header');
+assert.equal(timeline.children.filter(x=>x.id==='v843StickyControls').length,1,'Must never add second sticky header');
 assert.deepEqual(sticky.children,[controls,pan,axis],'Rerender preserves control order');
-assert.deepEqual(root.children.slice(2),[toolbar,callout,panel,foot],'Rerender preserves content order');
+assert.deepEqual(timeline.children.slice(2),[toolbar,callout,panel,foot],'Rerender preserves content order');
 // Controls retain identity and listeners: no innerHTML rewriting.
 assert.ok(!read('v843-timeline-workspace.js').includes('innerHTML'),'DOM nodes must be moved, not rebuilt');
 console.log('OK: fixed order/pan/time-scale, full timeline first, every previous section below, thirteen original category keys and labels preserved.');
