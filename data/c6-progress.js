@@ -1,5 +1,5 @@
-/* C6 – dokumenterad status, uppdaterad 2026-10-14, V8.37 testgren.
-   Införd textkorrigering är inte vetenskapligt slutgranskad post. */
+/* C6 – dokumenterad arbetsstatus per 2026-10-14, V8.38 testgren.
+   Nytt kontrollpåstående och fullständigt slutgranskad post är olika saker. */
 window.TIDENS_C6_PROGRESS = Object.freeze({
   "schemaVersion": 1,
   "updated": "2026-10-14",
@@ -61,7 +61,7 @@ window.TIDENS_C6_PROGRESS = Object.freeze({
     "H042",
     "H034"
   ],
-  "description": "36 poster behandlas i åtta C6-delgranskningsrapporter. Elva textförtydliganden har förts in i V8.37:s testgren. Inga numeriska dateringar eller vetenskapliga slutgranskningsflaggor har ändrats.",
+  "description": "C6-granskningen omfattar 193 inventerade poster, åtta delgranskningsrapporter med 36 unika poster och elva införda textförtydliganden. En separat källjournal innehåller 13 kontrollpunkter i 12 poster. Ingen forskningspost har slutgranskats i sin helhet.",
   "history": [
     {
       "date": "2026-10-13",
@@ -87,6 +87,17 @@ window.TIDENS_C6_PROGRESS = Object.freeze({
       "implementedCorrections": 11,
       "wholeApproved": 0,
       "note": "Elva förberedda textförtydliganden integrerade i V8.37:s separata datalager. Helgranskning återstår."
+    },
+    {
+      "date": "2026-10-14",
+      "inventory": 193,
+      "partialReports": 36,
+      "proposedCorrections": 11,
+      "implementedCorrections": 11,
+      "wholeApproved": 0,
+      "claimCheckPosts": 12,
+      "claimChecks": 13,
+      "note": "V8.38: sex nya, avgränsade påståendekontroller tillagda för H019, H020, H025 (två), H034 och H056. Särskild markering för manuskriptsvittne kontra textens tillkomst. Ingen helgranskning."
     }
   ],
   "caveat": "Måtten överlappar. De får inte summeras till ett totalt färdigställande. Källkontroll av ett påstående betyder inte fullständig postgranskning.",
