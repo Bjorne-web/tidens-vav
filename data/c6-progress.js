@@ -1,4 +1,4 @@
-/* C6: scoped checks are not whole reviews. */
+/* C6: avgränsad källkontroll är inte helgranskning. */
 window.TIDENS_C6_PROGRESS=Object.freeze({
   "schemaVersion": 1,
   "updated": "2026-10-14",
@@ -262,6 +262,17 @@ window.TIDENS_C6_PROGRESS=Object.freeze({
       "claimCheckPosts": 17,
       "claimChecks": 39,
       "note": "V8.61: fem preliminärt källförankrade Pentateukprofiler B001–B005 samt en avgränsad C6-kontroll i H019 av deuteronomisk lagtolkning och osäker redaktionsdatering. Ingen helgranskning."
+    },
+    {
+      "date": "2026-10-14",
+      "inventory": 193,
+      "partialReports": 36,
+      "proposedCorrections": 11,
+      "implementedCorrections": 11,
+      "wholeApproved": 0,
+      "claimCheckPosts": 17,
+      "claimChecks": 40,
+      "note": "V8.62: dokumenterad C6-kontroll H019 av mångformig Pentateuktext i Qumran, särskilt för-samaritanska former, med Tov och Hendel. Fem bokprofiler får separat handskriftsavsnitt. Ingen helgranskning."
     }
   ],
   "caveat": "Måtten överlappar. De får inte summeras till ett totalt färdigställande. Källkontroll av ett påstående betyder inte fullständig postgranskning.",
