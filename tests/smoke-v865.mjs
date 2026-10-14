@@ -11,7 +11,7 @@ const ids=Object.keys(ledger.claimChecks);
 const count=Object.values(ledger.claimChecks).reduce((n,rows)=>n+rows.length,0);
 const current=ctx.window.TIDENS_C6_PROGRESS.history.at(-1);
 assert.equal(count,62);
-assert.equal(ids.length,22);
+assert.equal(ids.length,23);
 assert.equal(current.claimChecks,count);
 assert.equal(current.claimCheckPosts,ids.length);
 for(const id of ['H051','H055','H058']){
@@ -23,4 +23,4 @@ for(const id of ['H051','H055','H058']){
 assert.equal(Object.keys(ledger.completePostReviews).length,0);
 assert.equal(ctx.window.TIDENS_BIBLE_BOOK_RESEARCH.B023.status,'delgranskad');
 assert.equal(ctx.window.TIDENS_BIBLE_BOOKS.length,66);
-console.log('OK V8.65: 3 new posts, 62 scoped checks in 22 posts; Isaiah dossier; 0 finished reviews');
+console.log('OK V8.65: 3 new posts, 62 scoped checks in 23 posts; Isaiah dossier; 0 finished reviews');
