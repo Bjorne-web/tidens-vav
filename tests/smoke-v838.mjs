@@ -6,7 +6,8 @@ import vm from 'node:vm';
 import {execFileSync} from 'node:child_process';
 const root=path.resolve(import.meta.dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'utf8');
 const html=read('index.html');
-assert.ok(html.includes('Version 8.38'),'Wrong version banner');
+const version=html.match(/Version 8\.(\d+)/);
+assert.ok(version&&Number(version[1])>=38,'Requires V8.38 or newer');
 for(const file of ['data/review-ledger.js','data/c6-progress.js','v838-time-levels.js','v838-time-levels.css']){
  assert.ok(fs.existsSync(path.join(root,file)),'File missing: '+file);
  assert.ok(html.includes(file),'Missing link in index: '+file);
