@@ -23,3 +23,4 @@ jobs:
           node tests/smoke-c6-progress.mjs
           node tests/smoke-v837.mjs
           node tests/smoke-v838.mjs
+          node tests/smoke-reader-layout-v838.mjs
