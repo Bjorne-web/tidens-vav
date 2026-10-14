@@ -32,7 +32,10 @@ class Node{
 const n=(tag,cls='',txt='')=>new Node(tag,cls,txt);
 const expanded=n('button','','Alla poster');expanded.id='v7expanded';let clicks=0;expanded.onclick=()=>clicks++;
 const stats=n('p','', 'Kronologisk översikt; välj Alla poster för proportionell graf / fullständig lista.');
-const nodesById={v7expanded:expanded,v7stats:stats};
+const compactHint=n('p','tiny','Fler tider finns under Alla poster eller genom att välja en snävare period.');
+const richHint=n('p','tiny','Alla poster');richHint.append(n('a','','Läs mer'));
+const lanes={querySelectorAll:selector=>selector==='.tiny'?[compactHint,richHint]:[]};
+const nodesById={v7expanded:expanded,v7stats:stats,lanes};
 let readerPanel=n('div'),readCalls=0,timeCalls=0;
 const ctx={
  window:{},
@@ -84,6 +87,8 @@ const mapped=()=>{
 ctx.renderDetail();mapped();
 assert.equal(readCalls,2);
 assert.equal(expanded.textContent,'Detaljerad tidslinje','The user-facing button label must be descriptive');
+assert.ok(compactHint.textContent.includes('Detaljerad tidslinje'),'Helper copy must use new timeline label');
+assert.equal(richHint.textContent,'Alla poster','Do not overwrite helper nodes with clickable descendants');
 assert.ok(expanded.attributes['aria-label'].includes('alla poster'),'Accessible label should preserve the exact scope');
 expanded.onclick();assert.equal(clicks,2,'Original timeline-button interaction must survive relabeling');
 ctx.renderTimeline();assert.equal(timeCalls,1,'Existing timeline renderer must continue');
