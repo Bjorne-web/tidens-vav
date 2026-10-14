@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+const read=p=>fs.readFileSync(new URL('../'+p,import.meta.url),'utf8');
+const ctx={window:{}};
+vm.runInNewContext(read('data/data.generated.js'),ctx);
+vm.runInNewContext(read('data/c6-text-clarifications.v837.js'),ctx);
+const h=vm.runInNewContext("events.find(e=>e.id==='H011')",ctx);
+assert.ok(h.description.includes('nämner Israel'));
+assert.ok(h.description.includes('inte därmed verifierade'));
+assert.equal(h.bible,'');
+assert.ok(h.source.includes('JE 31408'));
+assert.equal(h.reviewed,false);
+console.log('OK V8.53: H011 display corrected, not fully signed');
