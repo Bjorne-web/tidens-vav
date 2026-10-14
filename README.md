@@ -78,3 +78,13 @@ The World Behind the Word är den långsiktiga huvudappen. Tidens väv förblir 
 - Ny underrubrik i V8.6-artiklar: **Betydelse för Israels religion, judendomen och kristendomen**. O049 (Puniska krigen), O043 (Perserriket) och O044 (Romarriket) har källhänvisad, försiktigt avgränsad kontext. Övriga poster märks uttryckligen ännu inte särskilt källprövade.
 - Ingen automatisk slutsats om direkta religionshistoriska orsakssamband eller nya C6-godkännanden. [Detaljer och testplan](docs/lasarpanel-och-religionshistoria-v838.md).
 - CI innehåller nu `node tests/smoke-reader-layout-v838.mjs`, som testar prioriterad ordning utan förlust av äldre innehåll.
+
+## V8.39 – historisk samtidighet i Temaspår
+- Vald post visas **alltid** som utgångspost på tidslinjen, även när kategorin inte är vald.
+- De sex ikryssade kategorierna från användarens bild är aktiverade som standard, och samtliga 13 kategorier kan väljas till eller bort i Temaspår utan att huvudtidslinjens filter påverkas.
+- Alla tillgängliga, daterade poster från valda kategorier som tidsmässigt överlappar det historiska jämförelsefönstret visas på **samma axel**. De grupperas efter kategori, även i listläge.
+- Endast redaktionellt bedömda dateringar används för jämförelseposternas tidsmarkörer. Vald post som saknar bedömd datering visas ändå i en odaterad utgångsrad, aldrig på en fabricerad tidpunkt.
+- O049 Puniska krigen visar fortsatt tre historiskt belagda krigsperioder under samma post-ID.
+- Ingen direkt religionshistorisk påverkan påstås enbart genom samtidighet; läs de källkritiska fördjupningarna separat.
+- Se [metod, kategorier och testplan](docs/temaspar-samtidighet-v839.md).
+- Automatisk kontroll: `node tests/smoke-v839.mjs`, tillsammans med äldre regressionstester.
