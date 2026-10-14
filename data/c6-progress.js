@@ -174,6 +174,17 @@ window.TIDENS_C6_PROGRESS = Object.freeze({
       "claimCheckPosts": 17,
       "claimChecks": 31,
       "note": "V8.52: H011:s originalvittne jämfört med UCL Digital Egypt och äldre översättning. Primärkällans segerretorik separeras från belagda fakta. Helgranskning pågår."
+    },
+    {
+      "date": "2026-10-14",
+      "inventory": 193,
+      "partialReports": 36,
+      "proposedCorrections": 11,
+      "implementedCorrections": 11,
+      "wholeApproved": 0,
+      "claimCheckPosts": 17,
+      "claimChecks": 32,
+      "note": "V8.54: en kontroll skiljer femte regeringsåret från militärhändelsens okända exakta årtal. Ingen slutgranskning."
     }
   ],
   "caveat": "Måtten överlappar. De får inte summeras till ett totalt färdigställande. Källkontroll av ett påstående betyder inte fullständig postgranskning.",
