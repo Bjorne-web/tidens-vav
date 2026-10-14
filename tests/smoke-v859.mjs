@@ -7,7 +7,7 @@ assert.ok(html.includes('v859-book-gantt.js'));
 assert.ok(!html.includes('v859-book-gantt-v2.js'));
 assert.ok(!read('v859-book-gantt.js').includes('tv-gantt-scroll'),'Do not create second Gantt below the timeline');
 const gantt=read('v859-book-gantt.js'),reader=read('v858-book-reader.js');
-for(const term of ["CATEGORY='Bibelns böcker'",'laneNames[CATEGORY]=CATEGORY','tv-book-band','tv-book-end','tvOnlyBooks','dataset.tvBook=b.id','renderTimeline=function()'])assert.ok(gantt.includes(term),'Gantt missing '+term);
+for(const term of ["CATEGORY='Bibelns böcker'",'state.cat.add(CATEGORY)','tv-book-band','tv-book-end','tvOnlyBooks','dataset.tvBook=b.id','renderTimeline=function()'])assert.ok(gantt.includes(term),'Gantt missing '+term);
 for(const heading of ['Vad var det?','Historiskt sammanhang','Konsekvenser och betydelse','Betydelse för Israels religion','Osäkerheter och viktiga preciseringar','Källor och läsvägar'])assert.ok(reader.includes(heading),'Reader missing '+heading);
 assert.ok(reader.includes('v839-unified-article'),'Same article styling must apply');
 assert.ok(reader.includes('v839-unified-status'),'Source warning styling must apply');
