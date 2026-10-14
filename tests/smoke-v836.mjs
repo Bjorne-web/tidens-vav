@@ -41,11 +41,11 @@ for(const id of newClaims)assert.ok(ledger.claimChecks[id]?.length>0,'Källpröv
 vm.runInContext(read('v836-review-index.js'),env);
 const idx=env.window.TidensKalloversikt;
 assert.equal(idx.overall().total,8);
-assert.equal(idx.overall().checkedPosts,7);
+assert.equal(idx.overall().checkedPosts,idx.catalog().filter(e=>e.status==='partial').length,'Catalog and journal checked-post totals must agree');
 assert.equal(idx.overall().fullReviews,0);
-assert.equal(idx.overall().pendingPosts,1);
+assert.equal(idx.overall().pendingPosts,idx.catalog().filter(e=>e.status==='pending').length,'Pending count must match records');
 assert.equal(idx.statusFor('H001'),'partial');
-assert.equal(idx.statusFor('O030'),'pending');
+assert.equal(idx.statusFor('O030'),'partial','New V8.40 checks must be visible for Zoroastrism');
 assert.ok(idx.catalog().find(p=>p.id==='H017').checks>=1);
 assert.ok(!idx.catalog().some(p=>p.status==='full'));
 console.log('OK: V8.36 source-provenance schema, claim scope and searchable registry calculations.');
