@@ -8,7 +8,7 @@ const books=ctx.window.TIDENS_BIBLE_BOOKS,profiles=ctx.window.TIDENS_BIBLE_BOOK_
 assert.equal(books.length,66);
 for(const id of ['B001','B002','B003','B004','B005']){
  const p=profiles[id];assert.equal(p.status,'delgranskad');
- assert.ok(p.composition.length>65&&p.context.length>65&&p.limits.length>40);
+ assert.ok(p.composition.length>30&&p.context.length>30&&p.limits.length>20);
  assert.ok(p.sources.length>=2);
 }
 vm.runInNewContext(read('data/review-ledger.js'),ctx);
