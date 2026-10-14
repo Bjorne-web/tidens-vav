@@ -1,4 +1,3 @@
-/* C6 scoped source checks do not imply complete review. */
 window.TIDENS_C6_PROGRESS=Object.freeze({
   "schemaVersion": 1,
   "updated": "2026-10-14",
@@ -284,6 +283,17 @@ window.TIDENS_C6_PROGRESS=Object.freeze({
       "claimCheckPosts": 17,
       "claimChecks": 41,
       "note": "V8.63: 4Q22/4QpaleoExodm och textvarianter i Exodus 20 jämförda med samaritanska traditionen i H019; bok B002 har källbunden textvariant. Ingen helgranskning."
+    },
+    {
+      "date": "2026-10-14",
+      "inventory": 193,
+      "partialReports": 36,
+      "proposedCorrections": 11,
+      "implementedCorrections": 11,
+      "wholeApproved": 0,
+      "claimCheckPosts": 17,
+      "claimChecks": 51,
+      "note": "V8.64: ten new scoped research checks (4 Genesis H020 and 6 Pentateuch H019), 41 to 51. No newly completed dossiers."
     }
   ],
   "caveat": "Måtten överlappar. De får inte summeras till ett totalt färdigställande. Källkontroll av ett påstående betyder inte fullständig postgranskning.",
