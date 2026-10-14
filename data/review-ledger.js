@@ -20,6 +20,28 @@ window.TIDENS_REVIEW_LEDGER = Object.freeze({
       scope: "Kontrollen gäller UNESCO:s datering och beskrivning av monumentala anläggningar och T-formade pelare.",
       limit: "Källan belägger inte en historisk identifikation med Edens trädgård och fastställer inte en slutgiltig religiös funktion för alla byggnader."
     }],
+    H004: [{
+      claim: "Den gammalbabyloniska Atrahasistraditionen berättar att gudarnas beslut om floden motiveras av människornas störande oväsen; Enki varnar Atrahasis så att han kan bygga en båt.",
+      verified: "2026-10-14",
+      sourceTitle: "British Museum – Babylonian flood story, bilddokumentation 510209001",
+      sourceUrl: "https://www.britishmuseum.org/collection/image/510209001",
+      evidenceType: "Gammalbabyloniskt kilskriftligt flodvittne i museets samling",
+      claimType: "Berättelsemotiv i antik text",
+      sourceType: "Primärtext beskriven i museets föremålsdokumentation",
+      scope: "Kontrollen gäller museets redovisning av motivet gudarnas störning, flodbeslutet och Enkis varning av Atrahasis.",
+      limit: "Skillnaden mot Genesis är relevant för jämförelse, men dokumentet bevisar inte en direkt litterär överföringskedja till Genesis eller daterar dess slutliga redaktion."
+    }],
+    H005: [{
+      claim: "Gilgamesheposets tavla XI innehåller en flodberättelse som finns bevarad i nyassyriska kilskriftsfragment från Nineve.",
+      verified: "2026-10-14",
+      sourceTitle: "British Museum – Gilgamesh tablet 11, föremål K.2252",
+      sourceUrl: "https://www.britishmuseum.org/collection/object/W_K-2252",
+      evidenceType: "Bevarat nyassyriskt manuskriptfragment ur Gilgamesheposets tavla XI",
+      claimType: "Manuskriptvittne och berättelsemotiv",
+      sourceType: "Antik manuskriptfragment via museikatalog",
+      scope: "Kontrollen gäller museets identifiering av tavla XI:s flodtema och att fragmentet hör till nyassyrisk handskriftstradition.",
+      limit: "Dateringen av ett nyassyriskt manuskript är inte detsamma som berättelsens eller eposets första komposition. Likheter med Genesis räcker inte i sig för en säker direkt beroendekedja."
+    }],
     H017: [{
       claim: "Kyros erövring av Babylon dateras till 539 f.Kr.; Kyroscylindern framställer erövringen i babyloniskt kungligt och religiöst språk.",
       verified: "2026-10-14",
