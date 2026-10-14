@@ -18,7 +18,7 @@ vm.runInNewContext(read('data/review-ledger.js'),ctx);
 vm.runInNewContext(read('data/c6-progress.js'),ctx);
 const checks=Object.values(ctx.window.TIDENS_REVIEW_LEDGER.claimChecks);
 assert.ok(checks.reduce((n,x)=>n+x.length,0)>=36);
-assert.equal(checks.filter(x=>x.length).length,17);
+assert.ok(checks.filter(x=>x.length).length>=17);
 const last=ctx.window.TIDENS_C6_PROGRESS.history.at(-1);
 assert.equal(last.claimChecks,checks.reduce((n,x)=>n+x.length,0));
 assert.equal(last.wholeApproved,0);

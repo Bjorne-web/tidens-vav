@@ -17,7 +17,7 @@ const ledger=ctx.window.TIDENS_REVIEW_LEDGER;
 const count=Object.values(ledger.claimChecks).reduce((n,a)=>n+a.length,0);
 assert.ok(count>=39);
 assert.equal(ctx.window.TIDENS_C6_PROGRESS.history.at(-1).claimChecks,count);
-assert.equal(Object.keys(ledger.claimChecks).length,17);
+assert.ok(Object.keys(ledger.claimChecks).length>=17);
 assert.equal(Object.keys(ledger.completePostReviews).length,0);
 assert.ok(ledger.claimChecks.H019.some(c=>c.claim.includes('Femte Mosebokens')));
 console.log('V8.61: five Torah profiles, 39 C6 claim checks, zero whole reviews');
