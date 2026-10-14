@@ -23,11 +23,12 @@ for(const [id,entries] of Object.entries(lists)){
  assert.ok(Array.isArray(entries)&&entries.length,'Empty claim list for '+id);
  for(const [index,item] of entries.entries()){
   const where=id+'['+index+']';
-  for(const f of ['claim','verified','sourceTitle','sourceUrl','evidenceType','claimType','sourceType','timeLevel','timeClarification','scholarlyStanding','scope','limit'])
+  for(const f of ['claim','verified','sourceTitle','sourceUrl','evidenceType','claimType','sourceType','timeLevel','timeClarification','scope','limit'])
    assert.ok(typeof item[f]==='string'&&item[f].trim(),where+': missing '+f);
   assert.ok(/^https:\/\/[^\s]+$/.test(item.sourceUrl),where+': malformed source URL');
   assert.ok(/^\d{4}-\d{2}-\d{2}$/.test(item.verified)&&!Number.isNaN(Date.parse(item.verified)),where+': invalid date');
   assert.ok(item.verified<=progress.updated,where+': verification after status update');
+  if('scholarlyStanding' in item)assert.ok(typeof item.scholarlyStanding==='string'&&item.scholarlyStanding.trim(),where+': empty standing');
   assert.ok(item.scope.length>=20&&item.limit.length>=20,where+': inadequate scope/limitations');
  }
 }
