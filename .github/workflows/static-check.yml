@@ -27,3 +27,4 @@ jobs:
           node tests/smoke-v839.mjs
           node tests/smoke-reader-universal-v839.mjs
           node tests/smoke-v840.mjs
+          node tests/smoke-v841.mjs
