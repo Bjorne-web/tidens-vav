@@ -1,0 +1,14 @@
+/* V8.40 – redovisad metod utan påhittade slutförandemarkeringar. */
+.v840-audit-protocol{margin:12px 0 0;padding:12px 13px;border:1px solid #c7d8e7;border-radius:10px;background:white;color:#274e70}
+.v840-audit-protocol>summary{font-size:13px;font-weight:800;cursor:pointer;line-height:1.55}
+.v840-audit-note{font-size:12px;line-height:1.55;color:#69572f;background:#fff7e8;border-left:3px solid #c8a45b;padding:9px 10px;margin:11px 0}
+.v840-audit-criteria{padding-left:24px;margin:9px 0;display:grid;gap:7px}
+.v840-audit-criteria li{font-size:12px;line-height:1.6}
+.v840-audit-criteria p,.v840-audit-queue p{font-size:11px;color:#54708a;line-height:1.55;margin:2px 0 0}
+.v840-audit-protocol h4{font-size:13px;margin:15px 0 8px}
+.v840-audit-queue{list-style:none;padding:0;display:grid;gap:7px}
+.v840-audit-queue li{border:1px solid #d9e6f0;border-radius:7px;padding:9px 10px}
+.v840-audit-open{background:transparent;border:0;color:#195b8a;font-weight:800;cursor:pointer;font-size:12px;text-align:left;padding:2px 0}
+.v840-audit-open:hover,.v840-audit-open:focus-visible{text-decoration:underline}
+.v840-audit-queue small{display:block;font-size:10px;color:#786230;margin-top:5px}
+@media(max-width:720px){.v840-audit-protocol{padding:10px}.v840-audit-criteria{padding-left:20px}}

@@ -9,6 +9,92 @@ window.TIDENS_REVIEW_LEDGER = Object.freeze({
   updated: "2026-10-14",
   completePostReviews: {},
   claimChecks: {
+    O030: [
+  {
+    "claim": "Forskning om andra templets judendom diskuterar iranskt inflytande i samband med persisk politisk och kulturell dominans.",
+    "verified": "2026-10-14",
+    "sourceTitle": "Shaul Shaked – Iranian influence on Judaism: first century B.C.E. to second century C.E. (Cambridge History of Judaism)",
+    "sourceUrl": "https://www.cambridge.org/core/books/abs/cambridge-history-of-judaism/iranian-influence-on-judaism-first-century-bce-to-second-century-ce/49AFA3CE8DC2278C15BBAAB9F4E4CF36",
+    "evidenceType": "Historisk forskningsöversikt om kontaktmiljöer och förändrade judiska idéer",
+    "claimType": "Historisk kontext och forskningsfråga",
+    "sourceType": "Vetenskapligt redigerad forskningsantologi; tillgängligt sammandrag",
+    "timeLevel": "Persisk och senare iransk-judisk kontakt",
+    "timeClarification": "Politisk närvaro och kulturutbyte daterar inte en viss judisk idé eller identifierar dess första källa.",
+    "scholarlyStanding": "Belagd kontakt; teologisk idéöverföring kräver separat prövning",
+    "scope": "Cambridge-kapitlets offentliga sammanfattning anger metodproblemet, andra templets förändringar och persiska språk- och kulturkontakter.",
+    "limit": "Detta är inte belägg för att varje föreslagen judisk idé lånats från Zarathustra eller under just den babyloniska exilen."
+  },
+  {
+    "claim": "Shaul Shaked argumenterar för stark iransk påverkan på delar av judisk eskatologi och framhåller samtidigt att källornas sena bevarande försvårar att fastslå överföringen.",
+    "verified": "2026-10-14",
+    "sourceTitle": "Shaul Shaked – Eschatology i. In Zoroastrianism and Zoroastrian Influence (Encyclopaedia Iranica)",
+    "sourceUrl": "https://www.iranicaonline.org/articles/eschatology-i/",
+    "evidenceType": "Forskningsargument och explicit redovisning av metodinvändningen med sena pahlavitexter",
+    "claimType": "Omdiskuterad religionshistorisk påverkan",
+    "sourceType": "Signerat religionshistoriskt referensverk med diskussion om alternativ",
+    "timeLevel": "Äldre avestiska allusioner kontra senare fulla pahlavisystem",
+    "timeClarification": "En lära fullt dokumenterad i sen text får inte utan vidare dateras tillbaka till persisk tid på 500-talet f.Kr.",
+    "scholarlyStanding": "Starkt argument i en forskningsposition; direkt överföring ej slutligt belagd",
+    "scope": "Shaked beskriver möjlig påverkan, antika föreställningar, och att inte alla forskare accepterar iranskt ursprung för judisk eskatologi.",
+    "limit": "Artikeln belägger att hypotesen är akademiskt substantiell, inte en odiskutabel eller kvantifierad påverkan av hela judendomen."
+  },
+  {
+    "claim": "Det är omdiskuterat om zoroastrismen ska klassificeras som monoteistisk eller dualistisk; 'världens första monoteism' kan därför inte behandlas som ett fastslaget historiskt faktum.",
+    "verified": "2026-10-14",
+    "sourceTitle": "James W. Boyd & A. Donald – Is Zoroastrianism Dualistic or Monotheistic? (JAAR, 1979)",
+    "sourceUrl": "https://academic.oup.com/jaar/article-abstract/XLVII/4/557/744081",
+    "evidenceType": "Fackgranskat artikelabstract som jämför monoteistiska och dualistiska tolkningsmodeller",
+    "claimType": "Religionsklassificering och forskningsalternativ",
+    "sourceType": "Vetenskaplig tidskriftsartikel; verifierat abstract",
+    "timeLevel": "Religionens successiva idéutveckling",
+    "timeClarification": "Kategorin monoteism kan vara anakronistiskt enhetlig när olika tider och texter inom zoroastrismen jämförs.",
+    "scholarlyStanding": "Klassificeringen omdiskuterad",
+    "scope": "Artikelabstractet diskuterar olika forskningspositioner och författarnas egen sammansatta tolkningsmodell.",
+    "limit": "Abstractet avgör inte religionens exakta kronologi, ger ingen världshistorisk förstaplats och representerar inte alla forskningspositioner."
+  },
+  {
+    "claim": "Kyros personliga religiösa tillhörighet är osäker; de tidiga akemeniderna kan inte utan vidare identifieras med senare normerad zoroastrism.",
+    "verified": "2026-10-14",
+    "sourceTitle": "Gherardo Gnoli – Conversion i. Of Iranians to the Zoroastrian faith (Encyclopaedia Iranica)",
+    "sourceUrl": "https://www.iranicaonline.org/articles/conversion-i/",
+    "evidenceType": "Religionshistorisk syntes om gradvis spridning och osäkerhet kring tidiga akemenider",
+    "claimType": "Härskarreligion och kontaktmiljö",
+    "sourceType": "Signerat vetenskapligt referensverk",
+    "timeLevel": "Kyros och tidigt akemenidiskt styre, 500-talet f.Kr.",
+    "timeClarification": "Persiskt styre över Juda innebär inte att perserkungen eller alla lokala tjänstemän följde ett senare definierat zoroastriskt trossystem.",
+    "scholarlyStanding": "Osäker personlig trosidentifikation",
+    "scope": "Artikeln anger uttryckligen att Kyros och tidiga akemenider kan ha varit eller inte ha varit zoroastrier.",
+    "limit": "Man kan inte härifrån rekonstruera en entydig läroöverföring under exilen eller exakt vad judiska grupper mötte."
+  },
+  {
+    "claim": "De bevarade zoroastriska texterna är ofta senare än de tidiga perioder som ska rekonstrueras, vilket begränsar hur tidigt en fullt utvecklad lära kan beläggas.",
+    "verified": "2026-10-14",
+    "sourceTitle": "William W. Malandra – Zoroastrianism i. Historical Review up to the Arab Conquest (Encyclopaedia Iranica)",
+    "sourceUrl": "https://www.iranicaonline.org/articles/zoroastrianism-i-historical-review/",
+    "evidenceType": "Text- och traditionshistorisk källöversikt med dateringarnas begränsning",
+    "claimType": "Datering av texter och rekonstruktion",
+    "sourceType": "Signerat religionshistoriskt referensverk",
+    "timeLevel": "Äldre lärotradition, sen skriftlig bevaring",
+    "timeClarification": "En senare skriftlig sammanställning kan bygga på äldre muntligt stoff men daterar inte varje detalj till Zarathustras tid.",
+    "scholarlyStanding": "Källkritisk metodfråga med brett erkänd begränsning",
+    "scope": "Malandra beskriver att mycket källmaterial saknar direkt samtidighet och att stora delar av pahlavilitteraturen sammanställts långt senare.",
+    "limit": "Detta förnekar inte äldre muntliga traditioner, men de måste argumenteras för i varje enskilt fall."
+  },
+  {
+    "claim": "Senare babylonisk judisk litteratur innehåller påvisbara persiska språkliga och kulturella inslag; sådan påverkan är inte liktydig med att alla teologiska teman i Talmud har iranskt ursprung.",
+    "verified": "2026-10-14",
+    "sourceTitle": "Jacob Neusner – Judeo-Persian Communities xii. Persian Contribution to Judaism (Encyclopaedia Iranica)",
+    "sourceUrl": "https://www.iranicaonline.org/articles/judeo-persians-xii-persian-contribution-to-judaism/",
+    "evidenceType": "Historisk översikt av rabbinsk judendom och långvarig iransk kulturell närvaro",
+    "claimType": "Senare kulturkontakt och rabbinsk tradition",
+    "sourceType": "Signerat vetenskapligt referensverk",
+    "timeLevel": "Parthisk och sasanidisk period, långt efter exilen",
+    "timeClarification": "Parthisk/sasanidisk påverkan kan inte automatiskt flyttas till 500-talets exil.",
+    "scholarlyStanding": "Påvisbara språkliga inslag; teologisk kausalitet prövas separat",
+    "scope": "Neusner nämner persiska ord, motiv, religiösa paralleller och regionala villkor kring babyloniska Talmud.",
+    "limit": "Artikeln ger inte en direkt överföringskedja för varje enskilt begrepp i en tidigare judisk skrift."
+  }
+],
     H019: [
   {
     "claim": "Pentateukens komposition förklaras inom forskningen med flera litterära och redaktionshistoriska modeller, inte ett empiriskt säkerställt enda färdigställandeår.",

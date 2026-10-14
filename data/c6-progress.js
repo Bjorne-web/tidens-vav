@@ -1,5 +1,5 @@
-/* C6 – dokumenterad arbetsstatus per 2026-10-14, V8.38 testgren.
-   Nytt kontrollpåstående och fullständigt slutgranskad post är olika saker. */
+/* C6 – dokumenterad arbetsstatus, V8.40 testgren.
+   Ett beaktat forskningsargument är inte ett belagt direkt religiöst beroende. */
 window.TIDENS_C6_PROGRESS = Object.freeze({
   "schemaVersion": 1,
   "updated": "2026-10-14",
@@ -61,7 +61,7 @@ window.TIDENS_C6_PROGRESS = Object.freeze({
     "H042",
     "H034"
   ],
-  "description": "C6-granskningen omfattar 193 inventerade poster, åtta delgranskningsrapporter med 36 unika poster och elva införda textförtydliganden. En separat källjournal innehåller 13 kontrollpunkter i 12 poster. Ingen forskningspost har slutgranskats i sin helhet.",
+  "description": "193 poster inventerade; åtta C6-delrapporter behandlar 36 poster. Elva textförtydliganden införda. 19 avgränsade källkontroller i 13 poster (varav O030 zoroastrism med sex separata forskningsfrågor). Inga hela poster slutgranskade.",
   "history": [
     {
       "date": "2026-10-13",
@@ -98,6 +98,17 @@ window.TIDENS_C6_PROGRESS = Object.freeze({
       "claimCheckPosts": 12,
       "claimChecks": 13,
       "note": "V8.38: sex nya, avgränsade påståendekontroller tillagda för H019, H020, H025 (två), H034 och H056. Särskild markering för manuskriptsvittne kontra textens tillkomst. Ingen helgranskning."
+    },
+    {
+      "date": "2026-10-14",
+      "inventory": 193,
+      "partialReports": 36,
+      "proposedCorrections": 11,
+      "implementedCorrections": 11,
+      "wholeApproved": 0,
+      "claimCheckPosts": 13,
+      "claimChecks": 19,
+      "note": "V8.40: sex avgränsade källkontroller om zoroastrism och iransk-judisk kontakt dokumenterade för O030. Källor, motargument och dateringsproblem redovisas. Ingen helgranskning."
     }
   ],
   "caveat": "Måtten överlappar. De får inte summeras till ett totalt färdigställande. Källkontroll av ett påstående betyder inte fullständig postgranskning.",

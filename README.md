@@ -97,3 +97,12 @@ The World Behind the Word är den långsiktiga huvudappen. Tidens väv förblir 
 - Den nya Temaspår-tidslinjen med sex förvalda samtidskategorier ändras inte.
 - Se [gemensam sidopanel och granskningsprinciper](docs/gemensam-sidopanel-v839.md).
 - Nytt automatiskt test: `node tests/smoke-reader-universal-v839.mjs` för samtliga 193 poster och knutna underlagsstrukturer.
+
+## V8.40 – Zoroastrism och vetenskaplig kvalitetsgranskning
+- **O030 Zoroastrism** får en ny, källförankrad forskningsgenomgång med tydlig skillnad mellan väl belagd iransk-judisk kulturkontakt, omdiskuterat religiöst inflytande och otillräckligt underbyggda påståenden om den *första monoteismen*.
+- Sex avgränsade kontroller mot bl.a. Shaul Shaked, Malandra, Gnoli, Neusner och en fackgranskad artikel om monoteism/dualism. Varje enskilt påstående har **stöd, källa, begränsning och forskningsposition** dokumenterad.
+- C6-status: **13 poster och 19 individuella påståendekontroller**, fortfarande **0 av 193 fullständigt vetenskapligt slutgranskade**.
+- Ny utfällbar metodpanel i **Fördjupningar** redovisar sex obligatoriska granskningskrav och prioriterade forskningsfrågor. Kraven markeras inte som uppfyllda utan dokumenterad kontroll.
+- Forskning från andra källor ska framöver kontrasteras mot äldre och yngre textvittnen. Kronologisk likhet är aldrig i sig bevisad påverkan.
+- Läs [C6-rapporten om zoroastrism, vetenskapliga källor och metod](docs/c6-zoroastrism-v840.md).
+- CI testar bland annat äldre V8.39-funktioner och nya `node tests/smoke-v840.mjs`. Originaldatering, sidopanelens ordning och Temaspårs tidslinje är oförändrade.
