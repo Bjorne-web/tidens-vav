@@ -25,6 +25,7 @@ const sandbox={
  document:{getElementById:()=>null},
  enc:s=>String(s??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;'),
  renderDetail(){},
+ renderResearch(){},
 };
 vm.createContext(sandbox);
 for(const file of ['data/data.generated.js','data/special-research.v840.js','data/review-ledger.js','data/c6-progress.js','data/c6-review-method.v840.js','v839-reader-unified.js','v840-audit-method.js']){
