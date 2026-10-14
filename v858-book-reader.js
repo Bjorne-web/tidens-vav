@@ -9,10 +9,11 @@
  function showBook(b){
   const root=document.getElementById('detail');if(!root)return;
   root.replaceChildren();
-  const article=make('article');article.className='tv-book-reader v839-article';
-  article.append(make('div',b.testament+' · '+b.genre+' · FORSKNINGSPOST '+b.id));
+  const article=make('article');article.className='tv-book-reader v86-article v839-unified-article';
+  root.classList.add('v839-unified-reader');
+  const kicker=make('div','TIDENS VÄV · BIBELBOK · FORSKNINGSPOST '+b.id);kicker.className='kicker';article.append(kicker);
   article.append(make('h2',b.title));
-  article.append(make('p','Bibelbok och textens tillkomst. Preliminärt forskningsunderlag, inte fullständigt vetenskapligt slutgranskad.'));
+  const status=make('p','Bibelbok och textens tillkomst. Preliminärt forskningsunderlag, inte fullständigt vetenskapligt slutgranskad.');status.className='v839-unified-status';article.append(status);
   article.append(make('h3','Vad var det?'));
   article.append(make('p',b.title+' är en biblisk skrift inom '+b.genre+'. Bokposten avser textens tillkomst och bearbetning, inte att händelser som skildras därmed är historiskt verifierade.'));
   article.append(make('h3','Historiskt sammanhang'));
@@ -46,6 +47,7 @@
     article.append(list);
    }
   }else {article.append(make('h3','Källor och läsvägar'));article.append(make('p','Individuella akademiska källor och konkurrerande dateringsmodeller återstår att dokumentera.'));}
+  const caveat=make('p','Ett enskilt källstöd eller en dateringsmodell innebär inte att boken är fullständigt historisk-kritiskt granskad.');caveat.className='v839-unified-caveat';article.append(caveat);
   const links=make('section');links.className='v827-reader-rel';
   links.append(make('h3','Historiska samband'));
   const related=researchLinks[b.id];
