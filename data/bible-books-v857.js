@@ -70,6 +70,73 @@ window.TIDENS_BIBLE_BOOKS = Object.freeze([
 ]);
 
 // First researched book profile; remaining records are explicit research drafts.
-window.TIDENS_BIBLE_BOOK_RESEARCH=Object.freeze({
+window.TIDENS_BIBLE_BOOK_RESEARCH={
  B001:{status:'delgranskad',composition:'Genesis 1:1–2:4a och 2:4b–3:24 läses vanligtvis som två olika skapelseframställningar, senare sammanfogade. Prästerligt respektive icke-prästerligt material är vanliga källkritiska kategorier; exakt relativ datering och redaktionshistoria diskuteras.',context:'Israels och Judas skrifttraditioner i den forntida Främre Orienten; textens slutliga form får inte dateras utifrån berättad urtid.',sources:[{title:'Konrad Schmid (2023), Genesis’ Two Creation Accounts Compiled and Interpreted as One',url:'https://www.thetorah.com/article/genesis-two-creation-accounts-compiled-and-interpreted-as-one'},{title:'Marc Zvi Brettler (2013), Differing Conceptions of the Divine Creator',url:'https://www.thetorah.com/article/differing-conceptions-of-the-divine-creator'},{title:'Open Yale Courses, RLST 145 lecture 3',url:'https://oyc.yale.edu/religious-studies/rlst-145/lecture-3'}]}
+};
+// V8.60: four individually sourced, explicitly partial Gospel profiles.
+Object.assign(window.TIDENS_BIBLE_BOOK_RESEARCH,{
+  "B040": {
+    "status": "delgranskad",
+    "composition": "Matteusevangeliet är formellt anonymt i sin berättande text. Den traditionella tillskrivningen till Matteus är en senare kyrklig attribuering. Tvåkällshypotesen ser Markus och en hypotetisk gemensam ordkälla (Q) som viktiga, men andra beroendemodeller förekommer.",
+    "context": "Grekiskspråkig Jesustradition i en judisk och tidig kristen miljö efter Jesus; relationen mellan judisk lagtolkning, Jesusrörelsens identitet och romersk makt är betydelsefull.",
+    "limits": "75–100 e.Kr. är ett arbetsspann, inte ett exakt kompositionsdatum. Församlingens geografiska lokalisering och Q-hypotesen kan inte fastslås entydigt.",
+    "sources": [
+      {
+        "title": "Dale B. Martin, Yale RLST 152: From Stories to Canon",
+        "url": "https://oyc.yale.edu/religious-studies/rlst-152/lecture-2"
+      },
+      {
+        "title": "Matthew Larsen (2023), The Publication of the Synoptics and the Problem of Dating",
+        "url": "https://academic.oup.com/edited-volume/45760/chapter-abstract/398724672"
+      }
+    ]
+  },
+  "B041": {
+    "status": "delgranskad",
+    "composition": "Markusevangeliet identifierar inte sin författare i själva texten. Traditionen förbinder det med Markus och Petrus, men uppgiften är inte en signerad förstahandsuppgift. Markusprioritet är en inflytelserik förklaringsmodell för synoptiska textlikheter.",
+    "context": "Skrevs på grekiska i samband med den tidiga Jesusrörelsens muntliga och skriftliga traditioner. Kriget 66–70 e.Kr. och templets förstörelse är en viktig omdebatterad dateringskontext.",
+    "limits": "65–80 e.Kr. är forskningsspann. Markus 13 är relevant men tolkningen av profetia och händelse skapar ingen exakt datering.",
+    "sources": [
+      {
+        "title": "Dale B. Martin, Yale RLST 152: From Stories to Canon",
+        "url": "https://oyc.yale.edu/religious-studies/rlst-152/lecture-2"
+      },
+      {
+        "title": "The Gospel according to Mark, Appendix A: Authorship and Date",
+        "url": "https://byustudies.byu.edu/online-book/the-gospel-according-to-mark/1966"
+      }
+    ]
+  },
+  "B042": {
+    "status": "delgranskad",
+    "composition": "Lukasevangeliet anger i prologen att författaren bygger på tidigare berättelser och undersökning av traditioner, men namnger inte sig själv. Dess relation till Apostlagärningarna är central; Markusberoende är en vanlig förklaringsmodell.",
+    "context": "Grekisk historieskrivnings- och biografisk berättelsetradition, tidiga kristna gemenskaper och romersk imperiekontext. Relationerna till judisk tradition och Paulusgestalten diskuteras.",
+    "limits": "75–110 e.Kr. är ett brett arbetsintervall. Relation till Apostlagärningarna identifierar inte med säkerhet en person vid namn Lukas.",
+    "sources": [
+      {
+        "title": "Dale B. Martin, Yale RLST 152: From Stories to Canon",
+        "url": "https://oyc.yale.edu/religious-studies/rlst-152/lecture-2"
+      },
+      {
+        "title": "Matthew Larsen (2023), The Publication of the Synoptics and the Problem of Dating",
+        "url": "https://academic.oup.com/edited-volume/45760/chapter-abstract/398724672"
+      }
+    ]
+  },
+  "B043": {
+    "status": "delgranskad",
+    "composition": "Johannesevangeliet har en självständig gestaltning av Jesu verksamhet jämfört med de synoptiska evangelierna. Berättelsen namnger inte explicit en modern identifierbar författare; den lärjunge som anges som vittne i Joh 21:24 och den senare kyrkliga tillskrivningen till aposteln Johannes måste skiljas åt.",
+    "context": "Johanneisk Jesus- och gudsbild, återkommande teman som ljus och mörker, samt gruppidentitet i judisk/tidig kristen miljö. Forskningen diskuterar flera möjliga tillkomst- och redaktionsstadier.",
+    "limits": "80–110 e.Kr. är preliminärt intervall. P52 är ett senare manuskriptvittne vars paleografiska datering är osäker; det ger inte exakt redaktionsdatum.",
+    "sources": [
+      {
+        "title": "Dale B. Martin, Yale RLST 152: Johannine Christianity: the Gospel",
+        "url": "https://oyc.yale.edu/religious-studies/rlst-152/lecture-11"
+      },
+      {
+        "title": "Brent Nongbri, Palaeography, Precision and Publicity",
+        "url": "https://www.cambridge.org/core/journals/new-testament-studies/article/abs/palaeography-precision-and-publicity-further-thoughts-on-pryliii457-p52/1D4E56BF0E9D4DDDA313D0C2754E2F28"
+      }
+    ]
+  }
 });
