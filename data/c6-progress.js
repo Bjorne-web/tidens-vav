@@ -349,6 +349,17 @@ window.TIDENS_C6_PROGRESS=Object.freeze({
       "claimCheckPosts": 32,
       "claimChecks": 74,
       "note": "V8.69: tre avgränsade kontroller H040 (Meshastelens original och avgjutning) samt H023 (två om Daniels litterära utveckling), och en delgranskad profil för B027 Daniel. Webbplatsens synliga byggidentifierare införs som felsökningshjälp; Cloudflare-deployment är inte verifierad."
+    },
+    {
+      "date": "2026-10-14",
+      "inventory": 193,
+      "partialReports": 36,
+      "proposedCorrections": 11,
+      "implementedCorrections": 11,
+      "wholeApproved": 0,
+      "claimCheckPosts": 35,
+      "claimChecks": 77,
+      "note": "V8.70: tre avgränsade kontroller H038, H039 och H044 samt delgranskad forskningsprofil B028 Hosea. Inga fullständiga C6-slutgranskningar."
     }
   ],
   "caveat": "Måtten överlappar. De får inte summeras till ett totalt färdigställande. Källkontroll av ett påstående betyder inte fullständig postgranskning.",
