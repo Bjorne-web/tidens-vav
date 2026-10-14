@@ -143,3 +143,42 @@ Object.assign(window.TIDENS_BIBLE_BOOK_RESEARCH,{
 
 // V8.61 – source-aware Torah profiles, not completed reviews.
 Object.assign(window.TIDENS_BIBLE_BOOK_RESEARCH,{"B001":{"status":"delgranskad","composition":"Genesis sammanför två skapelseframställningar, urhistoria och stamfädersberättelser; P och icke-P är omdiskuterade kompositionsmodeller.","context":"Mesopotamiska och israelitisk-judaiska berättelsetraditioner; berättad urtid skild från redaktion.","limits":"Datering av bokform och enskilda traditionslager kan inte likställas.","sources":[{"title":"Joel S. Baden, The Composition of the Pentateuch (2012)","url":"https://yalebooks.yale.edu/book/9780300152630/the-composition-of-the-pentateuch/"},{"title":"Open Yale Courses, Introduction to the Old Testament","url":"https://oyc.yale.edu/religious-studies/rlst-145"}]},"B002":{"status":"delgranskad","composition":"Exodus kombinerar befrielseberättelse, förbund, lag och prästerlig tabernakeltradition i flera diskuterade skikt.","context":"Egypten som berättad miljö; senare israelitisk-judeiska identitets- och kultmiljöer.","limits":"Textens datering styrker inte automatiskt att ett beskrivet uttåg inträffat.","sources":[{"title":"Joel S. Baden, The Composition of the Pentateuch (2012)","url":"https://yalebooks.yale.edu/book/9780300152630/the-composition-of-the-pentateuch/"},{"title":"Open Yale Courses, Introduction to the Old Testament","url":"https://oyc.yale.edu/religious-studies/rlst-145"}]},"B003":{"status":"delgranskad","composition":"Leviticus innehåller ritual-, renhets- och helighetstraditioner; relationen mellan prästerliga och helighetsrelaterade skikt diskuteras.","context":"Tempel, prästerskap och sociala gränser i israelitisk och judisk religion.","limits":"Skiktens inbördes ordning och slutredaktion är omdiskuterade.","sources":[{"title":"Joel S. Baden, The Composition of the Pentateuch (2012)","url":"https://yalebooks.yale.edu/book/9780300152630/the-composition-of-the-pentateuch/"},{"title":"Open Yale Courses, Introduction to the Old Testament","url":"https://oyc.yale.edu/religious-studies/rlst-145"}]},"B004":{"status":"delgranskad","composition":"Numeri kombinerar ökenberättelser, lagar, folkräkningar och prästerligt material.","context":"Ökenvandring som berättad tid skild från senare textkomposition.","limits":"En sammanhängande ökenkronologi är inte oberoende historiskt verifierad.","sources":[{"title":"Joel S. Baden, The Composition of the Pentateuch (2012)","url":"https://yalebooks.yale.edu/book/9780300152630/the-composition-of-the-pentateuch/"},{"title":"Open Yale Courses, Introduction to the Old Testament","url":"https://oyc.yale.edu/religious-studies/rlst-145"}]},"B005":{"status":"delgranskad","composition":"Deuteronomium har sannolikt flera redaktionsfaser; en kärna relateras ofta till sen kungatid och senare bearbetning.","context":"Judas kungatid, exilisk lagtolkning och deuteronomistisk historieskrivning.","limits":"Kopplingen till Josias reform och exakt datering av slutformen är forskningsfrågor.","sources":[{"title":"Joel S. Baden, The Composition of the Pentateuch (2012)","url":"https://yalebooks.yale.edu/book/9780300152630/the-composition-of-the-pentateuch/"},{"title":"Open Yale Courses, Introduction to the Old Testament","url":"https://oyc.yale.edu/religious-studies/rlst-145"}]}});
+
+// V8.62: shared, scoped manuscript-tradition dossier for the five Torah books.
+window.TIDENS_TORAH_TEXT_HISTORY=Object.freeze({
+  "status": "delgranskad",
+  "textHistory": "Dödahavsrullarna dokumenterar en mångfald av hebreiska textformer. Bland dessa finns handskrifter som står nära den senare masoretiska traditionen samt så kallade för-samaritanska textformer, exempelvis 4QpaleoExodᵐ. Septuaginta är en grekisk översättning som ibland vittnar om andra hebreiska förlagor. Den samaritanska Pentateuken har både äldre delade läsningar och särskilda senare traditioner.",
+  "witnesses": [
+    {
+      "label": "Qumrans Pentateukhandskrifter",
+      "kind": "handskriftstradition",
+      "certainty": "bevarade textvittnen, varierande textformer"
+    },
+    {
+      "label": "Masoretisk texttradition",
+      "kind": "texttradition",
+      "certainty": "senare standardiserad traditionslinje"
+    },
+    {
+      "label": "Samaritanska Pentateuken",
+      "kind": "texttradition",
+      "certainty": "besläktad men inte identisk med för-samaritanska rullar"
+    },
+    {
+      "label": "Septuaginta",
+      "kind": "översättning och indirekt textvittne",
+      "certainty": "grekisk översättning; kräver prövning av hebreisk förlaga"
+    }
+  ],
+  "limits": "Handskriftsdatering anger tidpunkten för bevarade kopior, inte när en bok ursprungligen komponerades eller fick en slutlig kanonisk form.",
+  "sources": [
+    {
+      "title": "Emanuel Tov, Proto-Samaritan Texts and the Samaritan Pentateuch",
+      "url": "https://www.emanueltov.info/docs/varia/67.Proto-SamaritanTexts.2.pdf?v=1.0"
+    },
+    {
+      "title": "Ronald S. Hendel (2011), Assessing the Text-Critical Theories of the Hebrew Bible after Qumran",
+      "url": "https://academic.oup.com/edited-volume/34366/chapter-abstract/291495648"
+    }
+  ]
+});

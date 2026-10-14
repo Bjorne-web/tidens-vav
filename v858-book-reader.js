@@ -47,6 +47,17 @@
     article.append(list);
    }
   }else {article.append(make('h3','Källor och läsvägar'));article.append(make('p','Individuella akademiska källor och konkurrerande dateringsmodeller återstår att dokumentera.'));}
+  const torah=window.TIDENS_TORAH_TEXT_HISTORY;
+  if(torah&&/^B00[1-5]$/.test(b.id)){
+   article.append(make('h3','Handskrifter och textöverföring'));
+   article.append(make('p',torah.textHistory));
+   const witnesses=make('ul');
+   for(const w of torah.witnesses) witnesses.append(make('li',w.label+' – '+w.kind+'; '+w.certainty));
+   article.append(witnesses,make('p',torah.limits));
+   const sources=make('ul');
+   for(const src of torah.sources){const a=make('a',src.title);a.href=src.url;a.target='_blank';a.rel='noopener noreferrer';const li=make('li');li.append(a);sources.append(li)}
+   article.append(make('h3','Källor för handskriftstraditionerna'),sources);
+  }
   const caveat=make('p','Ett enskilt källstöd eller en dateringsmodell innebär inte att boken är fullständigt historisk-kritiskt granskad.');caveat.className='v839-unified-caveat';article.append(caveat);
   const links=make('section');links.className='v827-reader-rel';
   links.append(make('h3','Historiska samband'));

@@ -1,0 +1,15 @@
+name: V8.62 Torah text witnesses
+on:
+  push:
+    branches:
+      - 'v8.*'
+  pull_request:
+jobs:
+  manuscript-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/smoke-v862.mjs
