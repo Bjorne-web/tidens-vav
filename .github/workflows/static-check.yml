@@ -24,3 +24,5 @@ jobs:
           node tests/smoke-v837.mjs
           node tests/smoke-v838.mjs
           node tests/smoke-reader-layout-v838.mjs
+          node tests/smoke-v839.mjs
+          node tests/smoke-reader-universal-v839.mjs
