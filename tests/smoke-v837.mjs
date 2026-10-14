@@ -25,7 +25,7 @@ vm.runInContext(read(overlay),sandbox);
 const updated=vm.runInContext('events.map(e=>({id:e.id,start:e.start,end:e.end,title:e.title,evidence:e.evidence,reviewed:e.reviewed,description:e.description}))',sandbox);
 const corrected=updated.filter(e=>e.description!==origById.get(e.id)?.description);
 const intended=['H019','H020','H021','H023','H024','H025','H009','H017','H037','H042','H034'];
-assert.deepEqual(corrected.map(e=>e.id).sort(),intended.slice().sort(),'Bara de 11 avsedda beskrivningarna får ändras');
+assert.deepEqual(Array.from(corrected,e=>e.id).sort(),intended.slice().sort(),'Bara de 11 avsedda beskrivningarna får ändras');
 for(const e of updated){
  const o=origById.get(e.id);
  for(const key of ['start','end','title','evidence','reviewed'])
