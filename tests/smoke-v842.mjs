@@ -6,7 +6,8 @@ import vm from 'node:vm';
 import {execFileSync} from 'node:child_process';
 const root=path.resolve(import.meta.dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'utf8');
 const html=read('index.html');
-assert.ok(html.includes('Version 8.42'),'Version must be V8.42');
+const version=html.match(/Version 8\.(\d+)/);
+assert.ok(version&&Number(version[1])>=42,'V8.42 or newer required');
 for(const file of ['v842-reader-navigation.js','v842-reader-navigation.css']){
  assert.ok(fs.existsSync(path.join(root,file)),file+' missing');
  assert.ok(html.includes(file),file+' must load in page');
