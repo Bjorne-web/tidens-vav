@@ -1,4 +1,4 @@
-/* C6 – journalhärledd granskningsstatus; delkontroll är inte slutgranskning. */
+/* C6 – dokumenterad status; källkontroll är inte slutgranskning. */
 window.TIDENS_C6_PROGRESS = Object.freeze({
   "schemaVersion": 1,
   "updated": "2026-10-14",
@@ -60,7 +60,7 @@ window.TIDENS_C6_PROGRESS = Object.freeze({
     "H042",
     "H034"
   ],
-  "description": "193 poster inventerade. 36 ingår i C6-delgranskningsrapporter. 11 textförtydliganden införda. 30 avgränsade påståenden källkontrollerade i 17 poster. En jämförelse av fyra iranska och judiska textpassager har lagts till, utan att fastslå direkt litterär påverkan. 0 vetenskapligt helgranskade poster.",
+  "description": "193 poster inventerade. 36 ingår i C6-delgranskningsrapporter. 11 textförtydliganden införda. 31 avgränsade påståenden källkontrollerade i 17 poster. En jämförelse av fyra iranska och judiska textpassager har lagts till, utan att fastslå direkt litterär påverkan. 0 vetenskapligt helgranskade poster.",
   "history": [
     {
       "date": "2026-10-13",
@@ -163,6 +163,17 @@ window.TIDENS_C6_PROGRESS = Object.freeze({
       "claimCheckPosts": 17,
       "claimChecks": 30,
       "note": "V8.51: H011:s föremål JE 31408 och Israelomnämnandet i rad 27 har fått en avgränsad katalogkontroll. Hela primärtexten återstår; ingen helgranskning."
+    },
+    {
+      "date": "2026-10-14",
+      "inventory": 193,
+      "partialReports": 36,
+      "proposedCorrections": 11,
+      "implementedCorrections": 11,
+      "wholeApproved": 0,
+      "claimCheckPosts": 17,
+      "claimChecks": 31,
+      "note": "V8.52: H011:s originalvittne jämfört med UCL Digital Egypt och äldre översättning. Primärkällans segerretorik separeras från belagda fakta. Helgranskning pågår."
     }
   ],
   "caveat": "Måtten överlappar. De får inte summeras till ett totalt färdigställande. Källkontroll av ett påstående betyder inte fullständig postgranskning.",

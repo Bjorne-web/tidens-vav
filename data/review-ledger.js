@@ -41,6 +41,20 @@ window.TIDENS_REVIEW_LEDGER = Object.freeze({
     ],
     H011: [
       {
+        claim: "University College Londons digitala egyptologiska material identifierar Merneptahstelen som en segerinskrift på baksidan av en äldre stele från Amenhotep III och återger läsningen av Israel.",
+        verified: "2026-10-14",
+        sourceTitle: "UCL Digital Egypt – Merenptah's Israel stela",
+        sourceUrl: "https://www.ucl.ac.uk/museums-static/digitalegypt/thebes/merenptah/stela.html",
+        evidenceType: "Universitetsförmedlat primärkällematerial och äldre textöversättning",
+        claimType: "Textvittnets identitet och äldre översättning",
+        sourceType: "Universitetssamling av egyptologiskt källmaterial",
+        timeLevel: "Merneptahs kungliga inskrift och återanvänd steles historia",
+        timeClarification: "Det återanvända stenföremålet är äldre än Merneptahs inskrift.",
+        scholarlyStanding: "Identifieringen av namnformen Israel är allmänt accepterad; detaljerna i krigsskildringen är inte direkt verifierade",
+        scope: "UCL återger Israelomnämnandet och hänvisar till Spiegelbergs översättning i Petrie 1897.",
+        limit: "Digital Egypts sammanfattning ersätter inte jämförelse med en modern kritisk hieroglyfutgåva; en segertext bevisar inte militära påståenden."
+      },
+      {
         claim: "Den så kallade Israelstelen är en återanvänd stele från Amenhotep III med Merneptahs 28-radiga segerhymn; namnet Israel står i rad 27.",
         verified: "2026-10-14",
         sourceTitle: "Global Egyptian Museum, JE 31408, föremålskatalog",
