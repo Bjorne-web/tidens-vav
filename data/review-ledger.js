@@ -11,6 +11,21 @@ window.TIDENS_REVIEW_LEDGER = Object.freeze({
   claimChecks: {
     H012: [
       {
+        claim: "Sambandet mellan den Israelgrupp som Merneptahstelen nämner och järnålder I:s höglandsbosättare är en vetenskaplig identifieringsmodell, inte en direkt arkeologisk identitet som kan avläsas ur stelen.",
+        verified: "2026-10-14",
+        sourceTitle: "Robert D. Miller II (2004), Identifying Earliest Israel, BASOR 333; Avraham Faust (2015), The Emergence of Israel and Theories of Ethnogenesis",
+        sourceUrl: "https://www.journals.uchicago.edu/doi/10.2307/1357794",
+        secondSourceUrl: "https://doi.org/10.1002/9781118774199.ch9",
+        evidenceType: "Två akademiska analyser av identifikation utifrån etnicitet, bosättningsmönster och egyptisk text",
+        claimType: "Relation mellan egyptiskt namnvittne och arkeologiskt bosättningsmaterial",
+        sourceType: "Fackgranskad artikel och sakkunniggranskat bokkapitel; öppna sammanfattningar",
+        timeLevel: "Merneptahs sent 1200-tal f.Kr. kontra järnålder I:s successiva bosättningsutveckling",
+        timeClarification: "Samtidighet gör kopplingen möjlig, men tidsmässig överlappning bevisar inte gruppidentitet.",
+        scholarlyStanding: "Betydelsefull och ofta framförd identifikation; detaljer och etnicitetskriterier omdiskuterade",
+        scope: "Miller argumenterar för identifiering genom bosättningsmönster; Faust diskuterar varför Israelomnämnandet begränsar vissa modeller för senare etnogenes.",
+        limit: "Läsaren får inte få intrycket att Merneptahs Egypten daterade en specifik höglandsby eller att modern arkeologi direkt identifierar alla bosättare som israeliter."
+      },
+      {
         claim: "Höglandsbosättningarnas arkeologiska material under järnålder I är centralt för att studera framväxten av tidig israelitisk identitet, men etnicitet kan inte avläsas direkt ur en enda keramiktyp.",
         verified: "2026-10-14",
         sourceTitle: "Israel Finkelstein (1996), Ethnicity and Origin of the Iron I Settlers in the Highlands of Canaan",
