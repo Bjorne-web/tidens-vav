@@ -41,6 +41,20 @@ window.TIDENS_REVIEW_LEDGER = Object.freeze({
     ],
     H011: [
       {
+        claim: "Den så kallade Israelstelen är en återanvänd stele från Amenhotep III med Merneptahs 28-radiga segerhymn; namnet Israel står i rad 27.",
+        verified: "2026-10-14",
+        sourceTitle: "Global Egyptian Museum, JE 31408, föremålskatalog",
+        sourceUrl: "https://www.globalegyptianmuseum.org/record.aspx?id=15349&lan=S",
+        evidenceType: "Museal föremålskatalog med objektbeskrivning och inskriftslokalisering",
+        claimType: "Primärföremålets identitet och textens lokalisering",
+        sourceType: "Museikatalog för antik artefakt",
+        timeLevel: "Merneptahs femte regeringsår; ett äldre återanvänt stenföremål",
+        timeClarification: "Stelens ursprungliga block och Merneptahs senare inskrift är olika tillkomstskeden.",
+        scholarlyStanding: "Föremålsidentitet och placering av Israelomnämnandet väl belagda; inskriftens historiska påståenden kräver tolkning",
+        scope: "Museikatalogen specificerar återbruket, hymnens 28 rader och omnämnandet Israel i rad 27.",
+        limit: "Katalogbeskrivningen är inte en självständig komplett hieroglyfisk transkription, och segerhymnens utsagor är inte därmed bevisade sakförhållanden."
+      },
+      {
         claim: "Merneptahstelen är en egyptisk kunglig segerinskrift vars Israelomnämnande måste läsas i en propagandistisk framställning; en segerformel är inte ett neutralt demografiskt eller militärhistoriskt protokoll.",
         verified: "2026-10-14",
         sourceTitle: "Dermot Nestor (2015), Merneptah's 'Israel' and the Absence of Origins in Biblical Scholarship",
