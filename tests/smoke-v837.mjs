@@ -25,8 +25,8 @@ const origById=new Map(original.map(e=>[e.id,e]));
 vm.runInContext(read(overlay),sandbox);
 const updated=vm.runInContext('events.map(e=>({id:e.id,start:e.start,end:e.end,title:e.title,evidence:e.evidence,reviewed:e.reviewed,description:e.description}))',sandbox);
 const corrected=updated.filter(e=>e.description!==origById.get(e.id)?.description);
-const intended=['H019','H020','H021','H023','H024','H025','H009','H017','H037','H042','H034'];
-assert.deepEqual(Array.from(corrected,e=>e.id).sort(),intended.slice().sort(),'Bara de 11 avsedda beskrivningarna får ändras');
+const intended=['H011','H019','H020','H021','H023','H024','H025','H009','H017','H037','H042','H034'];
+assert.deepEqual(Array.from(corrected,e=>e.id).sort(),intended.slice().sort(),'Bara 11 tidigare och H011 får ändras');
 for(const e of updated){
  const o=origById.get(e.id);
  for(const key of ['start','end','title','evidence','reviewed'])
@@ -49,4 +49,4 @@ assert.deepEqual(new Set(p.implementedCorrectionIds),new Set(intended));
 assert.equal(p.partialReportIds.length,36,'Delgranskningsrapporterna får inte räknas om vid textändring');
 assert.equal(Object.keys(sandbox.window.TIDENS_REVIEW_LEDGER.completePostReviews).length,0);
 assert.ok(read('v836-c6-progress.js').includes('Införda textförtydliganden'));
-console.log('OK: exactly 11 descriptions corrected, original dates preserved, C6 progress updated and no false scientific approval.');
+console.log('OK: 11 original clarifications plus H011 corrected, original dates preserved, C6 progress updated and no false scientific approval.');
