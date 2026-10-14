@@ -316,6 +316,20 @@ window.TIDENS_REVIEW_LEDGER = Object.freeze({
   }
 ],
     H019: [
+      {
+        "claim": "Femte Mosebokens lagmaterial kan innehålla innovation i förhållande till äldre förbundslagar; kopplingen till Josias reformmiljöer är en historisk rekonstruktion och anger inte med säkerhet bokens slutredaktionsdatum.",
+        "verified": "2026-10-14",
+        "sourceTitle": "Bernard M. Levinson (1997), Deuteronomy and the Hermeneutics of Legal Innovation",
+        "sourceUrl": "https://global.oup.com/academic/product/deuteronomy-and-the-hermeneutics-of-legal-innovation-9780195112801",
+        "evidenceType": "Vetenskaplig monografi om deuteronomisk lagtolkning och litterär relation till äldre lagtraditioner",
+        "claimType": "Laglitteratur, komposition och tolkningshistoria",
+        "sourceType": "Akademisk monografi, förlagspresentation",
+        "timeLevel": "Komposition och möjlig redaktionshistoria i kungatid och senare skeden",
+        "timeClarification": "Möjlig bakgrund i sen kungatid är inte ett verifierat årtal för vare sig en ursprunglig skriftkärna eller den färdiga Femte Moseboken.",
+        "scholarlyStanding": "Lagarnas litterära relationer analyseras brett; deras exakta historiska placering och redaktion diskuteras",
+        "scope": "Avgränsad kontroll av deuteronomisk bearbetning av äldre israelitisk lag och skiljelinjen mellan texthistoria och berättad tid.",
+        "limit": "Kontrollen bevisar inte Mosaiskt författarskap, daterar inte slutformen säkert och utgör inte en fullständig vetenskaplig granskning av Femte Moseboken."
+      },,
   {
     "claim": "Pentateukens komposition förklaras inom forskningen med flera litterära och redaktionshistoriska modeller, inte ett empiriskt säkerställt enda färdigställandeår.",
     "verified": "2026-10-14",
@@ -331,20 +345,7 @@ window.TIDENS_REVIEW_LEDGER = Object.freeze({
   }
 ],
     H020: [
-      {
-        "claim": "Femte Mosebokens lagmaterial kan innehålla innovation i förhållande till äldre förbundslagar; kopplingen till Josias reformmiljöer är en historisk rekonstruktion och anger inte med säkerhet bokens slutredaktionsdatum.",
-        "verified": "2026-10-14",
-        "sourceTitle": "Bernard M. Levinson (1997), Deuteronomy and the Hermeneutics of Legal Innovation",
-        "sourceUrl": "https://global.oup.com/academic/product/deuteronomy-and-the-hermeneutics-of-legal-innovation-9780195112801",
-        "evidenceType": "Vetenskaplig monografi om deuteronomisk lagtolkning och litterär relation till äldre lagtraditioner",
-        "claimType": "Laglitteratur, komposition och tolkningshistoria",
-        "sourceType": "Akademisk monografi, förlagspresentation",
-        "timeLevel": "Komposition och möjlig redaktionshistoria i kungatid och senare skeden",
-        "timeClarification": "Möjlig bakgrund i sen kungatid är inte ett verifierat årtal för vare sig en ursprunglig skriftkärna eller den färdiga Femte Moseboken.",
-        "scholarlyStanding": "Lagarnas litterära relationer analyseras brett; deras exakta historiska placering och redaktion diskuteras",
-        "scope": "Avgränsad kontroll av deuteronomisk bearbetning av äldre israelitisk lag och skiljelinjen mellan texthistoria och berättad tid.",
-        "limit": "Kontrollen bevisar inte Mosaiskt författarskap, daterar inte slutformen säkert och utgör inte en fullständig vetenskaplig granskning av Femte Moseboken."
-      },
+
       {
         claim: "Genesis 1 använder i sin skapelseberättelse gudsbeteckningen Elohim, medan Genesis 2–3 i regel använder YHWH Elohim. Konrad Schmid tolkar den sammansatta beteckningen som ett möjligt redaktionellt sätt att knyta samman två ursprungligen självständiga skapelseframställningar.",
         verified: "2026-10-14",
