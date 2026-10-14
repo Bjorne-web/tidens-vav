@@ -47,6 +47,35 @@ if(!research.H009)research.H009={overview:"Amarnabreven visar egyptiskt beroende
 if(!research.H017)research.H017={overview:"Kyroscylindern är kunglig babylonisk legitimeringsretorik efter Kyros erövring av Babylon 539 f.Kr.",parallels:"Esra 1 skildrar ett judeiskt återvändande, men cylindern nämner inte uttryckligen Jerusalem eller judarna.",caution:"Direkt dokumentation av återvändandet måste sökas i andra källor.",sources:references.H017};
 if(!research.H037)research.H037={overview:"Amarnabrev från levantinska stadsfurstar dokumenterar politiska kontakter med Egypten under 1300-talet f.Kr.",parallels:"Brevens historiska miljö kan jämföras med, men styrker inte, senare bibliska historieberättelser.",caution:"Ett enskilt textvittne eller tidsskikt belägger inte hela den angivna perioden.",sources:references.H037};
 if(!research.H042)research.H042={overview:"Taylorprismat skrevs cirka 691 f.Kr. och återger Sanheribs framställning av 701 års fälttåg och tribut från Hiskia.",parallels:"Jämför 2 Kung 18–19 och Jes 36–37 utan att likställa politisk självframställning med en neutral krönika.",caution:"Händelsens år 701 och det bevarade prismats datering cirka 691 f.Kr. är olika.",sources:references.H042};
+// Lägg till ett sakligt forskningskort där grunddatan ännu saknar eget underlag.
+// Post-ID, årtal, kategori och äldre källor i andra kort förblir intakta.
+const newDossiers={
+ H019:{
+  overview:"Pentateukens sammansättning är föremål för skilda dokument-, tilläggs- och redaktionsmodeller. Det angivna intervallet är en övergripande forskningsram, inte en daterad handskrift.",
+  parallels:"Texters berättade tid, föreslagna textlager och bevarade manuskript ska hållas isär.",
+  caution:"Ett enskilt slutdatum för hela Pentateuken är inte säkert historiskt fastställt.",
+  sources:references.H019
+ },
+ H021:{
+  overview:"Josua–Kungaböckernas deuteronomistiska bearbetning diskuteras inom flera modeller, från föreexiliska till exiliska och efterexiliska stadier.",
+  parallels:"Jämför Noths exiliska modell, Cross josianska redaktion och Smends flerskiktsmodell som olika forskningspositioner.",
+  caution:"Ett sammanhållet historieverk av en enda författare är en omstridd rekonstruktion, inte en bevarad författarsignatur.",
+  sources:references.H021
+ },
+ H024:{
+  overview:"Det mackabeiska upprorets inledande fas började under Antiochos IV. Återinvigningen av Jerusalems tempel dateras ofta till 164 f.Kr.; självständigheten följde senare.",
+  parallels:"Skilj religiös omorganisation, återupptaget tempelbruk och politiska förändringar.",
+  caution:"Postens intervall ska inte läsas som att självständigheten var uppnådd när templet återinvigdes.",
+  sources:references.H024
+ },
+ H034:{
+  overview:"Johannesevangeliets komposition och slutredaktion dateras i forskning med hjälp av litterära och historiska argument. P52 är ett senare bevarat fragment.",
+  parallels:"P52 är ett manuskriptvittne; dess paleografiska datering är inte kompositionstid för Johannesevangeliet.",
+  caution:"P52:s handstilsdatering medger större osäkerhet än en exakt placering omkring 125 e.Kr. Det ger inte ett säkert slutdatum för evangeliets komposition.",
+  sources:references.H034
+ }
+};
+for(const [id,dossier] of Object.entries(newDossiers)){if(!research[id])research[id]=dossier;}
 if(research.H020)research.H020.caution="Intervallet för Genesis 1–11 visar en omdiskuterad kompositions-/redaktionsmodell. Äldre motiv och senare handskriftsvittnen har andra tidsnivåer; ingen verifierad datering av Noas flod kan härledas.";
 if(research.H025)research.H025.caution="Datera Väktarboken och övriga Henokskrifter var för sig. Qumrans arameiska fragment och senare grekiska/etiopiska handskrifter är skilda textvittnen och får inte ges samma datering.";
 // Logga enbart införandet av begränsade textförtydliganden.
