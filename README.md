@@ -106,3 +106,12 @@ The World Behind the Word är den långsiktiga huvudappen. Tidens väv förblir 
 - Forskning från andra källor ska framöver kontrasteras mot äldre och yngre textvittnen. Kronologisk likhet är aldrig i sig bevisad påverkan.
 - Läs [C6-rapporten om zoroastrism, vetenskapliga källor och metod](docs/c6-zoroastrism-v840.md).
 - CI testar bland annat äldre V8.39-funktioner och nya `node tests/smoke-v840.mjs`. Originaldatering, sidopanelens ordning och Temaspårs tidslinje är oförändrade.
+
+## V8.41 – första verkligt textnära jämförelsen av iransk och judisk eskatologi
+- I läsarpanelen för **O030 Zoroastrism, H023 Daniels bok och H024 Mackabeerupproret** finns en särskild, utfällbar jämförelse av **Yašt 19:89, Daniel 12:2, Jesaja 26:19 och 2 Mackabeerboken 7:9/14**.
+- Fyra tydligt identifierade passager har egna textlänkar, sammanfattningar, källgenre och dateringsbegränsningar. Tre särskilda jämförelser visar likheter, skillnader, argument för kontakt och akademiska invändningar.
+- **Kronologisk närhet eller textlikhet får aldrig presenteras som belagt direkt litterärt beroende.** Shaul Shakeds forskningsargument återges som substantiella men inte enhälliga.
+- Källprövningsjournalen har utökats med **fem avgränsade påståenden** i **O030, H023 och H024**. Framdriftsstatus: **15/193** poster med **24** individuellt källkontrollerade påståenden; **0/193** fullständigt vetenskapligt slutgranskade.
+- Samtliga originalårtal, kategorier, Temaspårs tidslinje och sidopanelens redan godkända grundstruktur förblir oförändrade.
+- [Källnära forskningsrapport, textställen, motargument och fullständiga begränsningar](docs/c6-textjamforelse-v841.md).
+- Nytt regressionstest `node tests/smoke-v841.mjs` i GitHub Actions, förpassat till testgren tills användaren godkänt Cloudflare Preview.
