@@ -71,5 +71,9 @@
   };
   structure();
   categoryLabels();
+  // V8.47: keep unreviewed imported entries in archive, not global research search.
+  if(typeof v827Index!=='undefined' && Array.isArray(v827Index)){
+    for(let i=v827Index.length-1;i>=0;i--)if(v827Index[i].type==='archive')v827Index.splice(i,1);
+  }
   window.TidensTimelineV843=Object.freeze({shortNames,structure,categoryLabels});
 })();
