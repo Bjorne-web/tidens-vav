@@ -185,6 +185,17 @@ window.TIDENS_C6_PROGRESS = Object.freeze({
       "claimCheckPosts": 17,
       "claimChecks": 32,
       "note": "V8.54: en kontroll skiljer femte regeringsåret från militärhändelsens okända exakta årtal. Ingen slutgranskning."
+    },
+    {
+      "date": "2026-10-14",
+      "inventory": 193,
+      "partialReports": 36,
+      "proposedCorrections": 11,
+      "implementedCorrections": 11,
+      "wholeApproved": 0,
+      "claimCheckPosts": 17,
+      "claimChecks": 33,
+      "note": "V8.55: H011:s egyptiska determinativ för folkgrupp granskat mot Hasel 1994; inte liktydigt med belägg för en israelitisk stat. Inga fullgranskade poster."
     }
   ],
   "caveat": "Måtten överlappar. De får inte summeras till ett totalt färdigställande. Källkontroll av ett påstående betyder inte fullständig postgranskning.",

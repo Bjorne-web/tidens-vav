@@ -41,6 +41,20 @@ window.TIDENS_REVIEW_LEDGER = Object.freeze({
     ],
     H011: [
       {
+        claim: "I Merneptahstelens kanaaneiska segerstrof skiljs Israel med skrivtecken för en folkgrupp från Ashkelon, Gezer och Yanoam som skrivs med ortsbetecknande determinativ. Det belägger den egyptiska kategoriseringen, inte en självständigt verifierad politisk eller etnisk struktur.",
+        verified: "2026-10-14",
+        sourceTitle: "Michael G. Hasel (1994), Israel in the Merneptah Stela, BASOR 296",
+        sourceUrl: "https://www.journals.uchicago.edu/doi/10.2307/1357179",
+        evidenceType: "Fackgranskad egyptologisk textanalys av namn, determinativ och parallellstruktur",
+        claimType: "Egyptisk namnklassificering och dess begränsning",
+        sourceType: "Vetenskaplig tidskriftsartikel, tillgängligt abstract",
+        timeLevel: "Egyptisk inskrift från slutet av 1200-talet f.Kr.; inte datering av folkets tillkomst",
+        timeClarification: "Ett namn på en befintlig grupp ger en tidig belagd förekomst, inte en tidpunkt för gruppens uppkomst.",
+        scholarlyStanding: "Israel som namn och skillnaden i skrivarkategorisering har starkt stöd; betydelsen för social organisation är omdiskuterad",
+        scope: "Hasel analyserar textens egyptiska gruppbeteckning och skillnaden mellan Israel och namngivna stadsstater.",
+        limit: "Determinativ är skrivarens klassifikation, inte en detaljerad folkräkning eller direkt bevis för biblisk tolvsamhörighet."
+      },
+      {
         claim: "Merneptahstelens dateringspunkt är kungens femte regeringsår, ungefär 1208 f.Kr. i den vanliga egyptiska kronologin; omnämnandet av Israel daterar inte säkert en särskild strid till samma år.",
         verified: "2026-10-14",
         sourceTitle: "Posen Library, Stela of Merneptah; Society of Biblical Literature, Israel's Prehistory (2024)",

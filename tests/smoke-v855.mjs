@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+const read=p=>fs.readFileSync(new URL('../'+p,import.meta.url),'utf8');
+const ctx={window:{}};
+vm.runInNewContext(read('data/review-ledger.js'),ctx);
+vm.runInNewContext(read('data/c6-progress.js'),ctx);
+const checks=ctx.window.TIDENS_REVIEW_LEDGER.claimChecks;
+const count=Object.values(checks).reduce((n,items)=>n+items.length,0);
+assert.equal(count,33,'V8.55 must have 33 registered individual checks');
+assert.equal(Object.values(checks).filter(a=>a.length>0).length,17);
+assert.equal(Object.keys(ctx.window.TIDENS_REVIEW_LEDGER.completePostReviews).length,0);
+const last=Array.from(ctx.window.TIDENS_C6_PROGRESS.history).at(-1);
+assert.equal(last.claimChecks,count,'Panel and journal must agree');
+assert.equal(last.claimCheckPosts,17);
+assert.equal(last.wholeApproved,0);
+assert.ok(checks.H011.some(c=>c.claim.includes('determinativ')),'H011 new documented review missing');
+console.log('OK V8.55: H011 additional claim, 33 registered, 0 prematurely signed off');
