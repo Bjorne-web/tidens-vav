@@ -504,7 +504,7 @@ window.TIDENS_REVIEW_LEDGER = Object.freeze({
     "limit": "Samlingens dateringsram daterar inte varje enskild biblisk komposition; delars författarskap, kanonstatus och överföringsvägar måste prövas var för sig."
   }
 ],
-    H001: [{
+    H001: [{"claim":"UNESCO beskriver Göbekli Tepes monument med T-formade pelare som daterade till förkeramisk neolitikum omkring 9600–8200 f.Kr., medan kultfunktion fortfarande tolkas.","verified":"2026-10-14","sourceTitle":"UNESCO Göbekli Tepe","sourceUrl":"https://whc.unesco.org/en/list/1572/","sourceType":"UNESCO världsarvsdokumentation","evidenceType":"Arkeologisk datering och tolkning","claimType":"Anläggning och rituell funktion","timeLevel":"Förkeramisk neolitikum","timeClarification":"Tidsramen avser arkeologiska anläggningar, inte berättade händelser i Bibeln.","scope":"Platsens monument och tolkning","limit":"Det är inte direkt belägg för Eden och inte en fullständig vetenskaplig genomgång."},{
       claim: "Göbekli Tepes monumentala byggnader hör till förkeramisk neolitikum, ungefär 9600–8200 f.Kr.",
       verified: "2026-10-14",
       sourceTitle: "UNESCO World Heritage Centre – Göbekli Tepe",
