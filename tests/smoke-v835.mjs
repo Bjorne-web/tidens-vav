@@ -61,3 +61,55 @@ assert.deepEqual(nav.map(x=>x.join(':')),['view:research','selected:H054']);
 assert.equal(API.openRoute(API.parse('?tv_id=H999')),false);
 assert.equal(nav.some(x=>x[0]==='locate'),false);
 console.log('OK: V8.35 stable link parsing, URL generation, route selection and invalid-ID handling.');
+
+// Regressionskontroll: en egen undersökning ska inte ersätta tidslinjen
+// med enbart text. Instrumentera en intern funktion endast i testminnet.
+const temaspar=read('v833-temaspar.js');
+execFileSync(process.execPath,['--check',path.join(root,'v833-temaspar.js')]);
+assert.ok(temaspar.includes('focusTimeline(focus)'), 'Egen undersökning saknar sin tidslinje');
+assert.ok(temaspar.includes("map.querySelectorAll('[data-v83read]')"), 'Tidslinjens läsknappar måste vara aktiva');
+const testSource=temaspar.replace(
+  '  function enhance() {',
+  '  window.__renderFocusTimelineForSmokeTest=focusTimeline;\n  function enhance() {'
+);
+assert.notEqual(testSource,temaspar,'Kunde inte instrumentera regressionstestet');
+const dated=[
+  {id:'H017',title:'Persien erövrar Babylon',start:-539,end:-538,category:'Historia',v813Status:'research'},
+  {id:'H041',title:'Tel Dan',start:-850,end:-800,category:'Arkeologi',v813Status:'research'},
+  {id:'H054',title:'Kyroscylindern',start:-539,end:-538,category:'Arkeologi',v813Status:'research'}
+];
+const graphCalls=[],rowCalls=[];
+const env={
+  window:{},
+  renderExplore:()=>{},
+  v827ShowRelations:()=>{},
+  document:{getElementById:()=>null},
+  events:dated,
+  originalEvents:[{id:'O030',title:'Zoroastrism',original:true}],
+  enc:String,
+  idEvent:id=>dated.find(x=>x.id===id),
+  v829Focus:{id:null},
+  v813Entries:()=>dated,
+  v83FmtYear:String,
+  v83Display:'graph',
+  v83Current:()=>({id:'israel',name:'Israels religion',min:-1000,max:-100}),
+  v83TopicEvents:()=>dated.slice(0,2),
+  v83Graph:(theme,entries)=>{graphCalls.push({theme,entries});return '<div class="v83-plot-scroller">GRAFISK TIDSLINJE</div>'},
+  v83TimelineRows:entries=>{rowCalls.push(entries);return '<div class="v83-sequence">KRONOLOGISK LISTA</div>'}
+};
+vm.runInNewContext(testSource,env,{filename:'v833-temaspar.js'});
+const graph=env.window.__renderFocusTimelineForSmokeTest;
+assert.equal(typeof graph,'function');
+const datedView=graph(dated[0]);
+assert.ok(datedView.includes('GRAFISK TIDSLINJE'), 'Daterad fokuspost ska ha grafisk tidslinje');
+assert.equal(graphCalls.length,1);
+assert.ok(graphCalls[0].entries.some(e=>e.id==='H017'),'Vald post saknas på tidslinjen');
+assert.ok(datedView.includes('Närhet i tid'),'Vetenskaplig varning saknas');
+env.v83Display='list';
+assert.ok(graph(dated[0]).includes('KRONOLOGISK LISTA'),'Växling till lista fungerar inte');
+env.v83Display='graph';
+const undatedView=graph({id:'O030',title:'Zoroastrism',original:true});
+assert.ok(undatedView.includes('GRAFISK TIDSLINJE'),'Odaterat fokus måste ha ett separat referensspår');
+assert.ok(undatedView.includes('separat valda'),'Odaterat fokus måste få tydlig avgränsning');
+assert.ok(!graphCalls.at(-1).entries.some(e=>e.id==='O030'),'Odaterad originalpost får inte placeras på grafisk axel');
+console.log('OK: Temaspår har grafisk tidslinje, kronologisk lista och källkritisk odaterad referens.');
