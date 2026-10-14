@@ -34,7 +34,7 @@ assert.equal(new Set(p.partialReportIds).size,36,'Only counted section headings 
 assert.equal(p.totalReports,8);
 assert.equal(new Set(p.proposedCorrectionIds).size,11,'Count staged corrections separately');
 assert.equal(Object.keys(ledger.completePostReviews).length,0,'Never imply complete research sign-off');
-const ids=new Set([...read('data/data.generated.js').matchAll(/"id":"([A-Z]\\d{3,6})"/g)].map(m=>m[1]));
+const ids=new Set([...read('data/data.generated.js').matchAll(/"id":"([A-Z][0-9]{3,6})"/g)].map(m=>m[1]));
 for(const id of [...p.partialReportIds,...p.proposedCorrectionIds,...Object.keys(ledger.claimChecks)]){
  assert.ok(ids.has(id),'Unknown record ID: '+id);
 }
