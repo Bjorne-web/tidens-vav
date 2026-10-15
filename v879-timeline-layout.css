@@ -1,0 +1,8 @@
+/* V8.79 – stegvis layout av Tidslinje, inga ändringar i data eller tidsreglage. */
+.v879-fold{border:1px solid #d3e2f0;border-radius:9px;padding:6px 9px;background:#f9fcff}
+.v879-fold>summary{cursor:pointer;font-weight:750;color:#184d7a;padding:6px 3px}
+.v879-fold:not([open]){padding-bottom:6px}
+.v879-fold .v879-actions{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.v879-fold .v879-actions button{padding:5px 8px;border-radius:7px;border:1px solid #bfd5e8;background:#fff;color:#174d7f;font-size:11px;cursor:pointer}
+body[data-v827-view="timeline"] #v829BackBar{position:sticky;top:var(--tv-header-height,0px);z-index:51;background:#f5f8fc;border:1px solid #d9e5f0;border-radius:9px;padding:6px 9px;box-shadow:0 3px 8px rgba(23,63,103,.07)}
+@media(max-width:900px){body[data-v827-view="timeline"] #v829BackBar{position:relative;top:auto}}
