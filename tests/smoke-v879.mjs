@@ -5,4 +5,8 @@ const code=fs.readFileSync('v879-timeline-layout.js','utf8');
 assert.ok(html.includes('Version 8.79'));
 assert.ok(html.includes('v879-timeline-layout.js'));
 for(const s of ['catFilters','evFilters','Markera alla','Avmarkera alla'])assert.ok(code.includes(s));
+assert.ok(html.includes('v879-timeline-layout.css'));
+const css=fs.readFileSync('v879-timeline-layout.css','utf8');
+assert.ok(css.includes('#v829BackBar'));
+assert.ok(css.includes('.v879-fold'));
 console.log('V8.79 filter checks OK');
