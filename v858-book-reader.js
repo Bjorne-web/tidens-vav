@@ -8,7 +8,15 @@
  const make=(tag,text)=>{const x=document.createElement(tag);if(text!==undefined)x.textContent=text;return x;};
  function showBook(b){
   const root=document.getElementById('detail');if(!root)return;
+  // Preserve the shared reader controls: app.js created these once and attached listeners.
+  // Removing them would silently destroy the visible width UI for Bible-book selections.
+  const grip=root.querySelector('#v829ReaderGrip');
+  const widthControls=root.querySelector('#v829WidthControls');
+  const readerBar=root.querySelector('.v84-reader-bar');
   root.replaceChildren();
+  if(grip)root.append(grip);
+  if(readerBar)root.append(readerBar);
+  if(widthControls)root.append(widthControls);
   const article=make('article');article.className='tv-book-reader v86-article v839-unified-article';
   root.classList.add('v839-unified-reader');
   const kicker=make('div','TIDENS VÄV · BIBELBOK · FORSKNINGSPOST '+b.id);kicker.className='kicker';article.append(kicker);
