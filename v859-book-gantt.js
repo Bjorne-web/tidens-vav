@@ -100,53 +100,36 @@
     const lane=document.createElement('div');lane.className='lane tv-book-lane';
     const head=document.createElement('div');head.className='lanehead';head.textContent=CATEGORY;
     head.style.borderLeft='4px solid '+dark[CATEGORY];
-    const plot=document.createElement('div');plot.className='laneplot';plot.style.position='relative';
-    const viewSpan=Math.max(1,state.max-state.min),slots=[];
-    // The grid follows calendar years, not fixed 100px screen positions.
-    plot.style.backgroundImage='none';
-    const grid=document.createElement('div');
-    grid.className='tv-book-time-grid';
-    grid.style.cssText='position:absolute;inset:0;pointer-events:none;z-index:0;';
-    const step=viewSpan>5000?2000:viewSpan>1800?500:viewSpan>700?200:viewSpan>250?100:viewSpan>100?50:25;
-    for(let year=Math.ceil(state.min/step)*step;year<=state.max;year+=step){
-      const tick=document.createElement('span');
-      tick.className='tv-book-yearline';
-      tick.style.cssText='position:absolute;top:0;bottom:0;width:1px;background:rgba(34,62,97,.12);left:'+((year-state.min)/viewSpan*100)+'%;pointer-events:none;';
-      tick.dataset.year=String(year);
-      grid.append(tick);
+    // Category mode uses the same individually labeled, proportional Gantt rows
+    // as chronological mode. Never draw the old overlaid book-band diagram.
+    const panel=document.createElement('div');panel.className='v828-gantt v882-bible-category-gantt';
+    const span=Math.max(1,state.max-state.min);
+    for(const b of shown.sort((a,b)=>a.start-b.start||a.end-b.end)){
+      const row=document.createElement('div');row.className='v828-gantt-row v882-bible-gantt-row';
+      row.dataset.v828Id=b.id;
+      const label=document.createElement('button');label.type='button';label.className='v828-gantt-label';
+      const colorMark=document.createElement('span');colorMark.className='v828-catmark';colorMark.style.background=dark[CATEGORY];
+      const labelCopy=document.createElement('span');
+      const title=document.createElement('b');title.textContent=b.title;
+      const sub=document.createElement('small');sub.textContent='Bibelns böcker · texttillkomst';
+      labelCopy.append(title,sub);label.append(colorMark,labelCopy);
+      const track=document.createElement('div');track.className='v828-gantt-track';track.setAttribute('role','img');
+      track.setAttribute('aria-label',b.title+': preliminär texttillkomst '+fmt(b.start)+' – '+fmt(b.end));
+      const start=Math.max(state.min,b.start),end=Math.min(state.max,b.end);
+      const left=Math.max(0,(start-state.min)/span*100),width=Math.max(0,(end-start)/span*100);
+      const bar=document.createElement('span');bar.className=width<.27?'v828-point':'v828-period';
+      bar.style.left=left+'%';bar.style.background=dark[CATEGORY];
+      if(width>=.27)bar.style.width=Math.min(width,100-left)+'%';
+      bar.title='Preliminärt intervall för textens tillkomst/redaktion, inte berättad tid';
+      track.append(bar);
+      const date=document.createElement('button');date.type='button';date.className='v828-gantt-date';
+      date.textContent=fmt(b.start)+' – '+fmt(b.end);
+      const open=()=>window.TidensOpenBookV858?.(b.id);
+      label.addEventListener('click',open);date.addEventListener('click',open);
+      row.append(label,track,date);panel.append(row);
     }
-    plot.append(grid);
-    for(const b of shown.sort((a,b)=>a.start-b.start)){
-      const start=Math.max(b.start,state.min),end=Math.min(b.end,state.max);
-      const x=Math.max(0,(start-state.min)/viewSpan*100);
-      const duration=Math.max(.15,(end-start)/viewSpan*100);
-      const visualWidth=Math.min(100-x,Math.max(duration,Math.min(26,2200/viewSpan)));
-      if(visualWidth<=0)continue;
-      let slot=0;while(slots[slot]!==undefined&&x<slots[slot]+1.5)slot++;
-      slots[slot]=x+visualWidth;
-      const row=document.createElement('div');row.className='tv-book-row';row.style.top=(8+slot*32)+'px';
-      const line=document.createElement('span');line.className='tv-book-band';line.style.left=x+'%';line.style.width=visualWidth+'%';
-      const endMarker=document.createElement('span');endMarker.className='tv-book-end';
-      endMarker.style.left=Math.max(0,x+visualWidth-0.75)+'%';endMarker.style.width='0.75%';
-      endMarker.title='Övre gräns i ett preliminärt dateringsintervall – inte belagt datum för fastställande';
-      const hit=document.createElement('button');hit.type='button';hit.className='tv-book-hit';
-      hit.dataset.tvBook=b.id;hit.style.left=x+'%';hit.style.width=visualWidth+'%';
-      hit.addEventListener('click',e=>{
-        e.stopPropagation();
-        if(typeof window.TidensOpenBookV858==='function')window.TidensOpenBookV858(b.id);
-      });
-      hit.setAttribute('aria-label',b.title+', föreslagen tillkomst '+fmt(b.start)+' – '+fmt(b.end));
-      hit.title=b.title+' · preliminär texttillkomst '+fmt(b.start)+'–'+fmt(b.end);
-      const title=document.createElement('span');title.className='tv-book-label';title.textContent=b.title;
-      title.style.left=x+'%';title.style.top='12px';title.style.maxWidth=Math.max(8,100-x)+'%';
-      row.append(line,endMarker,hit,title);plot.append(row);
-    }
-    plot.style.height=Math.max(90,15+Math.max(1,slots.length)*32)+'px';
-    if(!shown.length){const e=document.createElement('div');e.className='empty';e.textContent='Inga bibelböcker inom det valda tidsintervallet';plot.append(e)}
-    lane.append(head,plot);
-    const legend=document.createElement('div');legend.className='tv-book-legend';
-    legend.textContent='Tunt band = preliminärt tillkomst-/redaktionsintervall. Mörk markering = intervallets osäkra slutgräns, inte ett fastställelsedatum. Klicka på bandet för forskningsposten.';
-    lane.append(legend);
+    if(!shown.length){const empty=document.createElement('div');empty.className='empty';empty.textContent='Inga bibelböcker inom det valda tidsintervallet';panel.append(empty)}
+    lane.append(head,panel);
     const afterTextIndex=Object.keys(laneNames).indexOf('Bibeltext');
     const nextLane=afterTextIndex>=0?lanes.children[afterTextIndex+1]:null;
     lanes.insertBefore(lane,nextLane||null);
