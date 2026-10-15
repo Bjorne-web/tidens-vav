@@ -3,3 +3,7 @@ body[data-v827-view="timeline"] .v815-category .v881-visibility{margin-left:auto
 body[data-v827-view="timeline"] .v815-category .v881-visibility[aria-pressed="false"]{opacity:.65;background:#f3f5f7}
 body[data-v827-view="timeline"] .v815-category .v815-compact-header,
 body[data-v827-view="timeline"] .v815-category>header{display:flex;align-items:center;flex-wrap:wrap;gap:6px}
+
+body[data-v827-view="timeline"] #v881CategoryStrip{display:flex;flex-wrap:wrap;gap:5px;margin:6px 0 9px;padding:7px;border:1px solid #cbdbea;border-radius:9px;background:#f8fbff}
+body[data-v827-view="timeline"] #v881CategoryStrip button{border:1px solid var(--v881-cat-color,#7794b0);border-left:4px solid var(--v881-cat-color,#7794b0);background:#fff;border-radius:7px;padding:5px 8px;color:#173c5a;font-size:11px;cursor:pointer}
+body[data-v827-view="timeline"] #v881CategoryStrip button[aria-pressed="false"]{opacity:.5;text-decoration:line-through;background:#e9edf1}
