@@ -116,6 +116,11 @@
    const chronology=make('section');chronology.className='v83-panel tv-book-chronology';
    chronology.append(make('h3','Kronologisk tidslinje – textens tillkomst och samtid'));
    chronology.append(make('p','Samma tidslinjestruktur som övriga Temaspår. Samtidighet är inte belägg för påverkan eller ett historiskt samband.'));
+   const origin=make('div');origin.className='v83-panel tv-book-origin';origin.style.cssText='background:#eaf3fd;border-left:4px solid #2465a1;padding:12px 15px;margin:12px 0';
+   const originLabel=make('div','UTGÅNGSPOST · '+b.id);originLabel.className='kicker';origin.append(originLabel);
+   origin.append(make('h3',b.title+' – textens tillkomst'));
+   origin.append(make('p','Föreslagen tillkomst/redaktion: '+fmt(b.start)+' – '+fmt(b.end)+'. Samtidiga historiska poster visas som kronologiska jämförelser, inte belagda samband.'));
+   chronology.append(origin);
    const minYear=Math.min(-700,b.start-60),maxYear=Math.max(-450,b.end+50);
    const bookEvent={id:b.id,title:b.title+' – textens tillkomst',start:b.start,end:b.end,category:'Bibeltext'};
    const candidates=(typeof events!=='undefined'?events:[]).filter(e=>e.id!==b.id&&e.start<=maxYear&&e.end>=minYear&&e.start>=minYear-100&&e.end<=maxYear+100);
@@ -129,11 +134,12 @@
    const list=make('div');list.className='v83-toolbar-actions';
    const listButton=make('button','Kronologisk lista');listButton.type='button';
    const graphButton=make('button','Grafisk tidslinje');graphButton.type='button';
+   const labelOrigin=()=>{for(const btn of graph.querySelectorAll('[data-v83read]')){if(btn.dataset.v83read!==b.id)continue;btn.classList.add('tv-book-origin-marker');btn.style.boxShadow='0 0 0 2px #2465a1';const title=btn.querySelector('b,h4');if(title&&!title.textContent.startsWith('UTGÅNGSPOST'))title.prepend(document.createTextNode('UTGÅNGSPOST · '));}};
    const bindGraph=()=>graph.querySelectorAll('[data-v83read]').forEach(btn=>{btn.addEventListener('click',()=>{if(btn.dataset.v83read===b.id){window.TidensOpenBookV858?.(b.id);return;}if(typeof state!=='undefined'){state.selected=btn.dataset.v83read;if(typeof renderDetail==='function')renderDetail();if(typeof updateMini==='function')updateMini();}});});
-   graphButton.onclick=()=>{graph.innerHTML=v83Graph(timelineTheme,entries);bindGraph();};
-   listButton.onclick=()=>{graph.innerHTML=v83TimelineRows(entries);bindGraph();};
+   graphButton.onclick=()=>{graph.innerHTML=v83Graph(timelineTheme,entries);bindGraph();labelOrigin();};
+   listButton.onclick=()=>{graph.innerHTML=v83TimelineRows(entries);bindGraph();labelOrigin();};
    list.append(graphButton,listButton);chronology.insertBefore(list,graph);
-   bindGraph();focus.append(chronology);
+   bindGraph();labelOrigin();focus.append(chronology);
    host.replaceChildren(focus);
    focus.scrollIntoView({block:'start',behavior:'smooth'});
   });
