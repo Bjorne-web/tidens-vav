@@ -22,4 +22,15 @@ assert.equal(latest.claimChecks,97);
 assert.equal(latest.claimCheckPosts,41);
 assert.equal(Object.keys(journal.completePostReviews).length,0);
 for(const file of ['v876-start-here.js','v843-timeline-workspace.js','v859-book-gantt.js','v858-book-reader.js'])assert.ok(read('index.html').includes(file));
+
+// Search must include late-loaded Bible book records, not only timeline research posts.
+const app=read('app.js');
+assert.ok(app.includes("function v878SearchEntries()"));
+assert.ok(app.includes("window.TIDENS_BIBLE_BOOKS||[]"));
+assert.ok(app.includes("v878SearchEntries().map(e=>"));
+assert.ok(app.includes("x.type==='book'"));
+assert.ok(app.includes("window.TidensOpenBookV858(x.id)"));
+const indexMatches=ctx.window.TIDENS_BIBLE_BOOKS.filter(b=>b.id==='B035'||b.title.toLowerCase().includes('habackuk'));
+assert.equal(indexMatches.length,1);
+
 console.log('V8.78: Habackuk profile, H042 source checks, C6 counts and existing UI assets OK');
