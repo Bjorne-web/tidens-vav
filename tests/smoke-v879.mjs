@@ -17,4 +17,7 @@ assert.ok(css.includes('#v827PanSlider'));
 assert.ok(code.includes('renderAll();sync()'));
 assert.ok(code.includes('state.cat:state.ev'));
 assert.ok(css.includes('max-width:165px'));
+assert.ok(code.includes("x.id!=='tvOnlyBooks'"));
+assert.ok(code.includes('v879PanDisclosure'));
+assert.ok(css.includes('v879PanDisclosure:not([open])'));
 console.log('V8.79 filter checks OK');
