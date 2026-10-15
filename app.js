@@ -1534,11 +1534,15 @@ function v827Entries(){return [
  ...textPairsV810Combined.map(x=>({type:'pair',id:x.id,title:x.title,sub:[x.subtitle,x.assessment].join(' '),target:'parallels',badge:'Text mot text'}))
 ]}
 const v827Index=v827Entries();
+// Bible-book data loads after app.js; read it at query time rather than during initial index creation.
+function v878SearchEntries(){return [...v827Index,...(window.TIDENS_BIBLE_BOOKS||[]).map(b=>({type:'book',id:b.id,title:b.title,sub:[b.id,b.attributed,b.critical].filter(Boolean).join(' '),badge:'Bibelns böcker · forskningsprofil'}))]}
+
 function v827RenderSearch(){const query=v827SearchInput.value.trim().toLocaleLowerCase('sv');if(query.length<2){v827SearchPanel.hidden=true;return}
- const results=v827Index.map(e=>({e,score:e.id.toLocaleLowerCase('sv')===query?5:e.title.toLocaleLowerCase('sv').includes(query)?3:e.sub.toLocaleLowerCase('sv').includes(query)?1:0})).filter(x=>x.score).sort((a,b)=>b.score-a.score||a.e.title.localeCompare(b.e.title,'sv')).slice(0,16);
+ const results=v878SearchEntries().map(e=>({e,score:e.id.toLocaleLowerCase('sv')===query?5:e.title.toLocaleLowerCase('sv').includes(query)?3:e.sub.toLocaleLowerCase('sv').includes(query)?1:0})).filter(x=>x.score).sort((a,b)=>b.score-a.score||a.e.title.localeCompare(b.e.title,'sv')).slice(0,16);
  v827SearchPanel.innerHTML=`<div class="v827-searchhint">Sökresultat i hela projektet · ${results.length===16?'16 första träffarna':results.length+' träffar'}</div>`+ (results.length?results.map(({e},i)=>`<button type="button" role="option" data-v827-result="${i}"><small>${enc(e.badge)}</small><b>${enc(e.title)}</b></button>`).join(''):'<p>Inga matchande poster. Prova ett annat ord.</p>');v827SearchPanel.hidden=false;
  v827SearchPanel.querySelectorAll('[data-v827-result]').forEach(b=>b.onclick=()=>{const x=results[Number(b.dataset.v827Result)].e;v827SearchPanel.hidden=true;v827SearchInput.value='';v827SearchInput.dispatchEvent(new Event('input',{bubbles:true}));
- if(x.type==='post'){const entry=events.find(e=>e.id===x.id);if(entry){state.cat.add(entry.category);state.ev.add(entry.evidence);const span=Math.max(50,state.max-state.min);if(entry.end<state.min||entry.start>state.max){state.min=Math.max(-3900000,Math.floor(entry.start-span*.2));state.max=Math.min(2100,Math.ceil(state.min+span));}}view('timeline');renderAll();setSelected(x.id)}
+ if(x.type==='book'){view('timeline');if(typeof window.TidensOpenBookV858==='function')window.TidensOpenBookV858(x.id);}
+ else if(x.type==='post'){const entry=events.find(e=>e.id===x.id);if(entry){state.cat.add(entry.category);state.ev.add(entry.evidence);const span=Math.max(50,state.max-state.min);if(entry.end<state.min||entry.start>state.max){state.min=Math.max(-3900000,Math.floor(entry.start-span*.2));state.max=Math.min(2100,Math.ceil(state.min+span));}}view('timeline');renderAll();setSelected(x.id)}
  else if(x.type==='archive'){archiveQuery=x.title;view('archive');renderArchive()}
  else if(x.type==='library'){v82Query='';v82Theme='Alla områden';view('research');setSelected(x.id);renderResearch()}
  else if(x.type==='pair'){v89PairId=x.id;v810Theme='Alla';v89MotifIndex=0;view('parallels')}

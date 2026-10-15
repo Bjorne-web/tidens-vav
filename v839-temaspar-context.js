@@ -48,7 +48,8 @@
  function candidatePool(){
   // Oberoende av användarens filter och tidsspann i huvudtidslinjen.
   const {curated,adopted,segmented}=v813BaseEntries();
-  return [...curated,...adopted,...segmented].filter(finite);
+  const bible=(window.TIDENS_BIBLE_BOOKS||[]).map(b=>({id:b.id,title:b.title,start:b.start,end:b.end,category:'Bibeltext',original:false,bibleBook:true,reviewedTime:true}));
+  return [...curated,...adopted,...segmented,...bible].filter(finite);
  }
  function focusSegments(focus,pool){
   const fixed=independent[focus.id];
@@ -158,7 +159,8 @@
   </section>`;
  }
  function enhance(){
-  const focus=(typeof v829Focus!=='undefined'&&v829Focus.id)?idEvent(v829Focus.id):null;
+  const focusId=typeof v829Focus!=='undefined'?v829Focus.id:null;
+  const focus=focusId?(idEvent(focusId)||(window.TIDENS_BIBLE_BOOKS||[]).filter(b=>b.id===focusId).map(b=>({id:b.id,title:b.title,start:b.start,end:b.end,category:'Bibeltext',description:b.critical,original:false,bibleBook:true}))[0]):null;
   const root=document.getElementById('exploreView');
   const container=root?.querySelector('.v833-self');
   const old=container?.querySelector('.v835-actual-timeline');
@@ -183,7 +185,9 @@
     renderExplore();
   }));
   wrapper.querySelectorAll('[data-v839-read]').forEach(b=>b.addEventListener('click',()=>{
-    setSelected(b.dataset.v839Read);
+    const id=b.dataset.v839Read;
+    if(id.startsWith('B')&&typeof window.TidensOpenBookV858==='function')window.TidensOpenBookV858(id);
+    else setSelected(id);
     if(window.innerWidth<=900&&typeof v84OpenReader==='function')v84OpenReader();
   }));
   const text=container.querySelector('.v833-selflead p');
