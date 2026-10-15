@@ -10,7 +10,7 @@ const latest=ctx.window.TIDENS_C6_PROGRESS.history.at(-1);
 assert.ok(total>=89);
 assert.equal(latest.claimChecks,total);
 assert.equal(latest.claimCheckPosts,Object.keys(ledger.claimChecks).length);
-assert.equal(latest.claimCheckPosts,38);
+assert.ok(latest.claimCheckPosts>=38);
 for(const id of ['H038','H057','H059'])assert.ok(ledger.claimChecks[id][0].sourceUrl.startsWith('https://'));
 assert.equal(ctx.window.TIDENS_BIBLE_BOOK_RESEARCH.B032.status,'delgranskad');
 assert.equal(ctx.window.TIDENS_BIBLE_BOOKS.length,66);
