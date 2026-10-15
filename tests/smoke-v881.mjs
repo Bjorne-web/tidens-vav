@@ -1,0 +1,15 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+const h=fs.readFileSync('index.html','utf8');
+const j=fs.readFileSync('v881-gantt-category-controls.js','utf8');
+const c=fs.readFileSync('v881-gantt-category-controls.css','utf8');
+assert.ok(h.includes('Version 8.81'));
+assert.ok(h.includes('v881-gantt-category-controls.js'));
+assert.ok(h.includes('v881-gantt-category-controls.css'));
+assert.ok(j.includes('state.cat.add(cat)'));
+assert.ok(j.includes('state.cat.delete(cat)'));
+assert.ok(j.includes('renderAll()'));
+assert.ok(j.includes('v881CategoryStrip'));
+assert.ok(j.includes('MutationObserver'));
+assert.ok(c.includes('--v881-cat-color'));
+console.log('V8.81 category visibility hooks OK');
