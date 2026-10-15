@@ -48,3 +48,4 @@ jobs:
           node tests/smoke-v875.mjs
           node tests/smoke-v876.mjs
           node tests/smoke-v876-navfix.mjs
+          node tests/smoke-v877.mjs
