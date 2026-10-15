@@ -10,7 +10,7 @@ vm.runInNewContext(read('data/bible-books-v857.js'),ctx);
 const journal=ctx.window.TIDENS_REVIEW_LEDGER;
 const latest=ctx.window.TIDENS_C6_PROGRESS.history.at(-1);
 assert.match(html,/Version 8\.84/);
-assert.match(html,/v8\.84-type-20261015/);
+assert.match(html,/v8\.84-range-20261015/);
 assert.equal(ctx.window.TIDENS_BIBLE_BOOK_RESEARCH.B035.status,'delgranskad');
 assert.match(ctx.window.TIDENS_BIBLE_BOOK_RESEARCH.B035.composition,/Kapitel 3/);
 assert.ok(journal.claimChecks.H042.length>=2);
