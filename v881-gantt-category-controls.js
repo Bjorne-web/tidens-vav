@@ -10,6 +10,7 @@
   for(const [cat,label] of categoryEntries()){
    let b=[...strip.children].find(x=>x.dataset.category===cat);
    if(!b){b=document.createElement('button');b.type='button';b.dataset.category=cat;
+    if(typeof dark!=='undefined')b.style.setProperty('--v881-cat-color',dark[cat]||'#6e8ba7');
     b.onclick=()=>{const on=!state.cat.has(cat);if(on)state.cat.add(cat);else state.cat.delete(cat);
      const input=[...document.querySelectorAll('#catFilters input[type=checkbox]')].find(x=>x.value===cat);if(input)input.checked=on;
      renderAll();renderStrip();};strip.append(b);}
