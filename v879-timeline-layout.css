@@ -171,3 +171,22 @@ body[data-v827-view="timeline"] .v843-sticky-controls{padding:3px 5px 0!importan
   grid-row:3!important;margin-top:0!important;
  }
 }
+
+/* Final in-flow placement: expanded details contents participate in parent grid. */
+@media(min-width:901px){
+ body[data-v827-view="timeline"] #timelineView #v879PanDisclosure[open]{
+  display:contents!important;pointer-events:auto!important;
+ }
+ body[data-v827-view="timeline"] #timelineView #v879PanDisclosure[open]>summary{
+  grid-column:2!important;grid-row:1!important;justify-self:end!important;
+  display:block!important;
+ }
+ body[data-v827-view="timeline"] #timelineView #v879PanDisclosure[open] #v827PanControls{
+  grid-column:1/-1!important;grid-row:2!important;
+  position:static!important;width:100%!important;max-width:100%!important;
+  margin:0!important;box-sizing:border-box;
+ }
+ body[data-v827-view="timeline"] #timelineView .v843-sticky-controls:has(#v879PanDisclosure[open]) #axis{
+  grid-column:1/-1!important;grid-row:3!important;margin:0!important;
+ }
+}
