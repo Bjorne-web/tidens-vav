@@ -16,7 +16,7 @@ assert.equal(ctx.window.TIDENS_BIBLE_BOOK_RESEARCH.B032.status,'delgranskad');
 assert.equal(ctx.window.TIDENS_BIBLE_BOOKS.length,66);
 assert.equal(Object.keys(ledger.completePostReviews).length,0);
 assert.ok(read('index.html').includes('Version 8.76'));
-assert.ok(read('index.html').includes('v8.76-start-20261015'));
+assert.ok(read('index.html').includes('v8.76-navfix-20261015'));
 for(const p of ['v843-timeline-workspace.js','v859-book-gantt.js','v858-book-reader.js'])new vm.Script(read(p),{filename:p});
 assert.ok(read('v859-book-gantt.js').includes('syncGuideLines()'));
 assert.ok(read('v859-book-gantt.js').includes('TidensOpenBookV858'));
