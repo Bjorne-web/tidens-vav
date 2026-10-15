@@ -11,10 +11,10 @@
   style.textContent=`
   #tvBiblicalBooks,#tvBooksGantt{display:none!important}
   #lanes .tv-book-lane .lanehead{border-left-color:#497baa!important}
-  #lanes .tv-book-lane{display:grid;grid-template-columns:minmax(130px,180px) minmax(0,1fr);align-items:stretch}
+  #lanes .tv-book-lane{display:block;grid-template-columns:none}
   #lanes .tv-book-lane .v882-bible-category-gantt{min-width:0;max-width:100%;overflow:hidden}
   #lanes .tv-book-lane .v882-bible-category-gantt .v828-gantt-row{width:100%;box-sizing:border-box}
-  @media(max-width:760px){#lanes .tv-book-lane{grid-template-columns:minmax(100px,130px) minmax(0,1fr)}}
+
   .tv-book-band{position:absolute;top:0;height:5px;border-radius:3px;background:#86accf}
   .tv-book-end{position:absolute;top:-4px;height:13px;min-width:5px;border-radius:6px;background:#497baa;opacity:.8;border:1px dashed #254b6e}
   .tv-book-hit{position:absolute;top:0;height:22px;background:transparent;border:0;cursor:pointer}
