@@ -49,12 +49,18 @@
     </div>`;
     host.querySelectorAll('[data-tv876-open]').forEach(button=>button.addEventListener('click',()=>open(button.dataset.tv876Open)));
   };
-  // The trial guide remains in the codebase for later decisions but is not public navigation.
+  // Keep DOM navigation anchors intact. Older view wrappers still use
+  // #navPilot even when the trial guide is not part of public navigation.
+  // CSS hides the entry; removing it would break every subsequent view().
   const pilot=document.getElementById('navPilot');
-  if(pilot)pilot.remove();
-  document.querySelectorAll('[data-v84nav="pilot"]').forEach(node=>node.remove());
+  if(pilot){pilot.hidden=true;pilot.setAttribute('aria-hidden','true');pilot.tabIndex=-1;}
+  document.querySelectorAll('[data-v84nav="pilot"]').forEach(node=>{
+    node.hidden=true;node.setAttribute('aria-hidden','true');node.tabIndex=-1;
+  });
   const original=document.getElementById('v827ResearchMenu');
-  if(original)original.querySelectorAll('[data-v827-view="pilot"]').forEach(node=>node.remove());
+  if(original)original.querySelectorAll('[data-v827-view="pilot"]').forEach(node=>{
+    node.hidden=true;node.setAttribute('aria-hidden','true');node.tabIndex=-1;
+  });
   // Version and research progress belong in Om, not on the reader's first page.
   const about=document.querySelector('#aboutView .footcard');
   if(about){

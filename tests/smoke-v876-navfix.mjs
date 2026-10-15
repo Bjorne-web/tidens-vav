@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+const read=p=>fs.readFileSync(new URL('../'+p,import.meta.url),'utf8');
+const html=read('index.html'),app=read('app.js'),start=read('v876-start-here.js'),css=read('v876-start-here.css');
+new vm.Script(start,{filename:'v876-start-here.js'});
+assert.ok(html.includes('id="navPilot"'),'Keep legacy pilot DOM dependency');
+assert.ok(app.includes("el('navPilot').classList.remove('active')"),'Navigation wrapper still references pilot button');
+assert.ok(start.includes("if(pilot){pilot.hidden=true"),'Hide rather than remove pilot navigation');
+assert.ok(!start.includes('pilot.remove()'));
+assert.ok(!start.includes('node.remove()'));
+assert.ok(css.includes('#navPilot,[data-v84nav="pilot"]'));
+assert.ok(html.includes('v8.76-navfix-20261015'));
+assert.ok(start.includes('v812Start=function()'));
+assert.ok(start.includes("host.querySelectorAll('[data-tv876-open]')"),'Six entrance links retain click handlers');
+assert.ok(read('v859-book-gantt.js').includes('syncGuideLines()'));
+assert.ok(read('v858-book-reader.js').includes('TidensOpenBookV858'));
+console.log('Navigation hotfix: preserved pilot anchor, retained routing and onboarding links');

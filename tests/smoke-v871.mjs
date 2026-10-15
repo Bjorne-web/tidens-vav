@@ -4,7 +4,7 @@ import vm from 'node:vm';
 const load=p=>fs.readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const html=load('index.html');
 assert.ok(html.includes('Version 8.76 · upptäck, jämför och granska källorna'));
-assert.ok(html.includes('Bygge v8.76-start-20261015'));
+assert.ok(html.includes('Bygge v8.76-navfix-20261015'));
 const ctx={window:{}};
 for(const p of ['data/review-ledger.js','data/c6-progress.js','data/bible-books-v857.js'])vm.runInNewContext(load(p),ctx);
 const ledger=ctx.window.TIDENS_REVIEW_LEDGER,progress=ctx.window.TIDENS_C6_PROGRESS.history.at(-1);
