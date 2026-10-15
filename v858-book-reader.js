@@ -82,8 +82,21 @@
     'Ännu ingen individuellt källkontrollerad koppling till de befintliga Temaspåren. Öppna Temaspår för att undersöka relaterade historiska sammanhang.'));
   const action=make('button','Visa sambanden i Temaspår →');action.type='button';
   action.addEventListener('click',()=>{
-   if(related&&typeof v827ShowRelations==='function')v827ShowRelations(related);
-   else if(typeof view==='function')view('explore');
+   if(related&&typeof v827ShowRelations==='function'){v827ShowRelations(related);return;}
+   if(typeof view!=='function')return;
+   view('explore');
+   const host=document.getElementById('exploreView');
+   if(!host)return;
+   let focus=document.getElementById('v878BookRelationFocus');
+   if(!focus){focus=make('section');focus.id='v878BookRelationFocus';focus.className='v827-relationship-panel tv-book-relation-focus';host.prepend(focus);}
+   focus.replaceChildren();
+   const kicker=make('div','VALD BIBELBOK · '+b.id);kicker.className='kicker';focus.append(kicker);
+   focus.append(make('h2',b.title+' – historiska samband'));
+   focus.append(make('p','Bibelboken '+b.id+' följer med från forskningspanelen. Det finns ännu ingen individuellt källgranskad relationspost i Temaspår för denna bok. Därför visas inga påstådda direkta samband.'));
+   const profile=window.TIDENS_BIBLE_BOOK_RESEARCH?.[b.id];
+   if(profile?.context){focus.append(make('h3','Historiskt sammanhang'));focus.append(make('p',profile.context));}
+   const note=make('p','Nedanför finns utforskningsverktyget för historiska forskningsposter. Dess förvalda post är inte en dokumenterad koppling till '+b.title+'.');note.className='small';focus.append(note);
+   focus.scrollIntoView({block:'start',behavior:'smooth'});
   });
   links.append(action);article.append(links);root.append(article);
  }
