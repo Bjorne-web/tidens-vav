@@ -34,3 +34,13 @@ body[data-v827-view="timeline"] #timelineView #v827PanControls button{padding:4p
 body[data-v827-view="timeline"] #timelineView #v827PanControls .tiny{font-size:9px}
 body[data-v827-view="timeline"] #timelineView #v827PanControls input[type=range]{min-width:36px;max-width:100%;box-sizing:border-box}
 @media(max-width:1100px){body[data-v827-view="timeline"] #timelineView #v7toolbar{justify-content:flex-start}body[data-v827-view="timeline"] #timelineView #v7toolbar>*{margin:0!important}}
+
+/* V8.79 response to review 3: keep the timeline itself primary. */
+body[data-v827-view="timeline"] #v879PanDisclosure{border:0;min-width:0;margin:0 0 2px;background:transparent}
+body[data-v827-view="timeline"] #v879PanDisclosure>summary{cursor:pointer;display:inline-block;font-size:10px;font-weight:700;line-height:1.2;padding:3px 7px;border:1px solid #cbdbea;border-radius:6px;color:#265580;background:#f9fbff}
+body[data-v827-view="timeline"] #v879PanDisclosure:not([open]) #v827PanControls{display:none!important}
+body[data-v827-view="timeline"] #v879PanDisclosure[open] #v827PanControls{max-width:100%;overflow:hidden}
+body[data-v827-view="timeline"] #catFilters #tvOnlyBooks{display:none}
+body[data-v827-view="timeline"] #catFilters .tv-only-filter{display:none!important}
+body[data-v827-view="timeline"] #v7toolbar{flex-wrap:wrap!important;align-items:center!important;gap:2px 5px!important;padding:2px 4px!important}
+body[data-v827-view="timeline"] .v843-sticky-controls{padding:3px 5px 0!important}
