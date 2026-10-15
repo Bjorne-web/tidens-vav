@@ -90,58 +90,9 @@
     'Ännu ingen individuellt källkontrollerad koppling till de befintliga Temaspåren. Öppna Temaspår för att undersöka relaterade historiska sammanhang.'));
   const action=make('button','Visa sambanden i Temaspår →');action.type='button';
   action.addEventListener('click',()=>{
-   if(related&&typeof v827ShowRelations==='function'){v827ShowRelations(related);return;}
-   if(typeof view!=='function')return;
-   view('explore');
-   const host=document.getElementById('exploreView');
-   if(!host)return;
-   // A book is not an ordinary themed timeline. Replace the default themed investigation
-   // so it cannot misleadingly remain labelled "Israels framväxt".
-   const focus=make('section');focus.id='v878BookRelationFocus';focus.className='v827-relationship-panel tv-book-relation-focus';
-   const kicker=make('div','TEMASPÅR · VALD BIBELBOK · '+b.id);kicker.className='kicker';focus.append(kicker);
-   focus.append(make('h2',b.title+' – historiska sammanhang och samband'));
-   focus.append(make('p','Här utgår undersökningen från '+b.title+', inte från det förvalda temaspåret Israels framväxt. Vi skiljer historisk kontext från individuellt belagda samband.'));
-   const profile=window.TIDENS_BIBLE_BOOK_RESEARCH?.[b.id];
-   if(profile?.context){focus.append(make('h3','Historisk miljö'));focus.append(make('p',profile.context));}
-   if(profile?.composition){focus.append(make('h3','Textens tillkomst'));focus.append(make('p',profile.composition));}
-   focus.append(make('h3','Källkritisk bedömning'));
-   focus.append(make('p','Inga individuellt källgranskade relationslänkar har ännu registrerats från '+b.id+' till en viss historisk forskningspost. Därför visas inte ett annat, orelaterat temaspår som om det vore bokens egna samband.'));
-   const actions=make('div');actions.className='v827-linkrow';
-   const returnButton=make('button','Tillbaka till färdiga temaspår');returnButton.type='button';
-   returnButton.addEventListener('click',()=>{if(typeof renderExplore==='function')renderExplore();});
-   const timelineButton=make('button','Visa boken i huvudtidslinjen');timelineButton.type='button';
-   timelineButton.addEventListener('click',()=>{view('timeline');if(typeof window.TidensOpenBookV858==='function')window.TidensOpenBookV858(b.id);});
-   actions.append(returnButton,timelineButton);focus.append(actions);
-   // Reuse the same chronological graph as other Temaspår, not an ad-hoc bar diagram.
-   const chronology=make('section');chronology.className='v83-panel tv-book-chronology';
-   chronology.append(make('h3','Kronologisk tidslinje – textens tillkomst och samtid'));
-   chronology.append(make('p','Samma tidslinjestruktur som övriga Temaspår. Samtidighet är inte belägg för påverkan eller ett historiskt samband.'));
-   const origin=make('div');origin.className='v83-panel tv-book-origin';origin.style.cssText='background:#eaf3fd;border-left:4px solid #2465a1;padding:12px 15px;margin:12px 0';
-   const originLabel=make('div','UTGÅNGSPOST · '+b.id);originLabel.className='kicker';origin.append(originLabel);
-   origin.append(make('h3',b.title+' – textens tillkomst'));
-   origin.append(make('p','Föreslagen tillkomst/redaktion: '+fmt(b.start)+' – '+fmt(b.end)+'. Samtidiga historiska poster visas som kronologiska jämförelser, inte belagda samband.'));
-   chronology.append(origin);
-   const minYear=Math.min(-700,b.start-60),maxYear=Math.max(-450,b.end+50);
-   const bookEvent={id:b.id,title:b.title+' – textens tillkomst',start:b.start,end:b.end,category:'Bibeltext'};
-   const candidates=(typeof events!=='undefined'?events:[]).filter(e=>e.id!==b.id&&e.start<=maxYear&&e.end>=minYear&&e.start>=minYear-100&&e.end<=maxYear+100);
-   const sample=candidates.sort((a,c)=>Math.abs((a.start+a.end)/2-(b.start+b.end)/2)-Math.abs((c.start+c.end)/2-(b.start+b.end)/2)).slice(0,8);
-   const timelineTheme={id:'book-context',min:minYear,max:maxYear};
-   const entries=[bookEvent,...sample];
-   const graph=make('div');graph.className='v83-explore-map tv-book-timeline';
-   graph.innerHTML=typeof v83Graph==='function'?v83Graph(timelineTheme,entries):'<p>Tidslinjen kunde inte visas.</p>';
-   chronology.append(graph);
-   const caption=make('p',sample.length+' historiska poster visas som tidsmässiga jämförelser. Habackuks datering gäller texttillkomst/redaktion, inte en berättad händelse.');caption.className='small';chronology.append(caption);
-   const list=make('div');list.className='v83-toolbar-actions';
-   const listButton=make('button','Kronologisk lista');listButton.type='button';
-   const graphButton=make('button','Grafisk tidslinje');graphButton.type='button';
-   const labelOrigin=()=>{for(const btn of graph.querySelectorAll('[data-v83read]')){if(btn.dataset.v83read!==b.id)continue;btn.classList.add('tv-book-origin-marker');btn.style.boxShadow='0 0 0 2px #2465a1';const title=btn.querySelector('b,h4');if(title&&!title.textContent.startsWith('UTGÅNGSPOST'))title.prepend(document.createTextNode('UTGÅNGSPOST · '));}};
-   const bindGraph=()=>graph.querySelectorAll('[data-v83read]').forEach(btn=>{btn.addEventListener('click',()=>{if(btn.dataset.v83read===b.id){window.TidensOpenBookV858?.(b.id);return;}if(typeof state!=='undefined'){state.selected=btn.dataset.v83read;if(typeof renderDetail==='function')renderDetail();if(typeof updateMini==='function')updateMini();}});});
-   graphButton.onclick=()=>{graph.innerHTML=v83Graph(timelineTheme,entries);bindGraph();labelOrigin();};
-   listButton.onclick=()=>{graph.innerHTML=v83TimelineRows(entries);bindGraph();labelOrigin();};
-   list.append(graphButton,listButton);chronology.insertBefore(list,graph);
-   bindGraph();labelOrigin();focus.append(chronology);
-   host.replaceChildren(focus);
-   focus.scrollIntoView({block:'start',behavior:'smooth'});
+   // The existing origin-post workflow now understands B-IDs through its data adapter.
+   // Do not construct a second Bible-only timeline, relation panel or state model.
+   if(typeof v827ShowRelations==='function')v827ShowRelations(b.id);
   });
   links.append(action);article.append(links);root.append(article);
  }
