@@ -50,10 +50,50 @@
     });
   }
   function fmt(y){return y<0?Math.abs(y)+' f.Kr.':y+' e.Kr.'}
+  // V8.82: render Bible books as ordinary chronological Gantt ROWS, not a separate lane.
+  function unifiedChronologicalBooks(){
+    const gantt=document.querySelector('#lanes .v828-gantt');
+    if(!gantt)return false;
+    gantt.querySelectorAll('.v882-bible-gantt-row').forEach(n=>n.remove());
+    if(!state.cat.has(CATEGORY))return true;
+    const query=(document.getElementById('search')?.value||'').toLocaleLowerCase('sv');
+    const visible=books.filter(b=>b.end>=state.min&&b.start<=state.max&&
+      (!query||[b.id,b.title,b.genre,b.attributed,b.critical].join(' ').toLocaleLowerCase('sv').includes(query)));
+    const years=Math.max(1,state.max-state.min);
+    const starts=new Map(typeof v813Entries==='function'?v813Entries().map(e=>[e.id,e.start]):[]);
+    const color=dark[CATEGORY];
+    for(const b of visible){
+      const row=document.createElement('div');row.className='v828-gantt-row v882-bible-gantt-row';
+      row.dataset.v828Id=b.id;row.dataset.v882Start=String(b.start);
+      const label=document.createElement('button');label.className='v828-gantt-label';label.type='button';
+      label.title=b.title+' – föreslagen texttillkomst/redaktion';
+      const mark=document.createElement('span');mark.className='v828-catmark';mark.style.background=color;
+      const summary=document.createElement('span');const title=document.createElement('b');title.textContent=b.title;
+      const subtitle=document.createElement('small');subtitle.textContent='Bibelns böcker · texttillkomst';summary.append(title,subtitle);label.append(mark,summary);
+      const track=document.createElement('div');track.className='v828-gantt-track';track.setAttribute('role','img');
+      track.setAttribute('aria-label',b.title+': preliminär texttillkomst '+fmt(b.start)+' – '+fmt(b.end));
+      const left=Math.max(0,(Math.max(state.min,b.start)-state.min)/years*100);
+      const right=Math.min(state.max,b.end);const width=Math.max(0,(right-Math.max(state.min,b.start))/years*100);
+      const bar=document.createElement('span');bar.className=width<.27?'v828-point':'v828-period';
+      bar.style.left=left+'%';bar.style.background=color;if(width>=.27)bar.style.width=Math.min(width,100-left)+'%';
+      bar.title='Preliminärt intervall för textens tillkomst/redaktion – inte berättad tid';track.append(bar);
+      const date=document.createElement('button');date.className='v828-gantt-date';date.type='button';
+      date.textContent=fmt(b.start)+' – '+fmt(b.end);
+      const open=()=>window.TidensOpenBookV858?.(b.id);
+      label.addEventListener('click',open);date.addEventListener('click',open);
+      row.append(label,track,date);gantt.append(row);starts.set(b.id,b.start);
+    }
+    const rows=[...gantt.querySelectorAll('.v828-gantt-row')];
+    rows.sort((a,b)=>(starts.get(a.dataset.v828Id)??0)-(starts.get(b.dataset.v828Id)??0));
+    rows.forEach(n=>gantt.append(n));
+    const empty=gantt.querySelector('.empty');if(rows.length&&empty)empty.remove();
+    return true;
+  }
   function renderLane(){
     installFilter();
     const lanes=document.getElementById('lanes');if(!lanes)return;
     lanes.querySelector('.tv-book-lane')?.remove();
+    if(unifiedChronologicalBooks())return;
     if(!state.cat.has(CATEGORY))return;
     const query=(document.getElementById('search')?.value||'').toLocaleLowerCase('sv');
     const shown=books.filter(b=>b.end>=state.min&&b.start<=state.max&&(!query||[b.title,b.genre,b.attributed,b.critical].join(' ').toLocaleLowerCase('sv').includes(query)));
