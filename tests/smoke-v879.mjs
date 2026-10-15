@@ -14,4 +14,7 @@ assert.ok(code.includes('fold.open=false'));
 assert.equal((code.match(/createElement\('button'\)/g)||[]).length,1);
 assert.ok(css.includes('flex-wrap:wrap'));
 assert.ok(css.includes('#v827PanSlider'));
+assert.ok(code.includes('renderAll();sync()'));
+assert.ok(code.includes('state.cat:state.ev'));
+assert.ok(css.includes('max-width:165px'));
 console.log('V8.79 filter checks OK');
