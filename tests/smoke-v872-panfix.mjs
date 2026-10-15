@@ -12,6 +12,6 @@ assert.ok(app.includes('state.max=clamp(state.max,-3900000,2100)'),'Pan and rang
 assert.ok(app.includes("container.setPointerCapture(e.pointerId)"),'Retain draggable interval pointer capture');
 assert.ok(app.includes("v827MoveViewport(state.min-(state.max-state.min)*.65)"),'Older button moves viewport');
 assert.ok(app.includes("v827MoveViewport(state.min+(state.max-state.min)*.65)"),'Newer button moves viewport');
-assert.ok(html.includes('Bygge v8.83-type-20261015'),'Distinct corrected deployment marker');
+assert.ok(html.includes('Bygge v8.84-range-20261015'),'Distinct corrected deployment marker');
 for(const path of ['app.js','v843-timeline-workspace.js'])new vm.Script(read(path),{filename:path});
 console.log('V8.72 pan fix: controls retain DOM identity across rerenders; navigation bounds agree');
