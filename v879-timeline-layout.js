@@ -4,16 +4,17 @@ for(const [id,title] of [['catFilters','Kategori'],['evFilters','Evidensläge']]
  const node=document.getElementById(id);if(!node)continue;
  const section=node.closest('.section');if(!section)continue;
  const heading=section.querySelector('h3');if(heading)heading.remove();
- const fold=document.createElement('details');fold.open=true;fold.className='v879-fold';
+ const fold=document.createElement('details');fold.open=false;fold.className='v879-fold';
  const label=document.createElement('summary');label.textContent=title;fold.append(label);
  const actions=document.createElement('div');actions.className='v879-actions';
- for(const [name,want] of [['Markera alla',true],['Avmarkera alla',false]]){
-  const button=document.createElement('button');button.type='button';button.textContent=name;
-  button.onclick=()=>{for(const box of node.querySelectorAll('input[type=checkbox]')){if(box.disabled||box.checked===want)continue;box.click();}};
-  actions.append(button);
- }
+ const toggle=document.createElement('button');toggle.type='button';toggle.className='v879-toggle-all';
+ const boxes=()=>[...node.querySelectorAll('input[type=checkbox]')].filter(x=>!x.disabled);
+ const sync=()=>{const list=boxes();const all=list.length>0&&list.every(x=>x.checked);toggle.textContent=all?'Avmarkera alla':'Markera alla';toggle.setAttribute('aria-pressed',String(all));};
+ toggle.onclick=()=>{const list=boxes();const all=list.length>0&&list.every(x=>x.checked);for(const box of list){if(box.checked!==!all)box.click();}sync();};
+ node.addEventListener('change',sync);actions.append(toggle);
  fold.append(actions);
  section.append(fold);
  for(const child of [...section.children]){if(child!==fold)fold.append(child)}
+ sync();
 }
 })();
