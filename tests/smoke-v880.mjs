@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+const h=fs.readFileSync('index.html','utf8');
+const j=fs.readFileSync('v880-timeline-followups.js','utf8');
+const c=fs.readFileSync('v880-timeline-followups.css','utf8');
+assert.ok(h.includes('Version 8.80'));
+assert.ok(h.includes('v880-timeline-followups.js'));
+assert.ok(h.includes('v880-timeline-followups.css'));
+for(const id of ['minYear','presets','selectedMini'])assert.ok(j.includes(id));
+assert.ok(c.includes('data-v827-view="timeline"'));
+for(const id of ['year-inputs','presets','selected-post'])assert.ok(c.includes('v880-secondary-'+id));
+assert.ok(!j.includes('remove()'));
+console.log('V8.80: timeline sidebar layout checks OK');
