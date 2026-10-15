@@ -45,6 +45,11 @@ assert.ok(reader.includes('Samtidighet är inte belägg'));
 assert.ok(reader.includes('v83Graph(timelineTheme,entries)'));
 assert.ok(reader.includes('v83TimelineRows(entries)'));
 assert.ok(reader.includes('bindGraph()'));
+assert.ok(reader.includes("'UTGÅNGSPOST · '+b.id"));
+assert.ok(reader.includes("graph.querySelectorAll('[data-v83read]')"));
+assert.ok(reader.includes('labelOrigin();focus.append(chronology)'));
+assert.ok(reader.includes('listButton.onclick=()=>{graph.innerHTML=v83TimelineRows(entries);bindGraph();labelOrigin();}'));
+
 assert.ok(reader.includes("root.querySelector('#v829ReaderGrip')"));
 assert.ok(reader.includes("root.querySelector('#v829WidthControls')"));
 assert.ok(reader.includes('if(widthControls)root.append(widthControls)'));
