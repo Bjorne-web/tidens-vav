@@ -44,3 +44,56 @@ body[data-v827-view="timeline"] #catFilters #tvOnlyBooks{display:none}
 body[data-v827-view="timeline"] #catFilters .tv-only-filter{display:none!important}
 body[data-v827-view="timeline"] #v7toolbar{flex-wrap:wrap!important;align-items:center!important;gap:2px 5px!important;padding:2px 4px!important}
 body[data-v827-view="timeline"] .v843-sticky-controls{padding:3px 5px 0!important}
+
+/* V8.79: layout enligt förslag c – ett sammanhållet kompakt kontrollhuvud.
+   Tillbaka ligger sticky ovanför, verktyg/valfri panorering/tidsaxel under. */
+@media(min-width:901px){
+ body[data-v827-view="timeline"] #v829BackBar{
+  position:sticky;top:var(--tv-header-height,0px);min-height:40px;box-sizing:border-box;
+  z-index:54;margin-bottom:4px;padding:4px 8px;
+ }
+ body[data-v827-view="timeline"] #timelineView.v843-timeline-layout .v843-sticky-controls{
+  position:sticky;top:calc(var(--tv-header-height,0px) + 53px);
+  z-index:48;display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:6px;
+  align-items:start;padding:4px 6px 0!important;
+ }
+ body[data-v827-view="timeline"] #timelineView #v7toolbar{
+  grid-column:1;grid-row:1;display:flex!important;align-items:center;
+  flex-wrap:wrap;gap:3px 5px!important;padding:2px 3px!important;
+  min-width:0;margin:0!important;box-sizing:border-box;
+ }
+ body[data-v827-view="timeline"] #timelineView #v879PanDisclosure{
+  grid-column:2;grid-row:1;min-width:0;margin:0!important;align-self:start;
+ }
+ body[data-v827-view="timeline"] #timelineView #v879PanDisclosure>summary{
+  white-space:nowrap;font-size:10px;padding:5px 8px;min-height:25px;
+  box-sizing:border-box;
+ }
+ body[data-v827-view="timeline"] #timelineView #v879PanDisclosure[open]{
+  grid-column:1/-1;grid-row:2;width:100%;
+ }
+ body[data-v827-view="timeline"] #timelineView #v879PanDisclosure[open] #v827PanControls{
+  box-sizing:border-box;width:100%;margin:3px 0!important;
+ }
+ body[data-v827-view="timeline"] #timelineView .v843-sticky-controls #axis{
+  grid-column:1/-1;grid-row:3;margin-top:3px;
+ }
+}
+@media(min-width:901px) and (max-width:1250px){
+ body[data-v827-view="timeline"] #timelineView .v843-sticky-controls{
+  grid-template-columns:minmax(0,1fr) auto;
+ }
+ body[data-v827-view="timeline"] #timelineView #v7toolbar select{
+  max-width:135px!important;
+ }
+ body[data-v827-view="timeline"] #timelineView #v7stats,
+ body[data-v827-view="timeline"] #timelineView #v815CollapseStatus{
+  display:none;
+ }
+}
+@media(max-width:900px){
+ body[data-v827-view="timeline"] #timelineView .v843-sticky-controls{
+  display:flex;flex-direction:column;position:relative;top:auto;
+ }
+ body[data-v827-view="timeline"] #timelineView #v879PanDisclosure{align-self:flex-end}
+}
