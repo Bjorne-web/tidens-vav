@@ -48,4 +48,15 @@ assert.ok(inquiry.includes('v83TimelineRows(entries):v83Graph(timelineTheme,entr
 assert.ok(reader.includes("root.querySelector('#v829ReaderGrip')"));
 assert.ok(reader.includes("root.querySelector('#v829WidthControls')"));
 assert.ok(reader.includes('if(widthControls)root.append(widthControls)'));
+
+// Both H/O and Bible-origin investigations must use exactly the v839 comparison engine.
+const sameTimeline=read('v839-temaspar-context.js');
+assert.ok(sameTimeline.includes("const focusId=typeof v829Focus!=='undefined'?v829Focus.id:null"));
+assert.ok(sameTimeline.includes("(window.TIDENS_BIBLE_BOOKS||[])"));
+assert.ok(sameTimeline.includes("id:b.id,title:b.title,start:b.start,end:b.end,category:'Bibeltext'"));
+assert.ok(sameTimeline.includes("if(id.startsWith('B')&&typeof window.TidensOpenBookV858==='function')"));
+assert.ok(sameTimeline.includes("label:'UTGÅNGSPOST'"));
+assert.ok(sameTimeline.includes("v839-category-filter"));
+assert.ok(sameTimeline.includes("v839-focus-row"));
+assert.ok(sameTimeline.includes("old.replaceWith(wrapper)"));
 console.log('V8.78: Habackuk profile, H042 source checks, C6 counts and existing UI assets OK');
