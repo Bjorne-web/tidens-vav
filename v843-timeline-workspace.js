@@ -52,7 +52,8 @@
     }
     // Flytta aldrig ett redan monterat reglage vid omritning: det skulle
     // släppa pointer capture mitt under dragning av tidsintervallet.
-    for(const node of [tools,pan,axis])if(node.parentNode!==sticky)sticky.appendChild(node);
+    const panWrapper=document.getElementById('v879PanDisclosure')||pan;
+    for(const node of [tools,panWrapper,axis])if(node.parentNode!==sticky)sticky.appendChild(node);
 
     // Också tidslinjekortet ska bara flyttas om ordningen faktiskt är fel.
     if(chart.previousElementSibling!==sticky)sticky.insertAdjacentElement('afterend',chart);
