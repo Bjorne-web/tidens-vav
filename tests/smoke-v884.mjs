@@ -1,0 +1,12 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+const html=fs.readFileSync('index.html','utf8');
+const app=fs.readFileSync('app.js','utf8');
+const css=fs.readFileSync('v884-timeline-fullrange.css','utf8');
+assert.ok(html.includes('Version 8.84'));
+assert.ok(html.includes('v884-timeline-fullrange.css'));
+assert.ok(app.includes('s.setAttribute(\'aria-disabled\',String(movable<=0))'));
+assert.ok(app.includes('s.disabled=movable<=0'));
+assert.ok(css.includes('grid-template-columns:auto minmax(0,1fr) auto'));
+assert.ok(css.includes('#v827PanSlider:disabled'));
+console.log('V8.84 full-range pan safeguards OK');
