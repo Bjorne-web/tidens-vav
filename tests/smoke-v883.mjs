@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+const h=fs.readFileSync('index.html','utf8');
+const css=fs.readFileSync('v883-typography.css','utf8');
+assert.ok(h.includes('Version 8.83'));
+assert.ok(h.includes('v8.83-type-20261015'));
+assert.ok(h.includes('v883-typography.css'));
+for(const t of ['#detail','#timelineView','--tv883-body','--tv883-small','.v89-bible-panel','.v828-gantt-label'])assert.ok(css.includes(t));
+assert.ok(!css.includes('display:none'));
+console.log('V8.83 typography checks OK');

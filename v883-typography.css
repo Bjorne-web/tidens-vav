@@ -1,0 +1,13 @@
+/* V8.83 – shared typography scale for timeline and research reader.
+   Cosmetic only: no interaction, timing, source or review-state changes. */
+:root{--tv883-body:13px;--tv883-small:11px;--tv883-section:14px;--tv883-title:18px}
+#detail{font-size:var(--tv883-body);line-height:1.55;overflow-wrap:anywhere}
+#detail .v839-unified-article p,#detail .v89-bible-panel p{font-size:var(--tv883-body);line-height:1.55}
+#detail .v839-unified-article h2,#detail .v89-bible-panel h2{font-size:var(--tv883-title);line-height:1.35}
+#detail .v839-unified-article h3,#detail .v89-bible-panel h3{font-size:var(--tv883-section);line-height:1.4}
+#detail .v839-unified-sources,#detail .v839-unified-status,#detail .v839-unified-missing{font-size:var(--tv883-small);line-height:1.5}
+#detail .v839-unified-caveat,#detail .tiny,#detail .small{font-size:var(--tv883-small);line-height:1.45}
+#timelineView .v815-category .v815-toggle,#timelineView .v813-group h3{font-size:var(--tv883-section)}
+#timelineView .v813-list-item strong,#timelineView .v828-gantt-label b{font-size:12px;line-height:1.35}
+#timelineView .v813-list-item small,#timelineView .v828-gantt-label small,#timelineView .v815-count{font-size:var(--tv883-small);line-height:1.4}
+@media(max-width:760px){:root{--tv883-body:13px;--tv883-small:11px;--tv883-title:17px}}
