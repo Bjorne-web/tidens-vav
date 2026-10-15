@@ -45,6 +45,10 @@ assert.ok(reader.includes('Samtidighet är inte belägg'));
 assert.ok(reader.includes('v83Graph(timelineTheme,entries)'));
 assert.ok(reader.includes('v83TimelineRows(entries)'));
 assert.ok(reader.includes('bindGraph()'));
+assert.ok(reader.includes("root.querySelector('#v829ReaderGrip')"));
+assert.ok(reader.includes("root.querySelector('#v829WidthControls')"));
+assert.ok(reader.includes('if(widthControls)root.append(widthControls)'));
+
 
 assert.ok(reader.includes('Tillbaka till färdiga temaspår'));
 assert.ok(reader.includes('inte från det förvalda temaspåret Israels framväxt'));
