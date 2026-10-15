@@ -1,0 +1,6 @@
+/* V8.80: reduce duplicate timeline sidebar sections; preserve DOM and listeners. */
+body[data-v827-view="timeline"] #v84Sidebar .v880-secondary-year-inputs,
+body[data-v827-view="timeline"] #v84Sidebar .v880-secondary-presets,
+body[data-v827-view="timeline"] #v84Sidebar .v880-secondary-selected-post{display:none!important}
+body[data-v827-view="timeline"] #v84FilterBody{padding-bottom:5px}
+body[data-v827-view="timeline"] #v84FilterBody .side-title{font-size:12px;margin-bottom:5px}
