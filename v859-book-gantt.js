@@ -101,39 +101,62 @@
     if(!state.cat.has(CATEGORY))return;
     const query=(document.getElementById('search')?.value||'').toLocaleLowerCase('sv');
     const shown=books.filter(b=>b.end>=state.min&&b.start<=state.max&&(!query||[b.title,b.genre,b.attributed,b.critical].join(' ').toLocaleLowerCase('sv').includes(query)));
-    const lane=document.createElement('div');lane.className='lane tv-book-lane';
-    const head=document.createElement('div');head.className='lanehead';head.textContent=CATEGORY;
-    head.style.borderLeft='4px solid '+dark[CATEGORY];
-    // Category mode uses the same individually labeled, proportional Gantt rows
-    // as chronological mode. Never draw the old overlaid book-band diagram.
-    const panel=document.createElement('div');panel.className='v828-gantt v882-bible-category-gantt';
-    const span=Math.max(1,state.max-state.min);
-    for(const b of shown.sort((a,b)=>a.start-b.start||a.end-b.end)){
-      const row=document.createElement('div');row.className='v828-gantt-row v882-bible-gantt-row';
-      row.dataset.v828Id=b.id;
-      const label=document.createElement('button');label.type='button';label.className='v828-gantt-label';
-      const colorMark=document.createElement('span');colorMark.className='v828-catmark';colorMark.style.background=dark[CATEGORY];
-      const labelCopy=document.createElement('span');
-      const title=document.createElement('b');title.textContent=b.title;
-      const sub=document.createElement('small');sub.textContent='Bibelns böcker · texttillkomst';
-      labelCopy.append(title,sub);label.append(colorMark,labelCopy);
-      const track=document.createElement('div');track.className='v828-gantt-track';track.setAttribute('role','img');
-      track.setAttribute('aria-label',b.title+': preliminär texttillkomst '+fmt(b.start)+' – '+fmt(b.end));
-      const start=Math.max(state.min,b.start),end=Math.min(state.max,b.end);
-      const left=Math.max(0,(start-state.min)/span*100),width=Math.max(0,(end-start)/span*100);
-      const bar=document.createElement('span');bar.className=width<.27?'v828-point':'v828-period';
-      bar.style.left=left+'%';bar.style.background=dark[CATEGORY];
-      if(width>=.27)bar.style.width=Math.min(width,100-left)+'%';
-      bar.title='Preliminärt intervall för textens tillkomst/redaktion, inte berättad tid';
-      track.append(bar);
-      const date=document.createElement('button');date.type='button';date.className='v828-gantt-date';
-      date.textContent=fmt(b.start)+' – '+fmt(b.end);
-      const open=()=>window.TidensOpenBookV858?.(b.id);
-      label.addEventListener('click',open);date.addEventListener('click',open);
-      row.append(label,track,date);panel.append(row);
+    // Reuse the native category presentation and fold logic rather than a book-only lane.
+    const compact=v7Mode==='compact';
+    const lane=document.createElement('section');
+    lane.className=(compact?'v7group':'v813-chartgroup')+' v813-group v815-category tv-book-lane';
+    lane.dataset.v815Category=CATEGORY;
+    const folded=v815Collapsed.has(CATEGORY);
+    lane.classList.toggle('v815-folded',folded);
+    const head=document.createElement(compact?'div':'header');
+    if(compact)head.className='v815-compact-header';
+    const fold=document.createElement('button');fold.type='button';fold.className='v815-toggle';
+    fold.setAttribute('aria-expanded',String(!folded));
+    const chevron=document.createElement('span');chevron.className='v815-chevron';chevron.textContent=folded?'▸':'▾';
+    const title=document.createElement('strong');title.textContent=CATEGORY;
+    const count=document.createElement('span');count.className='v815-count';count.textContent=shown.length+' '+(shown.length===1?'post':'poster');
+    const action=document.createElement('span');action.className='v815-action';action.textContent=folded?'Visa poster':'Fäll ihop';
+    fold.append(chevron,title,count,action);head.append(fold);lane.append(head);
+    const summaryEntries=shown.map(b=>({start:b.start,end:b.end}));
+    if(summaryEntries.length&&typeof v815RenderCategorySummary==='function'){
+      const summary=document.createElement('div');
+      summary.innerHTML=v815RenderCategorySummary(summaryEntries,Object.keys(laneNames).length);
+      lane.append(...summary.children);
     }
-    if(!shown.length){const empty=document.createElement('div');empty.className='empty';empty.textContent='Inga bibelböcker inom det valda tidsintervallet';panel.append(empty)}
-    lane.append(head,panel);
+    const body=document.createElement('div');body.className=compact?'v813-cardgrid':'v813-chartrows';
+    body.id='v882-bible-category-body';fold.setAttribute('aria-controls',body.id);
+    const entries=compact?(typeof v813Pick==='function'?v813Pick(shown,8):shown.slice(0,8)):shown;
+    for(const b of entries){
+      const label=document.createElement('button');label.type='button';
+      label.className=compact?'v813-list-item research v882-bible-card':'v813-plotrow v882-bible-card';
+      label.dataset.tvBook=b.id;
+      if(compact){
+        const name=document.createElement('strong');name.textContent=b.title;
+        const dates=document.createElement('span');dates.textContent=fmt(b.start)+' – '+fmt(b.end);
+        const note=document.createElement('small');note.textContent='Preliminär texttillkomst/redaktion';
+        label.append(name,dates,note);
+      }else{
+        const plot=document.createElement('div');plot.className='v813-plotline';
+        const lo=Math.max(b.start,state.min),hi=Math.min(b.end,state.max),span=Math.max(1,state.max-state.min);
+        const x=Math.max(0,(lo-state.min)/span*100),width=Math.max(0,(hi-lo)/span*100);
+        const bar=document.createElement('span');bar.className=width<.45?'v813-dot':'v813-range';
+        bar.style.left=x+'%';if(width>=.45)bar.style.width=Math.min(width,100-x)+'%';
+        bar.style.background=dark[CATEGORY];plot.append(bar);
+        const labelText=document.createElement('span');labelText.className='v813-plotlabel';
+        labelText.textContent=b.title+' · '+fmt(b.start)+' – '+fmt(b.end);
+        label.append(plot,labelText);
+      }
+      label.title=b.title+' · preliminär texttillkomst/redaktion';
+      label.addEventListener('click',()=>window.TidensOpenBookV858?.(b.id));body.append(label);
+    }
+    lane.append(body);
+    if(shown.length>entries.length){const more=document.createElement('p');more.className='tiny';more.textContent='Fler tider finns under Detaljerad tidslinje eller genom att välja ett snävare tidsintervall.';lane.append(more)}
+    fold.addEventListener('click',()=>{
+      if(v815Collapsed.has(CATEGORY))v815Collapsed.delete(CATEGORY);else v815Collapsed.add(CATEGORY);
+      const closed=v815Collapsed.has(CATEGORY);lane.classList.toggle('v815-folded',closed);
+      fold.setAttribute('aria-expanded',String(!closed));chevron.textContent=closed?'▸':'▾';action.textContent=closed?'Visa poster':'Fäll ihop';
+      if(typeof v815EnhanceWithoutRerender==='function')v815EnhanceWithoutRerender();
+    });
     const afterTextIndex=Object.keys(laneNames).indexOf('Bibeltext');
     const nextLane=afterTextIndex>=0?lanes.children[afterTextIndex+1]:null;
     lanes.insertBefore(lane,nextLane||null);
