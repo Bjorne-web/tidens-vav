@@ -125,3 +125,68 @@ body[data-v827-view="timeline"] .v843-sticky-controls{padding:3px 5px 0!importan
 @media(min-width:901px){
  body[data-v827-view="timeline"] #timelineView .v843-sticky-controls:has(#v879PanDisclosure[open]) #axis{margin-top:112px!important}
 }
+
+/* V8.81 alignment correction: keep disclosure trigger in row 1 and panel in-flow. */
+@media(min-width:901px){
+ body[data-v827-view="timeline"] #timelineView .v843-sticky-controls{
+  display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;
+  grid-template-rows:auto auto!important;gap:4px 6px!important;
+  align-items:start;overflow:visible;
+ }
+ body[data-v827-view="timeline"] #timelineView #v7toolbar{grid-column:1!important;grid-row:1!important}
+ body[data-v827-view="timeline"] #timelineView #v879PanDisclosure,
+ body[data-v827-view="timeline"] #timelineView #v879PanDisclosure[open]{
+  grid-column:2!important;grid-row:1!important;justify-self:end!important;
+  position:static!important;width:auto!important;align-self:start!important;
+ }
+ body[data-v827-view="timeline"] #timelineView #v879PanDisclosure[open] #v827PanControls{
+  position:static!important;top:auto!important;right:auto!important;
+  width:100%!important;max-width:100%!important;margin:0!important;
+  box-sizing:border-box;border:1px solid #c8dbef;border-radius:9px;
+  box-shadow:none!important;background:#f4f8fe;
+ }
+ body[data-v827-view="timeline"] #timelineView .v843-sticky-controls #axis{
+  grid-column:1/-1!important;grid-row:2!important;margin-top:0!important;
+ }
+ body[data-v827-view="timeline"] #timelineView .v843-sticky-controls:has(#v879PanDisclosure[open]) #axis{
+  margin-top:0!important;
+ }
+}
+
+@media(min-width:901px){
+ body[data-v827-view="timeline"] #timelineView #v879PanDisclosure[open]{
+  grid-column:1/-1!important;grid-row:1 / span 2!important;
+  display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;
+  grid-template-rows:auto auto!important;justify-self:stretch!important;
+  width:100%!important;gap:5px 0!important;pointer-events:none;
+ }
+ body[data-v827-view="timeline"] #timelineView #v879PanDisclosure[open]>summary{
+  grid-column:2!important;grid-row:1!important;justify-self:end;
+  pointer-events:auto;
+ }
+ body[data-v827-view="timeline"] #timelineView #v879PanDisclosure[open] #v827PanControls{
+  grid-column:1/-1!important;grid-row:2!important;pointer-events:auto;
+ }
+ body[data-v827-view="timeline"] #timelineView .v843-sticky-controls:has(#v879PanDisclosure[open]) #axis{
+  grid-row:3!important;margin-top:0!important;
+ }
+}
+
+/* Final in-flow placement: expanded details contents participate in parent grid. */
+@media(min-width:901px){
+ body[data-v827-view="timeline"] #timelineView #v879PanDisclosure[open]{
+  display:contents!important;pointer-events:auto!important;
+ }
+ body[data-v827-view="timeline"] #timelineView #v879PanDisclosure[open]>summary{
+  grid-column:2!important;grid-row:1!important;justify-self:end!important;
+  display:block!important;
+ }
+ body[data-v827-view="timeline"] #timelineView #v879PanDisclosure[open] #v827PanControls{
+  grid-column:1/-1!important;grid-row:2!important;
+  position:static!important;width:100%!important;max-width:100%!important;
+  margin:0!important;box-sizing:border-box;
+ }
+ body[data-v827-view="timeline"] #timelineView .v843-sticky-controls:has(#v879PanDisclosure[open]) #axis{
+  grid-column:1/-1!important;grid-row:3!important;margin:0!important;
+ }
+}

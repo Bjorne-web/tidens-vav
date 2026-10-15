@@ -1,0 +1,24 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+const h=fs.readFileSync('index.html','utf8');
+const j=fs.readFileSync('v881-gantt-category-controls.js','utf8');
+const c=fs.readFileSync('v881-gantt-category-controls.css','utf8');
+assert.ok(h.includes('Version 8.81'));
+assert.ok(h.includes('v881-gantt-category-controls.js'));
+assert.ok(h.includes('v881-gantt-category-controls.css'));
+assert.ok(j.includes('state.cat.add(cat)'));
+assert.ok(j.includes('state.cat.delete(cat)'));
+assert.ok(j.includes('renderAll()'));
+assert.ok(j.includes('v881CategoryStrip'));
+assert.ok(j.includes('MutationObserver'));
+assert.ok(c.includes('--v881-cat-color'));
+
+const app=fs.readFileSync('app.js','utf8');
+assert.ok(!app.includes('<div class="v828-categories">${legend}</div>'));
+assert.ok(app.includes('Samlad kronologisk tidslinje'));
+assert.ok(j.includes('v881CategoryStrip'));
+const layout=fs.readFileSync('v879-timeline-layout.css','utf8');
+assert.ok(layout.includes('display:contents!important'));
+assert.ok(layout.includes('grid-row:2!important'));
+assert.ok(layout.includes('position:static!important'));
+console.log('V8.81 category visibility hooks OK');
