@@ -10,7 +10,7 @@ assert.ok(start.includes("if(pilot){pilot.hidden=true"),'Hide rather than remove
 assert.ok(!start.includes('pilot.remove()'));
 assert.ok(!start.includes('node.remove()'));
 assert.ok(css.includes('#navPilot,[data-v84nav="pilot"]'));
-assert.ok(html.includes('v8.77-c6-20261015'));
+assert.ok(html.includes('v8.78-c6-20261015'));
 assert.ok(start.includes('v812Start=function()'));
 assert.ok(start.includes("host.querySelectorAll('[data-tv876-open]')"),'Six entrance links retain click handlers');
 assert.ok(read('v859-book-gantt.js').includes('syncGuideLines()'));
