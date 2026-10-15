@@ -12,4 +12,9 @@ assert.ok(j.includes('renderAll()'));
 assert.ok(j.includes('v881CategoryStrip'));
 assert.ok(j.includes('MutationObserver'));
 assert.ok(c.includes('--v881-cat-color'));
+
+const app=fs.readFileSync('app.js','utf8');
+assert.ok(!app.includes('<div class="v828-categories">${legend}</div>'));
+assert.ok(app.includes('Samlad kronologisk tidslinje'));
+assert.ok(j.includes('v881CategoryStrip'));
 console.log('V8.81 category visibility hooks OK');
