@@ -121,3 +121,8 @@ body[data-v827-view="timeline"] .v843-sticky-controls{padding:3px 5px 0!importan
    grid-row:2!important;grid-column:1/-1!important;
  }
 }
+
+@media(min-width:901px){
+ body[data-v827-view="timeline"] #timelineView .v843-sticky-controls:has(#v879PanDisclosure[open]){padding-bottom:112px!important}
+ body[data-v827-view="timeline"] #timelineView .v843-sticky-controls:has(#v879PanDisclosure[open]) #axis{margin-top:112px!important}
+}
