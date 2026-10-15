@@ -1,0 +1,5 @@
+/* V8.81 – category visibility control matching category color. */
+body[data-v827-view="timeline"] .v815-category .v881-visibility{margin-left:auto;border:1px solid #bcd5ed;border-radius:7px;padding:4px 8px;background:#eef6ff;color:#194e7a;font-size:11px;font-weight:700;cursor:pointer}
+body[data-v827-view="timeline"] .v815-category .v881-visibility[aria-pressed="false"]{opacity:.65;background:#f3f5f7}
+body[data-v827-view="timeline"] .v815-category .v815-compact-header,
+body[data-v827-view="timeline"] .v815-category>header{display:flex;align-items:center;flex-wrap:wrap;gap:6px}
