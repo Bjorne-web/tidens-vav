@@ -13,7 +13,7 @@ assert.ok(reader.includes('window.TidensOpenBookV858=openBook'),'Reader entrypoi
 assert.ok(reader.includes('renderDetail();'),'Selection must render book details');
 assert.ok(gantt.includes('v828-gantt-track'),'Use shared proportional Gantt tracks');
 assert.ok(gantt.includes('const span=Math.max(1,state.max-state.min)'),'Grid coordinates must follow viewport start');
-assert.ok(gantt.includes('(start-state.min)/span*100'),'Bars must pan with visible dates');
+assert.ok(gantt.includes('(lo-state.min)/span*100'),'Bars must pan with visible dates');
 assert.ok(gantt.includes('pointer-events:none'),'Guide lines must not intercept book clicks');
 assert.ok(gantt.includes('function syncGuideLines()'),'All timeline lanes must update guides');
 assert.ok(gantt.includes('renderLane();syncGuideLines()'),'Pan and zoom must repaint calendar guides');
