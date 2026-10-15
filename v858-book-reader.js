@@ -121,7 +121,7 @@
    const list=make('div');list.className='v83-toolbar-actions';
    const listButton=make('button','Kronologisk lista');listButton.type='button';
    const graphButton=make('button','Grafisk tidslinje');graphButton.type='button';
-   const bindGraph=()=>graph.querySelectorAll('[data-v83read]').forEach(btn=>{btn.addEventListener('click',()=>{if(btn.dataset.v83read===b.id){window.TidensOpenBookV858?.(b.id);return;}if(typeof setSelected==='function')setSelected(btn.dataset.v83read);});});
+   const bindGraph=()=>graph.querySelectorAll('[data-v83read]').forEach(btn=>{btn.addEventListener('click',()=>{if(btn.dataset.v83read===b.id){window.TidensOpenBookV858?.(b.id);return;}if(typeof state!=='undefined'){state.selected=btn.dataset.v83read;if(typeof renderDetail==='function')renderDetail();if(typeof updateMini==='function')updateMini();}});});
    graphButton.onclick=()=>{graph.innerHTML=v83Graph(timelineTheme,entries);bindGraph();};
    listButton.onclick=()=>{graph.innerHTML=v83TimelineRows(entries);bindGraph();};
    list.append(graphButton,listButton);chronology.insertBefore(list,graph);
