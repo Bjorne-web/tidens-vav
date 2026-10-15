@@ -12,7 +12,6 @@ assert.ok(css.includes('.v879-fold'));
 assert.ok(code.includes('list.every(x=>x.checked)'));
 assert.ok(code.includes('fold.open=false'));
 assert.equal((code.match(/createElement\('button'\)/g)||[]).length,1);
-const css=fs.readFileSync('v879-timeline-layout.css','utf8');
 assert.ok(css.includes('flex-wrap:wrap'));
 assert.ok(css.includes('#v827PanSlider'));
 console.log('V8.79 filter checks OK');
