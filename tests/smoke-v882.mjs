@@ -15,4 +15,8 @@ assert.ok(b.includes('window.TidensOpenBookV858?.(b.id)'));
 assert.ok(b.includes('rows.sort((a,b)'));
 assert.ok(b.includes('Preliminärt intervall för textens tillkomst/redaktion'));
 assert.ok(g.includes("[['Bibelns böcker','Bibelns böcker']]"));
+assert.ok(b.includes('v882-bible-category-gantt'));
+assert.ok(b.includes("row.className='v828-gantt-row v882-bible-gantt-row'"));
+assert.ok(b.includes("lane.append(head,panel)"));
+assert.ok(!b.includes("row.className='tv-book-row'"));
 console.log('V8.82: Bible books use ordinary chronological Gantt rows and shared category filter');
