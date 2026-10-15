@@ -1527,7 +1527,7 @@ renderExplore=function(){v827OldExplore();const host=el('exploreView');if(host.q
 const v827SearchInput=el('search');const v827SearchPanel=document.createElement('div');v827SearchPanel.id='v827SearchResults';v827SearchPanel.hidden=true;v827SearchPanel.setAttribute('role','listbox');v827SearchInput.setAttribute('aria-label','Sök i hela Tidens väv');v827SearchInput.placeholder='Sök i hela Tidens väv – händelser, texter, fynd, ämnen…';v827SearchInput.after(v827SearchPanel);
 const v827Modules=[['archaeology','Arkeologi',archaeologyCasesV818,'v818'],['religion','Israels religion',religionCasesV820,'v820'],['exile','Exil & texter',exileCasesV821,'v821'],['hellenism','Andra templets tid',hellenisticCasesV822,'v822'],['roman','Jesus & Rom',romanCasesV823,'v823'],['formation','Textens tillkomst',formationCasesV811,'v811']];
 function v827Entries(){return [
- ...events.map(e=>({type:'post',id:e.id,title:e.title,sub:e.description||'',target:'timeline',badge:'Tidslinjepost'})),
+ ...events.map(e=>({type:'post',id:e.id,title:e.title,sub:[e.id,e.description||'',e.id==='H057'?'Henoktraditionen Henoks bok Första Henok Qumran 4Q201':''].join(' '),target:'timeline',badge:'Tidslinjepost'})),
  ...originalEvents.map(e=>({type:'archive',id:e.id,title:e.title,sub:e.description||'',target:'archive',badge:'Original · ej granskat'})),
  ...v827Modules.flatMap(([target,badge,arr])=>arr.map(c=>({type:'case',id:c.id,title:c.title,sub:[c.summary,c.context,c.fact,c.interpretation,c.assessment,c.theme].filter(Boolean).join(' '),target,badge}))),
  ...Object.entries(v82Library).map(([id,d])=>({type:'library',id,title:d.heading,sub:d.summary||'',target:'research',badge:'Forskningsfördjupning'})),
@@ -1535,10 +1535,10 @@ function v827Entries(){return [
 ]}
 const v827Index=v827Entries();
 function v827RenderSearch(){const query=v827SearchInput.value.trim().toLocaleLowerCase('sv');if(query.length<2){v827SearchPanel.hidden=true;return}
- const results=v827Index.map(e=>({e,score:e.title.toLocaleLowerCase('sv').includes(query)?3:e.sub.toLocaleLowerCase('sv').includes(query)?1:0})).filter(x=>x.score).sort((a,b)=>b.score-a.score||a.e.title.localeCompare(b.e.title,'sv')).slice(0,16);
+ const results=v827Index.map(e=>({e,score:e.id.toLocaleLowerCase('sv')===query?5:e.title.toLocaleLowerCase('sv').includes(query)?3:e.sub.toLocaleLowerCase('sv').includes(query)?1:0})).filter(x=>x.score).sort((a,b)=>b.score-a.score||a.e.title.localeCompare(b.e.title,'sv')).slice(0,16);
  v827SearchPanel.innerHTML=`<div class="v827-searchhint">Sökresultat i hela projektet · ${results.length===16?'16 första träffarna':results.length+' träffar'}</div>`+ (results.length?results.map(({e},i)=>`<button type="button" role="option" data-v827-result="${i}"><small>${enc(e.badge)}</small><b>${enc(e.title)}</b></button>`).join(''):'<p>Inga matchande poster. Prova ett annat ord.</p>');v827SearchPanel.hidden=false;
  v827SearchPanel.querySelectorAll('[data-v827-result]').forEach(b=>b.onclick=()=>{const x=results[Number(b.dataset.v827Result)].e;v827SearchPanel.hidden=true;v827SearchInput.value='';v827SearchInput.dispatchEvent(new Event('input',{bubbles:true}));
- if(x.type==='post'){view('timeline');setSelected(x.id)}
+ if(x.type==='post'){const entry=events.find(e=>e.id===x.id);if(entry){state.cat.add(entry.category);state.ev.add(entry.evidence);const span=Math.max(50,state.max-state.min);if(entry.end<state.min||entry.start>state.max){state.min=Math.max(-3900000,Math.floor(entry.start-span*.2));state.max=Math.min(2100,Math.ceil(state.min+span));}}view('timeline');renderAll();setSelected(x.id)}
  else if(x.type==='archive'){archiveQuery=x.title;view('archive');renderArchive()}
  else if(x.type==='library'){v82Query='';v82Theme='Alla områden';view('research');setSelected(x.id);renderResearch()}
  else if(x.type==='pair'){v89PairId=x.id;v810Theme='Alla';v89MotifIndex=0;view('parallels')}
