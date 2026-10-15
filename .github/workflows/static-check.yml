@@ -53,3 +53,4 @@ jobs:
           node tests/smoke-v879.mjs
           node tests/smoke-v880.mjs
           node tests/smoke-v881.mjs
+          node tests/smoke-v882.mjs

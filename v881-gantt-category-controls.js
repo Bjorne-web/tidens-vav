@@ -5,7 +5,7 @@
  const strip=document.createElement('div');strip.id='v881CategoryStrip';strip.className='v881-category-strip';
  strip.setAttribute('aria-label','Visa eller dölj tidslinjens kategorier');
  host.parentNode.insertBefore(strip,host);
- const categoryEntries=()=>Object.entries(laneNames);
+ const categoryEntries=()=>[...Object.entries(laneNames),...((window.TIDENS_BIBLE_BOOKS||[]).length?[['Bibelns böcker','Bibelns böcker']]:[])];
  function renderStrip(){
   for(const [cat,label] of categoryEntries()){
    let b=[...strip.children].find(x=>x.dataset.category===cat);

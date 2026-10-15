@@ -15,8 +15,8 @@ for(const id of ['H038','H057','H059'])assert.ok(ledger.claimChecks[id][0].sourc
 assert.equal(ctx.window.TIDENS_BIBLE_BOOK_RESEARCH.B032.status,'delgranskad');
 assert.equal(ctx.window.TIDENS_BIBLE_BOOKS.length,66);
 assert.equal(Object.keys(ledger.completePostReviews).length,0);
-assert.ok(read('index.html').includes('Version 8.81'));
-assert.ok(read('index.html').includes('v8.81-gantt-20261015'));
+assert.ok(read('index.html').includes('Version 8.82'));
+assert.ok(read('index.html').includes('v8.82-books-20261015'));
 for(const p of ['v843-timeline-workspace.js','v859-book-gantt.js','v858-book-reader.js'])new vm.Script(read(p),{filename:p});
 assert.ok(read('v859-book-gantt.js').includes('syncGuideLines()'));
 assert.ok(read('v859-book-gantt.js').includes('TidensOpenBookV858'));
