@@ -4,10 +4,11 @@
   'use strict';
   const oldRender = renderExplore;
   const safe = value => enc(String(value == null ? '' : value));
-  const allResearch = () => events.slice().sort((a,b)=>a.title.localeCompare(b.title,'sv'));
+  const bibleEvents=()=> (window.TIDENS_BIBLE_BOOKS||[]).map(b=>({id:b.id,title:b.title,start:b.start,end:b.end,category:'Bibeltext',description:b.critical,original:false,bibleBook:true}));
+  const allResearch = () => [...events,...bibleEvents()].sort((a,b)=>a.title.localeCompare(b.title,'sv'));
   const allOriginal = () => originalEvents.slice().sort((a,b)=>a.title.localeCompare(b.title,'sv'));
-  const vetted = () => v813Entries().filter(e => e.v813Status !== 'original' && Number.isFinite(e.start) && Number.isFinite(e.end));
-  const currentFocus = () => v829Focus.id && idEvent(v829Focus.id) ? idEvent(v829Focus.id) : null;
+  const vetted = () => [...v813Entries().filter(e => e.v813Status !== 'original' && Number.isFinite(e.start) && Number.isFinite(e.end)),...bibleEvents()];
+  const currentFocus = () => v829Focus.id ? allResearch().find(e=>e.id===v829Focus.id)||allOriginal().find(e=>e.id===v829Focus.id)||null : null;
 
   // Endast uttryckligen underbyggda tidslägen för originalposter får
   // visas som daterade stadier. Övriga importerade årtal hålls utanför
@@ -139,15 +140,16 @@
     study.querySelector('#v833PostSelect').onchange=e=>{
       v829Focus.id = e.target.value || null;
       v827RelationFocus = e.target.value || v827RelationFocus;
-      if(v829Focus.id) setSelected(v829Focus.id); else renderExplore();
+      if(v829Focus.id){if(v829Focus.id.startsWith('B')&&typeof window.TidensOpenBookV858==='function'){window.TidensOpenBookV858(v829Focus.id);renderExplore();}else setSelected(v829Focus.id);} else renderExplore();
     };
     const read = study.querySelector('#v833Read');
-    if(read)read.onclick=()=>{setSelected(focus.id);if(window.innerWidth<=900 && typeof v84OpenReader==='function')v84OpenReader()};
+    if(read)read.onclick=()=>{if(focus.bibleBook&&typeof window.TidensOpenBookV858==='function')window.TidensOpenBookV858(focus.id);else setSelected(focus.id);if(window.innerWidth<=900 && typeof v84OpenReader==='function')v84OpenReader()};
     const toTime = study.querySelector('#v833Timeline');
     if(toTime){
       // En källstödd originaltidslinje visas här i Temaspår, inte som
       // en påstått färdiggranskad post i den separata huvudtidslinjen.
       if(sourcedOriginalPeriods[focus.id]){toTime.hidden=true;}
+      else if(focus.bibleBook)toTime.onclick=()=>{view('timeline');window.TidensOpenBookV858?.(focus.id)};
       else toTime.onclick=()=>{view('timeline');v829LocateResearch(focus.id)};
     }
     const clear = study.querySelector('#v833Clear');
@@ -188,7 +190,7 @@
         map.querySelectorAll('[data-v833-open]').forEach(b=>b.onclick=()=>{v829Focus.id=b.dataset.v833Open;v827RelationFocus=v829Focus.id;setSelected(v829Focus.id)});
         // v83Graph/v83TimelineRows returnerar HTML; bind läsknapparna efter
         // att den nya tidslinjen har infogats.
-        map.querySelectorAll('[data-v83read]').forEach(b=>b.onclick=()=>setSelected(b.dataset.v83read));
+        map.querySelectorAll('[data-v83read]').forEach(b=>b.onclick=()=>{if(b.dataset.v83read.startsWith('B')&&typeof window.TidensOpenBookV858==='function')window.TidensOpenBookV858(b.dataset.v83read);else setSelected(b.dataset.v83read);});
         map.querySelectorAll('[data-v83read]').forEach(b=>{
           if(b.dataset.v83read===focus.id){b.classList.add('v835-origin-on-timeline');b.setAttribute('aria-label','Utgångspost: '+focus.title);}
         });
