@@ -87,15 +87,24 @@
    view('explore');
    const host=document.getElementById('exploreView');
    if(!host)return;
-   let focus=document.getElementById('v878BookRelationFocus');
-   if(!focus){focus=make('section');focus.id='v878BookRelationFocus';focus.className='v827-relationship-panel tv-book-relation-focus';host.prepend(focus);}
-   focus.replaceChildren();
-   const kicker=make('div','VALD BIBELBOK · '+b.id);kicker.className='kicker';focus.append(kicker);
-   focus.append(make('h2',b.title+' – historiska samband'));
-   focus.append(make('p','Bibelboken '+b.id+' följer med från forskningspanelen. Det finns ännu ingen individuellt källgranskad relationspost i Temaspår för denna bok. Därför visas inga påstådda direkta samband.'));
+   // A book is not an ordinary themed timeline. Replace the default themed investigation
+   // so it cannot misleadingly remain labelled "Israels framväxt".
+   const focus=make('section');focus.id='v878BookRelationFocus';focus.className='v827-relationship-panel tv-book-relation-focus';
+   const kicker=make('div','TEMASPÅR · VALD BIBELBOK · '+b.id);kicker.className='kicker';focus.append(kicker);
+   focus.append(make('h2',b.title+' – historiska sammanhang och samband'));
+   focus.append(make('p','Här utgår undersökningen från '+b.title+', inte från det förvalda temaspåret Israels framväxt. Vi skiljer historisk kontext från individuellt belagda samband.'));
    const profile=window.TIDENS_BIBLE_BOOK_RESEARCH?.[b.id];
-   if(profile?.context){focus.append(make('h3','Historiskt sammanhang'));focus.append(make('p',profile.context));}
-   const note=make('p','Nedanför finns utforskningsverktyget för historiska forskningsposter. Dess förvalda post är inte en dokumenterad koppling till '+b.title+'.');note.className='small';focus.append(note);
+   if(profile?.context){focus.append(make('h3','Historisk miljö'));focus.append(make('p',profile.context));}
+   if(profile?.composition){focus.append(make('h3','Textens tillkomst'));focus.append(make('p',profile.composition));}
+   focus.append(make('h3','Källkritisk bedömning'));
+   focus.append(make('p','Inga individuellt källgranskade relationslänkar har ännu registrerats från '+b.id+' till en viss historisk forskningspost. Därför visas inte ett annat, orelaterat temaspår som om det vore bokens egna samband.'));
+   const actions=make('div');actions.className='v827-linkrow';
+   const returnButton=make('button','Tillbaka till färdiga temaspår');returnButton.type='button';
+   returnButton.addEventListener('click',()=>{if(typeof renderExplore==='function')renderExplore();});
+   const timelineButton=make('button','Visa boken i huvudtidslinjen');timelineButton.type='button';
+   timelineButton.addEventListener('click',()=>{view('timeline');if(typeof window.TidensOpenBookV858==='function')window.TidensOpenBookV858(b.id);});
+   actions.append(returnButton,timelineButton);focus.append(actions);
+   host.replaceChildren(focus);
    focus.scrollIntoView({block:'start',behavior:'smooth'});
   });
   links.append(action);article.append(links);root.append(article);
