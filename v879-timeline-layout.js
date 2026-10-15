@@ -10,7 +10,7 @@ for(const [id,title] of [['catFilters','Kategori'],['evFilters','Evidensläge']]
  const toggle=document.createElement('button');toggle.type='button';toggle.className='v879-toggle-all';
  const boxes=()=>[...node.querySelectorAll('input[type=checkbox]')].filter(x=>!x.disabled);
  const sync=()=>{const list=boxes();const all=list.length>0&&list.every(x=>x.checked);toggle.textContent=all?'Avmarkera alla':'Markera alla';toggle.setAttribute('aria-pressed',String(all));};
- toggle.onclick=()=>{const list=boxes();const all=list.length>0&&list.every(x=>x.checked);for(const box of list){if(box.checked!==!all)box.click();}sync();};
+ toggle.onclick=()=>{const list=boxes();const all=list.length>0&&list.every(x=>x.checked);const wanted=!all;const target=id==='catFilters'?state.cat:state.ev;for(const box of list){box.checked=wanted;if(wanted)target.add(box.value);else target.delete(box.value);}renderAll();sync();};
  node.addEventListener('change',sync);actions.append(toggle);
  fold.append(actions);
  section.append(fold);
