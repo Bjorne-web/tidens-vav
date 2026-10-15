@@ -393,6 +393,17 @@ window.TIDENS_C6_PROGRESS=Object.freeze({
       "claimCheckPosts": 38,
       "claimChecks": 86,
       "note": "V8.73: Three scoped checks H041 H042 H055, partial Obadiah B031. No full reviews."
+    },
+    {
+      "date": "2026-10-15",
+      "inventory": 193,
+      "partialReports": 36,
+      "proposedCorrections": 11,
+      "implementedCorrections": 11,
+      "wholeApproved": 0,
+      "claimCheckPosts": 38,
+      "claimChecks": 89,
+      "note": "V8.74: H057 H059 H038 three bounded checks; partial book dossier B032 Jonah; no full reviews."
     }
   ],
   "caveat": "Måtten överlappar. De får inte summeras till ett totalt färdigställande. Källkontroll av ett påstående betyder inte fullständig postgranskning.",
