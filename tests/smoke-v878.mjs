@@ -33,4 +33,10 @@ assert.ok(app.includes("window.TidensOpenBookV858(x.id)"));
 const indexMatches=ctx.window.TIDENS_BIBLE_BOOKS.filter(b=>b.id==='B035'||b.title.toLowerCase().includes('habackuk'));
 assert.equal(indexMatches.length,1);
 
+const reader=read('v858-book-reader.js');
+assert.ok(reader.includes('v878BookRelationFocus'));
+assert.ok(reader.includes("b.title+' – historiska samband'"));
+assert.ok(reader.includes('ingen individuellt källgranskad relationspost'));
+assert.ok(reader.includes('focus.replaceChildren()'));
+assert.ok(reader.includes("view('explore')"));
 console.log('V8.78: Habackuk profile, H042 source checks, C6 counts and existing UI assets OK');
