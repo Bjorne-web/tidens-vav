@@ -62,6 +62,20 @@
     head.style.borderLeft='4px solid '+dark[CATEGORY];
     const plot=document.createElement('div');plot.className='laneplot';plot.style.position='relative';
     const viewSpan=Math.max(1,state.max-state.min),slots=[];
+    // The grid follows calendar years, not fixed 100px screen positions.
+    plot.style.backgroundImage='none';
+    const grid=document.createElement('div');
+    grid.className='tv-book-time-grid';
+    grid.style.cssText='position:absolute;inset:0;pointer-events:none;z-index:0;';
+    const step=viewSpan>5000?2000:viewSpan>1800?500:viewSpan>700?200:viewSpan>250?100:viewSpan>100?50:25;
+    for(let year=Math.ceil(state.min/step)*step;year<=state.max;year+=step){
+      const tick=document.createElement('span');
+      tick.className='tv-book-yearline';
+      tick.style.cssText='position:absolute;top:0;bottom:0;width:1px;background:rgba(34,62,97,.12);left:'+((year-state.min)/viewSpan*100)+'%;pointer-events:none;';
+      tick.dataset.year=String(year);
+      grid.append(tick);
+    }
+    plot.append(grid);
     for(const b of shown.sort((a,b)=>a.start-b.start)){
       const start=Math.max(b.start,state.min),end=Math.min(b.end,state.max);
       const x=Math.max(0,(start-state.min)/viewSpan*100);
@@ -77,6 +91,10 @@
       endMarker.title='Övre gräns i ett preliminärt dateringsintervall – inte belagt datum för fastställande';
       const hit=document.createElement('button');hit.type='button';hit.className='tv-book-hit';
       hit.dataset.tvBook=b.id;hit.style.left=x+'%';hit.style.width=visualWidth+'%';
+      hit.addEventListener('click',e=>{
+        e.stopPropagation();
+        if(typeof window.TidensOpenBookV858==='function')window.TidensOpenBookV858(b.id);
+      });
       hit.setAttribute('aria-label',b.title+', föreslagen tillkomst '+fmt(b.start)+' – '+fmt(b.end));
       hit.title=b.title+' · preliminär texttillkomst '+fmt(b.start)+'–'+fmt(b.end);
       const title=document.createElement('span');title.className='tv-book-label';title.textContent=b.title;
@@ -93,8 +111,26 @@
     const nextLane=afterTextIndex>=0?lanes.children[afterTextIndex+1]:null;
     lanes.insertBefore(lane,nextLane||null);
   }
+  // Keep the guide lines of EVERY timeline lane aligned with calendar years.
+  function syncGuideLines(){
+    const span=Math.max(1,state.max-state.min);
+    const step=span>5000?2000:span>1800?500:span>700?200:span>250?100:span>100?50:25;
+    document.querySelectorAll('#lanes .lane:not(.tv-book-lane) .laneplot').forEach(plot=>{
+      plot.querySelector('.tv-calendar-guide')?.remove();
+      plot.style.backgroundImage='none';
+      const guide=document.createElement('div');
+      guide.className='tv-calendar-guide';
+      guide.style.cssText='position:absolute;inset:0;pointer-events:none;';
+      for(let y=Math.ceil(state.min/step)*step;y<=state.max;y+=step){
+        const line=document.createElement('span');
+        line.style.cssText='position:absolute;top:0;bottom:0;width:1px;background:rgba(34,62,97,.10);left:'+((y-state.min)/span*100)+'%;pointer-events:none;';
+        guide.append(line);
+      }
+      plot.prepend(guide);
+    });
+  }
   const previous=renderTimeline;
-  renderTimeline=function(){previous();renderLane()};
-  renderLane();
+  renderTimeline=function(){previous();renderLane();syncGuideLines()};
+  renderLane();syncGuideLines();
   window.TidensBookTimelineV859=Object.freeze({count:books.length,category:CATEGORY});
 })();

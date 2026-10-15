@@ -371,6 +371,17 @@ window.TIDENS_C6_PROGRESS=Object.freeze({
       "claimCheckPosts": 38,
       "claimChecks": 80,
       "note": "V8.71: tre nya avgränsade kontroller H043, H057 och H059 samt delgranskad forskningsprofil B029 Joel. Antal poster med minst en kontroll ökar från 35 till 38. Ingen helgranskning."
+    },
+    {
+      "date": "2026-10-14",
+      "inventory": 193,
+      "partialReports": 36,
+      "proposedCorrections": 11,
+      "implementedCorrections": 11,
+      "wholeApproved": 0,
+      "claimCheckPosts": 38,
+      "claimChecks": 83,
+      "note": "Three new scoped claims: H041 twice and H042 once. Amos B030 profile. Zero complete reviews."
     }
   ],
   "caveat": "Måtten överlappar. De får inte summeras till ett totalt färdigställande. Källkontroll av ett påstående betyder inte fullständig postgranskning.",
