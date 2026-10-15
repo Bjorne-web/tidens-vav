@@ -55,6 +55,22 @@
   document.querySelectorAll('[data-v84nav="pilot"]').forEach(node=>node.remove());
   const original=document.getElementById('v827ResearchMenu');
   if(original)original.querySelectorAll('[data-v827-view="pilot"]').forEach(node=>node.remove());
+  // Version and research progress belong in Om, not on the reader's first page.
+  const about=document.querySelector('#aboutView .footcard');
+  if(about){
+    const old=about.querySelector('.about-grid .muted-box .small');
+    if(old)old.textContent='V8.76 samlar startsidans innehåll och tydliggör appens ingångar. Äldre tekniska arbetsversioner och delkontroller dokumenteras separat.';
+    const stats=window.TIDENS_C6_PROGRESS;
+    const latest=stats?.history?.at(-1);
+    const details=document.createElement('details');
+    details.className='tv876-tech';
+    const summary=document.createElement('summary');
+    summary.textContent='Teknisk status och granskningsarbete';
+    const text=document.createElement('p');
+    text.textContent=latest?('Version 8.76 · '+stats.total+' inventerade historiska poster · '+latest.claimChecks+' avgränsade källkontroller i '+latest.claimCheckPosts+' poster · '+latest.wholeApproved+' fullständigt slutgranskade. Antalet delkontroller ska inte förväxlas med färdiggranskade poster.'):'Version 8.76 · den senaste forskningsjournalen visas när den har laddats.';
+    details.append(summary,text);
+    about.append(details);
+  }
   // Re-render only if already on the start page; all future visits use the same function.
   if(!host.classList.contains('hidden'))v812Start();
 })();
