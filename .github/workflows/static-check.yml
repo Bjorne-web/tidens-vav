@@ -45,3 +45,4 @@ jobs:
           node tests/smoke-v872-ganttfix.mjs
           node tests/smoke-v873.mjs
           node tests/smoke-v874.mjs
+          node tests/smoke-v875.mjs
