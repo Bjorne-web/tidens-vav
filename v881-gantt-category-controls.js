@@ -2,7 +2,23 @@
 (function(){
  'use strict';
  const host=document.getElementById('lanes');if(!host)return;
+ const strip=document.createElement('div');strip.id='v881CategoryStrip';strip.className='v881-category-strip';
+ strip.setAttribute('aria-label','Visa eller dölj tidslinjens kategorier');
+ host.parentNode.insertBefore(strip,host);
+ const categoryEntries=()=>Object.entries(laneNames);
+ function renderStrip(){
+  for(const [cat,label] of categoryEntries()){
+   let b=[...strip.children].find(x=>x.dataset.category===cat);
+   if(!b){b=document.createElement('button');b.type='button';b.dataset.category=cat;
+    b.onclick=()=>{const on=!state.cat.has(cat);if(on)state.cat.add(cat);else state.cat.delete(cat);
+     const input=[...document.querySelectorAll('#catFilters input[type=checkbox]')].find(x=>x.value===cat);if(input)input.checked=on;
+     renderAll();renderStrip();};strip.append(b);}
+   const enabled=state.cat.has(cat);b.textContent=label;b.setAttribute('aria-pressed',String(enabled));b.title=(enabled?'Dölj ':'Visa ')+label;
+  }
+ }
+ renderStrip();
  function paint(){
+  renderStrip();
   host.querySelectorAll('.v815-category').forEach(section=>{
    const cat=section.dataset.v815Category;
    const header=section.querySelector('.v815-compact-header,header');
