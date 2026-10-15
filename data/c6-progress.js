@@ -415,6 +415,17 @@ window.TIDENS_C6_PROGRESS=Object.freeze({
       "claimCheckPosts": 38,
       "claimChecks": 92,
       "note": "V8.75: three scoped source checks H057 H038 H055; B033 Micah book profile; H057 global-search aliases. Zero complete reviews."
+    },
+    {
+      "date": "2026-10-15",
+      "inventory": 193,
+      "partialReports": 36,
+      "proposedCorrections": 11,
+      "implementedCorrections": 11,
+      "wholeApproved": 0,
+      "claimCheckPosts": 41,
+      "claimChecks": 95,
+      "note": "V8.77: tre avgränsade källkontroller H060, H061 och H062 av Herodes, Archelaos och Pilatusmynt. Inga fullständigt granskade poster."
     }
   ],
   "caveat": "Måtten överlappar. De får inte summeras till ett totalt färdigställande. Källkontroll av ett påstående betyder inte fullständig postgranskning.",
