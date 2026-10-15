@@ -38,11 +38,13 @@ assert.ok(reader.includes('v878BookRelationFocus'));
 assert.ok(reader.includes("b.title+' – historiska sammanhang och samband'"));
 assert.ok(reader.includes('Inga individuellt källgranskade relationslänkar'));
 assert.ok(reader.includes('host.replaceChildren(focus)'));
-assert.ok(reader.includes('tv-book-timegraph'));
-assert.ok(reader.includes('Tidslinje – föreslagen texttillkomst i historisk kontext'));
-assert.ok(reader.includes('Habackuk – föreslagen tillkomst/redaktion'));
-assert.ok(reader.includes('Historiska hållpunkter är jämförelsepunkter'));
-assert.ok(reader.includes('chronology.append(graph)'));
+assert.ok(reader.includes('tv-book-timeline'));
+assert.ok(reader.includes('Kronologisk tidslinje – textens tillkomst och samtid'));
+assert.ok(reader.includes('bookEvent'));
+assert.ok(reader.includes('Samtidighet är inte belägg'));
+assert.ok(reader.includes('v83Graph(timelineTheme,entries)'));
+assert.ok(reader.includes('v83TimelineRows(entries)'));
+assert.ok(reader.includes('bindGraph()'));
 
 assert.ok(reader.includes('Tillbaka till färdiga temaspår'));
 assert.ok(reader.includes('inte från det förvalda temaspåret Israels framväxt'));
