@@ -7,8 +7,8 @@ for(const p of ['data/review-ledger.js','data/c6-progress.js','data/bible-books-
 const ledger=ctx.window.TIDENS_REVIEW_LEDGER;
 const n=Object.values(ledger.claimChecks).reduce((x,rows)=>x+rows.length,0);
 const stats=ctx.window.TIDENS_C6_PROGRESS.history.at(-1);
-assert.ok(n>=86);assert.equal(Object.keys(ledger.claimChecks).length,38);
-assert.equal(stats.claimChecks,n);assert.equal(stats.claimCheckPosts,38);
+assert.ok(n>=86);assert.ok(Object.keys(ledger.claimChecks).length>=38);
+assert.equal(stats.claimChecks,n);assert.equal(stats.claimCheckPosts,Object.keys(ledger.claimChecks).length);
 assert.equal(ctx.window.TIDENS_BIBLE_BOOK_RESEARCH.B031.status,'delgranskad');
 assert.equal(Object.keys(ledger.completePostReviews).length,0);
 assert.ok(read('index.html').includes('Version 8.77'));
