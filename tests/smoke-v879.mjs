@@ -23,4 +23,7 @@ assert.ok(css.includes('v879PanDisclosure:not([open])'));
 const workspace=fs.readFileSync('v843-timeline-workspace.js','utf8');
 assert.ok(workspace.includes("document.getElementById('v879PanDisclosure')||pan"));
 assert.ok(workspace.includes('for(const node of [tools,panWrapper,axis])'));
+assert.ok(css.includes('grid-template-columns:minmax(0,1fr) auto'));
+assert.ok(css.includes('top:calc(var(--tv-header-height,0px) + 53px)'));
+assert.ok(css.includes('#v879PanDisclosure[open]'));
 console.log('V8.79 filter checks OK');
