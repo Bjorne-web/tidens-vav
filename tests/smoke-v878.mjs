@@ -36,7 +36,7 @@ assert.equal(indexMatches.length,1);
 const reader=read('v858-book-reader.js');
 assert.ok(reader.includes('v878BookRelationFocus'));
 assert.ok(reader.includes("b.title+' – historiska sammanhang och samband'"));
-assert.ok(reader.includes('ingen individuellt källgranskad relationspost'));
+assert.ok(reader.includes('Inga individuellt källgranskade relationslänkar'));
 assert.ok(reader.includes('host.replaceChildren(focus)'));
 assert.ok(reader.includes('Tillbaka till färdiga temaspår'));
 assert.ok(reader.includes('inte från det förvalda temaspåret Israels framväxt'));
