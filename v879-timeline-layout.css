@@ -19,3 +19,18 @@ body[data-v827-view="timeline"] #v827PanControls .v827-panrow{display:flex;min-w
 body[data-v827-view="timeline"] #v827PanSlider{min-width:60px;flex:1 1 120px;max-width:100%}
 body[data-v827-view="timeline"] .v843-sticky-controls{min-width:0;box-sizing:border-box;max-width:100%}
 .v879-fold .v879-actions button{min-width:100px}
+
+/* V8.79: narrow timeline control surfaces without altering pan-slider behavior. */
+body[data-v827-view="timeline"] #timelineView .v843-sticky-controls{padding:3px 6px 0!important;box-shadow:none}
+body[data-v827-view="timeline"] #timelineView #v7toolbar{gap:3px 5px!important;margin:0 0 3px!important;padding:3px!important;line-height:1.2}
+body[data-v827-view="timeline"] #timelineView #v7toolbar label,body[data-v827-view="timeline"] #timelineView #v7toolbar select{font-size:10px!important}
+body[data-v827-view="timeline"] #timelineView #v7toolbar button{font-size:10px!important;padding:4px 6px!important;min-height:25px}
+body[data-v827-view="timeline"] #timelineView #v7toolbar select{padding:3px 5px!important;max-width:165px!important}
+body[data-v827-view="timeline"] #timelineView #v827PanControls{margin:0 0 3px!important;padding:4px 7px!important;border-radius:6px}
+body[data-v827-view="timeline"] #timelineView #v827PanControls .v827-pantop{font-size:10px;line-height:1.2}
+body[data-v827-view="timeline"] #timelineView #v827PanControls .v827-pantop small{font-size:9px;white-space:normal}
+body[data-v827-view="timeline"] #timelineView #v827PanControls .v827-panrow{margin:3px 0!important;gap:5px}
+body[data-v827-view="timeline"] #timelineView #v827PanControls button{padding:4px 7px!important;min-height:26px;font-size:10px!important}
+body[data-v827-view="timeline"] #timelineView #v827PanControls .tiny{font-size:9px}
+body[data-v827-view="timeline"] #timelineView #v827PanControls input[type=range]{min-width:36px;max-width:100%;box-sizing:border-box}
+@media(max-width:1100px){body[data-v827-view="timeline"] #timelineView #v7toolbar{justify-content:flex-start}body[data-v827-view="timeline"] #timelineView #v7toolbar>*{margin:0!important}}
