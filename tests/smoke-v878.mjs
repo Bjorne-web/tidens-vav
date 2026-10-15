@@ -34,28 +34,18 @@ const indexMatches=ctx.window.TIDENS_BIBLE_BOOKS.filter(b=>b.id==='B035'||b.titl
 assert.equal(indexMatches.length,1);
 
 const reader=read('v858-book-reader.js');
-assert.ok(reader.includes('v878BookRelationFocus'));
-assert.ok(reader.includes("b.title+' – historiska sammanhang och samband'"));
-assert.ok(reader.includes('Inga individuellt källgranskade relationslänkar'));
-assert.ok(reader.includes('host.replaceChildren(focus)'));
-assert.ok(reader.includes('tv-book-timeline'));
-assert.ok(reader.includes('Kronologisk tidslinje – textens tillkomst och samtid'));
-assert.ok(reader.includes('bookEvent'));
-assert.ok(reader.includes('Samtidighet är inte belägg'));
-assert.ok(reader.includes('v83Graph(timelineTheme,entries)'));
-assert.ok(reader.includes('v83TimelineRows(entries)'));
-assert.ok(reader.includes('bindGraph()'));
-assert.ok(reader.includes("'UTGÅNGSPOST · '+b.id"));
-assert.ok(reader.includes("graph.querySelectorAll('[data-v83read]')"));
-assert.ok(reader.includes('labelOrigin();focus.append(chronology)'));
-assert.ok(reader.includes('listButton.onclick=()=>{graph.innerHTML=v83TimelineRows(entries);bindGraph();labelOrigin();}'));
-
+const inquiry=read('v833-temaspar.js');
+assert.ok(reader.includes('v827ShowRelations(b.id)'));
+assert.ok(!reader.includes('v878BookRelationFocus'));
+assert.ok(inquiry.includes('const bibleEvents=()=>'));
+assert.ok(inquiry.includes('...events,...bibleEvents()'));
+assert.ok(inquiry.includes('...bibleEvents()]'));
+assert.ok(inquiry.includes('allResearch().find(e=>e.id===v829Focus.id)'));
+assert.ok(inquiry.includes('v835-origin-on-timeline'));
+assert.ok(inquiry.includes('v833-selflead'));
+assert.ok(inquiry.includes('v835-actual-timeline'));
+assert.ok(inquiry.includes('v83TimelineRows(entries):v83Graph(timelineTheme,entries)'));
 assert.ok(reader.includes("root.querySelector('#v829ReaderGrip')"));
 assert.ok(reader.includes("root.querySelector('#v829WidthControls')"));
 assert.ok(reader.includes('if(widthControls)root.append(widthControls)'));
-
-
-assert.ok(reader.includes('Tillbaka till färdiga temaspår'));
-assert.ok(reader.includes('inte från det förvalda temaspåret Israels framväxt'));
-assert.ok(reader.includes("view('explore')"));
 console.log('V8.78: Habackuk profile, H042 source checks, C6 counts and existing UI assets OK');
