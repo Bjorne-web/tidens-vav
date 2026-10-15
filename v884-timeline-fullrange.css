@@ -1,0 +1,6 @@
+/* V8.84 – Hela tidsrymden: one pan handle, clear no-movement state. */
+body[data-v827-view="timeline"] #v827PanControls .v827-panrow{display:grid!important;grid-template-columns:auto minmax(0,1fr) auto!important;gap:8px!important;align-items:center;max-width:100%;box-sizing:border-box}
+body[data-v827-view="timeline"] #v827PanSlider{display:block;min-width:0!important;width:100%!important;max-width:100%!important;box-sizing:border-box;accent-color:#3678b3}
+body[data-v827-view="timeline"] #v827PanSlider:disabled{opacity:.55;cursor:not-allowed;accent-color:#90a7b9}
+body[data-v827-view="timeline"] #v827PanControls .v827-panrow button{white-space:nowrap}
+@media(max-width:560px){body[data-v827-view="timeline"] #v827PanControls .v827-panrow{gap:4px!important}body[data-v827-view="timeline"] #v827PanControls .v827-panrow button{padding:5px!important;font-size:10px!important}}
