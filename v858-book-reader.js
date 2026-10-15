@@ -104,6 +104,18 @@
    const timelineButton=make('button','Visa boken i huvudtidslinjen');timelineButton.type='button';
    timelineButton.addEventListener('click',()=>{view('timeline');if(typeof window.TidensOpenBookV858==='function')window.TidensOpenBookV858(b.id);});
    actions.append(returnButton,timelineButton);focus.append(actions);
+   // Chronology is a comparison of dates, not a claim of literary dependence.
+   const chronology=make('section');chronology.className='v827-relationship-panel tv-book-chronology';
+   chronology.append(make('h3','Tidslinje – föreslagen texttillkomst i historisk kontext'));
+   chronology.append(make('p','Blått visar den föreslagna tillkomst- och redaktionsperioden. Historiska hållpunkter är jämförelsepunkter, inte bevisade litterära samband.'));
+   const points=[{name:'Nineves fall',year:-612,kind:'historisk hållpunkt'},{name:'Jerusalems förstörelse',year:-587,kind:'historisk hållpunkt'},{name:'Habackuk – föreslagen tillkomst/redaktion',start:b.start,end:b.end,kind:'textens tillkomst'}];
+   const rangeStart=Math.min(b.start,-650),rangeEnd=Math.max(b.end,-450),span=rangeEnd-rangeStart;
+   const graph=make('div');graph.className='tv-book-timegraph';graph.style.cssText='display:grid;gap:12px;padding:18px 12px;border:1px solid #cbd9e8;border-radius:12px;background:#fff';
+   const axis=make('div');axis.style.cssText='display:flex;justify-content:space-between;font-size:12px';axis.append(make('span',fmt(rangeStart)),make('span',fmt(rangeEnd)));graph.append(axis);
+   for(const item of points){const row=make('div');row.style.cssText='display:grid;grid-template-columns:minmax(170px,30%) 1fr;align-items:center;gap:12px';row.append(make('span',item.name));const track=make('div');track.style.cssText='position:relative;height:26px;border-radius:5px;background:repeating-linear-gradient(90deg,#f0f4f9,#f0f4f9 1px,white 1px,white 20%)';const bar=make('div');const from=item.year??item.start,to=item.year??item.end;const left=Math.max(0,(from-rangeStart)/span*100),width=Math.max(item.year===undefined?2:1,((to-from)/span)*100);bar.style.cssText='position:absolute;top:7px;height:12px;border-radius:6px;background:'+(item.year===undefined?'#2367a4':'#a26d39')+';left:'+left+'%;width:'+width+'%';bar.title=item.name+' · '+fmt(from)+(to!==from?'–'+fmt(to):'');track.append(bar);row.append(track);graph.append(row)}
+   chronology.append(graph);
+   chronology.append(make('p','Habackuks arbetsdatering enligt bokregistret: '+fmt(b.start)+'–'+fmt(b.end)+'. Exakt komposition och olika redaktionsskeden är omdiskuterade.'));
+   focus.append(chronology);
    host.replaceChildren(focus);
    focus.scrollIntoView({block:'start',behavior:'smooth'});
   });
