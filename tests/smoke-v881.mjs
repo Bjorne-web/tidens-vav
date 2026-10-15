@@ -17,4 +17,8 @@ const app=fs.readFileSync('app.js','utf8');
 assert.ok(!app.includes('<div class="v828-categories">${legend}</div>'));
 assert.ok(app.includes('Samlad kronologisk tidslinje'));
 assert.ok(j.includes('v881CategoryStrip'));
+const layout=fs.readFileSync('v879-timeline-layout.css','utf8');
+assert.ok(layout.includes('display:contents!important'));
+assert.ok(layout.includes('grid-row:2!important'));
+assert.ok(layout.includes('position:static!important'));
 console.log('V8.81 category visibility hooks OK');
