@@ -1,0 +1,27 @@
+/* V8.76 – public onboarding */
+.tv876-start{max-width:1170px;margin:0 auto;padding:clamp(14px,3vw,36px);color:#17334c}
+.tv876-hero{padding:clamp(24px,5vw,52px);border-radius:20px;background:linear-gradient(128deg,#173e62,#27688a);color:#fff}
+.tv876-eyebrow{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.84}
+.tv876-hero h1{font-family:Georgia,serif;font-size:clamp(30px,4.5vw,52px);line-height:1.15;margin:16px 0 18px;color:#fff}
+.tv876-hero p{max-width:850px;line-height:1.75;font-size:15px;color:#eaf3f9}
+.tv876-hero .tv876-lead{font-size:clamp(16px,1.7vw,20px);color:#fff}
+.tv876-start section{margin-top:26px}
+.tv876-start h2{font-size:clamp(21px,2.4vw,29px);margin:0 0 14px}
+.tv876-start h3{font-size:17px;margin:0 0 9px}
+.tv876-start p{line-height:1.7}
+.tv876-principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.tv876-principles>div,.tv876-method,.tv876-closing{border:1px solid #d5e2ec;background:#f8fbff;border-radius:14px;padding:23px}
+.tv876-principles p{font-size:14px;color:#516879;margin:0}
+.tv876-section-head p{margin-top:0;color:#547087}
+.tv876-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.tv876-path{display:flex;flex-direction:column;align-items:flex-start;gap:9px;text-align:left;background:white;border:1px solid #d5e2ec;border-radius:14px;padding:22px;cursor:pointer;min-height:215px;color:#17334c}
+.tv876-path:hover,.tv876-path:focus-visible{outline:2px solid #4383ab;outline-offset:2px}
+.tv876-path-number{color:#567a9a;font-size:12px;font-weight:800}
+.tv876-path strong{font-size:19px}
+.tv876-path>span:not(.tv876-path-number){font-size:14px;line-height:1.55;color:#476277}
+.tv876-path em{font-style:normal;color:#145d8a;font-weight:700;font-size:13px;margin-top:auto}
+.tv876-method{background:#fff}
+.tv876-closing{background:#e8f2f9}
+.tv876-closing button{background:#1b5c83;color:white;border:0;border-radius:8px;padding:12px 18px;font-weight:700;cursor:pointer}
+@media(max-width:980px){.tv876-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.tv876-principles,.tv876-grid{grid-template-columns:1fr}.tv876-start{padding:10px}.tv876-hero{padding:22px}.tv876-path{min-height:unset}}
