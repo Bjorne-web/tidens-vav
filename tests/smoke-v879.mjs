@@ -20,4 +20,7 @@ assert.ok(css.includes('max-width:165px'));
 assert.ok(code.includes("x.id!=='tvOnlyBooks'"));
 assert.ok(code.includes('v879PanDisclosure'));
 assert.ok(css.includes('v879PanDisclosure:not([open])'));
+const workspace=fs.readFileSync('v843-timeline-workspace.js','utf8');
+assert.ok(workspace.includes("document.getElementById('v879PanDisclosure')||pan"));
+assert.ok(workspace.includes('for(const node of [tools,panWrapper,axis])'));
 console.log('V8.79 filter checks OK');
