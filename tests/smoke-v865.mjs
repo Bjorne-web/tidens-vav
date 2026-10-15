@@ -16,7 +16,7 @@ assert.equal(current.claimChecks,count);
 assert.equal(current.claimCheckPosts,ids.length);
 for(const id of ['H051','H055','H058']){
  const row=ledger.claimChecks[id][0];
- assert.equal(row.verified,'2026-10-14');
+ assert.ok(/^2026-10-(14|15)$/.test(row.verified));
  assert.ok(row.sourceUrl.startsWith('https://'));
  assert.ok(row.scope.length>10 && row.limit.length>20);
 }

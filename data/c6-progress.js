@@ -1,6 +1,6 @@
 window.TIDENS_C6_PROGRESS=Object.freeze({
   "schemaVersion": 1,
-  "updated": "2026-10-14",
+  "updated": "2026-10-15",
   "total": 193,
   "research": 64,
   "original": 129,
@@ -382,6 +382,17 @@ window.TIDENS_C6_PROGRESS=Object.freeze({
       "claimCheckPosts": 38,
       "claimChecks": 83,
       "note": "Three new scoped claims: H041 twice and H042 once. Amos B030 profile. Zero complete reviews."
+    },
+    {
+      "date": "2026-10-15",
+      "inventory": 193,
+      "partialReports": 36,
+      "proposedCorrections": 11,
+      "implementedCorrections": 11,
+      "wholeApproved": 0,
+      "claimCheckPosts": 38,
+      "claimChecks": 86,
+      "note": "V8.73: Three scoped checks H041 H042 H055, partial Obadiah B031. No full reviews."
     }
   ],
   "caveat": "Måtten överlappar. De får inte summeras till ett totalt färdigställande. Källkontroll av ett påstående betyder inte fullständig postgranskning.",
