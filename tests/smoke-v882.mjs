@@ -1,0 +1,18 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+const h=fs.readFileSync('index.html','utf8');
+const b=fs.readFileSync('v859-book-gantt.js','utf8');
+const g=fs.readFileSync('v881-gantt-category-controls.js','utf8');
+assert.ok(h.includes('Version 8.82'));
+assert.ok(h.includes('v8.82-books-20261015'));
+assert.ok(b.includes('function unifiedChronologicalBooks()'));
+assert.ok(b.includes('if(unifiedChronologicalBooks())return;'));
+assert.ok(b.includes('v828-gantt-row v882-bible-gantt-row'));
+assert.ok(b.includes('v828-gantt-label'));
+assert.ok(b.includes('v828-gantt-track'));
+assert.ok(b.includes('v828-gantt-date'));
+assert.ok(b.includes('window.TidensOpenBookV858?.(b.id)'));
+assert.ok(b.includes('rows.sort((a,b)'));
+assert.ok(b.includes('Preliminärt intervall för textens tillkomst/redaktion'));
+assert.ok(g.includes("[['Bibelns böcker','Bibelns böcker']]"));
+console.log('V8.82: Bible books use ordinary chronological Gantt rows and shared category filter');
