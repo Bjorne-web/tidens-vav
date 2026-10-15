@@ -15,8 +15,8 @@ assert.ok(app.includes("e.id==='H057'?'Henoktraditionen Henoks bok Första Henok
 assert.ok(app.includes("e.id.toLocaleLowerCase('sv')===query?5"));
 assert.ok(app.includes("state.cat.add(entry.category)"));
 assert.ok(app.includes("state.min=Math.max(-3900000"));
-assert.ok(html.includes('Version 8.75'));
-assert.ok(html.includes('v8.75-gh-20261015'));
+assert.ok(html.includes('Version 8.76'));
+assert.ok(html.includes('v8.76-start-20261015'));
 assert.ok(read('v859-book-gantt.js').includes('syncGuideLines()'));
 assert.ok(read('v858-book-reader.js').includes('TidensOpenBookV858'));
 new vm.Script(app);
