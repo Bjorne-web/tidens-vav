@@ -27,8 +27,8 @@ const server=http.createServer((req,res)=>{
   await page.goto(origin+'/?tv_id=H066&tv_view=explore',{waitUntil:'domcontentloaded'});
   await page.waitForFunction(()=>document.querySelector('#detail h2')?.textContent?.includes('Lilith'),{timeout:20000});
   assert.match(await page.locator('#detail h2').innerText(),/Lilith/);
-  assert.equal(await page.locator('#detail figure img').count(),1,'H066 illustration is displayed');
-  assert.match(await page.locator('#detail figure figcaption').innerText(),/INTE belagd/);
+  assert.equal(await page.locator('#detail .v839-unified-article figure img').count(),1,'H066 illustration is displayed');
+  assert.match(await page.locator('#detail .v839-unified-article figure figcaption').innerText(),/INTE belagd/);
   const result=await page.evaluate(()=>{
     state.min=-1000;state.max=1100;renderAll();
     const both=events.filter(e=>['H066','H067'].includes(e.id));
@@ -41,13 +41,13 @@ const server=http.createServer((req,res)=>{
   assert.match(await page.locator('#recordsView').innerText(),/H067/);
   await page.goto(origin+'/?tv_id=H067&tv_view=explore',{waitUntil:'domcontentloaded'});
   await page.waitForFunction(()=>document.querySelector('#detail h2')?.textContent?.includes('Adams första hustru'),{timeout:20000});
-  assert.equal(await page.locator('#detail figure img').count(),1,'H067 illustration is displayed');
-  assert.match(await page.locator('#detail figure figcaption').innerText(),/1887/);
+  assert.equal(await page.locator('#detail .v839-unified-article figure img').count(),1,'H067 illustration is displayed');
+  assert.match(await page.locator('#detail .v839-unified-article figure figcaption').innerText(),/1887/);
   const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
   mobile.on('pageerror',e=>errors.push('Mobile: '+e.message));
   await mobile.goto(origin+'/?tv_id=H067&tv_view=research',{waitUntil:'domcontentloaded'});
   await mobile.waitForFunction(()=>document.querySelector('#detail h2')?.textContent?.includes('Adams första hustru'),{timeout:20000});
-  assert.equal(await mobile.locator('#detail figure img').count(),1);
+  assert.equal(await mobile.locator('#detail .v839-unified-article figure img').count(),1);
   assert.equal(errors.length,0,'No uncaught browser JavaScript errors: '+errors.join(' | '));
   console.log('Lilith Chromium integration passed: desktop deep links, records search, both illustrations, mobile reader.');
  } finally {await browser.close();}
