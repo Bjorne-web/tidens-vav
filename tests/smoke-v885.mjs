@@ -1,0 +1,17 @@
+import fs from 'node:fs';import assert from 'node:assert/strict';
+const h=fs.readFileSync('index.html','utf8');
+const app=fs.readFileSync('app.js','utf8');
+const books=fs.readFileSync('data/bible-books-v857.js','utf8');
+const reader=fs.readFileSync('v858-book-reader.js','utf8');
+const study=fs.readFileSync('v833-temaspar.js','utf8');
+const context=fs.readFileSync('v839-temaspar-context.js','utf8');
+assert.ok(h.includes('Version 8.85'));
+assert.ok(h.includes('v8.85-b064-20261016'));
+assert.match(books, /"id":"B064","title":"Tredje Johannesbrevet"/);
+assert.ok(reader.includes('v827ShowRelations(b.id)'));
+assert.ok(app.includes("idEvent(id)||(window.TIDENS_BIBLE_BOOKS||[]).find(book=>book.id===id)"));
+assert.ok(app.includes("window.TidensOpenBookV858(id)"));
+assert.ok(app.includes('event.critical'));
+assert.ok(study.includes('bibleEvents()'));
+assert.ok(context.includes('(window.TIDENS_BIBLE_BOOKS||[])'));
+console.log('V8.85: Tredje Johannesbrevet B064 retains origin and opens book reader from Temaspår');
