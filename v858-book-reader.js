@@ -28,8 +28,22 @@
   article.append(make('p',b.critical));
   article.append(make('h3','Konsekvenser och betydelse'));
   article.append(make('p','Textens betydelse inom religiösa traditioner ska skiljas från belagda historiska följder. En individuell konsekvensanalys återstår.'));
-  article.append(make('h3','Betydelse för Israels religion, judendomen och kristendomen'));
-  article.append(make('p','Boken ingår i en eller flera kanoniska och historiska tolkningsgemenskaper. Dess specifika religionshistoriska betydelse behöver granskas med källunderlag för respektive bok.'));
+  const c7=window.TIDENS_C7_RELIGION?.[b.id];
+  if(c7){
+   article.append(make('h3','Betydelse för Israels religion, judendomen och kristendomen'));
+   article.append(make('p',c7.level),make('p',c7.paragraph));
+   if(c7.sources?.length){
+    const label=make('p','Källor för denna bedömning:');article.append(label);
+    const citeList=make('ul');
+    for(const [title,url] of c7.sources){
+     if(!/^https:\/\//.test(url))continue;
+     const li=make('li'),a=make('a',title);
+     a.href=url;a.target='_blank';a.rel='noopener noreferrer';
+     li.append(a);citeList.append(li);
+    }
+    article.append(citeList);
+   }
+  }
   article.append(make('h3','Osäkerheter och viktiga preciseringar'));
   article.append(make('p','Författartillskrivningen är traditionshistorisk. Föreslagen texttillkomst är en forskningsrekonstruktion med osäkerheter och möjlig flerstegskomposition.'));
   const dl=make('dl');dl.className='tv-book-reader-facts';
