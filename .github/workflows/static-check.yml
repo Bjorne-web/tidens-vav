@@ -58,3 +58,4 @@ jobs:
           node tests/smoke-v884.mjs
           node tests/smoke-v885.mjs
           node tests/smoke-v886.mjs
+          node tests/c6-integrity-v887.mjs
