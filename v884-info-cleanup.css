@@ -6,3 +6,30 @@
 #timelineView .v884-timeline-perspectives{display:none!important}
 #timelineView .v884-timeline-actionbar{justify-content:flex-end;min-height:0}
 #timelineView .v884-timeline-actionbar .actions{margin-left:auto}
+
+/* Bibelböcker i Efter kategori + Detaljerad tidslinje: samma tre läsfält
+   som vanliga tidslinjeposter; endast strecket hör till tidsaxeln. */
+#timelineView .tv-book-lane .v884-book-three-columns{
+ display:grid!important;grid-template-columns:minmax(160px,180px) minmax(0,1fr) 132px;
+ align-items:center;column-gap:8px;min-width:0;width:100%;box-sizing:border-box;
+}
+#timelineView .tv-book-lane .v884-book-three-columns .v884-book-label{
+ position:static!important;display:block;min-width:0;width:100%;height:auto;
+ box-sizing:border-box;text-align:left;white-space:normal;overflow-wrap:anywhere;
+ border:1px solid #d2e1ec;background:#fff;border-radius:6px;
+ padding:6px;font-size:11px;font-weight:700;color:#2e516a;cursor:pointer;
+}
+#timelineView .tv-book-lane .v884-book-three-columns .v813-plotline{
+ grid-column:2;min-width:0;width:100%;height:32px;position:relative;
+}
+#timelineView .tv-book-lane .v884-book-three-columns .v813-plotdate{
+ grid-column:3;min-width:0;white-space:normal;overflow-wrap:anywhere;
+}
+@media(max-width:760px){
+ #timelineView .tv-book-lane .v884-book-three-columns{
+  grid-template-columns:minmax(105px,135px) minmax(0,1fr) 86px;column-gap:4px;
+ }
+ #timelineView .tv-book-lane .v884-book-three-columns .v884-book-label{
+  font-size:10px;padding:4px;
+ }
+}
