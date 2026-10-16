@@ -1,0 +1,21 @@
+/* Granskning 2: verifying no change to research dataset, C6 or unrelated app views. */
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const __dirname=path.dirname(fileURLToPath(import.meta.url));
+const root=path.join(__dirname,'..');
+const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
+const js=fs.readFileSync(path.join(root,'v888-research-tracks.js'),'utf8');
+const css=fs.readFileSync(path.join(root,'v888-research-tracks.css'),'utf8');
+assert.match(html,/href="v888-research-tracks.css"/);
+assert.match(html,/src="v888-research-tracks.js"/);
+assert.match(html,/id="researchView"/);
+assert.doesNotThrow(()=>new vm.Script(js));
+for(const term of ['Sheol','Gehenna','Hades','1 Henok','Dan 12:2','2 Mack','Suriano']) assert.ok(js.includes(term),'Missing research term: '+term);
+for(const id of ['O075','O030','H023','H024','H025','H057','O119']) assert.ok(js.includes("id:'"+id+"'"),'Missing existing post '+id);
+assert.match(js,/Pågående vetenskaplig granskning/);
+assert.match(js,/MutationObserver/);
+assert.match(css,/max-width:720px/);
+console.log('Granskning 2 smoke: structure, vocabulary, existing links and mobile rules OK.');
