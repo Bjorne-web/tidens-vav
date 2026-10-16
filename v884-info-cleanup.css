@@ -1,0 +1,8 @@
+/* V8.84 – punkterna 13–15 i originalgranskningen.
+   Informationsblock döljs endast i Tidslinje. DOM, formulärvärden och
+   händelselyssnare behålls intakta så att tidslinjemotorn inte ändras. */
+#timelineView .v884-internal-stats,
+#timelineView #v813Panel,
+#timelineView .v884-timeline-perspectives{display:none!important}
+#timelineView .v884-timeline-actionbar{justify-content:flex-end;min-height:0}
+#timelineView .v884-timeline-actionbar .actions{margin-left:auto}
