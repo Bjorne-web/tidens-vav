@@ -1,7 +1,7 @@
 import fs from 'node:fs';import assert from 'node:assert/strict';
 const html=fs.readFileSync('index.html','utf8');const css=fs.readFileSync('v884-info-cleanup.css','utf8');
-assert.ok(html.includes('Version 8.85'));
-assert.ok(html.includes('v8.85-b064-20261016'));
+assert.ok(html.includes('Version 8.86'));
+assert.ok(html.includes('v8.86-menu-20261016'));
 assert.ok(html.includes('v884-internal-stats'));
 assert.ok(html.includes('id="visible"'));
 assert.ok(html.includes('id="v813Panel"'));
