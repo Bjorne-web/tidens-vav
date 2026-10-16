@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 const h=fs.readFileSync('index.html','utf8');
 const j=fs.readFileSync('v881-gantt-category-controls.js','utf8');
 const c=fs.readFileSync('v881-gantt-category-controls.css','utf8');
-assert.ok(h.includes('Version 8.85'));
+assert.ok(h.includes('Version 8.86'));
 assert.ok(h.includes('v881-gantt-category-controls.js'));
 assert.ok(h.includes('v881-gantt-category-controls.css'));
 assert.ok(j.includes('state.cat.add(cat)'));
