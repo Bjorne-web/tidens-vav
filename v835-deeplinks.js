@@ -6,7 +6,7 @@
   const PARAM_ID='tv_id';
   const PARAM_VIEW='tv_view';
   const ALLOWED=new Set(['explore','timeline','research']);
-  const ID_PATTERN=/^[A-Z][0-9]{3,6}$/;
+  const ID_PATTERN=/^(?:[A-Z][0-9]{3,6}|AP[0-9]{3})$/;
 
   function recordFor(id) {
     if(typeof id!=='string' || !ID_PATTERN.test(id))return null;
