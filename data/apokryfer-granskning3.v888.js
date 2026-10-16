@@ -7,12 +7,12 @@
   const rows = [
     {
       id:'AP001', category:'Religion & texter', title:'Apokryferna och Bibelns olika kanon',
-      start:-300,end:400,dating:'Historisk utvecklingsperiod (inte ett beslutsår)',evidence:'Ej granskad',
+      start:-300,end:400,dating:'Tidiga skriftsamlingar och kanondiskussioner; senare kanonhistoria fortsätter',evidence:'Ej granskad',
       description:'Olika judiska och kristna gemenskaper har brukat och auktoriserat delvis olika skriftsamlingar. Termerna apokryfer och deuterokanoniska böcker varierar med traditionen.',
       bible:'Septuaginta; judisk Tanakh; kristna kanontraditioner',source:'',reviewed:false,
       overview:'Det finns inte en enda historisk tidpunkt då alla judiska och kristna traditioner antog exakt samma samling böcker. Grekiska och hebreiska texttraditioner, liturgisk användning och senare kanonbeslut måste studeras var för sig.',
       parallels:'Jämför boklistor och bruk i judiska, protestantiska, katolska och olika ortodoxa traditioner.',
-      caution:'En handskrifts innehåll bevisar inte automatiskt ett enhetligt kanonbeslut. Dateringen gäller en bred utvecklingsperiod, inte när en särskild text författades.',
+      caution:'En handskrifts innehåll bevisar inte automatiskt ett enhetligt kanonbeslut. Perioden här avser tidiga historiska förutsättningar: diskussioner om kanon fortsatte långt senare, bland annat under reformationen. Perioden är inte när en enda text författades.',
       refs:[['Oxford Bibliographies – Apocrypha and Pseudepigrapha (deSilva)','https://academic.oup.com/reference/62341/reference-article-abstract/554102278'],['Oxford Handbook – The Bible in Orthodox Christianity','https://academic.oup.com/edited-volume/41986']]
     },
     {
@@ -40,7 +40,7 @@
       start:-200,end:-100,dating:'Hebreisk komposition och senare grekisk översättning',evidence:'Ej granskad',
       description:'Syraks bok ger inblick i judisk undervisning och vishetskultur före Nya testamentet.',
       bible:'Syr prologen; Syr 5:11; Jak 1:19',source:'',reviewed:false,
-      overview:'Jesus ben Sira skrev huvudsakligen på hebreiska tidigt under 100-talet f.Kr. Hans sonson översatte verket till grekiska senare under samma århundrade; prologen är en viktig kronologisk källa.',
+      overview:'Jesus ben Sira skrev på hebreiska omkring 180 f.Kr. Hans sonson översatte verket till grekiska omkring 132 f.Kr.; översättarens prolog är en viktig kronologisk källa. Både kompositions- och översättningsdatering är historiska rekonstruktioner.',
       parallels:'Jämför råd om tal, lyssnande och moralisk urskillning med annan judisk vishetslitteratur och Jakobsbrevet.',
       caution:'Översättningens grekiska uttryck behöver skiljas från den hebreiska kompositionen och från bevarade textvittnen.',
       refs:[['Oxford Classical Dictionary – Ben Sira (Wright)','https://academic.oup.com/edited-volume/61673/chapter-abstract/550533627'],['Ben Sira manuscript project – Introduction','https://bensira.org/introduction.html']]
