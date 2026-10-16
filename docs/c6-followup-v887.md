@@ -1,0 +1,1 @@
+C6 follow-up: H042 and H054 already have scoped source checks. Keep event date distinct from artifact date. Neither source establishes every claim in biblical narratives. No change to review status.
