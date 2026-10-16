@@ -20,7 +20,7 @@ function section(t){return '<section class="v888-track v889-track" id="v889-'+t.
 t.sections.map((s,i)=>'<details'+(i===0?' open':'')+'><summary>'+(i+1)+'. '+esc(s.title)+'</summary><div class="v888-body"><p>'+esc(s.body)+'</p></div></details>').join('')+
 '<div class="v888-columns"><div><h3>Kopplingar i Väven</h3><ul>'+t.links.map(p=>'<li><a href="/?tv_id='+encodeURIComponent(p.id)+'&tv_view=research">'+esc(p.id)+' · '+esc(p.label)+'</a></li>').join('')+'</ul></div>'+
 '<div><h3>Fortsatt källprövning</h3><ul>'+t.sources.map(s=>'<li><a href="'+esc(s.url)+'" target="_blank" rel="noopener noreferrer">'+esc(s.name)+' ↗</a></li>').join('')+'</ul><small>Översiktskällor används för forskningspositioner. Primärtexter och datering kräver separat kontroll före slutgranskning.</small></div></div></section>'}
-function install(){const host=document.getElementById('researchView');if(!host||host.querySelector('#v889-good'))return;host.insertAdjacentHTML('beforeend',tracks.map(section).join(''));}
+function install(){const host=document.getElementById('researchView');if(!host||host.querySelector('#v889-good'))return;const anchor=host.querySelector('#v888Track');if(anchor){anchor.insertAdjacentHTML('afterend',tracks.map(section).join(''));}else{host.insertAdjacentHTML('afterbegin',tracks.map(section).join(''));}}
 function init(){const host=document.getElementById('researchView');if(!host)return;install();new MutationObserver(()=>{if(!host.querySelector('#v889-good'))install()}).observe(host,{childList:true});}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
