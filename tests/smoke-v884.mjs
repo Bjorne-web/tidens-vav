@@ -1,0 +1,11 @@
+import fs from 'node:fs';import assert from 'node:assert/strict';
+const html=fs.readFileSync('index.html','utf8');const css=fs.readFileSync('v884-info-cleanup.css','utf8');
+assert.ok(html.includes('Version 8.84'));
+assert.ok(html.includes('v8.84-info-20261016'));
+assert.ok(html.includes('v884-internal-stats'));
+assert.ok(html.includes('id="visible"'));
+assert.ok(html.includes('id="v813Panel"'));
+assert.ok(html.includes('v884-timeline-perspectives'));
+for(const marker of ['#timelineView .v884-internal-stats','#timelineView #v813Panel','#timelineView .v884-timeline-perspectives'])assert.ok(css.includes(marker));
+assert.ok(!css.includes('visibility:hidden'));
+console.log('V8.84 informational panels removed visually, data controls preserved');
