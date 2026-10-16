@@ -72,3 +72,9 @@
 #startView .tv876-paths{border-top:1px solid #d8e4ec;padding-top:29px}
 @media(max-width:960px){#startView .tv887-area-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#startView .tv887-areas{margin:-28px auto 0}#startView .tv876-hero{min-height:440px}}
 @media(max-width:600px){#startView .tv876-hero{padding:42px 20px 76px;min-height:520px;background-position:center,58% center}#startView .tv876-hero h1{font-size:clamp(35px,9vw,49px)}#startView .tv887-areas{margin:-46px auto 0;padding:0 14px}#startView .tv887-areas-heading{padding:12px 3px 18px}#startView .tv887-area{min-height:225px;padding:15px}#startView .tv887-area-copy strong{font-size:15px}#startView .tv876-orientation,#startView .tv876-paths,#startView .tv876-method,#startView .tv876-closing{padding-left:16px;padding-right:16px}}
+
+/* Allocate full viewport width exclusively while the Börja här section is visible. */
+main:has(#startView:not(.hidden)){display:block;min-width:0}
+main:has(#startView:not(.hidden))>aside,main:has(#startView:not(.hidden))>.detail{display:none!important}
+main:has(#startView:not(.hidden))>.main{padding:0;width:100%;min-width:0}
+main:has(#startView:not(.hidden)) #startView{margin:0;max-width:none}
