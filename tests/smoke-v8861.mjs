@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';import fs from 'node:fs';import vm from 
 const app=fs.readFileSync('app.js','utf8');
 const reader=fs.readFileSync('v858-book-reader.js','utf8');
 const html=fs.readFileSync('index.html','utf8');
-assert.match(html,/Version 8\.86\.1/);
+assert.ok(html.includes('v8.86-menu-20261016-comparefix'));
 assert.ok(app.includes('compareIds.map(v8861CompareEvent).filter(Boolean)'));
 assert.ok(app.includes('v8861SelectFromCompare(b.dataset.read)'));
 assert.ok(reader.includes("if(typeof v84DecorateReader==='function')v84DecorateReader()"));
