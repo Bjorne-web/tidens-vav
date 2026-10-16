@@ -74,6 +74,7 @@
   return `<div class="kicker">TIDENS VÄV · ${d.sourceBasis?'KÄLLFÖRANKRAD GENOMGÅNG · AVGRÄNSAT UNDERLAG':'GENOMGÅNG · KÄLLGRANSKNING ÅTERSTÅR'}</div>
     <h2>${esc(d.heading)}</h2>
     <p class="v839-unified-status">${esc(status)}${d.original?' Originalpostens importerade årtal är inte automatiskt verifierade.':''}</p>
+    ${e.id==='H065' ? "<figure style=\"margin:14px 0\"><img loading=\"lazy\" alt=\"Arkeologisk plats vid Qal’at al-Bahrain\" style=\"width:100%;max-height:265px;object-fit:cover;border-radius:12px\" src=\"https://commons.wikimedia.org/wiki/Special:FilePath/Qal%27at_al-Bahrain%2C_Karbabad%2C_Bar%C3%A9in%2C_2024-08-18%2C_DD_51.jpg?width=1000\"><figcaption style=\"font-size:12px;opacity:.8\">Det historiska Dilmun: Qal’at al-Bahrain. Foto Diego Delso, CC BY-SA 4.0. Inte en bild av den mytiska trädgården. <a href=\"https://commons.wikimedia.org/wiki/File:Qal%27at_al-Bahrain,_Karbabad,_Bar%C3%A9in,_2024-08-18,_DD_51.jpg\" target=\"_blank\" rel=\"noopener noreferrer\">Källa och licens ↗</a></figcaption></figure>" : ''}
     <h3>Vad var det?</h3>${paragraph(d.summary,'Sammanfattning saknas ännu. Originalpostens titel och arkivuppgifter finns i den samlade översikten nedan.')}
     <h3>Historiskt sammanhang</h3>${paragraph(d.context,'Det historiska sammanhanget är ännu inte dokumenterat i ett individuellt forskningsunderlag.')}
     <h3>Konsekvenser och betydelse</h3>${paragraph(d.impact,'Postens historiska konsekvenser är ännu inte särskilt källprövade.')}
