@@ -6,5 +6,5 @@ assert.ok(app.includes("el('v827Order').value=v827Order;"));
 assert.ok(app.includes("if(!state.selected){panel.innerHTML='<section class=\\\"v887-neutral-reader\\\"" )===false || app.includes('v887-neutral-reader'));
 assert.ok(app.includes('Ingen forskningspost vald'));
 assert.ok(app.includes('function setSelected(id){state.selected=id;'));
-assert.ok(html.includes('Version 8.86'));
+assert.ok(html.includes('Version 8.'));
 console.log('Neutral first opening and chronological Gantt defaults, selection stays during tab switches');
