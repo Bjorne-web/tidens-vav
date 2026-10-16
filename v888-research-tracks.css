@@ -1,0 +1,15 @@
+/* Forskningsspår 2 – isolerad modul; påverkar inte befintliga vyer */
+.v888-track{margin:16px 0 28px;padding:clamp(16px,3vw,28px);border:1px solid var(--line,#8f9da5);border-radius:16px;background:var(--panel,#fff);color:inherit}
+.v888-head h2{font-size:clamp(20px,2.5vw,30px);margin:8px 0}.v888-head p{line-height:1.6;max-width:78ch}
+.v888-kicker{letter-spacing:.12em;font-size:.73rem;font-weight:800;color:var(--accent,#537c87)}
+.v888-warning{font-size:.86rem;font-weight:700}
+.v888-track details{border-top:1px solid var(--line,#a2a2a2);padding:12px 0}
+.v888-track summary{cursor:pointer;font-weight:750;font-size:1rem;line-height:1.5}
+.v888-body{max-width:82ch;line-height:1.65;padding:4px 8px 6px}
+.v888-track a{color:var(--accent,#21658a);text-decoration:underline;text-underline-offset:3px}
+.v888-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;border-top:1px solid var(--line,#aaa);padding-top:16px}
+.v888-columns ul{padding-left:22px}.v888-columns li{margin:7px 0;overflow-wrap:anywhere}
+.v888-columns small{line-height:1.5;display:block}
+.v888-footer{border-top:1px solid var(--line,#aaa);padding-top:12px;font-size:.87rem}
+@media(max-width:720px){.v888-columns{grid-template-columns:1fr}.v888-track{margin:10px 0}.v888-body{padding-left:0;padding-right:0}}
+\n.v888-figure{margin:16px 0 6px;max-width:900px}.v888-figure img{display:block;width:100%;height:auto;max-height:340px;object-fit:contain;border-radius:10px;background:rgba(125,125,125,.08)}.v888-figure figcaption{font-size:.79rem;line-height:1.5;margin-top:6px;opacity:.85}\n
