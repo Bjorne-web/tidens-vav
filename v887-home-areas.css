@@ -23,3 +23,33 @@
 @media(max-width:900px){#startView .tv887-area-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#startView .tv887-area{min-height:190px}}
 @media(max-width:600px){#startView .tv887-area-grid{grid-template-columns:1fr 1fr;gap:9px}#startView .tv887-area{padding:14px;min-height:220px}#startView .tv887-area-copy strong{font-size:14px}#startView .tv887-area-copy small{font-size:12px}}
 @media(max-width:380px){#startView .tv887-area-grid{grid-template-columns:1fr}#startView .tv887-area{min-height:auto}}
+
+/* V8.87 visual refinement: genuine present-day Jerusalem landscape, CC0 photo by Mustang Joe via Wikimedia Commons.
+   Photograph depicts the modern landscape, NOT a reconstruction of ancient biblical Jerusalem. */
+#startView .tv876-start{max-width:1370px}
+#startView .tv876-hero{
+  min-height:480px;display:flex;flex-direction:column;justify-content:center;
+  background-image:linear-gradient(90deg,rgba(15,36,60,.93) 0%,rgba(17,45,71,.87) 40%,rgba(20,54,77,.30) 100%),
+    url("https://commons.wikimedia.org/wiki/Special:FilePath/Jerusalem_from_the_Mount_of_Olives_%2853714451089%29.jpg?width=1600");
+  background-position:center,center 48%;
+  background-size:cover;
+  border-radius:22px;
+  box-shadow:0 16px 40px rgba(23,49,70,.16);
+  padding:clamp(32px,5.2vw,78px);
+}
+#startView .tv876-hero:after{display:none}
+#startView .tv876-hero h1{max-width:760px;font-size:clamp(38px,4.5vw,65px);letter-spacing:-.022em;text-wrap:balance}
+#startView .tv876-hero .tv876-lead{max-width:730px;font-size:clamp(17px,1.55vw,21px);line-height:1.6}
+#startView .tv876-hero p:not(.tv876-lead){max-width:730px;line-height:1.7}
+#startView .tv887-areas{margin-top:32px}
+#startView .tv887-area-grid{gap:17px}
+#startView .tv887-area{padding:23px;min-height:235px;gap:16px;box-shadow:0 7px 22px rgba(18,45,72,.08);transition:transform .15s ease,box-shadow .15s ease}
+#startView .tv887-area:not(:disabled):hover{transform:translateY(-3px);box-shadow:0 12px 25px rgba(18,45,72,.14)}
+#startView .tv887-icon{width:62px;height:62px;border-radius:18px}
+#startView .tv887-area-copy strong{font-size:17px}
+#startView .tv887-area-copy small{font-size:13px}
+#startView .tv887-area-copy em{font-size:13px}
+#startView .tv887-method{border-left:3px solid #8daabb;padding:11px 15px;margin-top:17px;background:#eef4f8;border-radius:0 9px 9px 0}
+@media(max-width:900px){#startView .tv876-hero{min-height:410px}#startView .tv887-area-grid{gap:12px}}
+@media(max-width:600px){#startView .tv876-hero{min-height:480px;padding:26px;background-position:center,60% center;background-image:linear-gradient(90deg,rgba(15,36,60,.93),rgba(17,45,71,.67)),url("https://commons.wikimedia.org/wiki/Special:FilePath/Jerusalem_from_the_Mount_of_Olives_%2853714451089%29.jpg?width=1600")}#startView .tv876-hero h1{font-size:clamp(34px,9vw,46px)}#startView .tv887-area{padding:16px;min-height:235px}#startView .tv887-icon{width:52px;height:52px}#startView .tv887-area-copy strong{font-size:14px}#startView .tv887-area-copy small{font-size:12px}}
+@media(prefers-reduced-motion:reduce){#startView .tv887-area{transition:none}}
