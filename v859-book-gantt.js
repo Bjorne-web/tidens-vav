@@ -149,12 +149,11 @@
         bar.style.left=x+'%';if(width>=.45)bar.style.width=Math.max(.2,Math.min(width,100-x))+'%';
         bar.style.background=dark[CATEGORY];plot.append(bar);
         label=document.createElement('button');label.type='button';
-        label.className='v813-plotlabel'+(x>76?' right':'');
-        label.style.left=x+'%';label.textContent=b.title;label.dataset.tvBook=b.id;
-        plot.append(label);
+        label.className='v884-book-label';label.textContent=b.title;label.dataset.tvBook=b.id;
         const date=document.createElement('span');date.className='v813-plotdate';
         date.textContent=fmt(b.start)+' – '+fmt(b.end);
-        row.append(plot,date);body.append(row);
+        row.classList.add('v884-book-three-columns');
+        row.append(label,plot,date);body.append(row);
       }
       label.title=b.title+' · preliminär texttillkomst/redaktion';
       label.addEventListener('click',()=>window.TidensOpenBookV858?.(b.id));
