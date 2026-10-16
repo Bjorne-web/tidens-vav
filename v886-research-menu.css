@@ -1,0 +1,4 @@
+/* V8.86: research areas menu explained without altering destination links. */
+#v827ResearchMenu .v886-menu-intro{display:flex;flex-direction:column;gap:3px;padding:9px 11px;margin:0 0 5px;border-bottom:1px solid #d9e5f0;color:#284d70;max-width:260px;white-space:normal}
+#v827ResearchMenu .v886-menu-intro strong{font-size:12px}
+#v827ResearchMenu .v886-menu-intro span{font-size:11px;line-height:1.45;color:#56718c}

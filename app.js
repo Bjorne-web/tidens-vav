@@ -1553,7 +1553,7 @@ v827SearchInput.addEventListener('input',v827RenderSearch);v827SearchInput.addEv
 // Hierarchical menu: research modules remain accessible without taking up the main tab row.
 const v827MenuBtn=el('v827ResearchMenuBtn'),v827Menu=el('v827ResearchMenu');
 const v827ResearchLinks=[['chronology','Granskad kronologi'],['archaeology','Arkeologi & Bibeln'],['religion','Israels religion'],['exile','Exil & texter'],['hellenism','Andra templets tid'],['roman','Jesus & Rom'],['formation','Textens tillkomst'],['archive','Originalarkiv'],['pilot','Testa appen']];
-v827Menu.innerHTML=v827ResearchLinks.map(([target,label])=>`<button type="button" role="menuitem" data-v827-view="${target}">${label}</button>`).join('');
+v827Menu.innerHTML='<div class="v886-menu-intro" role="none"><strong>Fördjupade forskningsvyer</strong><span>Komplement till Tidslinje, Temaspår och Poster. Här kan du undersöka särskilda historiska och källkritiska ämnen.</span></div>'+v827ResearchLinks.map(([target,label])=>`<button type="button" role="menuitem" data-v827-view="${target}">${label}</button>`).join('');
 function v831PositionResearchMenu(){
  if(window.matchMedia('(max-width:900px)').matches){
   const rect=v827MenuBtn.getBoundingClientRect();
