@@ -12,3 +12,4 @@
 .v888-columns small{line-height:1.5;display:block}
 .v888-footer{border-top:1px solid var(--line,#aaa);padding-top:12px;font-size:.87rem}
 @media(max-width:720px){.v888-columns{grid-template-columns:1fr}.v888-track{margin:10px 0}.v888-body{padding-left:0;padding-right:0}}
+\n.v888-figure{margin:16px 0 6px;max-width:900px}.v888-figure img{display:block;width:100%;height:auto;max-height:340px;object-fit:contain;border-radius:10px;background:rgba(125,125,125,.08)}.v888-figure figcaption{font-size:.79rem;line-height:1.5;margin-top:6px;opacity:.85}\n
