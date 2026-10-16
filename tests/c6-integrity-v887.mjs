@@ -9,7 +9,7 @@ assert.equal(p.total,p.research+p.original,'Inventory must reconcile');
 for(const key of ['partialReportIds','proposedCorrectionIds','implementedCorrectionIds'])assert.equal(count(p[key]),p[key].length,'Duplicate IDs: '+key);
 for(const id of p.implementedCorrectionIds)assert.ok(p.proposedCorrectionIds.includes(id),'Implemented correction missing proposal: '+id);
 assert.ok(Object.keys(l.completePostReviews||{}).length===0,'Full reviews cannot be silently inferred');
-const checks=Object.entries(l.claimChecks||{}).reduce((n,[id,arr])=>{assert.match(id,/^[HOB]\\d{3}$/);assert.ok(Array.isArray(arr));return n+arr.length},0);
+const checks=Object.entries(l.claimChecks||{}).reduce((n,[id,arr])=>{assert.match(id,/^[HOB][0-9]{3}$/);assert.ok(Array.isArray(arr));return n+arr.length},0);
 const history=p.history||[];assert.ok(history.length,'History required');
 const latest=history.at(-1);
 assert.equal(latest.inventory,p.total);
