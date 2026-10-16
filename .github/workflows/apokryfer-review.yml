@@ -1,0 +1,24 @@
+name: Granskning 3 - apokryfernas integration
+on:
+  pull_request:
+    paths:
+      - 'data/apokryfer-granskning3.v888.js'
+      - 'tests/smoke-apokryfer-granskning3.mjs'
+      - 'v835-deeplinks.js'
+      - 'index.html'
+      - '.github/workflows/apokryfer-review.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  apocrypha-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Kontrollera sex preliminara apokryfposter
+        run: node tests/smoke-apokryfer-granskning3.mjs
