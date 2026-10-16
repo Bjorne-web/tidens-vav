@@ -8,4 +8,7 @@ assert.ok(html.includes('id="v813Panel"'));
 assert.ok(html.includes('v884-timeline-perspectives'));
 for(const marker of ['#timelineView .v884-internal-stats','#timelineView #v813Panel','#timelineView .v884-timeline-perspectives'])assert.ok(css.includes(marker));
 assert.ok(!css.includes('visibility:hidden'));
+const book=fs.readFileSync('v859-book-gantt.js','utf8');
+for(const needle of ["row.className='v813-plotrow research v882-bible-card'","plot.className='v813-plotline'","label.className='v813-plotlabel'","date.className='v813-plotdate'","plot.append(label)","if(compact)body.append(label)"])assert.ok(book.includes(needle),needle);
+assert.ok(!book.includes("label.className=compact?'v813-list-item research v882-bible-card':'v813-plotrow"));
 console.log('V8.84 informational panels removed visually, data controls preserved');
