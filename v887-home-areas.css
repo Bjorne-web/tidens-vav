@@ -1,0 +1,25 @@
+/* V8.87 experimental start page: applies only to #startView */
+#startView .tv876-hero{position:relative;overflow:hidden;background:linear-gradient(103deg,rgba(18,48,77,.95),rgba(33,75,103,.65)),linear-gradient(170deg,#afc4cc 0%,#c6b58e 44%,#876e4e 65%,#d7bc85 100%);min-height:280px}
+#startView .tv876-hero:after{content:"";position:absolute;inset:auto -4% -2px 30%;height:34%;background:linear-gradient(155deg,transparent 29%,#344d54 29.5% 41%,transparent 41.5%),linear-gradient(20deg,transparent 19%,#5e736b 19.5% 45%,transparent 45.5%),linear-gradient(170deg,transparent 36%,#9b8665 36.5% 80%);opacity:.45;pointer-events:none}
+#startView .tv876-hero>*{position:relative;z-index:1}
+#startView .tv887-areas{margin-top:24px}
+#startView .tv887-areas-heading{margin-bottom:14px}
+#startView .tv887-areas-heading h2{margin:0 0 6px;font-size:clamp(22px,2.5vw,29px)}
+#startView .tv887-areas-heading p{margin:0;color:#587087}
+#startView .tv887-area-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+#startView .tv887-area{display:flex;align-items:flex-start;flex-direction:column;gap:12px;text-align:left;padding:20px;border-radius:15px;background:#fff;border:1px solid #d6e1ea;box-shadow:0 8px 18px rgba(14,41,65,.07);min-height:220px;color:#17334c;cursor:pointer}
+#startView .tv887-area:not(:disabled):hover,#startView .tv887-area:not(:disabled):focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+#startView .tv887-area:disabled{cursor:default;opacity:.83}
+#startView .tv887-icon{display:grid;place-items:center;width:51px;height:51px;flex:none;border-radius:14px;color:white;font-size:30px;font-weight:600;background:var(--accent)}
+#startView .tv887-area-copy{display:flex;flex-direction:column;gap:8px;flex:1}
+#startView .tv887-area-copy strong{font-size:16px;line-height:1.3}
+#startView .tv887-area-copy small{font-size:13px;line-height:1.5;color:#52697e}
+#startView .tv887-area-copy em{font-size:12px;font-style:normal;font-weight:700;margin-top:auto;color:var(--accent)}
+#startView .tv887-bible{--accent:#347ccb}
+#startView .tv887-religion{--accent:#9465bf}
+#startView .tv887-history{--accent:#2b977c}
+#startView .tv887-philosophy{--accent:#b17929}
+#startView .tv887-method{font-size:13px;color:#52687c;padding:13px 4px 0;line-height:1.6}
+@media(max-width:900px){#startView .tv887-area-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#startView .tv887-area{min-height:190px}}
+@media(max-width:600px){#startView .tv887-area-grid{grid-template-columns:1fr 1fr;gap:9px}#startView .tv887-area{padding:14px;min-height:220px}#startView .tv887-area-copy strong{font-size:14px}#startView .tv887-area-copy small{font-size:12px}}
+@media(max-width:380px){#startView .tv887-area-grid{grid-template-columns:1fr}#startView .tv887-area{min-height:auto}}
