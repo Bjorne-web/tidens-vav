@@ -50,6 +50,10 @@ assert.match(ctx.__snapshot.research.H069.caution,/inte identiskt/i);
 vm.runInContext(overlay,ctx,{filename:src});
 assert.equal(ctx.__snapshot.events.length,baseline+2,'Overlay must be idempotent');
 assert.ok(source.includes('H020')&&source.includes('H025'));
-assert.ok(!page.includes('data/lilith.v888-draft.js'),'Keep other draft separate');
-assert.ok(!page.includes('data/apokryfer-granskning3.v888.js'),'Keep other draft separate');
+// Lilith and Apokryferna were published to main between draft review and this merge.
+assert.ok(page.includes('data/lilith.v888-draft.js'),'Published Lilith must remain in integrated build');
+assert.ok(page.includes('data/apokryfer-granskning3.v888.js'),'Published Apokryferna must remain in integrated build');
+assert.ok(page.includes('v888-lilith-images.js'),'Published Lilith images must remain');
+assert.ok(page.indexOf('data/lilith.v888-draft.js')<page.indexOf(src),'Published Lilith loads before Ophites');
+assert.ok(page.indexOf('data/apokryfer-granskning3.v888.js')<page.indexOf(src),'Published Apokryferna loads before Ophites');
 console.log('Granskning 5: two posts, unique IDs, sources, image credits, time levels, and separate staging verified');
