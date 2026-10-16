@@ -12,10 +12,10 @@
   // Removing them would silently destroy the visible width UI for Bible-book selections.
   const grip=root.querySelector('#v829ReaderGrip');
   const widthControls=root.querySelector('#v829WidthControls');
-  const readerBar=root.querySelector('.v84-reader-bar');
+  // A book must get a new reader action bar bound to its own B-ID.
+  // Keeping the previous bar incorrectly shows another post's compare status.
   root.replaceChildren();
   if(grip)root.append(grip);
-  if(readerBar)root.append(readerBar);
   if(widthControls)root.append(widthControls);
   const article=make('article');article.className='tv-book-reader v86-article v839-unified-article';
   root.classList.add('v839-unified-reader');
@@ -95,6 +95,7 @@
    if(typeof v827ShowRelations==='function')v827ShowRelations(b.id);
   });
   links.append(action);article.append(links);root.append(article);
+  if(typeof v84DecorateReader==='function')v84DecorateReader();
  }
  const previous=renderDetail;
  renderDetail=function(){
