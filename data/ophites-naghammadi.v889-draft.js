@@ -61,7 +61,7 @@
       ['Nag Hammadi Codex II – handskriftsbild, proveniens och licens','https://commons.wikimedia.org/wiki/File:Nag_Hammadi_Codex_II.jpg']
     ],
     image:'https://commons.wikimedia.org/wiki/Special:FilePath/Nag_Hammadi_Codex_II.jpg?width=640',
-    credit:'Nag Hammadi Codex II, folio 32 (300-talet); visar slutet av Johannesapokryfen och början av Thomasevangeliet. Handskriftsbild, public domain enligt Wikimedia Commons.',
+    credit:'Nag Hammadi Codex II, folio 32 (300-talet); visar slutet av Johannesapokryfen och början av Thomasevangeliet. Detta är inte en sida ur Härskarnas natur. Handskriftsbild, public domain enligt Wikimedia Commons.',
     imageSource:'https://commons.wikimedia.org/wiki/File:Nag_Hammadi_Codex_II.jpg',
     imageLicense:'Public domain-markering enligt Wikimedia Commons',
     related:[{id:'H020',relation:'nytolkning av Genesis 1–3'},{id:'H068',relation:'jämförelse mellan antika polemiker och egna textvittnen'},{id:'H025',relation:'jämför texttraditionernas mångfald utan att påstå beroende'}],
