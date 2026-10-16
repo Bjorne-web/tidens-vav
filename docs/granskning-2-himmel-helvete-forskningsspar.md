@@ -92,3 +92,39 @@ Använd bild för autentiskt handskriftsvittne, fynd eller belagd plats med rät
 2. Visa inte kandidater som verkliga händelser på tidslinjen; klickbar sammanhängande tidslinje byggs på verkligt daterade poster.
 3. Första nya forskningsfördjupningen: *Sheol och de döda i hebreiska Bibeln*; andra: *Från Sheol och uppståndelse till Gehenna och Hades*.
 4. Testa att navigering, karta, ”Börja här”, Temaspår och fördjupningar fungerar oförändrat innan en funktion läggs till.
+
+
+## 9. Etapp 2 – korskopplade forskningsspår, prövbara argument och bild
+
+**Dokumenterat 2026-10-16.** Arbetet har vuxit till tre innehållsspår under Fördjupningar och en gemensam idéhistorisk och filosofisk jämförelse, utan att lägga till odaterbara händelser i databasen.
+
+### Gemensamma knäckfrågor
+
+1. Kan ett evigt straff vara moraliskt proportionerligt? Studera Matt 25:46, Mark 9:43–48 och Upp 20 som skilda textgenrer, därefter tre teologiska modeller. Ingen modell anges som vetenskapligt verifierad verklighet.
+2. Är gudomlig ofelbar förkunskap förenlig med alternativ handlingsfrihet? Jämför fatalism, klassisk åtskillnad mellan vetande och orsakande samt konkurrerande frihetsdefinitioner.
+3. Kan allas slutliga försoning förenas med fri vilja? Skilj ofrivilligt tvång från förändrade bedömningar och en övertygad vilja; dokumentera både universalistiska och antiuniversalistiska argument.
+4. Är gott det Gud vill, eller vill Gud det goda? Förankra i Platons Euthyfron, senare gudomlig befallningsetik och samtida modifierade teorier.
+
+### Källor och vad de faktiskt belägger
+
+- Stanford Encyclopedia of Philosophy, *Heaven and Hell in Christian Thought*, uppdaterad 2025: https://plato.stanford.edu/entries/heaven-hell/. Belägger kristen filosofisk meningsmångfald om evigt straff, förintelse, universalism och fri vilja; **inte** ett entydigt historiskt originalbruk av varje bibelord.
+- Stanford Encyclopedia of Philosophy, *Foreknowledge and Free Will*, uppdaterad 2026: https://plato.stanford.edu/entries/free-will-foreknowledge/. Redovisar det teologiska fatalismargumentet och svar, utan vetenskapligt testbar slutsats om en faktisk Guds kunskap.
+- Stanford Encyclopedia of Philosophy, *Free Will*, reviderad 2022: https://plato.stanford.edu/entries/freewill/. Sammanfattar historiska modeller, filosofiska frihetsvillkor och ansvar.
+- Stanford Encyclopedia of Philosophy, *Religion and Morality in Western Philosophy*: https://plato.stanford.edu/entries/religion-morality/. Belägger Euthyfrons dilemmas roll i efterföljande moralfilosofisk debatt.
+- Matthew Suriano, *A History of Death in the Hebrew Bible* (Oxford University Press 2018): https://academic.oup.com/book/9018. Källförankrar att äldre efterlivsföreställningar inte får läsas som ett färdigt schema med himmel och helvete.
+
+### Bildproveniens
+
+- **Ämne:** Hjärtvägningen i *Anis dödsbok*, forntida egyptisk efterlivsföreställning, inte en avbildning av israelitiska Sheol eller en historisk bibelhändelse.
+- **Källa:** https://commons.wikimedia.org/wiki/File:BD_Weighing_of_the_Heart.jpg
+- **Bärare:** Wikimedia Commons, historisk papyrusbild; Commons anger bilden som **Public domain**.
+- **Föreslagen hämtning:** https://commons.wikimedia.org/wiki/Special:FilePath/BD_Weighing_of_the_Heart.jpg
+- **Status:** Dokumenterad bildkälla och licens i appen; faktisk bilduppladdning i preview återstår att verifiera visuellt. Källa och märkning visas i bildtext.
+
+### Tester och publiceringsstatus
+
+- Granskning 2:s självständiga test `tests/smoke-granskning-2.mjs` har lagts till i den befintliga GitHub Actions-kontrollen `static-check.yml`.
+- **Godkänt:** GitHub Actions `Tidens väv – statiska kontroller`, inklusive test av tre forskningsspår, källkopplingar, mobilstil, bildproveniens och frånvaro av duplicerad renderering.
+- **Känt gammalt fel i CI utanför denna ändring:** `smoke-v858.mjs` kräver bokstavlig äldre kod `v827ShowRelations(related)`, medan `v858-book-reader.js` anropar `v827ShowRelations(b.id)`. Samma innehåll/SHA finns i `main`. Detta utgör inte ett belagt nytt fel från Granskning 2; det äldre testet får rättas inom lämplig separat uppdatering.
+- Cloudflare Pages-boten rapporterar lyckad preview för PR #71, gren `review-2-afterlife-research`: https://review-2-afterlife-research.tidens-vav.pages.dev
+- **Återstår innan merge:** Manuell/automatiserad webbläsargranskning av flikar och mobilläge, faktisk bildladdning och källänkar, acceptanstest. Ändringar får inte publiceras på `main` förrän detta är godkänt.
