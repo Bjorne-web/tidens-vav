@@ -16,3 +16,6 @@ jobs:
         with:
           node-version: '22'
       - run: node tests/smoke-lilith.mjs
+      - run: npm install --no-save --no-package-lock playwright@1.56.1
+      - run: npx playwright install --with-deps chromium
+      - run: node tests/browser-lilith.cjs
