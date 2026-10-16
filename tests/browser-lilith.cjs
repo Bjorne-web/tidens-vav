@@ -26,7 +26,7 @@ const server=http.createServer((req,res)=>{
   page.on('pageerror',e=>errors.push('Desktop: '+e.message));
   await page.goto(origin+'/?tv_id=H066&tv_view=explore',{waitUntil:'domcontentloaded'});
   await page.waitForFunction(()=>document.querySelector('#detail h2')?.textContent?.includes('Lilith'),{timeout:20000});
-  assert.match(await page.locator('#detail h2').innerText(),/Lilith/);
+  assert.match(await page.locator('#detail .v839-unified-article h2').innerText(),/Lilith/);
   assert.equal(await page.locator('#detail .v839-unified-article figure img').count(),1,'H066 illustration is displayed');
   assert.match(await page.locator('#detail .v839-unified-article figure figcaption').innerText(),/INTE belagd/);
   const result=await page.evaluate(()=>{
