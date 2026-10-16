@@ -533,7 +533,7 @@ function v84CloseReader(restoreFocus=true){
 }
 function v84DecorateReader(){
  const panel=el('detail');if(!panel)return;
- const e=idEvent(state.selected)||v83Event(state.selected);
+ const e=idEvent(state.selected)||v83Event(state.selected)||(window.TIDENS_BIBLE_BOOKS||[]).find(book=>book.id===state.selected);
  const bar=document.createElement('div');bar.className='v84-reader-bar';
  bar.innerHTML=`<strong>VALD POST · ${enc(e?.id||'')}</strong><div class="v84-reader-actions"><button id="v84ReaderCompare" type="button">${compareIds.includes(state.selected)?'I jämförelse ✓':'＋ Jämför'}</button><button id="v84ReaderClose" class="v84-close" type="button" aria-label="Stäng läsfönstret">✕ Stäng</button></div>`;
  panel.prepend(bar);
