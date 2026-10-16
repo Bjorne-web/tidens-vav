@@ -17,5 +17,5 @@ assert.ok(gantt.includes('(lo-state.min)/span*100'),'Bars must pan with visible 
 assert.ok(gantt.includes('pointer-events:none'),'Guide lines must not intercept book clicks');
 assert.ok(gantt.includes('function syncGuideLines()'),'All timeline lanes must update guides');
 assert.ok(gantt.includes('renderLane();syncGuideLines()'),'Pan and zoom must repaint calendar guides');
-assert.ok(html.includes('Bygge v8.83-type-20261015'),'Distinct corrected build ID');
+assert.ok(html.includes('Bygge v8.84-info-20261016'),'Distinct corrected build ID');
 console.log('OK: book opens reader and time guide lines derive from viewport');

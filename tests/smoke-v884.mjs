@@ -1,0 +1,18 @@
+import fs from 'node:fs';import assert from 'node:assert/strict';
+const html=fs.readFileSync('index.html','utf8');const css=fs.readFileSync('v884-info-cleanup.css','utf8');
+assert.ok(html.includes('Version 8.84'));
+assert.ok(html.includes('v8.84-info-20261016'));
+assert.ok(html.includes('v884-internal-stats'));
+assert.ok(html.includes('id="visible"'));
+assert.ok(html.includes('id="v813Panel"'));
+assert.ok(html.includes('v884-timeline-perspectives'));
+for(const marker of ['#timelineView .v884-internal-stats','#timelineView #v813Panel','#timelineView .v884-timeline-perspectives'])assert.ok(css.includes(marker));
+assert.ok(!css.includes('visibility:hidden'));
+const book=fs.readFileSync('v859-book-gantt.js','utf8');
+for(const needle of ["row.className='v813-plotrow research v882-bible-card'","plot.className='v813-plotline'","label.className='v884-book-label'","date.className='v813-plotdate'","row.append(label,plot,date)","if(compact)body.append(label)"])assert.ok(book.includes(needle),needle);
+assert.ok(!book.includes("label.className=compact?'v813-list-item research v882-bible-card':'v813-plotrow"));
+assert.ok(book.includes("row.classList.add('v884-book-three-columns')"));
+const style=fs.readFileSync('v884-info-cleanup.css','utf8');
+assert.ok(style.includes('grid-template-columns:minmax(160px,180px) minmax(0,1fr) 132px'));
+assert.ok(style.includes('.v884-book-three-columns .v813-plotline'));
+console.log('V8.84 informational panels removed visually, data controls preserved');

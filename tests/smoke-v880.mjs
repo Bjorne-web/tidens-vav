@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 const h=fs.readFileSync('index.html','utf8');
 const j=fs.readFileSync('v880-timeline-followups.js','utf8');
 const c=fs.readFileSync('v880-timeline-followups.css','utf8');
-assert.ok(h.includes('Version 8.83'));
+assert.ok(h.includes('Version 8.84'));
 assert.ok(h.includes('v880-timeline-followups.js'));
 assert.ok(h.includes('v880-timeline-followups.css'));
 for(const id of ['minYear','presets','selectedMini'])assert.ok(j.includes(id));
