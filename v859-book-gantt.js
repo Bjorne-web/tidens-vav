@@ -127,27 +127,38 @@
     body.id='v882-bible-category-body';fold.setAttribute('aria-controls',body.id);
     const entries=compact?(typeof v813Pick==='function'?v813Pick(shown,8):shown.slice(0,8)):shown;
     for(const b of entries){
-      const label=document.createElement('button');label.type='button';
-      label.className=compact?'v813-list-item research v882-bible-card':'v813-plotrow v882-bible-card';
-      label.dataset.tvBook=b.id;
+      let label;
       if(compact){
+        label=document.createElement('button');label.type='button';
+        label.className='v813-list-item research v882-bible-card';
+        label.dataset.tvBook=b.id;
         const name=document.createElement('strong');name.textContent=b.title;
         const dates=document.createElement('span');dates.textContent=fmt(b.start)+' – '+fmt(b.end);
         const note=document.createElement('small');note.textContent='Preliminär texttillkomst/redaktion';
         label.append(name,dates,note);
       }else{
+        // Match native v813 rows: structural div, proportional line, positioned
+        // clickable label and a separate date. A button as row breaks CSS layout.
+        const row=document.createElement('div');row.className='v813-plotrow research v882-bible-card';
+        row.dataset.tvBook=b.id;
         const plot=document.createElement('div');plot.className='v813-plotline';
         const lo=Math.max(b.start,state.min),hi=Math.min(b.end,state.max),span=Math.max(1,state.max-state.min);
-        const x=Math.max(0,(lo-state.min)/span*100),width=Math.max(0,(hi-lo)/span*100);
+        const x=Math.min(99.5,Math.max(0,(lo-state.min)/span*100));
+        const width=Math.max(0,(hi-lo)/span*100);
         const bar=document.createElement('span');bar.className=width<.45?'v813-dot':'v813-range';
-        bar.style.left=x+'%';if(width>=.45)bar.style.width=Math.min(width,100-x)+'%';
+        bar.style.left=x+'%';if(width>=.45)bar.style.width=Math.max(.2,Math.min(width,100-x))+'%';
         bar.style.background=dark[CATEGORY];plot.append(bar);
-        const labelText=document.createElement('span');labelText.className='v813-plotlabel';
-        labelText.textContent=b.title+' · '+fmt(b.start)+' – '+fmt(b.end);
-        label.append(plot,labelText);
+        label=document.createElement('button');label.type='button';
+        label.className='v813-plotlabel'+(x>76?' right':'');
+        label.style.left=x+'%';label.textContent=b.title;label.dataset.tvBook=b.id;
+        plot.append(label);
+        const date=document.createElement('span');date.className='v813-plotdate';
+        date.textContent=fmt(b.start)+' – '+fmt(b.end);
+        row.append(plot,date);body.append(row);
       }
       label.title=b.title+' · preliminär texttillkomst/redaktion';
-      label.addEventListener('click',()=>window.TidensOpenBookV858?.(b.id));body.append(label);
+      label.addEventListener('click',()=>window.TidensOpenBookV858?.(b.id));
+      if(compact)body.append(label);
     }
     lane.append(body);
     if(shown.length>entries.length){const more=document.createElement('p');more.className='tiny';more.textContent='Fler tider finns under Detaljerad tidslinje eller genom att välja ett snävare tidsintervall.';lane.append(more)}
