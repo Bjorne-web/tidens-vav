@@ -54,6 +54,6 @@ assert.ok(source.includes('H020')&&source.includes('H025'));
 assert.ok(page.includes('data/lilith.v888-draft.js'),'Published Lilith must remain in integrated build');
 assert.ok(page.includes('data/apokryfer-granskning3.v888.js'),'Published Apokryferna must remain in integrated build');
 assert.ok(page.includes('v888-lilith-images.js'),'Published Lilith images must remain');
-assert.ok(page.indexOf('data/lilith.v888-draft.js')<page.indexOf(src),'Published Lilith loads before Ophites');
-assert.ok(page.indexOf('data/apokryfer-granskning3.v888.js')<page.indexOf(src),'Published Apokryferna loads before Ophites');
+assert.ok(page.indexOf('data/lilith.v888-draft.js')<page.indexOf('<script src="app.js"></script>'),'Published Lilith data must load before app');
+assert.ok(page.indexOf('data/apokryfer-granskning3.v888.js')<page.indexOf('<script src="app.js"></script>'),'Published Apokryferna data must load before app');
 console.log('Granskning 5: two posts, unique IDs, sources, image credits, time levels, and separate staging verified');
