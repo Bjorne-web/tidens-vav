@@ -78,3 +78,21 @@ main:has(#startView:not(.hidden)){display:block;min-width:0}
 main:has(#startView:not(.hidden))>aside,main:has(#startView:not(.hidden))>.detail{display:none!important}
 main:has(#startView:not(.hidden))>.main{padding:0;width:100%;min-width:0}
 main:has(#startView:not(.hidden)) #startView{margin:0;max-width:none}
+
+/* V8.87 emergency geometry repair: override legacy v812-start 1120px content box. */
+body.v812-start main{display:block!important;width:100%!important;max-width:none!important}
+body.v812-start main>.main{display:block!important;width:100%!important;max-width:none!important;margin:0!important;padding:0!important}
+body.v812-start #startView{display:block;width:100%;max-width:none;margin:0}
+body.v812-start #startView .tv876-start{display:block;width:100%;max-width:none;margin:0}
+body.v812-start #startView .tv876-hero{box-sizing:border-box;display:block!important;width:100%;max-width:none;min-height:480px;padding:65px max(28px,calc((100vw - 1260px)/2))}
+body.v812-start #startView .tv876-hero>*{display:block;width:auto;max-width:780px;min-width:0;overflow-wrap:normal;word-break:normal}
+body.v812-start #startView .tv876-hero h1{max-width:800px;line-height:1.12;margin:14px 0 20px}
+body.v812-start #startView .tv887-areas{box-sizing:border-box;width:100%;max-width:1390px;margin:-32px auto 25px;padding:0 26px}
+body.v812-start #startView .tv887-areas-heading{padding:20px 8px}
+body.v812-start #startView .tv887-area-grid{display:grid;width:100%;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+body.v812-start #startView .tv887-area{min-width:0;width:auto;display:flex;flex-direction:column}
+body.v812-start #startView .tv887-area-copy{min-width:0}
+body.v812-start #startView .tv876-orientation,body.v812-start #startView .tv876-paths,body.v812-start #startView .tv876-method,body.v812-start #startView .tv876-closing{box-sizing:border-box;width:calc(100% - 48px);max-width:1260px;margin-left:auto;margin-right:auto}
+@media(max-width:950px){body.v812-start #startView .tv887-area-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){body.v812-start #startView .tv876-hero{padding:42px 20px 82px;min-height:450px}body.v812-start #startView .tv887-areas{padding:0 12px}body.v812-start #startView .tv887-area-grid{gap:9px}body.v812-start #startView .tv876-orientation,body.v812-start #startView .tv876-paths,body.v812-start #startView .tv876-method,body.v812-start #startView .tv876-closing{width:calc(100% - 24px)}}
+@media(max-width:390px){body.v812-start #startView .tv887-area-grid{grid-template-columns:1fr}}
