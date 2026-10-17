@@ -31,7 +31,7 @@ const server=http.createServer((req,res)=>{
    const d3=page.locator('#lanes .v882-bible-gantt-row[data-v828-id="D003"] .v828-gantt-label');
    await d3.click();
    assert.match(await page.locator('#detail .tv-book-reader h2').innerText(),/Ester enligt den grekiska texten/);
-   assert.match(await page.locator('#detail .tv-book-reader').innerText(),/grekiska Ester/);
+   assert.match(await page.locator('#detail .tv-book-reader').innerText(),/[Gg]rekiska Ester/);
    await page.locator('#v881CategoryStrip button[data-category="Apokryferna"]').click();
    assert.equal(await page.locator('#lanes .v882-bible-gantt-row[data-v891-category="Apokryferna"]').count(),0,'hide apocrypha independently');
    await page.locator('#v881CategoryStrip button[data-category="Apokryferna"]').click();
