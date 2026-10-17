@@ -89,6 +89,26 @@ window.TIDENS_C7_RELIGION = Object.freeze({
       ]
     ]
   },
+  "H066": {
+    "level": "Jesaja och tidig judisk demontradition – inget belägg för Adams första hustru",
+    "paragraph": "För Israels religionshistoria är Lilith först och främst en fråga om hur enstaka uttryck i en profetisk text tolkats. Jesaja 34:14 nämner hebreiskans lilit i en poetisk skildring av Edoms ödeläggelse. Ordet brukar förstås som ett nattligt väsen, men dess exakta innebörd och eventuella demoniska karaktär i just denna vers diskuteras. Texten visar inte att Lilith var en dyrkad gudinna eller en gestalt i Israels ursprungliga skapelseberättelse. Under andra templets tid nämns Lilith bland skrämmande andeväsen i Qumrantexternas Sånger av den vise (4Q510), i en religiös miljö där skydd mot skadliga andar spelade roll. Detta är belägg för judisk demonologisk föreställningsvärld, inte för att Genesis berättade om Adams första hustru. I senare judisk tradition utvecklades sådana motiv i berättelser, amuletter och skyddsbruk, särskilt kring mödrar och spädbarn. För kristendomen är Lilith främst relevant genom den skiftande översättningen och tolkningen av Jesaja 34:14 i Gamla testamentet. Någon lära om Lilith som Adams första hustru etableras inte av Nya testamentet. Vi måste alltså skilja äldre textvittnen, senare judiskt folkligt bruk och modern populärkultur åt.",
+    "sources": [
+      ["Jesaja 34:14 – hebreisk text och översättningar", "https://www.sefaria.org/Isaiah.34.14"],
+      ["Mizrahi och Patmore (2019), Revue de Qumran, 31(2):239–250", "https://doi.org/10.2143/RQ.31.2.3287241"],
+      ["Joseph L. Angel (2017), Reading the Songs of the Sage in Sequence", "https://doi.org/10.1515/9783110449266-011"],
+      ["Judit M. Blair, De-Demonising the Old Testament (2009)", "https://www.mohrsiebeck.com/en/book/de-demonising-the-old-testament-9783161511356/"]
+    ]
+  },
+  "H067": {
+    "level": "Medeltida judisk nytolkning – betydelse för senare reception, inte forntida Israel",
+    "paragraph": "Lilith som Adams första hustru är framför allt viktig för judendomens tolkningshistoria, inte för rekonstruktionen av Israels tidiga religion. Första Moseboken innehåller två skapelseframställningar: i 1:27 skapas människa som man och kvinna, medan kvinnan i 2:21–23 formas efter mannen. Redan äldre rabbinska texter prövar sätt att förstå dessa framställningar tillsammans, men de namnger inte därmed automatiskt Lilith som Genesis första kvinna. I det medeltida Ben Siras alfabet förenas motiv från tidigare Lilith- och Evatraditioner till berättelsen om en kvinna som skapas av jord liksom Adam, vägrar underordna sig och lämnar honom. Textens funktion kan inte reduceras till ett modernt jämlikhetsbudskap: Lilith framställs också som hotfull, och den äldre demontraditionen utvecklas vidare i judisk mystik och folkliga skyddsbruk. Forskaren Wojciech Kosior har visat hur berättelsen samspelar med rabbinska skildringar av Eva. I nyare judiska och feministiska tolkningar har Lilith dessutom omvärderats till en symbol för kvinnlig självständighet. För kristendomen kan legenden belysa hur Genesis har nytolkats utanför bibeltexten, men den är varken en berättelse i Första Moseboken eller en historiskt belagd urkristen lära. Att en senare tradition förklarar en texts spänningar bevisar inte att den fanns hos textens författare.",
+    "sources": [
+      ["Första Moseboken 1:27 och 2:21–23", "https://www.sefaria.org/Genesis.1.27"],
+      ["Wojciech Kosior (2018), A Tale of Two Sisters, Nashim 32:112–130", "https://doi.org/10.2979/nashim.32.1.10"],
+      ["Kosior – forskningsartikel i Jagiellonian Universitys arkiv", "https://ruj.uj.edu.pl/entities/publication/2b306a32-ccb2-47e6-a955-f93c5db509f0"],
+      ["Lilith: Lady Flying in Darkness – judisk receptionshistoria", "https://www.myjewishlearning.com/article/lilith-lady-flying-in-darkness/"]
+    ]
+  },
   "B001": {
     "level": "Grundläggande inom judisk och kristen kanon – sammansatt texttradition",
     "paragraph": "Första Moseboken ger både en berättelse om världens och mänsklighetens början (kap. 1–11) och en berättelse om Israels förfäder (kap. 12–50). Inom judendomen ingår den i Torah, som har central betydelse för religiös identitet, berättelse och läsning; inom kristendomen står den först i Gamla testamentet och påverkar bland annat skapelseförståelse och receptionen av Adam, Eva och Noa. Historisk-kritisk forskning skiljer mellan skilda skapelseskildringar i 1 Mos 1:1–2:3 och 2:4–3:24 och diskuterar hur prästliga och icke-prästliga texttraditioner sammanförts och bearbetats. Berättelsernas motiv kan jämföras med mesopotamiska skapelse- och flodtexter, men jämförelsen fastställer varken ett enskilt författarskap, en enda redaktionsdag eller att alla motiv är direkt lånade. Bibelns berättade tid måste tydligt skiljas från textens tillkomst, handskrifternas ålder och senare judisk och kristen tolkning.",

@@ -25,7 +25,7 @@ Texten ska sakligt skilja mellan (1) betydelsen för äldre israelitisk religion
 
 **Godkännandegrind:** `node tests/new-post-religion-gate.mjs` kontrollerar nytillkomna forskningsposter som laddas av appen före initiering: alla måste ha individuell nivå, betydande text och källor. `node tests/smoke-c7.mjs` prövar dessutom att rubrik och innehåll faktiskt renderas i läsfönstret. Båda körs vid pull request. Försök aldrig kringgå grinden genom att utöka listan över historiska undantag.
 
-**Tidigare publicerade poster att komplettera retroaktivt:** H066–H067 (Lilith) och AP001–AP006 (apokryferna) saknar ännu C7-bedömningar. De utgör en uttryckligt dokumenterad granskningsskuld, **inte** en norm för nya poster. Även övrigt äldre bestånd behöver systematisk C7-genomgång.
+**Tidigare publicerade poster att komplettera retroaktivt:** AP001–AP006 (apokryferna) saknar ännu C7-bedömningar. Lilith H066–H067 har däremot numera individuella källförankrade C7-avsnitt. De återstående posterna utgör en uttryckligt dokumenterad granskningsskuld, **inte** en norm för nya poster. Även övrigt äldre bestånd behöver systematisk C7-genomgång.
 
 ## Tillåtna granskningsstatusar
 

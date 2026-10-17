@@ -1,20 +1,21 @@
-name: Granskning 4 Lilith
+name: C7 – obligatorisk religionshistorisk betydelse
 on:
   pull_request:
     paths:
-      - 'data/lilith.v888-draft.js'
-      - 'tests/smoke-lilith.mjs'
+      - 'data/**'
+      - 'tests/**'
       - 'index.html'
       - '.github/workflows/lilith.yml'
   workflow_dispatch:
 jobs:
-  lilith:
+  significance:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - run: node tests/post-religion-gate.mjs
       - run: node tests/smoke-lilith.mjs
       - run: npm install --no-save --no-package-lock playwright@1.56.1
       - run: npx playwright install --with-deps chromium

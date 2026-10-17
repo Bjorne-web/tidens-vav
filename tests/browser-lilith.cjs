@@ -29,6 +29,12 @@ const server=http.createServer((req,res)=>{
   assert.match(await page.locator('#detail .v839-unified-article h2').innerText(),/Lilith/);
   assert.equal(await page.locator('#detail .v839-unified-article figure img').count(),1,'H066 illustration is displayed');
   assert.match(await page.locator('#detail .v839-unified-article figure figcaption').innerText(),/INTE belagd/);
+  const meaningA=page.locator('#detail .v839-unified-article .v839-faith-context');
+  assert.equal(await meaningA.count(),1,'H066 needs a visible meaning section');
+  assert.match(await meaningA.innerText(),/Betydelse för Israels religion, judendomen och kristendomen/);
+  assert.match(await meaningA.innerText(),/Jesaja 34:14/);
+  assert.ok((await meaningA.locator('p').nth(1).innerText()).length>550,'H066 content must be substantive');
+  assert.ok(await meaningA.locator('a[href^="https://"]').count()>=2,'H066 cited source links');
   const result=await page.evaluate(()=>{
     state.min=-1000;state.max=1100;renderAll();
     const both=events.filter(e=>['H066','H067'].includes(e.id));
@@ -43,11 +49,18 @@ const server=http.createServer((req,res)=>{
   await page.waitForFunction(()=>document.querySelector('#detail h2')?.textContent?.includes('Adams första hustru'),{timeout:20000});
   assert.equal(await page.locator('#detail .v839-unified-article figure img').count(),1,'H067 illustration is displayed');
   assert.match(await page.locator('#detail .v839-unified-article figure figcaption').innerText(),/1887/);
+  const meaningB=page.locator('#detail .v839-unified-article .v839-faith-context');
+  assert.equal(await meaningB.count(),1,'H067 needs a visible meaning section');
+  assert.match(await meaningB.innerText(),/Ben Siras alfabet/);
+  assert.match(await meaningB.innerText(),/kristendomen/);
+  assert.ok((await meaningB.locator('p').nth(1).innerText()).length>550,'H067 content must be substantive');
+  assert.ok(await meaningB.locator('a[href^="https://"]').count()>=2,'H067 cited source links');
   const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
   mobile.on('pageerror',e=>errors.push('Mobile: '+e.message));
   await mobile.goto(origin+'/?tv_id=H067&tv_view=research',{waitUntil:'domcontentloaded'});
   await mobile.waitForFunction(()=>document.querySelector('#detail h2')?.textContent?.includes('Adams första hustru'),{timeout:20000});
   assert.equal(await mobile.locator('#detail .v839-unified-article figure img').count(),1);
+  assert.equal(await mobile.locator('#detail .v839-unified-article .v839-faith-context').count(),1,'H067 C7 text present in mobile reader');
   assert.equal(errors.length,0,'No uncaught browser JavaScript errors: '+errors.join(' | '));
   console.log('Lilith Chromium integration passed: desktop deep links, records search, both illustrations, mobile reader.');
  } finally {await browser.close();}

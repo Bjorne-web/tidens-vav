@@ -18,9 +18,9 @@ for(const file of ['data/data.generated.js','data/dilmun-ninti.v887.js','data/c7
  vm.runInContext(load(file),ctx,{filename:file});
 const data=ctx.window.TIDENS_C7_RELIGION;
 const newlyAdded=['H011','H017','H019','H020','H021','H023','H024','H025','O027','O028'];
-const original=['H004','H005','H006','H016','H065','B001','H068','H069'];
-assert.equal(Object.keys(data).length,18,'Eight original including Ophites/Nag Hammadi + ten new entries');
-assert.equal(new Set(Object.keys(data)).size,18,'No duplicates');
+const original=['H004','H005','H006','H016','H065','B001','H066','H067','H068','H069'];
+assert.equal(Object.keys(data).length,20,'Ten existing C7 analyses including Lilith and Ophites + ten newer entries');
+assert.equal(new Set(Object.keys(data)).size,20,'No duplicates');
 for(const id of [...newlyAdded,...original]){
  const d=data[id];assert.ok(d && d.paragraph.length>=700,id+': expected substantive individual context');
  assert.ok(d.level.length>=25,id+': level must be substantive');
@@ -32,8 +32,9 @@ assert.ok(data.H017.paragraph.includes('nämner däremot inte uttryckligen'), 'C
 assert.ok(data.H025.paragraph.includes('Judasbrevet 14–15'), 'Cross-tradition primary text link');
 assert.ok(data.O027.paragraph.includes('monolatri'), 'Religion of Israel must address plural scholarly categories');
 assert.ok(data.O028.paragraph.includes('religiösa uttryck varierade'), 'Second Temple Judaism must not be treated as uniform');
+vm.runInContext(load('data/lilith.v888-draft.js'),ctx);
 vm.runInContext(load('data/ophites-naghammadi.v889-draft.js'),ctx);
-assert.equal(vm.runInContext('events.length',ctx),67,'Two published H068–H069 entries must remain');
+assert.equal(vm.runInContext('events.length',ctx),69,'All four published Lilith/Ophites research posts remain');
 assert.equal(vm.runInContext('originalEvents.length',ctx),129,'Original posts untouched');
 vm.runInContext(load('v839-reader-unified.js'),ctx);
 const api=ctx.window.TidensUniversalReader;
@@ -47,4 +48,4 @@ for(const id of newlyAdded){
 }
 const other=vm.runInContext('events.find(x=>x.id==="H001")',ctx);
 assert.ok(!api.renderArticle(other).includes('Betydelse för Israels religion, judendomen och kristendomen'),'Do not restore placeholder');
-console.log('C7 v891 OK: ten documented historical entries; existing eight including Ophites/Nag Hammadi preserved, 18 total, source paths and reader rendering checked.');
+console.log('C7 v891 OK: ten v891 records plus ten prior C7 records, 20 in total, source paths and reader rendering checked.');

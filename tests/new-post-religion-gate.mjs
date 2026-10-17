@@ -33,13 +33,15 @@ assert.ok(newEntries.some(e=>e.id==='H068')&&newEntries.some(e=>e.id==='H069'));
 // Dokumenterad historisk rest från redan publicerade poster. Undantagen gäller
 // endast dessa ID:n och får inte utvidgas när nya poster skapas.
 const existingBacklog=new Set([
-  'H066','H067', // Granskning 4 – Lilith
   'AP001','AP002','AP003','AP004','AP005','AP006' // Granskning 3 – Apokryferna
 ]);
 const sources=vm.runInContext('research',context);
 const c7=context.window.TIDENS_C7_RELIGION||{};
 const targeted=context.window.TIDENS_SPECIAL_RESEARCH||{};
 const missingHistorical=[];
+for(const id of ['H066','H067','H068','H069']){
+ assert.ok(c7[id]?.paragraph?.length>=550,id+': Lilith och Ophiter måste ha egna C7-analyser');
+}
 for(const e of newEntries){
   const faith=c7[e.id]||targeted[e.id]?.religion||sources[e.id]?.religion;
   if(!faith){
