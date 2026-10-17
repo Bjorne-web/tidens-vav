@@ -7,7 +7,7 @@ const BOOK=Object.freeze({
 '1 Mos':'GEN','2 Mos':'EXO','3 Mos':'LEV','5 Mos':'DEU',
 '1 Sam':'1SA','2 Sam':'2SA','1 Kung':'1KI','2 Kung':'2KI',
 '2 Mack':'2MA','Mark':'MRK','Matt':'MAT','Luk':'LUK','Joh':'JHN',
-'Rom':'ROM','1 Kor':'1CO','2 Kor':'2CO','1 Tim':'1TI','2 Tim':'2TI',
+'Rom':'ROM','1 Kor':'1CO','2 Kor':'2CO','1 Tim':'1TI','2 Tim':'2TI','1 Thess':'1TH',
 'Upp':'REV','Gal':'GAL','Heb':'HEB','Apg':'ACT','Ef':'EPH',
 'Fil':'PHP','2 Pet':'2PE','1 Joh':'1JN','Jer':'JER','Hes':'EZK','Jak':'JAS','Jud':'JUD','1 Pet':'1PE'
 });
@@ -35,7 +35,7 @@ v888Track:[
 {title:'3. Jesus och Nya testamentet: flera ord, bilder och framtidshopp',paragraphs:[
 'Det grekiska Nya testamentet använder inte ett enda entydigt ord som alltid motsvarar det svenska helvetet. Gehenna, Hades, paradis, Guds rike, den kommande tidsåldern, uppståndelse och eldsjön tillhör delvis olika bilder och genrer. Därför bör översättningen aldrig ensam styra en religionshistorisk slutsats.',
 'I [[Mark 9:43–48]] förekommer Gehenna, ett ord med koppling till Hinnoms dal i Jerusalems omgivningar och med senare domsassociationer. Det betyder inte att alla Jesu utsagor kan reduceras till en faktisk geografisk plats. [[Luk 16:19–31]] berättar om den rike mannen och Lasaros, med Hades och en oöverstiglig klyfta. Berättelsens genre och retoriska mål är centrala: en liknelse eller varnande skildring behöver inte vara en bokstavlig karta över dödsrikets arkitektur.',
-'I [[Luk 23:43]] används ordet paradis. [[Joh 5:24–29]] ställer liv och dom i relation till Jesus, medan [[1 Kor 15:12–28]] utvecklar Paulus tankar om uppståndelse och dödens nederlag. [[Upp 20:11–15]] berättar om dom och eldsjö, och [[Upp 21:1–5]] om ny himmel och ny jord. Uppenbarelseboken är apokalyptisk visionslitteratur. Symbolerna kan inte automatiskt fogas samman med Lukas berättelser till ett enda detaljerat geografiskt schema.',
+'I [[Luk 23:43]] används ordet paradis. [[Joh 5:24–29]] ställer liv och dom i relation till Jesus, medan [[1 Kor 15:12–28]] utvecklar Paulus tankar om uppståndelse och dödens nederlag. [[Upp 20:11–15]] berättar om dom och eldsjö, och [[Upp 21:1–5]] om ny himmel och ny jord. I [[1 Thess 4:13–18]] knyts hoppet om de dödas uppståndelse till tröst inför döden. Uppenbarelseboken är apokalyptisk visionslitteratur. Symbolerna kan inte automatiskt fogas samman med Lukas berättelser till ett enda detaljerat geografiskt schema.',
 'Även [[Matt 25:31–46]] behöver läsas i sin helhet: domen knyts där till handlingar gentemot hungriga, främlingar, sjuka och fångar. Vers 46 talar om evigt straff och evigt liv, men frågan om straffets art och den grekiska terminologins betydelse ingår i en lång exegetisk debatt. Den texten kan varken utelämnas av universalistiska läsare eller ensam avgöra varje detalj i en senare dogmatisk helveteslära.'
 ],assessment:'Belagt: NT rymmer flera ord och genrer för dom och framtida liv. Omdiskuterat: hur texterna bäst förenas teologiskt samt innebörden av domens slutliga utfall.',sources:[
 ['Stanford Encyclopedia of Philosophy, Heaven and Hell in Christian Thought','https://plato.stanford.edu/entries/heaven-hell/']
