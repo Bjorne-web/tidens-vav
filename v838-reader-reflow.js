@@ -25,7 +25,9 @@
   }
  });
  function impactFor(id){
-  return impactByPost[id]||{level:'Ännu inte särskilt källprövat',explanation:'Någon särskild granskning av den här händelsens betydelse för Israels religion, judendomen eller kristendomen har ännu inte registrerats. Det innebär inte att betydelse saknas, men här anges inget obelagt direkt samband.',sources:[]};
+  const c7=window.TIDENS_C7_RELIGION?.[id];
+  if(c7)return {level:c7.level,explanation:c7.paragraph,sources:c7.sources||[]};
+  return impactByPost[id]||null;
  }
  const create=(tag,cls,text)=>{
   const e=document.createElement(tag);
@@ -37,6 +39,7 @@
   const article=Array.from(root.children).find(n=>n.matches('.v86-article'));
   if(!article||article.querySelector('.v838-faith-impact'))return;
   const item=impactFor(id);
+  if(!item)return;
   const section=create('section','v838-faith-impact');
   section.setAttribute('aria-label','Betydelse för religiös historia');
   section.append(

@@ -50,16 +50,16 @@
   };
  }
  function religionFor(e){
+  const c7=window.TIDENS_C7_RELIGION?.[e.id]||null;
+  if(c7)return c7;
   const targeted=window.TIDENS_SPECIAL_RESEARCH?.[e.id];
   if(targeted?.religion)return targeted.religion;
   if(e.id==='O067'||e.id==='H005')return {
    level:'Textparalleller – direkt beroende inte slutgiltigt fastställt',
    paragraph:'Gilgamesheposets flodberättelse har tydliga motivparalleller till Genesis 6–9, bland annat en stor översvämning, en båt och fåglar som sänds ut. Textvittnenas olika tillkomst- och kopieringstider måste skiljas åt. Att motiven liknar varandra är inte ensamt bevis för en direkt kopieringskedja.'
   };
-  return {
-   level:'Religionshistorisk betydelse återstår att särskilt granska',
-   paragraph:'Ingen individuell, källprövad analys av just denna posts eventuella betydelse för Israels religion, judendomen eller kristendomen finns ännu registrerad. Här dras därför inga slutsatser om direkt påverkan.'
-  };
+  // C7: visa inte en substanslös avsnittsrubrik för ogranskad eller irrelevant post.
+  return null;
  }
  function paragraph(value,missing){
   return `<p>${esc(value||missing)}</p>`;
@@ -78,8 +78,9 @@
     <h3>Vad var det?</h3>${paragraph(d.summary,'Sammanfattning saknas ännu. Originalpostens titel och arkivuppgifter finns i den samlade översikten nedan.')}
     <h3>Historiskt sammanhang</h3>${paragraph(d.context,'Det historiska sammanhanget är ännu inte dokumenterat i ett individuellt forskningsunderlag.')}
     <h3>Konsekvenser och betydelse</h3>${paragraph(d.impact,'Postens historiska konsekvenser är ännu inte särskilt källprövade.')}
-    <div class="v838-faith-impact v839-faith-context"><h3>Betydelse för Israels religion, judendomen och kristendomen</h3>
-      <p class="v838-faith-level">${esc(faith.level)}</p><p>${esc(faith.paragraph)}</p></div>
+    ${faith?`<div class="v838-faith-impact v839-faith-context"><h3>Betydelse för Israels religion, judendomen och kristendomen</h3>
+      <p class="v838-faith-level">${esc(faith.level)}</p><p>${esc(faith.paragraph)}</p>
+      ${Array.isArray(faith.sources)&&faith.sources.length?`<p class="v838-faith-sources"><strong>Källor för denna bedömning:</strong></p><ul class="v839-unified-sources">${faith.sources.map(s=>external(s[0],s[1])).filter(Boolean).join('')}</ul>`:''}</div>`:''}
     <h3>Osäkerheter och viktiga preciseringar</h3>${paragraph(d.limits,'Vetenskaplig granskning av datering, belägg och alternativa tolkningar återstår.')}
     <h3>Källor och läsvägar</h3>${sources?`<ul class="v839-unified-sources">${sources}</ul>`:
       '<p class="v839-unified-missing">Individuella källhänvisningar behöver kompletteras.</p>'}
