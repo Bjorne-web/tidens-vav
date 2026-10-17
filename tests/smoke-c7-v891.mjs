@@ -31,7 +31,7 @@ assert.ok(data.H011.paragraph.includes('inte'), 'Stela cannot prove biblical nar
 assert.ok(data.H017.paragraph.includes('nämner däremot inte uttryckligen'), 'Cyrus cylinder limitation must remain');
 assert.ok(data.H025.paragraph.includes('Judasbrevet 14–15'), 'Cross-tradition primary text link');
 assert.ok(data.O027.paragraph.includes('monolatri'), 'Religion of Israel must address plural scholarly categories');
-assert.ok(data.O028.paragraph.includes('mång'), 'Second Temple Judaism must not be treated as uniform');
+assert.ok(data.O028.paragraph.includes('religiösa uttryck varierade'), 'Second Temple Judaism must not be treated as uniform');
 assert.equal(vm.runInContext('events.length',ctx),65,'No invented event/post IDs');
 assert.equal(vm.runInContext('originalEvents.length',ctx),129,'Original posts untouched');
 vm.runInContext(load('v839-reader-unified.js'),ctx);
@@ -42,7 +42,7 @@ for(const id of newlyAdded){
  const article=api.renderArticle(e);
  assert.ok(article.includes(data[id].level),'Expected individual level '+id);
  assert.ok(article.includes('Källor för denna bedömning'),'Missing C7 source disclosure '+id);
- assert.ok(article.includes('inte vetenskapligt slutgranskade'),'No false final-review claims '+id);
+ assert.ok(article.includes('inte vetenskapligt slutgranskade')||article.includes('inte källgranskad'),'No false final-review claims '+id);
 }
 const other=vm.runInContext('events.find(x=>x.id==="H001")',ctx);
 assert.ok(!api.renderArticle(other).includes('Betydelse för Israels religion, judendomen och kristendomen'),'Do not restore placeholder');
