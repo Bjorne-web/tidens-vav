@@ -10,6 +10,8 @@ on:
       - 'v835-deeplinks.js'
       - 'index.html'
       - 'tests/*apocrypha-books-v891*'
+      - 'tests/smoke-v858.mjs'
+      - 'tests/smoke-c7-v891.mjs'
       - '.github/workflows/apocrypha-books-v891.yml'
   workflow_dispatch:
 permissions:
@@ -23,7 +25,10 @@ jobs:
         with:
           node-version: '22'
       - name: Kontrollera 77 bokposter och vetenskapliga uppgifter
-        run: node tests/smoke-apocrypha-books-v891.mjs
+        run: |
+          node tests/smoke-apocrypha-books-v891.mjs
+          node tests/smoke-v858.mjs
+          node tests/smoke-c7-v891.mjs
       - name: Installera Chromium for integrationstester
         run: |
           npm install --no-save --no-package-lock playwright@1.56.1
