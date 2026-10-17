@@ -3,7 +3,7 @@
 (function(){
 'use strict';
 const BOOK=Object.freeze({
-'Ps':'PSA','Job':'JOB','Pred':'ECC','Jes':'ISA','Dan':'DAN',
+'Ps':'PSA','Job':'JOB','Pred':'ECC','Jes':'ISA','Dan':'DAN','Jona':'JON',
 '1 Mos':'GEN','2 Mos':'EXO','3 Mos':'LEV','5 Mos':'DEU',
 '1 Sam':'1SA','2 Sam':'2SA','1 Kung':'1KI','2 Kung':'2KI',
 '2 Mack':'2MA','Mark':'MRK','Matt':'MAT','Luk':'LUK','Joh':'JHN',
@@ -124,7 +124,9 @@ function bibleLink(label){
  const book=(m[1]?m[1]+' ':'')+m[2],code=BOOK[book];if(!code)return enc(label);
  const chapter=m[3],verse=m[4];
  // YouVersion 154 B2000 supports direct single-verse links; chapters are used for chapter-spanning citations.
- const url='https://www.bible.com/sv/bible/154/'+code+'.'+chapter+(verse?'.'+verse:'')+'.B2000';
+ const url=book==='2 Mack'
+ ? 'https://www.bible.com/sv/bible/417/'+code+'.'+chapter+'.B2000D'
+ : 'https://www.bible.com/sv/bible/154/'+code+'.'+chapter+(verse?'.'+verse:'')+'.B2000';
  return '<a class="v891-verse" href="'+enc(url)+'" target="_blank" rel="noopener noreferrer" title="Öppna '+enc(label)+' i Bibel 2000">'+enc(label)+' <span aria-hidden="true">↗</span></a>';
 }
 function para(s){return '<p>'+enc(s).replace(/\[\[([^\]]+)\]\]/g,(_,ref)=>bibleLink(ref))+'</p>';}
@@ -143,7 +145,7 @@ function enrich(){
 }
 // Some brief surviving notes contain unlinked bible citations. Only replace text nodes,
 // never existing anchors, headings, script content or the expanded sections (already linked).
-const bareRefs=/(?:\b(?:[1-5]\s+)?(?:Mos|Mack|Sam|Kor|Tim|Pet|Kung)\s+\d+(?::\d+(?:[–-]\d+)?)?|\b(?:Ps|Job|Pred|Jes|Dan|Mark|Luk|Matt|Rom|Upp|Joh|Gal|Heb|Apg|Hes|Jer|Ef|Fil|Jak|Jud)\s+\d+(?::\d+(?:[–-]\d+)?)?)/gu;
+const bareRefs=/(?:\b(?:[1-5]\s+)?(?:Mos|Mack|Sam|Kor|Tim|Pet|Kung)\s+\d+(?::\d+(?:[–-]\d+)?)?|\b(?:Ps|Job|Pred|Jes|Dan|Mark|Luk|Matt|Rom|Upp|Joh|Gal|Heb|Apg|Hes|Jer|Ef|Fil|Jak|Jud|Jona)\s+\d+(?::\d+(?:[–-]\d+)?)?)/gu;
 function linkifyRest(root){
  if(typeof document.createTreeWalker!=='function'||typeof NodeFilter==='undefined')return;
  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);const nodes=[];
