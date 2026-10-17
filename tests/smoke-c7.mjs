@@ -26,7 +26,7 @@ vm.runInContext(read('data/c7-religionshistorisk-betydelse.v890.js'),ctx);
 vm.runInContext(read('data/lilith.v888-draft.js'),ctx);
 vm.runInContext(read('data/ophites-naghammadi.v889-draft.js'),ctx);
 const corpus=ctx.window.TIDENS_C7_RELIGION;
-for(const id of ['B001','H004','H005','H006','H016','H065','H066','H067','H068','H069')
+for(const id of ['B001','H004','H005','H006','H016','H065','H066','H067','H068','H069'])
  assert.ok(Object.hasOwn(corpus,id),'Expected individualized C7 analysis: '+id);
 assert.equal(vm.runInContext('events.length',ctx),69);
 for(const [id,p] of Object.entries(corpus)){
