@@ -19,8 +19,8 @@ for(const file of ['data/data.generated.js','data/dilmun-ninti.v887.js','data/c7
 const data=ctx.window.TIDENS_C7_RELIGION;
 const newlyAdded=['H011','H017','H019','H020','H021','H023','H024','H025','O027','O028'];
 const original=['H004','H005','H006','H016','H065','B001'];
-assert.equal(Object.keys(data).length,16,'Six original + ten new entries');
-assert.equal(new Set(Object.keys(data)).size,16,'No duplicates');
+assert.ok(Object.keys(data).length>=16,'Retain the six original and ten specifically audited C7 entries while allowing further independently sourced analyses');
+assert.equal(new Set(Object.keys(data)).size,Object.keys(data).length,'No duplicates');
 for(const id of [...newlyAdded,...original]){
  const d=data[id];assert.ok(d && d.paragraph.length>=700,id+': expected substantive individual context');
  assert.ok(d.level.length>=25,id+': level must be substantive');
@@ -46,4 +46,4 @@ for(const id of newlyAdded){
 }
 const other=vm.runInContext('events.find(x=>x.id==="H001")',ctx);
 assert.ok(!api.renderArticle(other).includes('Betydelse för Israels religion, judendomen och kristendomen'),'Do not restore placeholder');
-console.log('C7 v891 OK: ten documented historical entries; original six preserved, 16 total, source paths and reader rendering checked.');
+console.log('C7 v891 OK: ten documented historical entries; original six preserved, 16 baseline entries, source paths and reader rendering checked.');
