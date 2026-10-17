@@ -28,6 +28,7 @@ jobs:
           node tests/smoke-reader-universal-v839.mjs
           node tests/smoke-c7.mjs
           node tests/smoke-c7-v891.mjs
+          node tests/new-post-religion-gate.mjs
           node tests/smoke-v840.mjs
           node tests/smoke-v841.mjs
           node tests/smoke-v842.mjs

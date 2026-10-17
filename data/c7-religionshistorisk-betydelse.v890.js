@@ -126,5 +126,45 @@ window.TIDENS_C7_RELIGION = Object.freeze({
         "https://www.sots.ac.uk/wiki/genesis/"
       ]
     ]
+  },
+  "H068": {
+    "level": "Tidig kristen tolkningskonflikt – ingen belagd påverkan på forntida Israels religion",
+    "paragraph": "För Israels religion under järnåldern finns ingen påvisbar påverkan från ophiterna: våra antika uppgifter om dessa tolkningar är många århundraden yngre än Genesis tillkomstmiljö. För judendomens tolkningshistoria är materialet intressant därför att det visar hur den judiska Edenberättelsen kunde användas i nya judisk-kristna och grekisk-romerska religiösa miljöer, men det belägger inte att en sammanhållen ophitisk grupp representerade judisk lära. För den tidiga kristendomen är betydelsen särskilt tydlig: Irenaeus beskriver föreställningar där en högre gudom skiljs från den lägre skaparen Jaldabaoth och där ormen i vissa versioner blir förknippad med insikt. Detta utmanade kyrkliga författares betoning av att den Gud som skapat världen och uppenbarat sig för Israel är samme Gud som Jesu Gud. Polemiken belyser därför hur gränser kring skapelselära, gudsbild, bibeltolkning och kristen identitet drogs under 100–200-talen. Sambandet är belagt som en sen antik omtolkning och teologisk konflikt, inte som Genesis ursprungliga innebörd. Eftersom 'ophiter' framför allt är en motståndaretikett är gruppens omfattning, kontinuitet och rituella praktik osäkra.",
+    "sources": [
+      [
+        "Irenaeus, Mot heresierna 1.30 – polemisk primärkälla om skaparguden och ormmotivet",
+        "https://www.newadvent.org/fathers/0103130.htm"
+      ],
+      [
+        "Origenes, Contra Celsum 6 – debatt om gruppbeteckningar och kosmologiska diagram",
+        "https://www.newadvent.org/fathers/04166.htm"
+      ],
+      [
+        "Tuomas Rasimus (2009), Paradise Reconsidered in Gnostic Mythmaking – forskning om ophitisk Genesisreception",
+        "https://researchportal.helsinki.fi/en/publications/paradise-reconsidered-in-gnostic-mythmaking-rethinking-sethianism/"
+      ]
+    ]
+  },
+  "H069": {
+    "level": "Direkta källor till senantik Genesisreception – inte källor till Israels religions ursprung",
+    "paragraph": "För den forntida israelitiska religionens uppkomst är Nag Hammadi-skrifterna inte samtida vittnen: de bevarade koptiska kodexarna är från 300-talet e.Kr. och flera ingående verk komponerades tidigare under den romerska tiden. För judendomens historia visar de däremot hur Genesis och andra judiska skrifter tolkades och omformades utanför den senare rabbinska huvudtraditionen. I Härskarnas natur blir den lägre skaparmakten okunnig och avundsjuk, medan en kvinnlig andlig princip verkar genom ormen som undervisare. För kristendomens historia är handskrifterna betydelsefulla eftersom de ger tillgång till egna texter från skilda tidiga religiösa miljöer, bland annat sådana som tolkar skapelsen, det onda och frälsning på andra sätt än den framväxande kyrkliga huvudtraditionen. Deras innehåll gör det möjligt att jämföra dessa rösters argument med kyrkofädernas kritik och med senare kanoniska gränsdragningar. Nag Hammadi utgör dock ingen enda lära eller sekt, och samlingen är inte identisk med de så kallade ophiterna. Den bevisar inte att den ursprungliga Genesistexten ville framställa ormen som god, och en kopias datering får inte förväxlas med textens uppkomst.",
+    "sources": [
+      [
+        "Härskarnas natur, Nag Hammadi Codex II – texten om ormen som undervisare (Layton)",
+        "https://www.gnosis.org/naghamm/hypostas.html"
+      ],
+      [
+        "Bentley Layton, Harvard Theological Review 67 (1974) – forskningsutgåva av Härskarnas natur",
+        "https://www.cambridge.org/core/journals/harvard-theological-review/article/hypostasis-of-the-archons-or-the-reality-of-the-rulers/0C76A01F05C0937E37896B03FA82D8F9"
+      ],
+      [
+        "Claremont Coptic Encyclopedia – Härskarnas natur och Codex II:s kontext",
+        "https://ccdl.claremont.edu/digital/collection/cce/id/1001/"
+      ],
+      [
+        "The Hypostasis of the Archons 1–18 Revisited (Religions, 2024) – Genesis som polemisk nytolkning",
+        "https://www.mdpi.com/2077-1444/15/7/760"
+      ]
+    ]
   }
 });

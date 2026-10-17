@@ -24,10 +24,11 @@ assert.equal(vm.runInContext('originalEvents.length',ctx),129);
 vm.runInContext(read('data/dilmun-ninti.v887.js'),ctx);
 vm.runInContext(read('data/c7-religionshistorisk-betydelse.v890.js'),ctx);
 vm.runInContext(read('data/lilith.v888-draft.js'),ctx);
+vm.runInContext(read('data/ophites-naghammadi.v889-draft.js'),ctx);
 const corpus=ctx.window.TIDENS_C7_RELIGION;
-for(const id of ['B001','H004','H005','H006','H016','H065','H066','H067'])
+for(const id of ['B001','H004','H005','H006','H016','H065','H066','H067','H068','H069'])
  assert.ok(Object.hasOwn(corpus,id),'Expected individualized C7 analysis: '+id);
-assert.equal(vm.runInContext('events.length',ctx),67);
+assert.equal(vm.runInContext('events.length',ctx),69);
 for(const [id,p] of Object.entries(corpus)){
  assert.ok(p.level.length>=25,id+': missing epistemic label');
  assert.ok(p.paragraph.length>=550,id+': meaningful individual text is too short');
@@ -37,11 +38,18 @@ for(const [id,p] of Object.entries(corpus)){
 vm.runInContext(read('v839-reader-unified.js'),ctx);
 const api=ctx.window.TidensUniversalReader;
 const pick=id=>vm.runInContext('events.find(e=>e.id==='+JSON.stringify(id)+')||originalEvents.find(e=>e.id==='+JSON.stringify(id)+')',ctx);
-for(const id of ['H004','H005','H006','H016','H065','H066','H067']){
+for(const id of ['H004','H005','H006','H016','H065','H066','H067','H068','H069']){
  const html=api.renderArticle(pick(id));
  assert.ok(html.includes(corpus[id].level),id+': epistemic context not rendered');
  assert.ok(html.includes('Källor för denna bedömning'),id+': individual citations absent');
  assert.ok(html.includes(corpus[id].sources[0][1].replaceAll('&','&amp;')),id+': source URL absent');
+}
+for(const id of ['H068','H069']){
+ const article=api.renderArticle(pick(id));
+ assert.ok(article.includes('<h3>Betydelse för Israels religion, judendomen och kristendomen</h3>'),id+': mandatory heading missing');
+ const paragraph=corpus[id].paragraph;
+ assert.ok(article.includes(paragraph.slice(0,80)),id+': personalized significance missing');
+ assert.ok(!article.includes('Religionshistorisk betydelse återstår att särskilt granska'),id+': no filler');
 }
 const unrelated=api.renderArticle(pick('H001'));
 assert.ok(!unrelated.includes('Religionshistorisk betydelse återstår att särskilt granska'),'Generic placeholder is forbidden');

@@ -1,0 +1,25 @@
+name: C7 publiceringsgrind – Ophiterna och Nag Hammadi
+on:
+  pull_request:
+    paths:
+      - 'data/c7-religionshistorisk-betydelse.v890.js'
+      - 'tests/browser-ophites-c7.cjs'
+      - 'tests/smoke-c7.mjs'
+      - 'tests/new-post-religion-gate.mjs'
+      - '.github/workflows/ophites-c7.yml'
+  workflow_dispatch:
+jobs:
+  reader-render:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/smoke-c7.mjs
+      - run: node tests/new-post-religion-gate.mjs
+      - run: npm install --no-save --no-package-lock playwright@1.56.1
+      - run: npx playwright install --with-deps chromium
+      - run: node tests/browser-ophites-c7.cjs
