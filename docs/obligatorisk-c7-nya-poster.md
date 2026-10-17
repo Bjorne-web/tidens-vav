@@ -11,6 +11,6 @@
 6. Lägg in och kör regressionstest för relevant post; ingen publicering innan tester och användargodkännande.
 
 ## Teknisk spärr
-`tests/post-religion-gate.mjs` laddar skript på huvudsidans `data/`-nivå och kontrollerar nya forskningsposters individuella C7-innehåll och källor. Testet körs i GitHub Actions vid nya ändringar av data. Baslinjen (H001–H069, AP001–AP006) är en strikt *migrationsavgränsning*, inte ett kvalitetsgodkännande av gamla poster. Därför har **H066–H067 dessutom en obligatorisk individuell kontroll**, trots att de redan låg i baslinjen.
+`tests/post-religion-gate.mjs` laddar skript på huvudsidans `data/`-nivå och kontrollerar nya forsknings-, original- och bibelboksposters individuella C7-innehåll och källor. Testet körs i GitHub Actions vid nya ändringar av data. För framtida poster i nya filtyper ska laddningsvägen omfattas av testet. Baslinjen (H001–H069, AP001–AP006, tidigare O001–O130 med O066 undantagen, samt B001–B066) är en strikt *migrationsavgränsning*, inte ett kvalitetsgodkännande av gamla poster. Därför har **H066–H067 dessutom en obligatorisk individuell kontroll**, trots att de redan låg i baslinjen.
 
 Äldre poster som saknar motsvarande C7-analys är fortsatt ett *separat redaktionellt arbete* och får inte betecknas som vetenskapligt slutgranskade av detta test. När baslinjen utökas ska befintlig C7-text finnas innan ID:t tillkommer; ändra inte undantagen för att kringgå kontrollen.
