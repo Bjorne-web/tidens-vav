@@ -119,6 +119,7 @@ v888Track:[
 ]};
 const enc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function bibleLink(label){
+ if(label.trim()==='1 Henok 22')return '<a class="v891-verse" href="https://en.wikisource.org/wiki/The_Book_of_Enoch_(Charles)/Chapter_22" target="_blank" rel="noopener noreferrer" title="Läs äldre engelsk översättning av Första Henoksboken 22">'+enc(label)+' <span aria-hidden="true">↗</span></a>';
  const m=/^(?:(\d)\s+)?([A-Za-zÅÄÖåäö]+)\s+(\d+)(?::(\d+))?(?:[–-]\d+)?$/u.exec(label.trim());
  if(!m)return enc(label);
  const book=(m[1]?m[1]+' ':'')+m[2],code=BOOK[book];if(!code)return enc(label);
