@@ -128,3 +128,26 @@ Använd bild för autentiskt handskriftsvittne, fynd eller belagd plats med rät
 - **Känt gammalt fel i CI utanför denna ändring:** `smoke-v858.mjs` kräver bokstavlig äldre kod `v827ShowRelations(related)`, medan `v858-book-reader.js` anropar `v827ShowRelations(b.id)`. Samma innehåll/SHA finns i `main`. Detta utgör inte ett belagt nytt fel från Granskning 2; det äldre testet får rättas inom lämplig separat uppdatering.
 - Cloudflare Pages-boten rapporterar lyckad preview för PR #71, gren `review-2-afterlife-research`: https://review-2-afterlife-research.tidens-vav.pages.dev
 - **Återstår innan merge:** Manuell/automatiserad webbläsargranskning av flikar och mobilläge, faktisk bildladdning och källänkar, acceptanstest. Ändringar får inte publiceras på `main` förrän detta är godkänt.
+
+## 10. Innehållsfördjupning och klickbara bibelhänvisningar – V8.91
+
+Efter läsargranskning bedömdes de första utkasten för kortfattade. En utförligare framställning finns nu i `v891-expanded-research.js` och formges av `v891-expanded-research.css`.
+
+### Utökad omfattning
+- Fyra längre avsnitt vardera om **Himmel och helvete**, **Är Gud god?**, **Den fria viljan** samt **När frågorna möts**; sammanlagt 16 avsnitt.
+- Varje avsnitt har flera sammanhängande analysstycken, metodiska avgränsningar, uttrycklig forskningsbedömning och källänkar.
+- Inga gamla forskningspost-ID:n, C6-kontroller eller tidsdateringar ändras. De tidigare korta utkasten ersätts endast *visuellt* av fördjupade lästexter inne i varje forskningsspår.
+- Grundtexter från olika epoker skiljs från senare filosofiska och teologiska synteser. Olika positioner beskrivs utan att appen väljer en konfessionell slutsats.
+
+### Bibellänkar
+- 51 individuella referensmarkörer i texterna (inklusive en särskild länk för 1 Henok 22) omvandlas till klickbara länkar.
+- Standard är **Bibel 2000 (YouVersion, utgåva 154)** med direktlänk till angiven första vers om versnummer finns och till kapitel när hänvisningen är på kapitelnivå. Längre versintervall länkar till första versen.
+- **2 Mackabeerboken** länkas till **Bibel 2000 med apokryferna (YouVersion, utgåva 417)**; länken går till kapitel 7 eftersom det är den kontrollerade, tillgängliga destinationssidan.
+- **1 Henok 22**, som inte ingår i dessa bibelutgåvors kanon, länkas i stället till en identifierad äldre översättning på Wikisource och märks som sådan.
+- Även kvarvarande korta bibelhänvisningar i befintligt innehåll länkifieras där källtypen kan identifieras entydigt. Länkar öppnas i separat flik utan att besökaren lämnar Väven.
+- Länkgeneratorn är centraliserad och testas mot flera böcker, kapitel och intervall. Alla referenslänkar är inte individuellt HTTP-kontrollerade; sådant sluttest återstår.
+
+### Tester och publiceringsgrind
+- Nytt test: `tests/smoke-v891-research.mjs`; kopplat till GitHub Actions `static-check.yml`.
+- Statisk syntakskontroll och kontroll av länkformat genomförda. GitHub Actions-resultat och visuell mobilgranskning måste verifieras separat före godkännande.
+- Ändringar ligger enbart på arbetsgrenen `review-2-afterlife-research`; publicera inte på `main` före användarens test och godkännande.
