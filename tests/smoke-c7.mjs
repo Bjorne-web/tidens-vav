@@ -24,8 +24,10 @@ assert.equal(vm.runInContext('originalEvents.length',ctx),129);
 vm.runInContext(read('data/dilmun-ninti.v887.js'),ctx);
 vm.runInContext(read('data/c7-religionshistorisk-betydelse.v890.js'),ctx);
 const corpus=ctx.window.TIDENS_C7_RELIGION;
-assert.deepEqual(Object.keys(corpus).sort(),['B001','H004','H005','H006','H016','H065']);
+assert.deepEqual(Object.keys(corpus).sort(),['B001','H004','H005','H006','H016','H065','H068','H069']);
 assert.equal(vm.runInContext('events.length',ctx),65);
+vm.runInContext(read('data/ophites-naghammadi.v889-draft.js'),ctx);
+assert.equal(vm.runInContext('events.length',ctx),67,'The two Ophite/Nag Hammadi records must exist');
 for(const [id,p] of Object.entries(corpus)){
  assert.ok(p.level.length>=25,id+': missing epistemic label');
  assert.ok(p.paragraph.length>=550,id+': meaningful individual text is too short');
@@ -35,11 +37,20 @@ for(const [id,p] of Object.entries(corpus)){
 vm.runInContext(read('v839-reader-unified.js'),ctx);
 const api=ctx.window.TidensUniversalReader;
 const pick=id=>vm.runInContext('events.find(e=>e.id==='+JSON.stringify(id)+')||originalEvents.find(e=>e.id==='+JSON.stringify(id)+')',ctx);
-for(const id of ['H004','H005','H006','H016','H065']){
+for(const id of ['H004','H005','H006','H016','H065','H068','H069']){
  const html=api.renderArticle(pick(id));
  assert.ok(html.includes(corpus[id].level),id+': epistemic context not rendered');
  assert.ok(html.includes('Källor för denna bedömning'),id+': individual citations absent');
  assert.ok(html.includes(corpus[id].sources[0][1].replaceAll('&','&amp;')),id+': source URL absent');
+}
+for(const id of ['H068','H069']){
+ const article=api.renderArticle(pick(id));
+ assert.ok(article.includes('<h3>Betydelse för Israels religion, judendomen och kristendomen</h3>'),id+': mandatory heading missing');
+ assert.ok(article.includes(corpus[id].paragraph.slice(0,80)),id+': specifically written meaning missing');
+ assert.ok(!article.includes('Religionshistorisk betydelse återstår att särskilt granska'),id+': generic filler forbidden');
+ assert.ok(!article.includes('Dess specifika religionshistoriska betydelse behöver granskas'),id+': generic filler forbidden');
+ const d=corpus[id].paragraph.toLocaleLowerCase('sv');
+ for(const theme of ['israel','judendom','kristendom']) assert.ok(d.includes(theme),id+': three traditions must be distinguished ('+theme+')');
 }
 const unrelated=api.renderArticle(pick('H001'));
 assert.ok(!unrelated.includes('Religionshistorisk betydelse återstår att särskilt granska'),'Generic placeholder is forbidden');
@@ -47,4 +58,4 @@ assert.ok(!unrelated.includes('Betydelse för Israels religion, judendomen och k
 const bookReader=read('v858-book-reader.js');
 assert.ok(bookReader.includes('window.TIDENS_C7_RELIGION?.[b.id]'));
 assert.ok(!bookReader.includes('Dess specifika religionshistoriska betydelse behöver granskas'));
-console.log('C7 OK: 194 chronological entries (65 research, 129 originals), six individual research texts including Genesis; qualified levels, sources, no generic placeholder.');
+console.log('C7 OK: 194 chronological entries (65 research, 129 originals), eight individual research texts including Genesis, Ophites and Nag Hammadi; qualified levels, sources, no generic placeholder.');
