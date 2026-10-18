@@ -8,7 +8,13 @@ const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const state={topic:'all',includeWorld:true,openId:null};
 const sourceSafe=url=>{try{const u=new URL(url);return u.protocol==='https:'?u.href:null}catch(_){return null}};
 const bible=ref=>{
- if(typeof window.TidensReview2BibleLink==='function')return window.TidensReview2BibleLink(ref);
+ const linked=typeof window.TidensReview2BibleLink==='function'?window.TidensReview2BibleLink(ref):esc(ref);
+ if(linked.includes('href='))return linked;
+ const jos=/^Jos (\\d+)(?::(\\d+))?/.exec(ref);
+ if(jos){
+  const url='https://www.bible.com/sv/bible/154/JOS.'+jos[1]+(jos[2]?'.'+jos[2]:'')+'.B2000';
+  return '<a href="'+url+'" target="_blank" rel="noopener noreferrer">'+esc(ref)+' ↗</a>';
+ }
  return esc(ref);
 };
 const history=[
