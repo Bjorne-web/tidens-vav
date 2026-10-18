@@ -56,7 +56,8 @@ function renderTimeline(events){
 }
 function renderTheme(t){
  return '<div class="v892-detail-head"><span class="v892-theme-label">'+safe(t.state)+'</span><h3>'+safe(t.title)+'</h3><p>'+safe(t.brief)+'</p></div>'+
- '<div class="v892-prose">'+t.detail.map(s=>'<p>'+safe(s)+'</p>').join('')+'</div>'+
+ '<div class="v892-prose">'+t.detail.map(s=>'<p>'+safe(s)+'</p>').join('')+'</div>'+ 
+ (t.sections?'<div class="v892-chapter-list">'+t.sections.map((part,i)=>'<section class="v892-chapter"><h4>'+(i+1)+'. '+safe(part.title)+'</h4><p>'+safe(part.body)+'</p></section>').join('')+'</div>':'')+
  '<div class="v892-detail-grid"><div><h4>Frågor att pröva</h4><ul>'+t.questions.map(s=>'<li>'+safe(s)+'</li>').join('')+'</ul>'+
  '<h4>Bibeltexter</h4><p class="v892-bible">'+t.bible.map(bible).join(' · ')+'</p></div>'+
  '<div><h4>Historiska och vetenskapliga källor</h4><ul>'+t.sources.map(s=>'<li>'+link(s[1],s[0])+'</li>').join('')+'</ul>'+
