@@ -1,4 +1,4 @@
-/* Redaktionsgranskad jämförelsekronologi: tider gäller daterbara händelser, ej allmänna tolkningsskiften. */
+/* Källanknutna religionshistoriska och samhälleliga händelser, inga påhittade tolkningsdatum. */
 window.TIDENS_CHURCH_SHIFTS = {
   "version": "church-shifts-preview-2",
   "status": "expanded-multi-source-editorial-review",
@@ -118,6 +118,16 @@ window.TIDENS_CHURCH_SHIFTS = {
       "detail": "John Smyth och den tidiga baptiströrelsen utvecklar en församlingssyn där personlig bekännelse och dop knyts samman. Den står i en annan protestantisk miljö än de schweiziska anabaptisterna 1525.",
       "certainty": "Baptist Confessions, samlingsverk – innehållsförteckning",
       "source": "https://bhacademic.bhpublishinggroup.com/product/baptist-confessions/"
+    },
+    {
+      "id": "CS062",
+      "year": 1610,
+      "lane": "science",
+      "topic": "heliocentrism",
+      "title": "Galilei publicerar Sidereus Nuncius",
+      "detail": "Teleskopiska iakttagelser, bland annat av Jupiters månar, ger nytt empiriskt material till den pågående astronomiska diskussionen. Det är inte ett kyrkligt avgörande av bibeltolkningen.",
+      "certainty": "Vetenskapshistorisk referens, Galileo",
+      "source": "https://www.britannica.com/biography/Galileo-Galilei"
     },
     {
       "id": "CS024",
@@ -650,6 +660,16 @@ window.TIDENS_CHURCH_SHIFTS = {
       "source": "https://www.vatican.va/roman_curia/congregations/cfaith/pcb_documents/rc_con_cfaith_doc_20020212_popolo-ebraico_en.html"
     },
     {
+      "id": "CS065",
+      "year": 2004,
+      "lane": "church",
+      "topic": "evolution",
+      "title": "Katolsk teologkommission om skapelse och evolution",
+      "detail": "Dokumentet Communion and Stewardship diskuterar människan som Guds avbild i ljuset av modern vetenskap, och resonerar om evolution utan att överge den katolska skapelseläran.",
+      "certainty": "International Theological Commission, primärdokument 2004",
+      "source": "https://www.vatican.va/roman_curia/congregations/cfaith/cti_documents/rc_con_cfaith_doc_20040723_communion-stewardship_en.html"
+    },
+    {
       "id": "CS016",
       "year": 2005,
       "lane": "church",
@@ -678,6 +698,46 @@ window.TIDENS_CHURCH_SHIFTS = {
       "detail": "Sverige får från 1 maj samma civilrättsliga äktenskapslag för olik- och samkönade par. Detta är inte samma händelse som Svenska kyrkans beslut senare samma år.",
       "certainty": "Sveriges riksdag, lagreform 2009",
       "source": "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/betankande/konsneutrala-aktenskap_gw01cu19/"
+    },
+    {
+      "id": "CS063",
+      "year": 2015,
+      "lane": "church",
+      "topic": "antisemitism",
+      "title": "Katolskt dokument om det judiska förbundets bestående giltighet",
+      "detail": "Den katolska kommissionen för religiösa relationer med judar publicerar en teologisk reflektion femtio år efter Nostra aetate. Dokumentets karaktär och status ska skiljas från ett konciliebeslut.",
+      "certainty": "Vatikanens bilaterala kommissionsuttalande om 2015 års text",
+      "source": "https://press.vatican.va/content/salastampa/it/bollettino/pubblico/2015/12/18/1010/02250.html"
+    },
+    {
+      "id": "CS066",
+      "year": 2016,
+      "lane": "church",
+      "topic": "divorce",
+      "title": "Påven Franciskus publicerar Amoris laetitia",
+      "detail": "Den apostoliska uppmaningen behandlar äktenskap, familjeliv och pastoral urskiljning, även för frånskilda personer i nya civila relationer. Det är inte ett allmänt upphävande av katolska äktenskapsnormer.",
+      "certainty": "Vatikanen, Amoris laetitia, 19 mars 2016",
+      "source": "https://www.vatican.va/content/francesco/en/apost_exhortations/documents/papa-francesco_esortazione-ap_20160319_amoris-laetitia.html"
+    },
+    {
+      "id": "CS067",
+      "year": 2018,
+      "lane": "church",
+      "topic": "usury",
+      "title": "Vatikanen publicerar en finansetisk vägledning",
+      "detail": "Oeconomicae et pecuniariae quaestiones utvecklar etiska synpunkter på samtida ekonomiska och finansiella system, inklusive utsatta låntagare. Det är ett senare exempel på moralisk precisering, inte ett definitivt slutdatum för ockerläran.",
+      "certainty": "Vatikanens dokument, 17 maj 2018",
+      "source": "https://press.vatican.va/content/salastampa/it/bollettino/pubblico/2018/05/17/0360/00773.html"
+    },
+    {
+      "id": "CS064",
+      "year": 2023,
+      "lane": "church",
+      "topic": "colonialism",
+      "title": "Vatikanen tar avstånd från Doctrine of Discovery",
+      "detail": "Två dikasterier uttalar sig uttryckligen om tidigare koloniala idéer och de kränkningar som begåtts mot ursprungsfolk. Uttalandet innebär inte att samtliga kyrkliga och samhälleliga följder av kolonialismen därmed är avslutade.",
+      "certainty": "Vatikanens gemensamma uttalande, 30 mars 2023",
+      "source": "https://press.vatican.va/content/salastampa/en/bollettino/pubblico/2023/03/30/230330b.html"
     },
     {
       "id": "CS018",
