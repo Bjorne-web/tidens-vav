@@ -37,7 +37,7 @@ groups.map((g,i)=>'<section class="tvhub-group" aria-label="'+esc(g.heading)+'">
 function selectedBar(){
 const id=selected;
 return '<div class="tvhub-activebar"><button type="button" class="tvhub-back" data-tvhub-open="overview">← Alla fördjupningar</button><div><span class="v888-kicker">FORSKNINGSOMRÅDE</span><h2>'+esc(labels[id]||id)+'</h2><p>'+ (counts.has(id)?esc(counts.get(id))+' källanknutna historiska händelser · välj en milstolpe i tidslinjen för källan':'Historisk och religionsvetenskaplig genomgång med klickbara texthänvisningar')+'</p></div></div>'+
-'<nav class="tvhub-shortcuts" aria-label="Växla forskningsområde"><button type="button" data-tvhub-open="overview">Översikt</button>'+cards.filter(c=>c.id!==id).slice(0,4).map(c=>'<button type="button" data-tvhub-open="'+esc(c.id)+'">'+esc(c.label)+'</button>').join('')+'</nav>';
+'<nav class="tvhub-shortcuts" aria-label="Växla forskningsområde"><button type="button" data-tvhub-open="overview">Översikt</button>'+cards.filter(c=>c.id!==id).slice(0,4).map(c=>'<button type="button" data-tvhub-open="'+esc(c.id)+'">'+esc(c.label)+'</button>').join('')+'</nav><div id="tvResearchGraph" class="tvresearch-graph-host"></div>';
 }
 function ensureHub(){
 let hub=document.getElementById('tvResearchHub');
@@ -72,6 +72,7 @@ updateVisibility();
 function select(id,scroll=true){
 if(id!=='overview'&&id!=='legacy'&&id!=='all'&&!cards.some(c=>c.id===id))return false;
 selected=id;render();
+if(typeof window.dispatchEvent==='function'&&typeof CustomEvent!=='undefined')window.dispatchEvent(new CustomEvent('tvhub:select',{detail:{topic:id}}));
 const hub=document.getElementById('tvResearchHub');if(scroll&&hub&&typeof hub.scrollIntoView==='function')hub.scrollIntoView({behavior:'smooth',block:'start'});
 return true;
 }
