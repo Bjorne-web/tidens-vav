@@ -1,0 +1,15 @@
+#timelineView .tv893-journeys{margin:0 0 18px;padding:19px;background:linear-gradient(130deg,#f8fbfd,#eef5f7);border:1px solid #dce8ed;border-radius:16px}
+#timelineView .tv893-heading h3{font-size:23px;line-height:1.2;margin:5px 0 7px;color:#18384e}
+#timelineView .tv893-heading p{font-size:13px;margin:0 0 17px;color:#567085}
+#timelineView .tv893-kicker{font-size:10px;font-weight:800;letter-spacing:.13em;color:#34738b}
+#timelineView .tv893-periods{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}
+#timelineView .tv893-period{display:flex;flex-direction:column;text-align:left;position:relative;gap:8px;padding:14px 13px;min-height:124px;background:#fff;border:1px solid #d8e4e9;border-radius:12px;color:#1e3d50;cursor:pointer}
+#timelineView .tv893-period strong{font-size:14px;line-height:1.35}
+#timelineView .tv893-period small{font-size:11px;line-height:1.5;color:#607887}
+#timelineView .tv893-period span{position:absolute;bottom:10px;right:12px;color:#41829c}
+#timelineView .tv893-period[aria-pressed="true"]{border:2px solid #317a93;background:#e8f3f7;padding:13px 12px}
+#timelineView .tv893-period:hover{box-shadow:0 5px 15px #1e46501c}
+#timelineView .tv893-period:focus-visible{outline:3px solid #2d7d9a;outline-offset:2px}
+#timelineView .tv893-caution{font-size:12px;color:#5b7283;line-height:1.5;margin:16px 0 0}
+@media(max-width:1000px){#timelineView .tv893-periods{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){#timelineView .tv893-periods{grid-template-columns:repeat(2,minmax(0,1fr))}#timelineView .tv893-period{min-height:118px;padding:10px}}
