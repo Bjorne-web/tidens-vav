@@ -156,3 +156,19 @@ Efter fortsatt användargranskning bedömdes det otillräckligt med en tabell oc
 - Libets studie 1983: PubMed https://pubmed.ncbi.nlm.nih.gov/6640273/.
 
 **Kontrollerad utvecklingsgräns:** V8.94 ligger i Cloudflare preview och är inte publicerad på huvudgrenen. Ingen förändring i centrala historiska poster, C6-granskningsjournal eller godkända befintliga forskningsartiklar.
+
+## V8.95 – rättning mot Vävens godkända grafiska språk
+
+Användargranskningen av V8.94 konstaterade att **funktionell överensstämmelse med Gantt-vyn inte räcker** när Fördjupningar ser grafiskt ut som en annan applikation.
+
+V8.95 är därför i huvudsak en grafisk korrigering, utan nya historiska fakta, justerade årtal eller ändrade forskningsbedömningar.
+
+- `v893-research-hub.js`: återanvänder **samma faktiska CSS-komponenter** som den tidigare godkända startsidan: `tv876-hero`, `tv876-path`, `tv876-section-head`. Den aktiva fördjupningen får samma visuella huvudrubrikyta.
+- `v895-research-visual-unification.css`: research-specifika regler använder befintliga tokens `--ink`, `--blue`, `--blue2`, `--line`, `--panel`, `--muted` och `--shadow`. De använder startsidans mörkblå gradient, dess kortmått, typografi och fokusmarkeringar.
+- Gantt-rader, färglegend, årsskala och klickbara händelsedossierer använder de redan godkända `v828-*`-stilarna, utan att ändra den ordinarie tidslinjens beteende.
+- De längre forskningsartiklarna får samma harmoniserade ljusa läsytor, rubrikfärger, källblock och statusmarkeringar som de befintliga forskningsposterna.
+- Kort och paneler har fått konsekvent kantlinje, marginaler och rundningar. Dubbelinkapsling av vita paneler reduceras genom att yttre forskningsbiblioteket är kantlöst och att artiklar, tidslinje och huvudrubrik är separata ytor.
+- Anpassning finns för mobil och reducerad rörelse. Ändringarna är avgränsade till `#researchView`.
+- `tests/smoke-v895-research-visuals.mjs` kontrollerar att den godkända startsidans klasser och tokens återanvänds, att Gantt-/läsarkomponenterna finns och att stylesheets laddas i rätt ordning.
+
+**Verifierat:** GitHub-filer, JavaScript-syntax och statisk visuell komponentkontroll. **Ej verifierat:** pixelbaserad jämförelse i faktisk webbläsare och manuellt mobiltest. Därför krävs nytt preview-godkännande innan sammanslagning till `main`.
