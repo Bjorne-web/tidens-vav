@@ -1,98 +1,66 @@
-/* V8.87 experimental start page: applies only to #startView */
-#startView .tv876-hero{position:relative;overflow:hidden;background:linear-gradient(103deg,rgba(18,48,77,.95),rgba(33,75,103,.65)),linear-gradient(170deg,#afc4cc 0%,#c6b58e 44%,#876e4e 65%,#d7bc85 100%);min-height:280px}
-#startView .tv876-hero:after{content:"";position:absolute;inset:auto -4% -2px 30%;height:34%;background:linear-gradient(155deg,transparent 29%,#344d54 29.5% 41%,transparent 41.5%),linear-gradient(20deg,transparent 19%,#5e736b 19.5% 45%,transparent 45.5%),linear-gradient(170deg,transparent 36%,#9b8665 36.5% 80%);opacity:.45;pointer-events:none}
-#startView .tv876-hero>*{position:relative;z-index:1}
-#startView .tv887-areas{margin-top:24px}
-#startView .tv887-areas-heading{margin-bottom:14px}
-#startView .tv887-areas-heading h2{margin:0 0 6px;font-size:clamp(22px,2.5vw,29px)}
-#startView .tv887-areas-heading p{margin:0;color:#587087}
-#startView .tv887-area-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-#startView .tv887-area{display:flex;align-items:flex-start;flex-direction:column;gap:12px;text-align:left;padding:20px;border-radius:15px;background:#fff;border:1px solid #d6e1ea;box-shadow:0 8px 18px rgba(14,41,65,.07);min-height:220px;color:#17334c;cursor:pointer}
-#startView .tv887-area:not(:disabled):hover,#startView .tv887-area:not(:disabled):focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-#startView .tv887-area:disabled{cursor:default;opacity:.83}
-#startView .tv887-icon{display:grid;place-items:center;width:51px;height:51px;flex:none;border-radius:14px;color:white;font-size:30px;font-weight:600;background:var(--accent)}
-#startView .tv887-area-copy{display:flex;flex-direction:column;gap:8px;flex:1}
-#startView .tv887-area-copy strong{font-size:16px;line-height:1.3}
-#startView .tv887-area-copy small{font-size:13px;line-height:1.5;color:#52697e}
-#startView .tv887-area-copy em{font-size:12px;font-style:normal;font-weight:700;margin-top:auto;color:var(--accent)}
-#startView .tv887-bible{--accent:#347ccb}
-#startView .tv887-religion{--accent:#9465bf}
-#startView .tv887-history{--accent:#2b977c}
-#startView .tv887-philosophy{--accent:#b17929}
-#startView .tv887-method{font-size:13px;color:#52687c;padding:13px 4px 0;line-height:1.6}
-@media(max-width:900px){#startView .tv887-area-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#startView .tv887-area{min-height:190px}}
-@media(max-width:600px){#startView .tv887-area-grid{grid-template-columns:1fr 1fr;gap:9px}#startView .tv887-area{padding:14px;min-height:220px}#startView .tv887-area-copy strong{font-size:14px}#startView .tv887-area-copy small{font-size:12px}}
-@media(max-width:380px){#startView .tv887-area-grid{grid-template-columns:1fr}#startView .tv887-area{min-height:auto}}
-
-/* V8.87 visual refinement: genuine present-day Jerusalem landscape, CC0 photo by Mustang Joe via Wikimedia Commons.
-   Photograph depicts the modern landscape, NOT a reconstruction of ancient biblical Jerusalem. */
-#startView .tv876-start{max-width:1370px}
-#startView .tv876-hero{
-  min-height:480px;display:flex;flex-direction:column;justify-content:center;
-  background-image:linear-gradient(90deg,rgba(15,36,60,.93) 0%,rgba(17,45,71,.87) 40%,rgba(20,54,77,.30) 100%),
-    url("./Start-hero.png");
-  background-position:center,center 48%;
-  background-size:cover;
-  border-radius:22px;
-  box-shadow:0 16px 40px rgba(23,49,70,.16);
-  padding:clamp(32px,5.2vw,78px);
+/* V8.87 Alternative B — isolated, consolidated start page theme. */
+body.v812-start main{display:block!important;width:100%;min-width:0;min-height:calc(100vh - 71px)}
+body.v812-start main>.main{display:block!important;max-width:none!important;width:100%!important;margin:0!important;padding:0!important}
+body.v812-start main>aside,body.v812-start main>.detail{display:none!important}
+body.v812-start #startView,body.v812-start #startView .tv876-start{display:block;width:100%;max-width:none;margin:0;padding:0}
+body.v812-start #startView .tv876-hero{
+  position:relative;display:flex!important;flex-direction:column;align-items:flex-start;
+  justify-content:flex-start;min-height:min(860px,calc(100svh - 90px));
+  max-width:none;width:100%;border-radius:0;margin:0;
+  padding:clamp(48px,6vh,88px) max(24px,calc((100vw - 1320px)/2)) 44px;
+  color:#fff;box-shadow:none;overflow:visible;
+  background-color:#e9d1a2;
+  background-image:linear-gradient(90deg,rgba(23,36,51,.48) 0%,rgba(31,47,58,.26) 37%,rgba(31,47,58,.04) 75%),url("./Start-hero.png");
+  background-size:cover;background-position:center 23%;background-repeat:no-repeat;
 }
-#startView .tv876-hero:after{display:none}
-#startView .tv876-hero h1{max-width:760px;font-size:clamp(38px,4.5vw,65px);letter-spacing:-.022em;text-wrap:balance}
-#startView .tv876-hero .tv876-lead{max-width:730px;font-size:clamp(17px,1.55vw,21px);line-height:1.6}
-#startView .tv876-hero p:not(.tv876-lead){max-width:730px;line-height:1.7}
-#startView .tv887-areas{margin-top:32px}
-#startView .tv887-area-grid{gap:17px}
-#startView .tv887-area{padding:23px;min-height:235px;gap:16px;box-shadow:0 7px 22px rgba(18,45,72,.08);transition:transform .15s ease,box-shadow .15s ease}
-#startView .tv887-area:not(:disabled):hover{transform:translateY(-3px);box-shadow:0 12px 25px rgba(18,45,72,.14)}
-#startView .tv887-icon{width:62px;height:62px;border-radius:18px}
-#startView .tv887-area-copy strong{font-size:17px}
-#startView .tv887-area-copy small{font-size:13px}
-#startView .tv887-area-copy em{font-size:13px}
-#startView .tv887-method{border-left:3px solid #8daabb;padding:11px 15px;margin-top:17px;background:#eef4f8;border-radius:0 9px 9px 0}
-@media(max-width:900px){#startView .tv876-hero{min-height:410px}#startView .tv887-area-grid{gap:12px}}
-@media(max-width:600px){#startView .tv876-hero{min-height:480px;padding:26px;background-position:center,60% center;background-image:linear-gradient(90deg,rgba(15,36,60,.93),rgba(17,45,71,.67)),url("./Start-hero.png")}#startView .tv876-hero h1{font-size:clamp(34px,9vw,46px)}#startView .tv887-area{padding:16px;min-height:235px}#startView .tv887-icon{width:52px;height:52px}#startView .tv887-area-copy strong{font-size:14px}#startView .tv887-area-copy small{font-size:12px}}
-@media(prefers-reduced-motion:reduce){#startView .tv887-area{transition:none}}
-
-/* V8.87 wide landing page redesign. Scoped to the real start view. */
-#startView{width:100%;max-width:none}
-#startView .tv876-start{max-width:none;width:100%;padding:0 0 44px}
-#startView .tv876-hero{max-width:none;width:100%;min-height:490px;border-radius:0;padding:clamp(45px,6vw,100px) max(30px,calc((100vw - 1340px)/2));background-position:center,center 54%;box-shadow:none}
-#startView .tv876-hero h1{font-size:clamp(46px,5.1vw,78px);max-width:820px}
-#startView .tv876-hero .tv876-lead{max-width:790px}
-#startView .tv887-areas{max-width:1410px;margin:-49px auto 0;padding:0 25px;position:relative;z-index:4}
-#startView .tv887-areas-heading{padding:14px 18px 22px;color:#203b52}
-#startView .tv887-areas-heading h2{font-size:clamp(25px,2.4vw,35px);margin-bottom:5px}
-#startView .tv887-area-grid{gap:15px;grid-template-columns:repeat(4,minmax(0,1fr))}
-#startView .tv887-area{min-height:244px;border-radius:17px;border:1px solid #d8e3ec;border-bottom:4px solid var(--accent);box-shadow:0 12px 32px rgba(15,37,57,.16);padding:24px}
-#startView .tv887-area-copy strong{font-size:19px;line-height:1.3}
-#startView .tv887-icon{width:66px;height:66px;border-radius:20px}
-#startView .tv887-method{max-width:1050px;margin:23px auto 5px}
-#startView .tv876-orientation,#startView .tv876-paths,#startView .tv876-method,#startView .tv876-closing{max-width:1260px;margin-left:auto;margin-right:auto;padding-left:26px;padding-right:26px}
-#startView .tv876-paths{border-top:1px solid #d8e4ec;padding-top:29px}
-@media(max-width:960px){#startView .tv887-area-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#startView .tv887-areas{margin:-28px auto 0}#startView .tv876-hero{min-height:440px}}
-@media(max-width:600px){#startView .tv876-hero{padding:42px 20px 76px;min-height:520px;background-position:center,58% center}#startView .tv876-hero h1{font-size:clamp(35px,9vw,49px)}#startView .tv887-areas{margin:-46px auto 0;padding:0 14px}#startView .tv887-areas-heading{padding:12px 3px 18px}#startView .tv887-area{min-height:225px;padding:15px}#startView .tv887-area-copy strong{font-size:15px}#startView .tv876-orientation,#startView .tv876-paths,#startView .tv876-method,#startView .tv876-closing{padding-left:16px;padding-right:16px}}
-
-/* Allocate full viewport width exclusively while the Börja här section is visible. */
-main:has(#startView:not(.hidden)){display:block;min-width:0}
-main:has(#startView:not(.hidden))>aside,main:has(#startView:not(.hidden))>.detail{display:none!important}
-main:has(#startView:not(.hidden))>.main{padding:0;width:100%;min-width:0}
-main:has(#startView:not(.hidden)) #startView{margin:0;max-width:none}
-
-/* V8.87 emergency geometry repair: override legacy v812-start 1120px content box. */
-body.v812-start main{display:block!important;width:100%!important;max-width:none!important}
-body.v812-start main>.main{display:block!important;width:100%!important;max-width:none!important;margin:0!important;padding:0!important}
-body.v812-start #startView{display:block;width:100%;max-width:none;margin:0}
-body.v812-start #startView .tv876-start{display:block;width:100%;max-width:none;margin:0}
-body.v812-start #startView .tv876-hero{box-sizing:border-box;display:block!important;width:100%;max-width:none;min-height:480px;padding:65px max(28px,calc((100vw - 1260px)/2))}
-body.v812-start #startView .tv876-hero>*{display:block;width:auto;max-width:780px;min-width:0;overflow-wrap:normal;word-break:normal}
-body.v812-start #startView .tv876-hero h1{max-width:800px;line-height:1.12;margin:14px 0 20px}
-body.v812-start #startView .tv887-areas{box-sizing:border-box;width:100%;max-width:1390px;margin:-32px auto 25px;padding:0 26px}
-body.v812-start #startView .tv887-areas-heading{padding:20px 8px}
-body.v812-start #startView .tv887-area-grid{display:grid;width:100%;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-body.v812-start #startView .tv887-area{min-width:0;width:auto;display:flex;flex-direction:column}
-body.v812-start #startView .tv887-area-copy{min-width:0}
-body.v812-start #startView .tv876-orientation,body.v812-start #startView .tv876-paths,body.v812-start #startView .tv876-method,body.v812-start #startView .tv876-closing{box-sizing:border-box;width:calc(100% - 48px);max-width:1260px;margin-left:auto;margin-right:auto}
-@media(max-width:950px){body.v812-start #startView .tv887-area-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:620px){body.v812-start #startView .tv876-hero{padding:42px 20px 82px;min-height:450px}body.v812-start #startView .tv887-areas{padding:0 12px}body.v812-start #startView .tv887-area-grid{gap:9px}body.v812-start #startView .tv876-orientation,body.v812-start #startView .tv876-paths,body.v812-start #startView .tv876-method,body.v812-start #startView .tv876-closing{width:calc(100% - 24px)}}
-@media(max-width:390px){body.v812-start #startView .tv887-area-grid{grid-template-columns:1fr}}
+body.v812-start #startView .tv876-hero:after{content:none!important}
+body.v812-start #startView .tv876-hero>.tv876-eyebrow,
+body.v812-start #startView .tv876-hero>h1,
+body.v812-start #startView .tv876-hero>p{position:relative;z-index:1;width:min(720px,100%);max-width:720px;min-width:0;word-break:normal;overflow-wrap:normal}
+body.v812-start #startView .tv876-hero>.tv876-eyebrow{width:fit-content;padding:7px 12px;background:rgba(28,39,47,.58);border-radius:7px;letter-spacing:.1em;font-size:11px}
+body.v812-start #startView .tv876-hero>h1{color:#fff;font-size:clamp(42px,4.5vw,70px);line-height:1.1;letter-spacing:-.025em;text-shadow:0 2px 14px rgba(0,0,0,.32);margin:18px 0}
+body.v812-start #startView .tv876-hero>.tv876-lead{font-size:clamp(16px,1.6vw,21px);line-height:1.5;color:#fff;max-width:650px;padding:15px 19px;border-radius:12px;background:rgba(27,39,48,.49);backdrop-filter:blur(5px);margin:0}
+body.v812-start #startView .tv876-hero>p:not(.tv876-lead){display:none}
+body.v812-start #startView .tv887-areas{display:block!important;align-self:stretch;max-width:none;width:100%;margin:auto 0 0;padding:35px 0 0;position:relative;z-index:2}
+body.v812-start #startView .tv887-areas-heading{margin:0 0 15px;padding:0 2px;color:#fff}
+body.v812-start #startView .tv887-areas-heading h2{margin:0 0 6px;font-size:clamp(22px,2.2vw,32px);color:#fff;text-shadow:0 2px 10px #1a2d34b3}
+body.v812-start #startView .tv887-areas-heading p{margin:0;color:#fff;font-size:14px;text-shadow:0 1px 8px #1a2d34}
+body.v812-start #startView .tv887-area-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;width:100%}
+body.v812-start #startView .tv887-area{--accent:#347ccb;min-width:0;min-height:156px;display:flex;align-items:center;flex-direction:row;gap:13px;padding:16px;text-align:left;border-radius:15px;border:1px solid rgba(255,255,255,.75);background:rgba(255,255,255,.94);box-shadow:0 10px 28px rgba(25,36,45,.17);color:#17334c;cursor:pointer;transition:transform .14s ease,box-shadow .14s ease}
+body.v812-start #startView .tv887-area:hover:not(:disabled){transform:translateY(-3px);box-shadow:0 16px 32px rgba(25,36,45,.23)}
+body.v812-start #startView .tv887-area:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+body.v812-start #startView .tv887-area:disabled{opacity:.89;cursor:default}
+body.v812-start #startView .tv887-bible{--accent:#347ccb}
+body.v812-start #startView .tv887-religion{--accent:#9465bf}
+body.v812-start #startView .tv887-history{--accent:#259779}
+body.v812-start #startView .tv887-philosophy{--accent:#b17929}
+body.v812-start #startView .tv887-icon{display:grid;place-items:center;flex:0 0 49px;width:49px;height:49px;border-radius:14px;color:white;background:var(--accent)}
+body.v812-start #startView .tv887-area-copy{display:flex;flex-direction:column;gap:6px;min-width:0;flex:1}
+body.v812-start #startView .tv887-area-copy strong{font-size:clamp(14px,1.1vw,17px);line-height:1.3}
+body.v812-start #startView .tv887-area-copy small{font-size:12px;color:#52697e;line-height:1.45}
+body.v812-start #startView .tv887-area-copy em{font-size:12px;font-style:normal;font-weight:700;color:var(--accent)}
+body.v812-start #startView .tv887-method{display:none}
+body.v812-start #startView .tv876-orientation,
+body.v812-start #startView .tv876-paths,
+body.v812-start #startView .tv876-method,
+body.v812-start #startView .tv876-closing{width:calc(100% - 48px);max-width:1220px;margin:30px auto 0;box-sizing:border-box}
+body.v812-start #startView .tv876-orientation{margin-top:35px}
+@media(max-width:1000px){
+ body.v812-start #startView .tv876-hero{min-height:850px;padding:52px 28px 34px;background-position:center top}
+ body.v812-start #startView .tv887-area-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ body.v812-start #startView .tv887-area{min-height:110px}
+}
+@media(max-width:600px){
+ body.v812-start #startView .tv876-hero{min-height:900px;padding:36px 16px 28px;background-position:57% top}
+ body.v812-start #startView .tv876-hero>h1{font-size:clamp(35px,9vw,47px)}
+ body.v812-start #startView .tv876-hero>.tv876-lead{font-size:15px}
+ body.v812-start #startView .tv887-area-grid{grid-template-columns:1fr 1fr;gap:8px}
+ body.v812-start #startView .tv887-area{flex-direction:column;align-items:flex-start;min-height:186px;padding:12px}
+ body.v812-start #startView .tv887-icon{width:42px;height:42px;flex-basis:42px}
+ body.v812-start #startView .tv887-area-copy strong{font-size:14px}
+ body.v812-start #startView .tv887-area-copy small{font-size:11px}
+ body.v812-start #startView .tv887-area-copy em{font-size:11px}
+ body.v812-start #startView .tv876-orientation,body.v812-start #startView .tv876-paths,body.v812-start #startView .tv876-method,body.v812-start #startView .tv876-closing{width:calc(100% - 24px)}
+}
+@media(max-width:365px){body.v812-start #startView .tv887-area-grid{grid-template-columns:1fr}body.v812-start #startView .tv876-hero{min-height:1100px}}
+@media(prefers-reduced-motion:reduce){body.v812-start #startView .tv887-area{transition:none}}
