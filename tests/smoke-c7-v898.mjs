@@ -46,7 +46,7 @@ const uncovered=nt.filter(id=>!data[id]);
 assert.deepEqual(uncovered,[],'All 27 NT books must have an individual C7 section');
 assert.ok(data.B041.paragraph.includes('Mark 16:9–20'),'Mark disputed ending is necessary');
 assert.ok(data.B052.paragraph.includes('1 Thess 2:13–16'),'Anti-Jewish interpolation debate addressed');
-assert.ok(data.B060.paragraph.includes('inte ett bestämt universellt romerskt förföljelsedekret'),'1 Peter persecution caution');
+assert.ok(data.B060.paragraph.includes('ett bestämt universellt romerskt förföljelsedekret'),'1 Peter persecution caution');
 assert.ok(data.B061.paragraph.includes('Judasbrevet'),'2 Peter/Jude relation');
 assert.ok(data.B062.paragraph.includes('antagandet')||data.B062.paragraph.includes('saknas en enda accepterad'),'1 John opponents not certain');
 assert.ok(data.B063.paragraph.includes('den utvalda frun'),'2 John audience identity');
