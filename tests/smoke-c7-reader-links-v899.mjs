@@ -8,6 +8,8 @@ execFileSync(process.execPath,['--check',new URL('../v899-c7-reader-links.js',im
 const sandbox={window:{}};vm.runInNewContext(read('v899-c7-reader-links.js'),sandbox);
 const url=text=>sandbox.window.TidensC7Ui.references(text).map(x=>x.url);
 assert.equal(url('Judas 14–15')[0],'https://www.bible.com/sv/bible/1223/JUD.1.SFB15');
+assert.equal(sandbox.window.TidensC7Ui.references('Judas 14–15')[0].label,'Judas 14–15');
+assert.equal(sandbox.window.TidensC7Ui.references('2 Mos 21–23')[0].label,'2 Mos 21–23');
 assert.equal(url('Mark 16:9–20')[0],'https://www.bible.com/sv/bible/1223/MRK.16.SFB15');
 assert.equal(url('2 Mos 21–23')[0],'https://www.bible.com/sv/bible/1223/EXO.21.SFB15');
 assert.equal(url('1 Tim 2:11–15')[0],'https://www.bible.com/sv/bible/1223/1TI.2.SFB15');
