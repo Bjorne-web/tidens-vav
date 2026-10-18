@@ -1,0 +1,66 @@
+/* V8.87 Alternative B — isolated, consolidated start page theme. */
+body.v812-start main{display:block!important;width:100%;min-width:0;min-height:calc(100vh - 71px)}
+body.v812-start main>.main{display:block!important;max-width:none!important;width:100%!important;margin:0!important;padding:0!important}
+body.v812-start main>aside,body.v812-start main>.detail{display:none!important}
+body.v812-start #startView,body.v812-start #startView .tv876-start{display:block;width:100%;max-width:none;margin:0;padding:0}
+body.v812-start #startView .tv876-hero{
+  position:relative;display:flex!important;flex-direction:column;align-items:flex-start;
+  justify-content:flex-start;min-height:min(860px,calc(100svh - 90px));
+  max-width:none;width:100%;border-radius:0;margin:0;
+  padding:clamp(48px,6vh,88px) max(24px,calc((100vw - 1320px)/2)) 44px;
+  color:#fff;box-shadow:none;overflow:visible;
+  background-color:#e9d1a2;
+  background-image:linear-gradient(90deg,rgba(23,36,51,.48) 0%,rgba(31,47,58,.26) 37%,rgba(31,47,58,.04) 75%),url("./Start-hero.png");
+  background-size:cover;background-position:center 23%;background-repeat:no-repeat;
+}
+body.v812-start #startView .tv876-hero:after{content:none!important}
+body.v812-start #startView .tv876-hero>.tv876-eyebrow,
+body.v812-start #startView .tv876-hero>h1,
+body.v812-start #startView .tv876-hero>p{position:relative;z-index:1;width:min(720px,100%);max-width:720px;min-width:0;word-break:normal;overflow-wrap:normal}
+body.v812-start #startView .tv876-hero>.tv876-eyebrow{width:fit-content;padding:7px 12px;background:rgba(28,39,47,.58);border-radius:7px;letter-spacing:.1em;font-size:11px}
+body.v812-start #startView .tv876-hero>h1{color:#fff;font-size:clamp(42px,4.5vw,70px);line-height:1.1;letter-spacing:-.025em;text-shadow:0 2px 14px rgba(0,0,0,.32);margin:18px 0}
+body.v812-start #startView .tv876-hero>.tv876-lead{font-size:clamp(16px,1.6vw,21px);line-height:1.5;color:#fff;max-width:650px;padding:15px 19px;border-radius:12px;background:rgba(27,39,48,.49);backdrop-filter:blur(5px);margin:0}
+body.v812-start #startView .tv876-hero>p:not(.tv876-lead){display:none}
+body.v812-start #startView .tv887-areas{display:block!important;align-self:stretch;max-width:none;width:100%;margin:auto 0 0;padding:35px 0 0;position:relative;z-index:2}
+body.v812-start #startView .tv887-areas-heading{margin:0 0 15px;padding:0 2px;color:#fff}
+body.v812-start #startView .tv887-areas-heading h2{margin:0 0 6px;font-size:clamp(22px,2.2vw,32px);color:#fff;text-shadow:0 2px 10px #1a2d34b3}
+body.v812-start #startView .tv887-areas-heading p{margin:0;color:#fff;font-size:14px;text-shadow:0 1px 8px #1a2d34}
+body.v812-start #startView .tv887-area-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;width:100%}
+body.v812-start #startView .tv887-area{--accent:#347ccb;min-width:0;min-height:156px;display:flex;align-items:center;flex-direction:row;gap:13px;padding:16px;text-align:left;border-radius:15px;border:1px solid rgba(255,255,255,.75);background:rgba(255,255,255,.94);box-shadow:0 10px 28px rgba(25,36,45,.17);color:#17334c;cursor:pointer;transition:transform .14s ease,box-shadow .14s ease}
+body.v812-start #startView .tv887-area:hover:not(:disabled){transform:translateY(-3px);box-shadow:0 16px 32px rgba(25,36,45,.23)}
+body.v812-start #startView .tv887-area:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+body.v812-start #startView .tv887-area:disabled{opacity:.89;cursor:default}
+body.v812-start #startView .tv887-bible{--accent:#347ccb}
+body.v812-start #startView .tv887-religion{--accent:#9465bf}
+body.v812-start #startView .tv887-history{--accent:#259779}
+body.v812-start #startView .tv887-philosophy{--accent:#b17929}
+body.v812-start #startView .tv887-icon{display:grid;place-items:center;flex:0 0 49px;width:49px;height:49px;border-radius:14px;color:white;background:var(--accent)}
+body.v812-start #startView .tv887-area-copy{display:flex;flex-direction:column;gap:6px;min-width:0;flex:1}
+body.v812-start #startView .tv887-area-copy strong{font-size:clamp(14px,1.1vw,17px);line-height:1.3}
+body.v812-start #startView .tv887-area-copy small{font-size:12px;color:#52697e;line-height:1.45}
+body.v812-start #startView .tv887-area-copy em{font-size:12px;font-style:normal;font-weight:700;color:var(--accent)}
+body.v812-start #startView .tv887-method{display:none}
+body.v812-start #startView .tv876-orientation,
+body.v812-start #startView .tv876-paths,
+body.v812-start #startView .tv876-method,
+body.v812-start #startView .tv876-closing{width:calc(100% - 48px);max-width:1220px;margin:30px auto 0;box-sizing:border-box}
+body.v812-start #startView .tv876-orientation{margin-top:35px}
+@media(max-width:1000px){
+ body.v812-start #startView .tv876-hero{min-height:850px;padding:52px 28px 34px;background-position:center top}
+ body.v812-start #startView .tv887-area-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ body.v812-start #startView .tv887-area{min-height:110px}
+}
+@media(max-width:600px){
+ body.v812-start #startView .tv876-hero{min-height:900px;padding:36px 16px 28px;background-position:57% top}
+ body.v812-start #startView .tv876-hero>h1{font-size:clamp(35px,9vw,47px)}
+ body.v812-start #startView .tv876-hero>.tv876-lead{font-size:15px}
+ body.v812-start #startView .tv887-area-grid{grid-template-columns:1fr 1fr;gap:8px}
+ body.v812-start #startView .tv887-area{flex-direction:column;align-items:flex-start;min-height:186px;padding:12px}
+ body.v812-start #startView .tv887-icon{width:42px;height:42px;flex-basis:42px}
+ body.v812-start #startView .tv887-area-copy strong{font-size:14px}
+ body.v812-start #startView .tv887-area-copy small{font-size:11px}
+ body.v812-start #startView .tv887-area-copy em{font-size:11px}
+ body.v812-start #startView .tv876-orientation,body.v812-start #startView .tv876-paths,body.v812-start #startView .tv876-method,body.v812-start #startView .tv876-closing{width:calc(100% - 24px)}
+}
+@media(max-width:365px){body.v812-start #startView .tv887-area-grid{grid-template-columns:1fr}body.v812-start #startView .tv876-hero{min-height:1100px}}
+@media(prefers-reduced-motion:reduce){body.v812-start #startView .tv887-area{transition:none}}
