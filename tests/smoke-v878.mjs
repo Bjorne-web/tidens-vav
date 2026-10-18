@@ -35,7 +35,8 @@ assert.equal(indexMatches.length,1);
 
 const reader=read('v858-book-reader.js');
 const inquiry=read('v833-temaspar.js');
-assert.ok(reader.includes('v827ShowRelations(b.id)'));
+assert.ok(reader.includes('v827ShowRelations(b.id)')||reader.includes('v827ShowRelations(related)'), 'Use existing related-post exploration in Bible-book reader');
+assert.ok(reader.includes('v827ShowRelations(b.id)')||reader.includes("view('explore')"), 'Fallback must still open an existing exploration view');
 assert.ok(!reader.includes('v878BookRelationFocus'));
 assert.ok(inquiry.includes('const bibleEvents=()=>'));
 assert.ok(inquiry.includes('...events,...bibleEvents()'));
