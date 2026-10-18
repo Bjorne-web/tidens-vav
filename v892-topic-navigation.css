@@ -1,0 +1,16 @@
+/* V8.92 preview — only the topic navigator, never timeline mechanics. */
+#timelineView .tv892-topics{margin:12px 0 18px;padding:16px 18px;background:#fff;border:1px solid #d9e5ec;border-radius:15px;box-shadow:0 4px 18px #1b3a5210}
+#timelineView .tv892-head{display:flex;align-items:start;justify-content:space-between;gap:16px;margin-bottom:12px}
+#timelineView .tv892-head strong{font-size:17px;color:#17334c}
+#timelineView .tv892-head p{margin:5px 0 0;font-size:13px;color:#547184;line-height:1.5}
+#timelineView .tv892-note{white-space:nowrap;font-size:11px;color:#577183;padding:5px 9px;background:#edf4f8;border-radius:30px}
+#timelineView .tv892-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+#timelineView .tv892-topic{--topic:#3980d5;display:flex;gap:10px;align-items:center;text-align:left;min-width:0;min-height:80px;border:1px solid #dce6ef;border-bottom:3px solid var(--topic);background:#fff;border-radius:11px;padding:12px;color:#18314a}
+#timelineView .tv892-topic:focus-visible,#timelineView .tv892-topic:hover:not(:disabled){outline:2px solid var(--topic);outline-offset:1px}
+#timelineView .tv892-topic:disabled{cursor:default;opacity:.7}
+#timelineView .tv892-religion{--topic:#9360c2}#timelineView .tv892-history{--topic:#299872}#timelineView .tv892-philosophy{--topic:#bb7d27}
+#timelineView .tv892-icon{display:grid;place-items:center;background:var(--topic);color:#fff;border-radius:10px;width:40px;height:40px;flex:0 0 40px;font-size:20px}
+#timelineView .tv892-topic strong{display:block;font-size:14px}
+#timelineView .tv892-topic small{display:block;font-size:11px;color:#657c8c;line-height:1.4;margin-top:4px}
+@media(max-width:1050px){#timelineView .tv892-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){#timelineView .tv892-head{display:block}#timelineView .tv892-note{display:inline-block;margin-top:8px}#timelineView .tv892-topic{padding:8px;gap:7px}#timelineView .tv892-icon{width:31px;height:31px;flex-basis:31px;font-size:16px}}

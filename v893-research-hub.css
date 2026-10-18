@@ -1,0 +1,36 @@
+/* V8.93 – samlad forskningsöversikt. Aktivt område åt gången. */
+#researchView>.tvhub-inactive,#researchView>[hidden],.tvhub-root [hidden]{display:none!important}
+.tvhub-root{background:var(--panel,#fff);border:1px solid var(--line,#9da9b0);border-radius:18px;padding:clamp(16px,3vw,28px);margin:12px 0 22px;color:inherit;scroll-margin-top:94px}
+.tvhub-hero h2{font-size:clamp(1.5rem,2.6vw,2.1rem);margin:12px 0 12px;line-height:1.18}
+.tvhub-hero>p{max-width:84ch;font-size:1rem;line-height:1.7;margin:0 0 18px}
+.tvhub-stats{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 20px}
+.tvhub-stats span{padding:10px 12px;border:1px solid var(--line,#aab8be);border-radius:11px;font-size:.86rem}
+.tvhub-stats b{font-size:1rem}
+.tvhub-tools{margin-bottom:16px}
+.tvhub-tools label{display:block;font-weight:700;font-size:.87rem;margin-bottom:7px}
+.tvhub-tools input{display:block;width:100%;max-width:490px;border:1px solid var(--line,#a2b2ba);border-radius:11px;padding:11px 13px;font:inherit;background:var(--panel,#fff);color:inherit}
+.tvhub-group{border-top:1px solid var(--line,#a3aeb5);padding:19px 0 18px}
+.tvhub-group h3{margin:0 0 4px;font-size:1.07rem;line-height:1.35}.tvhub-group>p{margin:0 0 13px;font-size:.9rem;line-height:1.5;opacity:.82}
+.tvhub-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.tvhub-card{background:transparent;text-align:left;color:inherit;font:inherit;border:1px solid var(--line,#a3b2b9);border-radius:12px;padding:14px;display:flex;flex-direction:column;align-items:flex-start;gap:9px;min-height:160px;cursor:pointer}
+.tvhub-card:hover{border-color:var(--accent,#3d6a85);background:rgba(124,140,150,.07)}
+.tvhub-card strong{font-size:1rem;line-height:1.3}.tvhub-card>span{font-size:.84rem;line-height:1.5;opacity:.9}
+.tvhub-card small{font-size:.78rem;margin-top:auto;font-weight:700;opacity:.84}
+.tvhub-card:focus-visible,.tvhub-root button:focus-visible,.tvhub-root input:focus-visible{outline:3px solid var(--accent,#36739a);outline-offset:3px}
+.tvhub-other{border-top:1px solid var(--line,#a3aeb5);padding-top:18px}
+.tvhub-other h3{margin:0 0 10px;font-size:1.05rem}
+.tvhub-other>p{font-size:.85rem;line-height:1.6;max-width:80ch}
+.tvhub-actions{display:flex;gap:9px;flex-wrap:wrap}
+.tvhub-actions button,.tvhub-back,.tvhub-shortcuts button{border:1px solid var(--line,#a5b2b8);border-radius:999px;background:transparent;font:inherit;color:inherit;padding:9px 13px;font-size:.84rem;cursor:pointer}
+.tvhub-actions button:hover,.tvhub-back:hover,.tvhub-shortcuts button:hover{background:rgba(124,140,150,.1)}
+.tvhub-activebar{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start}
+.tvhub-back{white-space:nowrap;font-weight:730}
+.tvhub-activebar h2{font-size:clamp(1.25rem,2vw,1.7rem);line-height:1.26;margin:8px 0}
+.tvhub-activebar p{font-size:.87rem;line-height:1.4;margin:0}
+.tvhub-shortcuts{border-top:1px solid var(--line,#a6b5bd);margin-top:15px;padding-top:12px;display:flex;gap:7px;flex-wrap:wrap}
+#tvChurchShifts .tvcs-tools>.tvcs-topics,#tvChurchShifts .tvcs-tools>h3{display:none!important}
+#tvChurchShifts .tvcs-tools{padding:10px 0}
+#tvChurchShifts .tvcs-intro{display:none!important}
+.tvcs-lead{font-size:1rem;line-height:1.7;max-width:83ch;margin:11px 0 16px}
+@media(max-width:1000px){.tvhub-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.tvhub-grid{grid-template-columns:1fr}.tvhub-card{min-height:0;padding:14px;gap:6px}.tvhub-activebar{grid-template-columns:1fr;gap:13px}.tvhub-back{justify-self:start}.tvhub-stats{gap:6px}.tvhub-stats span{font-size:.76rem}.tvhub-root{margin:8px 0 14px}.tvhub-hero h2{font-size:1.42rem}}

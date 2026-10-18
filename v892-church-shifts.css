@@ -1,0 +1,51 @@
+/* Kyrkans omprövningar: forskningsspår och parallella jämförbara tidsfält, v8.92 */
+.tvcs-root{margin:12px 0 28px;border:1px solid var(--line,#9aaab4);border-radius:17px;padding:clamp(15px,3vw,28px);background:var(--panel,#fff);color:inherit}
+.tvcs-intro h2{font-size:clamp(1.35rem,2.5vw,1.9rem);line-height:1.23;margin:10px 0 12px}
+.tvcs-intro p{line-height:1.72;max-width:88ch}
+.tvcs-method{font-size:.87rem;color:var(--muted,inherit);line-height:1.6;max-width:88ch}
+.tvcs-tools{margin:20px 0 12px;padding:15px 0;border-top:1px solid var(--line,#9aaab4);border-bottom:1px solid var(--line,#9aaab4)}
+.tvcs-tools h3,.tvcs-overview h3{font-size:1.03rem;margin:0 0 10px}
+.tvcs-topics{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:13px}
+.tvcs-chip{border:1px solid var(--line,#abb7be);background:transparent;color:inherit;border-radius:999px;padding:7px 12px;cursor:pointer;font:inherit;font-size:.82rem}
+.tvcs-chip.active{background:var(--accent,#335b6c);color:white;border-color:transparent}
+.tvcs-chip:focus-visible,.tvcs-milestone:focus-visible,.tvcs-textbutton:focus-visible{outline:3px solid #1f78a8;outline-offset:2px}
+.tvcs-toggle{display:flex;gap:9px;align-items:center;font-size:.91rem;cursor:pointer}.tvcs-toggle input{accent-color:var(--accent,#335b6c);width:17px;height:17px}
+.tvcs-note{font-size:.88rem;color:var(--muted,inherit);line-height:1.6}
+.tvcs-count{font-size:.83rem;font-weight:700;margin:12px 0}
+.tvcs-timegrid{border:1px solid var(--line,#a5b6c0);border-radius:10px;overflow:hidden}
+.tvcs-cols,.tvcs-year-row{display:grid;grid-template-columns:58px repeat(3,minmax(0,1fr));gap:0}
+.tvcs-cols{background:rgba(110,120,130,.1);font-size:.8rem;font-weight:700}
+.tvcs-cols>span{padding:12px 9px;border-left:1px solid var(--line,#bac6cb)}.tvcs-cols>span:first-child{border:0}
+.tvcs-lane-title:before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px}
+.tvcs-lane-title.tvcs-church:before{background:#48739a}
+.tvcs-lane-title.tvcs-society:before{background:#40846f}
+.tvcs-lane-title.tvcs-science:before{background:#b38a4a}
+.tvcs-year-row{border-top:1px solid var(--line,#bcc6ca);min-height:50px}
+.tvcs-year{font-size:.84rem;font-variant-numeric:tabular-nums;font-weight:800;padding:14px 9px}
+.tvcs-lane-cell{border-left:1px solid var(--line,#bcc6ca);padding:5px}
+.tvcs-milestone{display:block;width:100%;background:transparent;border:1px solid transparent;text-align:left;border-radius:8px;cursor:pointer;padding:9px 10px;color:inherit;font:inherit;line-height:1.4}
+.tvcs-milestone:hover{background:rgba(110,120,130,.09)}
+.tvcs-milestone.selected{border-color:var(--accent,#587b8d);background:rgba(110,120,130,.11)}
+.tvcs-milestone:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:7px;vertical-align:middle}
+.tvcs-church .tvcs-milestone:before{background:#48739a}
+.tvcs-society .tvcs-milestone:before{background:#40846f}
+.tvcs-science .tvcs-milestone:before{background:#b38a4a}
+.tvcs-milestone span{font-size:.84rem;font-weight:690}
+.tvcs-milestone small{display:block;opacity:.74;font-size:.72rem;margin:2px 0 0 16px}
+.tvcs-focus{grid-column:1/-1;background:rgba(110,120,130,.06);border-top:1px dashed var(--line,#a5b6c0);border-left:3px solid var(--accent,#48739a);padding:16px 20px;line-height:1.6}
+.tvcs-focus h4{margin:0 0 5px}.tvcs-focus p{margin:8px 0}.tvcs-focus a,.tvcs-depth a{color:var(--accent,#276683);text-decoration:underline;text-underline-offset:2px}
+.tvcs-empty{padding:21px;border:1px dashed var(--line,#a2abb5);border-radius:9px;line-height:1.6}
+.tvcs-depth{margin-top:22px;padding:18px 0 5px;border-top:1px solid var(--line,#a2b3ba);line-height:1.72}
+.tvcs-depth h3{font-size:1.13rem;line-height:1.4;margin:0 0 12px}
+.tvcs-depth>p{max-width:87ch}
+.tvcs-depth details{border-top:1px solid var(--line,#bac6cb);margin-top:0;padding:14px 0}
+.tvcs-depth summary{cursor:pointer;font-size:1rem;font-weight:730;line-height:1.5}
+.tvcs-long{max-width:83ch;padding:8px 3px 13px}
+.tvcs-long p{font-size:.97rem;line-height:1.8;margin:12px 0 20px}
+.tvcs-long h4{margin:17px 0 5px}
+.tvcs-sources{padding-left:22px;font-size:.9rem;line-height:1.6}.tvcs-sources li{margin:7px 0;overflow-wrap:anywhere}
+.tvcs-foot{padding:16px 0 0;margin:17px 0 0;border-top:1px solid var(--line,#adb9be);font-size:.82rem;color:var(--muted,inherit);line-height:1.65}
+.tvcs-textbutton{border:0;padding:0;background:transparent;font:inherit;color:var(--accent,#276683);text-decoration:underline;cursor:pointer}
+.tvcs-all-hint{padding:12px 4px;line-height:1.6}
+@media(max-width:790px){.tvcs-timegrid{border:none}.tvcs-cols{display:none}.tvcs-year-row{display:grid;grid-template-columns:54px 1fr;margin:9px 0;border:1px solid var(--line,#a5b6c0);border-radius:9px;overflow:hidden;min-height:0}.tvcs-year{grid-column:1;grid-row:1/4;background:rgba(120,130,140,.07)}.tvcs-lane-cell{grid-column:2;border-left:1px solid var(--line,#b6c1c5);padding:2px 5px}.tvcs-lane-cell:empty{display:none}.tvcs-lane-cell .tvcs-milestone{padding:9px 7px}.tvcs-focus{grid-column:1/-1}.tvcs-milestone span{font-size:.84rem}}
+@media(max-width:520px){.tvcs-root{padding:14px 12px}.tvcs-chip{padding:7px 10px;font-size:.8rem}.tvcs-intro p{line-height:1.65}.tvcs-long p{font-size:.94rem;line-height:1.72}}

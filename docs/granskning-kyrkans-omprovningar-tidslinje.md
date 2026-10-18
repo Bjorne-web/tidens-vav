@@ -1,0 +1,174 @@
+# Granskning 6 – Kyrkans omprövningar och samkönade relationer
+
+Status: redaktionell forskningsplan och kronologisk prototypdata. **Inte publicerat eller slutgranskat.**
+
+## Utgångspunkt och källtrogenhet
+Utgår från användarens dokument *Så förstår jag tro, Bibel och människa — en väg fram till min hållning om samkönade relationer*, version 4.2, särskilt D2, men också D1, C3, E1–E2, F5–F16 och G.
+
+Dokumentet är uttryckligen ett personligt teologiskt ställningstagande, **inte en neutral historisk framställning**. Tidens väv ska använda dess frågeställningar som redaktionell inspiration, **inte reproducera slutsatserna som vetenskapliga fakta**.
+
+### Omfattning – 12 fördjupningar
+1. Heliocentrism och bibeltolkning.
+2. Slaveri och kristna abolitionister.
+3. Kvinnors predikan, ledarskap och ämbeten.
+4. Dopfrågan och den konfessionella splittringen.
+5. Religionsfrihet och samvetsfrihet.
+6. Antijudiska tolkningar, Förintelsen och kyrkornas självrannsakan.
+7. Mission och kolonialism.
+8. Evolution, skapelseberättelser och bibelsyn.
+9. Historisk-kritisk bibelforskning.
+10. Skilsmässa och omgifte.
+11. Homosexualitet, samkönade relationer och kyrkornas tolkningar.
+12. Ränta och ocker (från F12).
+
+### Modell: varje spår har fem datalager
+- **Bibel- och traditionstexter:** ordalydelse, kontext, dateringsproblem, klickbar bibelreferens.
+- **Kyrklig reception:** vad någon viss namngiven kyrka eller företrädare hävdat, och när.
+- **Omvärld:** vetenskap, juridik, politik, kolonialmakt, folkrörelser och social historia.
+- **Förändringen:** dokumenterade beslut, konflikt eller gradvis utveckling, inte en påhittad enhetlig dag när 'kyrkan ändrade sig'.
+- **Forskningsbedömning:** primärkällor, akademisk forskning, invändningar och skillnad mellan samvariation och kausal påverkan.
+
+### Tre parallella tidslinjefält
+1. Kyrkor och teologiska ställningstaganden (blå);
+2. Samhällets lagar, händelser och institutioner (grön);
+3. Vetenskap, idéhistoria och textforskning (guld).
+
+Detta är en beskrivning av datatyper och exempel på tänkt färgsättning, inte krav på en extern tjänst. Samma daterbara historiska händelse ska **återanvända befintlig post** om den redan finns. Odaterade frågeställningar är temaspår, inte konstgjorda datapunkter.
+
+### Kronologiskt illustrerande hållpunkter att förankra i källor
+- ca 40–50 e.Kr.: Konflikten om hedningarnas inträde i den tidiga kristna rörelsen, Apg 15/Gal 2. Bibeltexternas berättade händelser respektive tillkomst dateras separat.
+- 1543: Kopernikus publicerar *De revolutionibus*. Vetenskaplig publicering, **inte** ett beslut av kyrkan.
+- 1616 och 1633: Katolska kyrkliga ingripanden rörande heliocentrism och Galilei. Datera respektive händelse efter dokumenterat beslut.
+- 1517 och 1520-talet: reformation och anabaptistisk dopdebatt; redovisa delvis samtidiga men olika förlopp.
+- 1859: Darwin publicerar *On the Origin of Species*; reaktioner inom kyrkorna varierar.
+- 1865: Slaveriets avskaffande i USA genom det trettonde författningstillägget, men kristen slaverikritik och slavförsvar har längre och geografiskt olika historik.
+- 1948: FN:s allmänna förklaring om mänskliga rättigheter; kontext, inte kyrkligt lärobeslut.
+- 1965-10-28: Andra Vatikankonciliets *Nostra aetate*, avvisar antisemitism och kollektiv skuldbeläggning av judar. Primärkälla: https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_nostra-aetate_en.html
+- 1969: Stonewall, socialhistorisk milstolpe, **inte** kyrkligt beslut.
+- 1973: American Psychiatric Association avlägsnar homosexualitet som diagnos ur DSM; medicinskt kunskapsskifte, **inte** teologisk omprövning. https://www.apa.org/about/offices/ogc/amicus/xxg-nrg.pdf
+- 1990: WHO:s förändring av sjukdomsklassifikation (granska beslut/datering separat).
+- 2005: Svenska kyrkan beslutar om ordning för välsignelse av registrerade partnerskap. Källa: https://www.churchofsweden.org/hbtq-personers-rattigheter
+- 2009-10-22: Svenska kyrkans kyrkomöte beslutar om vigsel för samkönade par, tillämpning från 2009-11-01. Källa: https://news.cision.com/church-of-sweden/r/the-church-of-sweden-says--yes--to-marriage%2Cc454067
+- 2026-04-22: Svenska kyrkans biskopsmöte publicerar *Vägar framåt*, bekräftar kyrkans gällande hållning till samkönade vigslar. Källa: https://www.churchofsweden.org/nyheter/vagar-framat--om-vigsel-och-samkonade-relationer
+
+Tidslinjen ska inte ge intryck att kristendomen, religionsvetenskapen och det omgivande samhället ändrat uppfattning samtidigt. Kyrkliga samfund ska namnges.
+
+## Särskilt spår: Homosexualitet och kristen tro
+
+### 1. Forntida bakgrund
+Jämför Lev 18:22, 20:13, 1 Mos 19, Rom 1:26–27, 1 Kor 6:9–10, 1 Tim 1:9–10, Jud 7, Matt 19 i historiska och litterära kontexter. Skilj antik sexualpraxis, social status, begär och moralmodeller från moderna identitetskategorier. Överdriv **inte** påståendet att antikens människor bara kände exploaterande samkönad sexualitet: antika miljöer var mer sammansatta. Och tona **inte** bort Paulus negativa värdering i Rom 1: han uttrycker sannolikt en bred kritik. Visa vad texterna säger, vad de inte explicit diskuterar och vilka senare tolkningssteg som krävs.
+
+### 2. Receptionshistoria
+Fornkyrka, medeltida kanonrätt och sexualetik, reformation, nya moderna medicinska begrepp, konfessionella ställningstaganden, splittringar och förändrad kyrklig praxis. Undvik att beskriva kyrkornas historia som enkel linjär liberalisering.
+
+### 3. Samhälle och vetenskap
+Separata spår för kriminalisering/avkriminalisering, sexualvetenskap, psykiatriska klassifikationer, människorättsutveckling, lagstiftning om partnerskap och äktenskap. Lägg endast till kontrollerade datapunkter.
+
+### 4. De konkurrerande teologiska slutsatserna
+Presentera starkaste traditionellt restriktiva argument: skapelseordning, man–kvinna, komplementaritet, Paulus och Leviticus; samt starkaste inkluderande argument: trohet, tolkningskontext, texttillämpning, jämlik förbundsrelation, frukter och börda. Känslig åtskillnad mellan **läggning, identitet, handling och relation/äktenskap**. En läggning i sig utgör inte en moralisk handling. Naturförekomst avgör inte ensamt moral. Båda positionerna förutsätter hermeneutiska principer som ska visas.
+
+### 5. Bibellänkar och källor
+Använd existerande bibellänkfunktion, men testköra varje bokkod. Komplettera med primärkällor från faktiska samfund, välmeriterad religionshistorisk/exegetisk forskning och seriösa konkurrerande forskningspositioner. Illustrera med genuina historiska dokument, public domain eller licens med angiven proveniens; undvik stereotypa samtidsbilder.
+
+## Första testet
+Skapa en separat **kronologisk vy** med tre synkroniserade spår, klickbara milstolpar och källor. Användaren ska kunna filtrera till ett enskilt tema eller visa allt i tidsordning samt se relaterade omvärldshändelser. Bygg ovanpå Vävens befintliga tidslinjestruktur utan att duplicera gemensamma händelser eller bryta nuvarande funktioner. **Ingen publicering till main utan preview-test.**
+
+
+## Första körbara förhandsvisning (V8.92)
+Utveckling från planen sker på en gren baserad på aktuell `main` för att bevara befintlig V8.91 och Granskning 2.
+
+- `data/church-shifts.v892.js`: 23 källmarkerade, individuellt daterade milstolpar som visas i tre separata jämförbara fält.
+- `v892-church-shifts.js` + `v892-church-shifts.css`: interaktiv tidslinje med filter för 12 områden, valfri omvärld, expanderande primärhändelser och fördjupning om samkönade relationer. Andra forskningsspår har endast inledande beskrivningar och ska byggas ut källnära i senare etapper.
+- `tests/smoke-v892-church-shifts.mjs`: kontroll av datering, händelse-ID, käll-URL, filter, vald milstolpe, omvärldsknapp och mobilstil.
+- Dateringarna är ankare till dokumenterade händelser, inte tillskrivna teologiska övergångsdatum. Händelserna har separata `CS*`-identifierare endast *inne i jämförelsemodulen*. De skapar inte forskningsposter i Vävens centrala händelseregister.
+- Bibliska referenser länkas via Vävens befintliga bibellänkfunktion från V8.91. Om en bokkod saknas används separat kontrollerad länk eller klartext, aldrig godtycklig länk.
+- Från dokumentet har vi tagit **forskningsfrågorna**, inte dess teologiska personliga slutsats. En inkluderande hållning får argumentationsutrymme liksom en välunderbyggd restriktiv hållning.
+
+### Utvalda källor som kompletterar arbetsplanen
+- Mennonite World Conference: troendedop den 21 januari 1525, https://mwc-cmm.org/en/stories/how-mennonites-came-be/.
+- Brittiska parlamentets egen historik om slavhandelns förbud 1807: https://www.parliament.uk/about/living-heritage/transformingsociety/tradeindustry/slavetrade/.
+- Smithsonian Libraries: Darwins förstaupplaga 1859, https://library.si.edu/digital-library/book/onoriginofspec00darw.
+- Sveriges riksdag: första valet med kvinnor som väljare 1921, https://www.riksdagen.se/sv/sa-fungerar-riksdagen/riksdagens-historia/kampen-om-rostratten/.
+- Svenska kyrkans primärhistorik: beslut 1958 och första prästvigningar 1960, https://www.svenskakyrkan.se/kvinnliga-praster.
+- Sveriges riksdag: religionsfrihetslagen 1951:680, https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/religionsfrihetslag-1951680_sfs-1951-680/.
+- Andra Vatikankonciliets dokument *Nostra aetate* 1965, https://press.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_nostra-aetate_en.html.
+- Sveriges regering om lag- och sjukdomsklassifikationsskiften 1944, 1979 och 1995: https://www.regeringen.se/regeringens-politik/hbtq-personers-lika-rattigheter-och-mojligheter/historik-om-utvecklingen-av-hbtqi-personers-rattigheter-i-sverige/.
+- American Psychological Association om beslutet 1973: https://www.apa.org/about/policy/discrimination.aspx.
+- Svenska kyrkan, kyrkomötet G2005:2: https://km.svenskakyrkan.se/tcrot/km/2005/betankanden/G2005_02.shtml.html.
+- Svenska kyrkans historik 2009: https://www.svenskakyrkan.se/hbtq-personers-rattigheter.
+- Biskopsmötets förtydligande 2026: https://www.svenskakyrkan.se/nyheter/vagar-framat--om-vigsel-och-samkonade-relationer.
+
+**Ej publiceringsgodkänt:** Förhandsvisning och tester ska godkännas före sammanslagning i `main`.
+
+- Kompletterande milstolpar representerar nu **alla tolv teman** (Vix Pervenit 1745, Astruc 1753, Edinburgh 1910, Church of England 2002), var och en förankrad i en särskild primär- eller etablerad historisk källa. Ett historiskt ankare är inte liktydigt med att en full omprövning skedde då.
+
+## V8.93 – samlat forskningsbibliotek, djupare texter och fler händelser
+
+Den första preview-versionen V8.92 visade för många separata block och var för tunn i elva av tolv ämnen. Denna etapp är en strukturell och innehållslig korrigering efter användarens granskning, inte ett nytt huvudområde i Väven.
+
+**Överblick**
+- En samlad biblioteksvy med **16 ingångar**: tre tidigare forskningsspår (Himmel/helvete; Är Gud god?; Den fria viljan), deras jämförande mötespunkt samt 12 teman om kyrkans omprövningar och tolkningshistoria.
+- Tre övergripande grupper, sökning bland teman, val av ett synligt ämne åt gången, återgång till biblioteket och bevarad länk till ursprungliga granskningsregister. Det gamla innehållet raderas inte.
+- Djup­länkar från befintliga forskningsposter (URL med `tv_id`) ska inte skymmas av den nya överblicken.
+- Den äldre extra menyn för de tre existentiella frågorna döljs för att undvika konkurrerande navigeringssystem.
+
+**Fördjupning**
+- `data/church-longform.v893.js` kompletterar 11 tidigare alltför korta områden med **33 källbelagda underkapitel och 66 analysstycken**. Samkönade relationer behåller fem långa forskningsavsnitt från V8.92 och de fyra äldre forskningsspåren bibehåller sina tidigare vetenskapliga översikter.
+- Varje avsnitt har källor, historiskt sammanhang, metodiska reservationer och när de är relevanta bibelhänvisningar via existerande Bibel 2000-länksystem.
+- Gamla förklaringar används endast som fallback om de nya källtexterna saknas.
+
+**Kronologi**
+- `data/church-shifts.v892.js` utökas till **67 individuella daterade, källhänvisade historiska hållpunkter**. Varje nytt tema har minst fyra. Händelser separeras i kyrka/teologi, samhälle/politik och vetenskap/kunskap; en gemensam tidsaxel kan döljas för att fokusera på ett område.
+- Årtalen avser dokumenterade publikationer, beslut eller händelser, inte påstådda enhetliga ”datum då kyrkan ändrade uppfattning”.
+- Vissa källänkar är primärdokument; andra är akademiska eller institutionella översikter. De har skilda funktioner. Fullständig URL- och faktakontroll av varje enskild sekundärkälla återstår före slutlig vetenskaplig C6-granskning.
+
+**Tester**
+- `tests/smoke-v892-church-shifts.mjs` kräver numera minst fyra milstolpar per ämne och 67 totalt.
+- `tests/smoke-v893-research-hub.mjs` verifierar 16 ingångar, mängd och struktur på källtexterna, separata visningar och åtkomst till gamla register.
+- Appens originaldata och C6-granskningsjournal är oförändrade. Allt ligger på separat Cloudflare-gren före användarens godkännande.
+
+### Etisk och hermeneutisk avgränsning
+Författarens v4.2-dokument är en personlig och teologisk argumentation. Härled inte att dess egen slutsats är en religionsvetenskaplig konsensus. Utred historisk reception, grundtext, moralfilosofiska argument, moderna vetenskapliga fynd och kyrkospecifika beslut på olika evidensnivåer. Visa genomgående starka seriösa argument från flera läsningar. De historiska analogierna bevisar inte den ena sidans slutsats i den nutida samkönade relationsfrågan.
+
+## V8.94 – samma grafiska tidslinje som Vävens övriga händelser
+
+Efter fortsatt användargranskning bedömdes det otillräckligt med en tabell och tematisk biblioteksyta. I V8.94 införs en **proportionell tidsaxel i Vävens befintliga Gantt-design**. Markeringarna använder de redan existerande CSS-komponenterna `v828-gantt-row`, `v828-gantt-track` och `v828-point`.
+
+- **67** daterade kyrkohistoriska milstolpar och **25** källanknutna datum för tidigare forskningsspår = **92 unika händelser** med separata redaktionella ID:n (inte huvuddatabas-ID). Datum för samma verk i två teman återanvänder samma ID, exempelvis Leibniz 1710.
+- Samma grafiska vy används i alla 16 forskningsingångar, även de tidigare: Himmel/helvete, Är Gud god?, Den fria viljan och deras jämförande spår.
+- En proportionell horisontell årsskala med färgmarkerade händelsepunkter, daterade rader, zoomutsnitt (hela, antik, medeltid, tidigmodern och modern), möjlighet att dölja omvärlden samt utökning av längre listor.
+- Vid klick visas en läsbar **historisk händelseakt**: årtal, precision (exakt, ungefärlig, intervall), vad som hände, forskningssammanhang, metodisk försiktighet, källstatus och länk till stödjande källa. Relaterade tidigare Väven-poster öppnas via befintliga ID:n.
+- För de tre ursprungliga spåren har vi lagt till historiska kontextstycken så att en datapunkt inte bara blir en tunn textrad. De äldre godkända längre forskningsgenomgångarna finns fortsatt kvar under samma valda ämne.
+- Den föregående tredelade **tabellvyn döljs** i V8.94 så att användaren inte möts av två konkurrerande kronologier. Data och tidigare forskningsregister bevaras oförändrade.
+- Bibliska och apokalyptiska texter dateras med sin **sannolika tillkomst**, inte den tid då en berättelse utspelas. Henoksbokens delar kan inte ges ett enda publiceringsår.
+- Skriftliga och filosofiska källor verifierade mot Oxford Academic, Stanford Encyclopedia of Philosophy, forskarutgivna textutgåvor, PubMed och namngivna kyrkodokument. Källorna är av olika slag, och särskilda texters slutliga C6-granskning är inte registrerad.
+- Test `tests/smoke-v894-research-gantt.mjs` granskar bl.a. unika ID:n, kronologiernas källa, märkning av osäkra datum, att nativa Gantt-komponenter används och att alla forskningsområden kan filtreras.
+
+### Källor för de nya datumen
+- Enoch / Väktarboken under 200-talet f.Kr.: C. D. Elledge, OUP 2017, https://academic.oup.com/book/3161/chapter-abstract/144039804 (möjlig tillkomstperiod, ej exakt år).
+- Origenes Om de första principerna omkring 220–230: John Behr, akademisk utgåva, https://research.vu.nl/en/publications/origen-on-first-principles/.
+- Luthers och Erasmus frihetsskrifter 1524 och 1525: Stanford Encyclopedia of Philosophy, https://plato.stanford.edu/entries/luther/.
+- Leibniz Théodicée 1710: SEP, https://plato.stanford.edu/entries/leibniz-evil/.
+- Hume Dialogues 1779: redaktionell primärtext och dateringsnoter, https://davidhume.org/texts/d/.
+- Tridentinska kyrkomötet om skärselden 1563: primärtext, https://www.papalencyclicals.net/councils/trent/twenty-fifth-session.htm.
+- John H. Hick Evil and the God of Love 1966: British National Bibliography, https://obnb.uk/p9010919-evil-and-the-god-of-love.
+- William Rowes artikel 1979: https://philpapers.org/versions/ROWTPO-3.
+- Libets studie 1983: PubMed https://pubmed.ncbi.nlm.nih.gov/6640273/.
+
+**Kontrollerad utvecklingsgräns:** V8.94 ligger i Cloudflare preview och är inte publicerad på huvudgrenen. Ingen förändring i centrala historiska poster, C6-granskningsjournal eller godkända befintliga forskningsartiklar.
+
+## V8.95 – rättning mot Vävens godkända grafiska språk
+
+Användargranskningen av V8.94 konstaterade att **funktionell överensstämmelse med Gantt-vyn inte räcker** när Fördjupningar ser grafiskt ut som en annan applikation.
+
+V8.95 är därför i huvudsak en grafisk korrigering, utan nya historiska fakta, justerade årtal eller ändrade forskningsbedömningar.
+
+- `v893-research-hub.js`: återanvänder **samma faktiska CSS-komponenter** som den tidigare godkända startsidan: `tv876-hero`, `tv876-path`, `tv876-section-head`. Den aktiva fördjupningen får samma visuella huvudrubrikyta.
+- `v895-research-visual-unification.css`: research-specifika regler använder befintliga tokens `--ink`, `--blue`, `--blue2`, `--line`, `--panel`, `--muted` och `--shadow`. De använder startsidans mörkblå gradient, dess kortmått, typografi och fokusmarkeringar.
+- Gantt-rader, färglegend, årsskala och klickbara händelsedossierer använder de redan godkända `v828-*`-stilarna, utan att ändra den ordinarie tidslinjens beteende.
+- De längre forskningsartiklarna får samma harmoniserade ljusa läsytor, rubrikfärger, källblock och statusmarkeringar som de befintliga forskningsposterna.
+- Kort och paneler har fått konsekvent kantlinje, marginaler och rundningar. Dubbelinkapsling av vita paneler reduceras genom att yttre forskningsbiblioteket är kantlöst och att artiklar, tidslinje och huvudrubrik är separata ytor.
+- Anpassning finns för mobil och reducerad rörelse. Ändringarna är avgränsade till `#researchView`.
+- `tests/smoke-v895-research-visuals.mjs` kontrollerar att den godkända startsidans klasser och tokens återanvänds, att Gantt-/läsarkomponenterna finns och att stylesheets laddas i rätt ordning.
+
+**Verifierat:** GitHub-filer, JavaScript-syntax och statisk visuell komponentkontroll. **Ej verifierat:** pixelbaserad jämförelse i faktisk webbläsare och manuellt mobiltest. Därför krävs nytt preview-godkännande innan sammanslagning till `main`.
