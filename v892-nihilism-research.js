@@ -70,7 +70,7 @@ const studies=[
     "year": "1849–1862",
     "paragraphs": [
       "År 1849 publicerade Søren Kierkegaard Sygdommen til Døden, vanligen översatt Sjukdomen till döds, under pseudonymen Anti-Climacus. Människans förtvivlan skildras inte främst som en samhällsdiagnos utan som ett existentiellt problem: att kunna förhålla sig riktigt till sitt eget jag. För Kierkegaard hör detta samman med den kristna relationen till Gud. Han erbjuder därmed ett historiskt viktigt kristet svar på existentiell vilsenhet, men hans premisser kan inte göras allmängiltiga enbart genom att de presenteras på en webbsida.",
-      "Tretton år senare, 1862, publicerade Ivan Turgenjev romanen Fäder och söner. Karaktären Bazarov avvisar traditionella auktoriteter och kalla sig nihilist. Romanen speglar det ryska samhällets generationella och politiska konflikter, där vetenskap, religion och äldre sociala normer var föremål för ny prövning. Termen fick därigenom stor spridning i allmän debatt.",
+      "Tretton år senare, 1862, publicerade Ivan Turgenjev romanen Fäder och söner. Karaktären Bazarov avvisar traditionella auktoriteter och kallar sig nihilist. Romanen speglar det ryska samhällets generationella och politiska konflikter, där vetenskap, religion och äldre sociala normer var föremål för ny prövning. Termen fick därigenom stor spridning i allmän debatt.",
       "Det finns en avgörande skillnad mellan dessa verk. Kierkegaard söker en fördjupad kristen förståelse av människan. Turgenjev gestaltar nya sociala attityder gentemot etablerade auktoriteter. Ingen av dem utgör i sig belägg för att det aldrig kan finnas någon mening med livet. Dessa poster skall därför stå sida vid sida i tidslinjen utan att slås samman till ett enda filosofiskt 'skifte'."
     ],
     "assessment": "Utgivningsår och centrala textmotiv är belagda. Social reception, filosofisk representativitet och senare tolkning kräver varsin analys.",
@@ -178,7 +178,7 @@ const dates=[['1799','H070','Jacobi – filosofisk kritik'],['1849','H071','Kier
 const esc=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const post=id=>'/?tv_id='+encodeURIComponent(id)+'&tv_view=research';
 const bible=x=>typeof window.TidensReview2BibleLink==='function'?window.TidensReview2BibleLink(x):esc(x);
-const p=s=>'<p>'+esc(s).replace(/\\[\\[([^\\]]+)\\]\\]/g,(_,ref)=>bible(ref))+'</p>';
+const p=s=>'<p>'+esc(s).replace(/\[\[([^\]]+)\]\]/g,(_,ref)=>bible(ref))+'</p>';
 const source=([label,url])=>'<li><a href="'+esc(url)+'" target="_blank" rel="noopener noreferrer">'+esc(label)+' ↗</a></li>';
 function markup(){return '<section id="v892NihilismTrack" class="v888-track v892-track" aria-label="Granskning 5 Nihilismen">'+
 '<div class="v888-head"><span class="v888-kicker">GRANSKNING 5 · FILOSOFIHISTORIA · RELIGIONSHISTORIA · 2026</span><h2>Nihilismen – finns det en mening med livet?</h2><p class="v892-lead">Från 1799 års filosofidebatt till vår tids frågor om Gud, mening och moral. Följ dokumenterade historiska händelser och jämför deras betydelse med Jobs bok, Predikaren och modern teologi.</p><p class="v888-warning">Belagd idéhistoria skiljs från filosofiskt omstridda svar. Ingen ny post är markerad som vetenskapligt slutgranskad i C6.</p>'+
