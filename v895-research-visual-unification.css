@@ -1,0 +1,99 @@
+/* V8.95 – research inherits the visual contract already approved elsewhere in Tidens väv.
+   Reuse live design tokens + .tv876-hero/.tv876-path/.timeline-card/.v828-gantt.
+   Scoped to researchView: never restyle existing timeline, reading panel or Start here. */
+#researchView{--tvr-ink:var(--ink,#17304a);--tvr-blue:var(--blue,#2867ac);--tvr-blue-dark:var(--blue2,#174377);--tvr-border:var(--line,#dbe4ef);--tvr-card:var(--panel,#fff);--tvr-soft:#f8fbff;--tvr-muted:var(--muted,#68798d);color:var(--tvr-ink)}
+#researchView #tvResearchHub.tvhub-root{max-width:1170px;width:100%;margin:0 auto 18px;padding:0;background:transparent;border:0;box-shadow:none;border-radius:0;color:var(--tvr-ink)}
+/* Exact 'Börja här' hero surface, typography and proportions */
+#researchView .tvhub-hero.tv876-hero{padding:clamp(24px,4vw,44px);background:linear-gradient(128deg,#173e62,#27688a);border-radius:20px;color:#fff;box-shadow:var(--shadow)}
+#researchView .tvhub-hero.tv876-hero .v888-kicker{font-size:11px;color:#e4f3fb;font-weight:750;letter-spacing:.12em}
+#researchView .tvhub-hero.tv876-hero h1{font-family:Georgia,serif;font-size:clamp(28px,3.9vw,44px);font-weight:700;color:#fff;margin:12px 0 13px;line-height:1.17}
+#researchView .tvhub-hero.tv876-hero>p{font-size:clamp(14px,1.35vw,16px);line-height:1.75;color:#eaf3f9;max-width:850px;margin:0 0 20px}
+#researchView .tvhub-stats{gap:10px;margin:18px 0 19px}
+#researchView .tvhub-stats span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.32);color:#fff;border-radius:9px;padding:9px 13px;font-size:12px;box-shadow:none}
+#researchView .tvhub-stats b{font-size:15px;color:#fff}
+#researchView .tvhub-tools{margin:12px 0 0}
+#researchView .tvhub-tools label{color:#e8f2fc;font-size:12px;display:block}
+#researchView #tvhubSearch{border-radius:9px;border:1px solid #b8d5e8;background:#fff;color:#173e62;font-size:13px;padding:11px 13px;width:100%;max-width:515px}
+/* Same grouped topic cards and framing as approved onboarding path cards */
+#researchView .tvhub-group{border:0;margin:26px 0 0;padding:0}
+#researchView .tvhub-group h3{font-size:clamp(19px,2vw,24px);color:#173d62;font-weight:800;margin:0 0 6px;line-height:1.3}
+#researchView .tvhub-group>p{color:#547087;font-size:13px;line-height:1.6;margin:0 0 14px;opacity:1}
+#researchView .tvhub-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+#researchView .tvhub-card.tv876-path{display:flex;flex-direction:column;align-items:flex-start;min-height:196px;gap:9px;background:#fff;color:#17334c;border:1px solid #d5e2ec;border-radius:14px;box-shadow:var(--shadow);padding:20px;cursor:pointer;transition:border-color .15s ease,box-shadow .15s ease}
+#researchView .tvhub-card.tv876-path:hover{border-color:#8bb5d4;box-shadow:0 8px 20px rgba(30,46,74,.10);background:#fff}
+#researchView .tvhub-card.tv876-path strong{font-size:clamp(15px,1.55vw,18px);color:#173d62;line-height:1.3}
+#researchView .tvhub-card.tv876-path>span{font-size:13px;line-height:1.6;color:#476277;opacity:1}
+#researchView .tvhub-card.tv876-path small{font-size:12px;color:#145d8a;line-height:1.4;font-weight:750;margin-top:auto;opacity:1}
+#researchView .tvhub-card.tv876-path:focus-visible{outline:2px solid #4383ab;outline-offset:2px}
+#researchView .tvhub-other{margin:24px 0 0;border:1px solid #d5e2ec;background:#f8fbff;border-radius:14px;padding:19px}
+#researchView .tvhub-other h3{font-size:17px;color:#173d62}
+#researchView .tvhub-actions button{border:1px solid #a8c8e5;background:#eaf3fc;color:#174e84;font-size:12px;font-weight:700;border-radius:9px;padding:9px 12px}
+/* Selected research uses same hero, then timeline and reader as separate peer surfaces */
+#researchView .tvhub-activebar.tv876-hero{display:flex;align-items:flex-start;flex-wrap:wrap;gap:16px 23px;margin:0;min-height:0;padding:clamp(19px,3vw,28px);color:#fff}
+#researchView .tvhub-activebar.tv876-hero>div{flex:1 1 350px;min-width:0}
+#researchView .tvhub-activebar.tv876-hero h2{font-family:Georgia,serif;font-size:clamp(24px,3.2vw,34px);line-height:1.22;color:#fff;margin:8px 0}
+#researchView .tvhub-activebar.tv876-hero p{font-size:13px;line-height:1.6;color:#eaf3f9;margin:0}
+#researchView .tvhub-back{border:1px solid rgba(255,255,255,.52);border-radius:9px;background:rgba(255,255,255,.1);color:#fff;padding:9px 13px;font-size:12px;font-weight:750;white-space:normal}
+#researchView .tvhub-back:hover{background:rgba(255,255,255,.2)}
+#researchView .tvhub-shortcuts{border:1px solid #d5e2ec;border-radius:10px;background:#f8fbff;margin:13px 0;padding:10px;display:flex;gap:7px;flex-wrap:wrap}
+#researchView .tvhub-shortcuts button{background:#fff;border:1px solid #c5d9e9;border-radius:8px;font-size:11px;font-weight:700;color:#225b85;padding:7px 11px}
+#researchView .tvhub-shortcuts button:hover{background:#eaf3fc}
+/* Native Gantt cards, date columns, axis and selection treatment */
+#researchView #tvResearchGraph{margin:14px 0 16px;min-width:0}
+#researchView #tvResearchGraph .v894-graph.v828-gantt{background:#fff;color:#17304a;border:1px solid #d5e2ec;border-radius:16px;padding:clamp(12px,2vw,20px);box-shadow:var(--shadow)}
+#researchView .v894-graph .v828-gantt-intro h3{font-size:16px;font-weight:800;color:#153e5f}
+#researchView .v894-graph .v828-gantt-intro p{font-size:12px;line-height:1.6;color:#5d748b}
+#researchView .v894-graph .v828-categories{gap:6px;margin:10px 0 12px}
+#researchView .v894-graph .v828-color-key{background:#fbfdff;color:#405c73;border-color:#dbe5ee;border-radius:6px;font-size:11px;padding:5px 8px}
+#researchView .v894-controls{border-color:#d9e5f0;background:#f9fcff;border-radius:9px;padding:9px 11px}
+#researchView .v894-controls label{font-size:11px;color:#315775}
+#researchView .v894-controls select{border:1px solid #bfd5e8;background:#fff;border-radius:8px;color:#174e84;font-size:12px}
+#researchView .v894-axis-ticks{background-color:#edf5fc;border-bottom-color:#b7cbdc}
+#researchView .v894-axis-ticks>span{color:#536d85;font-size:10px}
+#researchView .v894-graph .v828-gantt-row{border-bottom-color:#e6edf3;min-height:44px}
+#researchView .v894-graph .v828-gantt-row:nth-child(odd){background:#f8fbff}
+#researchView .v894-graph .v828-gantt-row:hover{background:#eef6ff}
+#researchView .v894-graph .v828-gantt-label{font-size:11px;color:#1a3e5a;padding:7px;line-height:1.35}
+#researchView .v894-graph .v828-gantt-label b{font-size:12px;color:#1a3e5a;line-height:1.4}
+#researchView .v894-graph .v828-gantt-label small{font-size:10px;color:#617890}
+#researchView .v894-graph .v828-gantt-track{background-image:linear-gradient(90deg,rgba(50,83,113,.075) 1px,transparent 1px)}
+#researchView .v894-graph .v828-gantt-date{font-size:10px;color:#60778b}
+#researchView .v894-graph .v894-active{background:#eaf3ff!important;outline:2px solid #2b6dac}
+#researchView .v894-dossier.v828-dossier{background:#fcfdff;border:1px solid #bed3e3;border-left:5px solid #2f6c9b;border-radius:13px;box-shadow:none;padding:16px}
+#researchView .v894-dossier h3{font-size:18px;color:#123c59}
+#researchView .v894-dossier h4{font-size:13px;color:#31516b}
+#researchView .v894-dossier p{font-size:13px;line-height:1.65;color:#2a4b65}
+#researchView .v894-dossier .v894-method,#researchView .v894-dossier .v894-date{font-size:11px!important;color:#5e7486!important}
+#researchView .v894-summary{font-size:11px;color:#61768b}
+#researchView .v894-summary button{border:1px solid #a8c8e5;background:#eaf3fc;color:#174e84;font-size:12px;border-radius:9px}
+/* Deep scholarship matches standard scientific-reader panels */
+#researchView>.v888-track,#researchView>.tvcs-root{max-width:1170px;margin:0 auto 16px;border:1px solid #d5e2ec;border-radius:16px;background:#fff;box-shadow:var(--shadow);color:#17304a;padding:clamp(15px,2.4vw,25px)}
+#researchView .v888-head h2,#researchView .tvcs-depth h3{color:#173d62;font-size:clamp(18px,2vw,23px);line-height:1.3}
+#researchView .v888-head>p,#researchView .tvcs-depth p{color:#405e77;line-height:1.75}
+#researchView .v888-kicker{color:#255e96;font-size:11px;font-weight:800;letter-spacing:.06em}
+#researchView .v891-reading p,#researchView .tvcs-long p{font-size:14px;color:#2b4760;line-height:1.77}
+#researchView .v891-section>summary,#researchView .tvcs-depth summary{color:#234e70;font-size:14px!important;line-height:1.5}
+#researchView .v891-sourcebox,#researchView .tvcs-sources{background:#f8fbff;border-color:#d5e2ec;border-radius:10px}
+#researchView .v891-sourcebox a,#researchView .tvcs-depth a{color:#1a6198;text-decoration:underline;text-underline-offset:3px}
+#researchView .v891-assessment{border-left-color:#a77f39;background:#fff8eb;color:#725727;padding:11px}
+#researchView .tvcs-root>.tvcs-tools,#researchView .tvcs-root>.tvcs-intro,#researchView .tvcs-root>.tvcs-overview{display:none!important}
+#researchView .tvcs-depth{margin-top:0;border-top:0;padding-top:0}
+#researchView .tvcs-foot{border-top:1px solid #d7e4ee;color:#617993}
+/* One information hierarchy: no duplicate in-topic borders or imported teal palette */
+@media(max-width:1050px){#researchView .tvhub-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){
+#researchView #tvResearchHub.tvhub-root{padding:0 1px}
+#researchView .tvhub-hero.tv876-hero{padding:22px;border-radius:15px}
+#researchView .tvhub-hero.tv876-hero h1{font-size:29px}
+#researchView .tvhub-grid{grid-template-columns:1fr;gap:10px}
+#researchView .tvhub-card.tv876-path{padding:15px;min-height:0}
+#researchView .tvhub-activebar.tv876-hero{gap:12px;padding:20px}
+#researchView .tvhub-activebar.tv876-hero h2{font-size:24px}
+#researchView .tvhub-shortcuts{gap:5px;padding:7px}
+#researchView .tvhub-shortcuts button{font-size:11px;padding:7px 9px}
+#researchView .v894-graph .v828-gantt-label b{font-size:12px}
+#researchView .v894-dossier.v828-dossier{padding:13px}
+#researchView .v894-dossier p{font-size:13px}
+#researchView .v891-reading p,#researchView .tvcs-long p{font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){#researchView .tvhub-card.tv876-path{transition:none}}
