@@ -351,7 +351,7 @@ window.TIDENS_BIG_QUESTIONS_TIMELINE = {
       "title": "1983 · Libets experiment om medvetna beslut",
       "detail": "Libets neurologiska försök att mäta hjärnaktivitet före rapporterad medveten intention har fått stort genomslag i diskussionen om fri vilja. Men experimenten gäller enkla rörelser och avgör inte på egen hand om människor har moralisk eller metafysisk valfrihet.",
       "certainty": "SEP: Free Will and Neuroscience",
-      "source": "https://plato.stanford.edu/entries/freewill/",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/6640273/",
       "precision": "exact",
       "relatedPostId": null
     },
