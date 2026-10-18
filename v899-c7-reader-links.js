@@ -36,10 +36,14 @@ const rx=new RegExp('(^|[^\\p{L}\\p{N}])('+names.map(escaped).join('|')+')\\s+(\
 function references(input){
  const matches=[];rx.lastIndex=0;let m;
  while((m=rx.exec(String(input||'')))){
-  const chapter=Number(m[3]),verse=Number(m[4]||1);
+  const code=lookup.get(m[2].toLowerCase());
+  // Judas, Obadja, Filemon och 2–3 Johannes har endast ett kapitel.
+  // ”Judas 14–15” avser verser i kapitel 1, inte kapitel 14.
+  const singleChapter=['JUD','OBA','PHM','2JN','3JN'].includes(code);
+  const chapter=singleChapter?1:Number(m[3]),verse=Number(m[4]||1);
   if(chapter<1||chapter>150||verse>176)continue;
   const start=m.index+m[1].length,label=m[0].slice(m[1].length);
-  matches.push({start,end:start+label.length,label,url:'https://www.bible.com/sv/bible/1223/'+lookup.get(m[2].toLowerCase())+'.'+chapter+'.SFB15'});
+  matches.push({start,end:start+label.length,label,url:'https://www.bible.com/sv/bible/1223/'+code+'.'+chapter+'.SFB15'});
  }
  return matches;
 }
