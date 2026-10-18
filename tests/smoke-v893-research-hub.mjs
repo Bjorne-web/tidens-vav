@@ -10,11 +10,11 @@ assert.ok(page.indexOf('v893-research-hub.js')>page.indexOf('v892-church-shifts.
 for(const s of [hubScript,longformScript])assert.doesNotThrow(()=>new vm.Script(s));
 const window={};vm.runInNewContext(dataSource,{window});vm.runInNewContext(longformScript,{window});
 const data=window.TIDENS_CHURCH_SHIFTS,large=window.TIDENS_CHURCH_LONGFORM;
-assert.equal(data.events.length,61);
+assert.equal(data.events.length,67);
 assert.equal(data.topics.length,12);
 assert.equal(Object.keys(large).length,11);
 for(const t of data.topics){
- assert.ok(data.events.filter(x=>x.topic===t.id).length>=3,'Too sparse: '+t.id);
+ assert.ok(data.events.filter(x=>x.topic===t.id).length>=4,'Too sparse: '+t.id);
  if(t.id==='sexuality')continue;
  const work=large[t.id];assert.ok(work,'No research content: '+t.id);
  assert.ok(work.lead.length>70);
@@ -54,4 +54,4 @@ assert.equal(nodes.find(x=>x.id==='v888Track').hidden,true);
 assert.equal(hub.select('legacy',false),true);
 assert.equal(nodes.find(x=>x.id==='someLegacyRecords').hidden,false,'Legacy material must remain reachable');
 assert.equal(hub.select('unknown',false),false);
-console.log('V8.93 PASS – 16 consolidated research entries, 61 events, 66 longform paragraphs, accessible legacy materials, isolated active panels.');
+console.log('V8.93 PASS – 16 consolidated research entries, 67 events, 66 longform paragraphs, accessible legacy materials, isolated active panels.');
