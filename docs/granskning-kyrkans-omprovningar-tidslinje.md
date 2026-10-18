@@ -129,3 +129,30 @@ Den första preview-versionen V8.92 visade för många separata block och var f�
 
 ### Etisk och hermeneutisk avgränsning
 Författarens v4.2-dokument är en personlig och teologisk argumentation. Härled inte att dess egen slutsats är en religionsvetenskaplig konsensus. Utred historisk reception, grundtext, moralfilosofiska argument, moderna vetenskapliga fynd och kyrkospecifika beslut på olika evidensnivåer. Visa genomgående starka seriösa argument från flera läsningar. De historiska analogierna bevisar inte den ena sidans slutsats i den nutida samkönade relationsfrågan.
+
+## V8.94 – samma grafiska tidslinje som Vävens övriga händelser
+
+Efter fortsatt användargranskning bedömdes det otillräckligt med en tabell och tematisk biblioteksyta. I V8.94 införs en **proportionell tidsaxel i Vävens befintliga Gantt-design**. Markeringarna använder de redan existerande CSS-komponenterna `v828-gantt-row`, `v828-gantt-track` och `v828-point`.
+
+- **67** daterade kyrkohistoriska milstolpar och **25** källanknutna datum för tidigare forskningsspår = **92 unika händelser** med separata redaktionella ID:n (inte huvuddatabas-ID). Datum för samma verk i två teman återanvänder samma ID, exempelvis Leibniz 1710.
+- Samma grafiska vy används i alla 16 forskningsingångar, även de tidigare: Himmel/helvete, Är Gud god?, Den fria viljan och deras jämförande spår.
+- En proportionell horisontell årsskala med färgmarkerade händelsepunkter, daterade rader, zoomutsnitt (hela, antik, medeltid, tidigmodern och modern), möjlighet att dölja omvärlden samt utökning av längre listor.
+- Vid klick visas en läsbar **historisk händelseakt**: årtal, precision (exakt, ungefärlig, intervall), vad som hände, forskningssammanhang, metodisk försiktighet, källstatus och länk till stödjande källa. Relaterade tidigare Väven-poster öppnas via befintliga ID:n.
+- För de tre ursprungliga spåren har vi lagt till historiska kontextstycken så att en datapunkt inte bara blir en tunn textrad. De äldre godkända längre forskningsgenomgångarna finns fortsatt kvar under samma valda ämne.
+- Den föregående tredelade **tabellvyn döljs** i V8.94 så att användaren inte möts av två konkurrerande kronologier. Data och tidigare forskningsregister bevaras oförändrade.
+- Bibliska och apokalyptiska texter dateras med sin **sannolika tillkomst**, inte den tid då en berättelse utspelas. Henoksbokens delar kan inte ges ett enda publiceringsår.
+- Skriftliga och filosofiska källor verifierade mot Oxford Academic, Stanford Encyclopedia of Philosophy, forskarutgivna textutgåvor, PubMed och namngivna kyrkodokument. Källorna är av olika slag, och särskilda texters slutliga C6-granskning är inte registrerad.
+- Test `tests/smoke-v894-research-gantt.mjs` granskar bl.a. unika ID:n, kronologiernas källa, märkning av osäkra datum, att nativa Gantt-komponenter används och att alla forskningsområden kan filtreras.
+
+### Källor för de nya datumen
+- Enoch / Väktarboken under 200-talet f.Kr.: C. D. Elledge, OUP 2017, https://academic.oup.com/book/3161/chapter-abstract/144039804 (möjlig tillkomstperiod, ej exakt år).
+- Origenes Om de första principerna omkring 220–230: John Behr, akademisk utgåva, https://research.vu.nl/en/publications/origen-on-first-principles/.
+- Luthers och Erasmus frihetsskrifter 1524 och 1525: Stanford Encyclopedia of Philosophy, https://plato.stanford.edu/entries/luther/.
+- Leibniz Théodicée 1710: SEP, https://plato.stanford.edu/entries/leibniz-evil/.
+- Hume Dialogues 1779: redaktionell primärtext och dateringsnoter, https://davidhume.org/texts/d/.
+- Tridentinska kyrkomötet om skärselden 1563: primärtext, https://www.papalencyclicals.net/councils/trent/twenty-fifth-session.htm.
+- John H. Hick Evil and the God of Love 1966: British National Bibliography, https://obnb.uk/p9010919-evil-and-the-god-of-love.
+- William Rowes artikel 1979: https://philpapers.org/versions/ROWTPO-3.
+- Libets studie 1983: PubMed https://pubmed.ncbi.nlm.nih.gov/6640273/.
+
+**Kontrollerad utvecklingsgräns:** V8.94 ligger i Cloudflare preview och är inte publicerad på huvudgrenen. Ingen förändring i centrala historiska poster, C6-granskningsjournal eller godkända befintliga forskningsartiklar.
