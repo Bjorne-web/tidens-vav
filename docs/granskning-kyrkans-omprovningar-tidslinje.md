@@ -38,7 +38,7 @@ Detta är en beskrivning av datatyper och exempel på tänkt färgsättning, int
 ### Kronologiskt illustrerande hållpunkter att förankra i källor
 - ca 40–50 e.Kr.: Konflikten om hedningarnas inträde i den tidiga kristna rörelsen, Apg 15/Gal 2. Bibeltexternas berättade händelser respektive tillkomst dateras separat.
 - 1543: Kopernikus publicerar *De revolutionibus*. Vetenskaplig publicering, **inte** ett beslut av kyrkan.
-- 1616 och 1633: Katolska kyrkliga ingripanden rörande heliocentrism och Galilei. Datera respektive händelse efter dokumenterat beslut.
+- 1676 och 1633: Katolska kyrkliga ingripanden rörande heliocentrism och Galilei. Datera respektive händelse efter dokumenterat beslut.
 - 1517 och 1520-talet: reformation och anabaptistisk dopdebatt; redovisa delvis samtidiga men olika förlopp.
 - 1859: Darwin publicerar *On the Origin of Species*; reaktioner inom kyrkorna varierar.
 - 1865: Slaveriets avskaffande i USA genom det trettonde författningstillägget, men kristen slaverikritik och slavförsvar har längre och geografiskt olika historik.
@@ -118,12 +118,12 @@ Den första preview-versionen V8.92 visade för många separata block och var f�
 - Gamla förklaringar används endast som fallback om de nya källtexterna saknas.
 
 **Kronologi**
-- `data/church-shifts.v892.js` utökas till **61 individuella daterade, källhänvisade historiska hållpunkter**. Varje nytt tema har minst tre. Händelser separeras i kyrka/teologi, samhälle/politik och vetenskap/kunskap; en gemensam tidsaxel kan döljas för att fokusera på ett område.
+- `data/church-shifts.v892.js` utökas till **67 individuella daterade, källhänvisade historiska hållpunkter**. Varje nytt tema har minst fyra. Händelser separeras i kyrka/teologi, samhälle/politik och vetenskap/kunskap; en gemensam tidsaxel kan döljas för att fokusera på ett område.
 - Årtalen avser dokumenterade publikationer, beslut eller händelser, inte påstådda enhetliga ”datum då kyrkan ändrade uppfattning”.
 - Vissa källänkar är primärdokument; andra är akademiska eller institutionella översikter. De har skilda funktioner. Fullständig URL- och faktakontroll av varje enskild sekundärkälla återstår före slutlig vetenskaplig C6-granskning.
 
 **Tester**
-- `tests/smoke-v892-church-shifts.mjs` kräver numera minst tre milstolpar per ämne och 61 totalt.
+- `tests/smoke-v892-church-shifts.mjs` kräver numera minst tre milstolpar per ämne och 67 totalt.
 - `tests/smoke-v893-research-hub.mjs` verifierar 16 ingångar, mängd och struktur på källtexterna, separata visningar och åtkomst till gamla register.
 - Appens originaldata och C6-granskningsjournal är oförändrade. Allt ligger på separat Cloudflare-gren före användarens godkännande.
 
