@@ -23,7 +23,7 @@ assert.match(link('2 Mack 7:9–14'),/\/417\/2MA\.7\.B2000D/);
 assert.match(link('1 Kor 15:22–28'),/\/1CO\.15\.22\.B2000/);
 assert.match(link('Jona 4:1–11'),/\/JON\.4\.1\.B2000/);
 assert.match(link('Job 38–42'),/\/JOB\.38\.B2000/);
-assert.match(link('1 Henok 22'),/en\\.wikisource\\.org/,'Provide external text link for 1 Henok');
+assert.ok(link('1 Henok 22').includes('en.wikisource.org/wiki/'), 'Provide external text link for 1 Henok');
 const refLabels=[...text.matchAll(/\[\[([^\]]+)\]\]/g)].map(m=>m[1]);
 const actualRefs=refLabels.filter(ref=>ref.length<45&&!ref.includes('https:')&&!ref.includes("'"));
 assert.ok(actualRefs.length>=40,'Too few linked scriptural references');
