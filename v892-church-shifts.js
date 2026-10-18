@@ -10,9 +10,10 @@ const sourceSafe=url=>{try{const u=new URL(url);return u.protocol==='https:'?u.h
 const bible=ref=>{
  const linked=typeof window.TidensReview2BibleLink==='function'?window.TidensReview2BibleLink(ref):esc(ref);
  if(linked.includes('href='))return linked;
- const jos=/^Jos (\\d+)(?::(\\d+))?/.exec(ref);
- if(jos){
-  const url='https://www.bible.com/sv/bible/154/JOS.'+jos[1]+(jos[2]?'.'+jos[2]:'')+'.B2000';
+ const m=/^(Jos|Filem) (\d+)(?::(\d+))?/.exec(ref);
+ if(m){
+  const code=m[1]==='Jos'?'JOS':'PHM';
+  const url='https://www.bible.com/sv/bible/154/'+code+'.'+m[2]+(m[3]?'.'+m[3]:'')+'.B2000';
   return '<a href="'+url+'" target="_blank" rel="noopener noreferrer">'+esc(ref)+' ↗</a>';
  }
  return esc(ref);
@@ -44,6 +45,12 @@ const history=[
 'Det bifogade dokumentets personliga slutsats är att trofasta samkönade relationer bör bejakas och erkännas. Tidens väv ska inte göra den slutsatsen till sitt förutbestämda svar. I stället ska besökaren få de bibliska källorna, den religionshistoriska miljön, teologernas skilda argument, de daterade kyrkobesluten och samtidens utveckling för att kunna pröva själv.'
 ],sources:[['Kyrkans historiska ställningstaganden – Svenska kyrkan','https://www.svenskakyrkan.se/hbtq-personers-rattigheter'],['Stanford Encyclopedia of Philosophy – Religion and Morality','https://plato.stanford.edu/entries/religion-morality/']]}
 ];
+function expandedTopic(topic){
+ const entry=window.TIDENS_CHURCH_LONGFORM&&window.TIDENS_CHURCH_LONGFORM[topic];
+ if(!entry)return '';
+ const para=p=>'<p>'+esc(p).replace(/\[\[([^\]]+)\]\]/g,(_m,r)=>bible(r))+'</p>';
+ return '<section class="tvcs-depth tvcs-expanded-topic" aria-label="'+esc(data.topics.find(t=>t.id===topic)?.label||topic)+'"><h3>'+esc(data.topics.find(t=>t.id===topic)?.label||topic)+' – fördjupning</h3><p class="tvcs-lead">'+esc(entry.lead)+'</p>'+entry.sections.map((section,i)=>'<details'+(i===0?' open':'')+'><summary>'+esc(section.title)+'</summary><div class="tvcs-long">'+section.paragraphs.map(para).join('')+'<h4>Källor och vidare läsning</h4>'+sourceList(section.sources)+'</div></details>').join('')+'<p class="tvcs-method">Forskningsunderlaget är under uppbyggnad. Historisk beskrivning, bibeltextens betydelse och modern teologisk bedömning prövas separat.</p></section>';
+}
 const small={
 heliocentrism:{heading:'När världsbilden ändrades',text:'Kopernikus (1543) och Galilei (1633) hör till olika skeenden: en vetenskaplig publicering och ett specifikt kyrkligt rättsfall. Frågan gäller när bibelns kosmiska språk tolkats som naturbeskrivning respektive som tidsbundet och fenomenologiskt språk. Kyrkliga reaktioner var inte enhetliga.',verses:['Jos 10:12–14','Ps 93:1']},
 slavery:{heading:'Bibelargument för och emot slaveri',text:'En del kristna försvarade slaveri med hänvisning till ordningstexter, medan andra fann teologiska skäl för abolitionism. Storbritanniens förbud mot slavhandeln 1807 är ett juridiskt steg och får inte förväxlas med ett fullständigt avskaffande av slaveriet.',verses:['Ef 6:5','Gal 3:28']},
@@ -64,6 +71,7 @@ function renderReading(topic){
  history.map((h,i)=>'<details '+(i===0?'open':'')+'><summary>'+esc(h.title)+'</summary><div class="tvcs-long">'+h.parts.map(p=>'<p>'+esc(p).replace(/\[\[([^\]]+)\]\]/g,(_all,r)=>bible(r))+'</p>').join('')+'<h4>Vidare källor</h4>'+sourceList(h.sources)+'</div></details>').join('')+'</section>';
  }
  if(topic==='all')return '<p class="tvcs-all-hint">Välj ett forskningsområde ovan för att läsa dess specifika frågor och se de historiska hållpunkterna. Börja gärna med <button type="button" data-tvcs-topic="sexuality" class="tvcs-textbutton">Samkönade relationer</button> för en längre genomgång.</p>';
+ const expanded=expandedTopic(topic);if(expanded)return expanded;
  const v=small[topic];if(!v)return '';
  return '<section class="tvcs-depth"><h3>'+esc(v.heading)+'</h3><p>'+esc(v.text)+'</p><p><strong>Relevanta bibeltexter:</strong> '+v.verses.map(bible).join(' · ')+'</p><p class="tvcs-method">Detta spår är en första innehållsetapp. Fullständig individgranskning av bibeltexter, samfundshistoria och daterade skiften återstår.</p></section>';
 }
@@ -89,6 +97,7 @@ function draw(){
  document.getElementById('tvcsReading').innerHTML=renderReading(state.topic);
  const toggle=document.getElementById('tvcsWorld');if(toggle)toggle.checked=state.includeWorld;
 }
+function selectTopic(topic){if(topic!=='all'&&!data.topics.some(x=>x.id===topic))return false;state.topic=topic;state.openId=null;draw();return true;}
 function install(){
  const host=document.getElementById('researchView');if(!host||host.querySelector('#tvChurchShifts'))return;
  const old=host.querySelector('#v890Nav')||host.querySelector('#v888Track');
@@ -99,12 +108,12 @@ function init(){
  const host=document.getElementById('researchView');if(!host)return;
  install();
  host.addEventListener('click',e=>{
- const t=e.target.closest('[data-tvcs-topic]');if(t){const next=t.dataset.tvcsTopic;if(next==='all'||data.topics.some(x=>x.id===next)){state.topic=next;state.openId=null;draw()}return}
+ const t=e.target.closest('[data-tvcs-topic]');if(t){const next=t.dataset.tvcsTopic;if(next==='all'||data.topics.some(x=>x.id===next)){selectTopic(next);if(typeof window.dispatchEvent==='function'&&typeof CustomEvent!=='undefined')window.dispatchEvent(new CustomEvent('tvcs:select',{detail:{topic:next}}))}return}
  const c=e.target.closest('[data-tvcs-event]');if(c){state.openId=state.openId===c.dataset.tvcsEvent?null:c.dataset.tvcsEvent;draw();}
  });
  host.addEventListener('change',e=>{if(e.target.id==='tvcsWorld'){state.includeWorld=Boolean(e.target.checked);state.openId=null;draw()}});
  new MutationObserver(()=>{if(!host.querySelector('#tvChurchShifts'))install()}).observe(host,{childList:true});
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
-window.TidensChurchShiftsV1={getState:()=>({...state}),getData:()=>data};
+window.TidensChurchShiftsV1={getState:()=>({...state}),getData:()=>data,selectTopic};
 })();
