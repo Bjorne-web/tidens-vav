@@ -110,7 +110,7 @@
       ],
       [
         "1 Kor 15:3–8 – tidig tradition om Jesu död och uppståndelse (SFB15)",
-        "https://www.bible.com/sv/bible/1223/1CO.15.3-8.SFB15"
+        "https://www.bible.com/sv/bible/1223/1CO.15.SFB15"
       ]
     ]
   },
