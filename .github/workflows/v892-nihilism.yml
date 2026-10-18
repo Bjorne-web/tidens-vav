@@ -8,6 +8,10 @@ on:
       - 'v892-nihilism-research.css'
       - 'tests/smoke-nihilism-v892.mjs'
       - 'index.html'
+      - 'v893-research-hub.js'
+      - 'v894-research-gantt.js'
+      - 'data/nihilism-research-gantt.v896.js'
+      - 'tests/smoke-nihilism-hub-v896.mjs'
       - '.github/workflows/v892-nihilism.yml'
   pull_request:
     paths:
@@ -26,4 +30,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Verify Nihilism research and C7 significance
-        run: node tests/smoke-nihilism-v892.mjs
+        run: |
+          node tests/smoke-nihilism-v892.mjs
+          node tests/smoke-nihilism-hub-v896.mjs
