@@ -39,4 +39,11 @@
  note.innerHTML='<strong>Tidslinje</strong><span>Välj område ovan eller utforska den samlade historien med filter och tidsreglage nedan.</span>';
  const toolbar=root.querySelector('.v7toolbar');
  if(toolbar)toolbar.insertAdjacentElement('beforebegin',note);
+ const pan=document.getElementById('v827PanControls');
+ const timeCaption=root.querySelector('.tv895-timeline-caption');
+ if(pan&&timeCaption){
+   timeCaption.insertAdjacentElement('afterend',pan);
+   pan.classList.add('tv895-pan-inline');
+ }
+
 })();
