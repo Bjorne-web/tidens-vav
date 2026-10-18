@@ -20,7 +20,9 @@ for(const group of groups)if(group.keys)group.cards=group.keys.map(id=>{
 const topic=data.topics.find(t=>t.id===id);
 return{id,label:topic.label,desc:topic.description,target:'tvChurchShifts',badge:counts.get(id)+' historiska händelser'};
 });
-let selected='overview';
+// Behåll direkta postlänkar som öppnas från tidslinje och sökresultat.
+const incoming=typeof window.location?.search==='string'?window.location.search:'';
+let selected=/(?:[?&])tv_id=/.test(incoming)?'legacy':'overview';
 const known=new Set(['tvResearchHub','v890Nav','tvChurchShifts','v888Track','v889-good','v889-will','v890Bridge']);
 const cards=groups.flatMap(g=>g.cards);
 const labels=Object.fromEntries(cards.map(c=>[c.id,c.label]));
