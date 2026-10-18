@@ -13,7 +13,7 @@ const sources=[
 {name:'Stanford: Religion and Morality in Western Philosophy',url:'https://plato.stanford.edu/entries/religion-morality/'},
 {name:'Stanford: Free Will',url:'https://plato.stanford.edu/entries/freewill/'}];
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const nav='<nav id="v890Nav" class="v890-nav" aria-label="Forskningsspår i Granskning 2"><span>Utforska:</span><a href="#v888Track">Himmel och helvete</a><a href="#v889-good">Är Gud god?</a><a href="#v889-will">Den fria viljan</a><a href="#v890Bridge">När frågorna möts</a></nav>';
+const nav='<nav id="v890Nav" class="v890-nav" aria-label="Forskningsspår i Granskning 2"><span>Utforska:</span><a href="#v888Track">Himmel och helvete</a><a href="#v889-good">Är Gud god?</a><a href="#v889-will">Den fria viljan</a><a href="#v890Bridge">När frågorna möts</a><a href="#v892ChurchShifts">Kyrkans tolkningsskiften</a></nav>';
 function html(){return '<section class="v888-track v890-bridge" id="v890Bridge" aria-label="Gemensamma filosofiska frågor">'+
 '<div class="v888-head"><span class="v888-kicker">GRANSKNING 2 · SAMBAND MELLAN FORSKNINGSSPÅREN</span><h2>När frågorna möts</h2>'+
 '<p>Om Gud är god, människan har fri vilja och det finns ett slutligt straff – hur kan påståendena förenas? Följ fyra forskningsfrågor där källornas historia skiljs från filosofiska argument och teologiska ställningstaganden.</p>'+
