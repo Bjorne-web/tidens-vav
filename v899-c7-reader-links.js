@@ -32,7 +32,7 @@ const lookup=new Map(),names=[];
 for(const [words,code] of groups){for(const name of words.split('|')){names.push(name);lookup.set(name.toLowerCase(),code)}}
 names.sort((a,b)=>b.length-a.length);
 const escaped=s=>s.replace(/[|\\{}()[\]^$+*?.]/g,'\\$&');
-const rx=new RegExp('(^|[^\\p{L}\\p{N}])('+names.map(escaped).join('|')+')\\s+(\\d{1,3})(?::(\\d{1,3})(?:[-–]\\d{1,3})?)?','giu');
+const rx=new RegExp('(^|[^\\p{L}\\p{N}])('+names.map(escaped).join('|')+')\\s+(\\d{1,3})(?::(\\d{1,3})(?:[-–]\\d{1,3})?)?(?:\\s*[-–]\\s*\\d{1,3})?','giu');
 function references(input){
  const matches=[];rx.lastIndex=0;let m;
  while((m=rx.exec(String(input||'')))){
