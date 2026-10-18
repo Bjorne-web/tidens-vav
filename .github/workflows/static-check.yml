@@ -68,6 +68,7 @@ jobs:
           node tests/smoke-granskning-2.mjs
           node tests/smoke-v891-research.mjs
           node tests/smoke-v892-church-shifts.mjs
+          node tests/smoke-v893-research-hub.mjs
           node tests/smoke-neutral-start-v887.mjs
           node tests/c6-integrity-v887.mjs
           node tests/c6-h042-h054.mjs
