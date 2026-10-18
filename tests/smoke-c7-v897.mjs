@@ -45,7 +45,7 @@ assert.ok(data.B054.paragraph.includes('inte i sig ett bevis'),'Avoid unsupporte
 assert.ok(data.B055.paragraph.includes('inte fullständigt eniga'),'Distinct 2 Timothy authorship assessment');
 assert.ok(data.B055.paragraph.includes('slutligt avgränsad kanon'),'Do not assume modern New Testament canon');
 assert.ok(data.B056.paragraph.includes('förslavade personer'),'Slavery and household codes addressed');
-assert.ok(data.B058.paragraph.includes('inte talar för direkt författarskap av Paulus'),'Hebrews not Paul's secure letter');
+assert.ok(data.B058.paragraph.includes('inte talar för direkt författarskap av Paulus'),"Hebrews is not demonstrably Pauline");
 assert.ok(data.B059.paragraph.includes('inte i sig'),'James/Paul direct-response model not proven');
 const bookReader=read('v858-book-reader.js');
 assert.ok(bookReader.includes('window.TIDENS_C7_RELIGION?.[b.id]'),'Book reader must use C7 source');
