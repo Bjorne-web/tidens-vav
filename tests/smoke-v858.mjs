@@ -8,7 +8,7 @@ const list=read('v857-bible-books.js');
 assert.ok(list.includes('button.dataset.tvBook=b.id'));
 assert.ok(!list.includes("button.addEventListener('click',()=>{detail.hidden=false"),'No competing inline book reader');
 const reader=read('v858-book-reader.js');
-for(const required of ["document.getElementById('detail')","renderDetail=function()","state.selected=b.id","v84OpenReader()","Visa sambanden i Temaspår","v827ShowRelations(b.id)","v84OpenReader()","B001:'H020'","B027:'H023'","B043:'H034'"]){
+for(const required of ["document.getElementById('detail')","renderDetail=function()","state.selected=b.id","v84OpenReader()","Visa sambanden i Temaspår","v827ShowRelations(related)","v84OpenReader()","B001:'H020'","B027:'H023'","B043:'H034'"]){
  assert.ok(reader.includes(required),'Missing book reader integration: '+required);
 }
 const ctx={window:{}};
