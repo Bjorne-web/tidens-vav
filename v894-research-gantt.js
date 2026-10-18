@@ -14,6 +14,19 @@ philosophy:{label:'Filosofi och kunskapsutveckling',color:'#B38A4A'},
 science:{label:'Vetenskap och kunskap',color:'#B38A4A'},
 culture:{label:'Kultur och litteratur',color:'#9A7595'}
 };
+const questionContexts={
+afterlife:[
+'Forskningen om livet efter döden skiljer gravbruk och förfädersminne från föreställningar om ett dödsrike, framtida uppståndelse och slutlig dom. Dessa motiv utvecklades inte över en natt och fördes inte vidare som en oföränderlig lära. Sheol i äldre hebreiska texter är därför inte automatiskt samma sak som Gehenna, Hades eller helvetet i senare kristen teologi. För varje texthändelse behöver vi pröva genre, språkligt sammanhang, manuskriptvittnen och eventuell redaktion.',
+'Den andra stora frågan är hur efterlivsföreställningar används för att hantera orättvisa: om människor förföljs eller dör utan att rättvisa har skipats, kan framtida uppståndelse och dom uttrycka ett hopp om återupprättelse. Senare kristna författare gör olika synteser av judiskt uppståndelsehopp och grekisk-romerska tankar om själen. Kronologin visar dokumenterade verk och ställningstaganden, inte när föreställda händelser i en annan värld ägde rum.'
+],
+good:[
+'Frågan om Guds godhet omfattar flera distinkta problem. Den historiska bibelforskningen kan visa hur Job, profeterna och andra texter uttrycker protest mot lidande och gudomlig orättvisa. Religionsfilosofin kan därutöver pröva om påståendena allmakt, fullkomlig godhet och förekomst av lidande är logiskt förenliga, eller om lidandets omfattning gör en god Gud mindre sannolik. Ett logiskt friviljeförsvar behöver inte vara en förklaring av ett barns konkreta lidande.',
+'Tidslinjens böcker och filosofiska debatter representerar därför utvecklingen av argument, inte nya naturvetenskapliga upptäckter om en faktisk Guds moraliska väsen. Teodicéer framhåller bland annat fri vilja, naturens lagbundenhet och moralisk mognad; kritiker invänder att ofrivilligt och förödande lidande ofta saknar påvisbar positiv funktion. Källorna ger oss en dokumenterad diskussionshistoria men inget universellt accepterat slutligt svar.'
+],
+will:[
+'Frågan om människans fria vilja kan gälla alternativ möjlig handling, kontroll över egna skäl, frånvaro av tvång och grunden för moraliskt ansvar. Filosofiska skolor delar inte alltid definition av ordet frihet. I antiken diskuterades frivilliga handlingar och ödet, medan stora kristna kontroverser om viljan oftast handlade mer specifikt om människans möjlighet att samverka med eller avvisa Guds nåd i frälsningen.',
+'När neurovetenskapliga försök från 1900-talet kommer in i historien måste deras faktiska mätningar skiljas från filosofiska slutsatser. En mätbar hjärnsignal som uppträder före en rapporterad medveten avsikt i en enkel rörelsehandling avgör inte vad kontroll och moraliskt ansvar innebär i alla mänskliga beslut. Denna fördjupning visar därför vilka argument som formulerats i olika epoker och vilka antaganden de behöver.'
+]};
 const allEvents=[
 ...dataset.events.map(e=>({...e,topics:[e.topic],precision:'exact',origin:'church'})),
 ...questions.events.map(e=>({...e,origin:'questions'}))
@@ -50,14 +63,14 @@ function eventInfo(e){
  const topic=states.topic==='all'?e.topics[0]:states.topic==='bridge'?e.topics.find(x=>['good','will'].includes(x))||e.topics[0]:states.topic;
  const extra=extras[topic];
  const main=extra?extra.sections[e.lane==='church'?Math.min(1,extra.sections.length-1):0]:null;
- const context=main?main.paragraphs[0]:null;
+ const context=main?main.paragraphs[0]:questionContexts[topic]?.[0]||null;
  const hasBible=typeof window.TidensReview2BibleLink==='function';
  const bib=ref=>hasBible?window.TidensReview2BibleLink(ref):esc(ref);
  const rendered=txt=>esc(txt).replace(/\[\[([^\]]+)\]\]/g,(_,r)=>bib(r));
  const safe=typeof e.source==='string'&&e.source.startsWith('https://')?e.source:null;
  let info='<article class="v894-dossier v828-dossier" id="v894SelectedEvent" aria-live="polite"><div class="v894-dossier-header"><div><span class="v888-kicker">'+esc(legend[e.lane]?.label||'Forskningshändelse')+'</span><h3>'+esc(e.title)+'</h3><p class="v894-date"><strong>'+esc(yearString(e))+'</strong> · '+esc(e.precision==='approx'?'Ungefärlig datering':e.precision==='range'?'Tillkomst över flera år':'Dokumenterad tidpunkt eller publikation')+'</p></div><button class="v894-close" type="button" data-v894-close aria-label="Stäng händelse">✕</button></div>'+
  '<h4>Vad hände?</h4><p>'+rendered(e.detail)+'</p>';
- if(context)info+='<h4>Större forskningssammanhang</h4><p>'+rendered(context)+'</p><p class="v894-method">Detta är historisk bakgrund från samma forskningsområde, inte ett självständigt belägg för ett orsakssamband med händelsen.</p>';
+ if(context)info+='<h4>Större forskningssammanhang</h4><p>'+rendered(context)+'</p>'+(questionContexts[topic]?.[1]?'<p>'+rendered(questionContexts[topic][1])+'</p>':'')+'<p class="v894-method">Detta är historisk bakgrund från samma forskningsområde, inte ett självständigt belägg för ett orsakssamband med händelsen.</p>';
  if(e.origin==='questions'&&e.topics.includes('afterlife'))info+='<p class="v894-method">För bibliska och apokalyptiska verk avser tidsmarkeringen textens sannolika tillkomst eller en daterbar receptionshändelse – inte berättelsens föreställda tid.</p>';
  else info+='<p class="v894-method">Ett daterat beslut, en publikation eller samhällshändelse innebär inte att alla kyrkor samtidigt ändrade uppfattning. Skilj belagd händelse från senare tolkning och möjlig påverkan.</p>';
  info+='<p class="v894-evidence"><strong>Källstatus:</strong> '+esc(e.certainty)+'</p>';
