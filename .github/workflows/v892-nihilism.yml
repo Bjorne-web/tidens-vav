@@ -1,0 +1,35 @@
+name: V8.92 Nihilism scientific content smoke
+on:
+  push:
+    paths:
+      - 'data/nihilism.v892.js'
+      - 'data/c7-nihilism.v892.js'
+      - 'v892-nihilism-research.js'
+      - 'v892-nihilism-research.css'
+      - 'tests/smoke-nihilism-v892.mjs'
+      - 'index.html'
+      - 'v893-research-hub.js'
+      - 'v894-research-gantt.js'
+      - 'data/nihilism-research-gantt.v896.js'
+      - 'tests/smoke-nihilism-hub-v896.mjs'
+      - '.github/workflows/v892-nihilism.yml'
+  pull_request:
+    paths:
+      - 'data/nihilism.v892.js'
+      - 'data/c7-nihilism.v892.js'
+      - 'v892-nihilism-research.js'
+      - 'v892-nihilism-research.css'
+      - 'tests/smoke-nihilism-v892.mjs'
+      - 'index.html'
+      - '.github/workflows/v892-nihilism.yml'
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify Nihilism research and C7 significance
+        run: |
+          node tests/smoke-nihilism-v892.mjs
+          node tests/smoke-nihilism-hub-v896.mjs
