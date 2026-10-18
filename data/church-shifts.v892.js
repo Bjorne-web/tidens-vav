@@ -130,6 +130,16 @@ window.TIDENS_CHURCH_SHIFTS = {
       "source": "https://library.si.edu/digital-library/book/onoriginofspec00darw"
     },
     {
+      "id": "CS019",
+      "year": 1921,
+      "lane": "society",
+      "topic": "women",
+      "title": "Kvinnor deltar i svenska riksdagsvalet",
+      "detail": "Kvinnor röstar för första gången i ett svenskt riksdagsval på samma villkor som män och fem kvinnor väljs in. En samhällsförändring, inte ett kyrkligt ämbetsbeslut.",
+      "certainty": "Riksdagens dokumenterade historieskrivning",
+      "source": "https://www.riksdagen.se/sv/sa-fungerar-riksdagen/riksdagens-historia/kampen-om-rostratten/"
+    },
+    {
       "id": "CS006",
       "year": 1944,
       "lane": "society",
