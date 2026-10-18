@@ -63,6 +63,7 @@
   const boundary=Array.from(article.children).find(node=>node.matches('h3')&&node.textContent.trim()==='Osäkerheter och viktiga preciseringar');
   if(boundary)article.insertBefore(section,boundary);
   else article.append(section);
+  window.TidensC7Ui?.decorate(article);
  }
  function reflow(root){
   const children=Array.from(root.children);
