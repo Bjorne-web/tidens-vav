@@ -40,3 +40,5 @@
 .v892-event{padding:10px}.v892-detail-grid{grid-template-columns:1fr;gap:6px}.v892-catalogue{grid-template-columns:1fr}
 .v892-controls{display:grid;gap:8px}.v892-switch{padding:4px 0 10px}
 }
+
+.v892-chapter-list{max-width:84ch;margin:20px 0 22px}.v892-chapter{border-top:1px solid var(--line,#aab);padding:15px 0 7px}.v892-chapter h4{font-size:1.03rem;margin:0 0 9px;line-height:1.5}.v892-chapter p{font-size:.97rem;line-height:1.75;margin:0 0 8px}
