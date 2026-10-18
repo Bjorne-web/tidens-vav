@@ -15,6 +15,10 @@ science:{label:'Vetenskap och kunskap',color:'#B38A4A'},
 culture:{label:'Kultur och litteratur',color:'#9A7595'}
 };
 const questionContexts={
+nihilism:[
+'Nihilismen utgör inte en enda lära. Den moderna termen växte fram i en 1799 års filosofiska debatt och fick senare betydelser inom rysk samhällskritik, Nietzsches värdeanalys och modern existensfilosofi. Tidslinjen daterar brev och utgivna verk – inte människans första erfarenheter av livets förgänglighet eller meningsfrågor.',
+'Kopplingen till Israels religion och judendomen består huvudsakligen av en tematisk jämförelse med Jobs bok och Predikaren. Nietzsches och Camus argument behöver läsas inom sina moderna historiska sammanhang. Ett konstaterat mänskligt ursprung för moral eller religiösa traditioner utgör inte i sig ett bevis för eller emot Guds existens eller moralens objektiva status.'
+],
 afterlife:[
 'Forskningen om livet efter döden skiljer gravbruk och förfädersminne från föreställningar om ett dödsrike, framtida uppståndelse och slutlig dom. Dessa motiv utvecklades inte över en natt och fördes inte vidare som en oföränderlig lära. Sheol i äldre hebreiska texter är därför inte automatiskt samma sak som Gehenna, Hades eller helvetet i senare kristen teologi. För varje texthändelse behöver vi pröva genre, språkligt sammanhang, manuskriptvittnen och eventuell redaktion.',
 'Den andra stora frågan är hur efterlivsföreställningar används för att hantera orättvisa: om människor förföljs eller dör utan att rättvisa har skipats, kan framtida uppståndelse och dom uttrycka ett hopp om återupprättelse. Senare kristna författare gör olika synteser av judiskt uppståndelsehopp och grekisk-romerska tankar om själen. Kronologin visar dokumenterade verk och ställningstaganden, inte när föreställda händelser i en annan värld ägde rum.'
@@ -112,7 +116,7 @@ function render(){
  const topic=window.TidensResearchHub?.getSelected?.()||'overview';
  states.topic=topic;
  if(topic==='overview'||topic==='legacy'){hub.innerHTML='';return;}
- const eligible=topic==='all'||['afterlife','good','will','bridge'].includes(topic)||dataset.topics.some(t=>t.id===topic);
+ const eligible=topic==='all'||['afterlife','good','will','bridge','nihilism'].includes(topic)||dataset.topics.some(t=>t.id===topic);
  if(!eligible){hub.innerHTML='';return;}
  const ids=new Set(selectedEvents().map(e=>e.id));if(states.selected&&!ids.has(states.selected))states.selected=null;
  hub.innerHTML=graphHtml();
