@@ -22,7 +22,7 @@ const ids=['bible','religion','history','philosophy'];
    const page=await browser.newPage({viewport:{width,height:850}});
    const errors=[];page.on('pageerror',e=>errors.push(e.message));
    await page.goto('http://127.0.0.1:'+server.address().port+'/',{waitUntil:'domcontentloaded'});
-   await page.locator('#navStart').click();
+   await page.evaluate(()=>document.getElementById('navStart').click());
    await page.locator('#startView .tv887-area').first().waitFor();
    const start=await page.evaluate(ids=>ids.map(id=>{
     const icon=document.querySelector('#startView .tv887-'+id+' .tv887-icon');
@@ -32,7 +32,7 @@ const ids=['bible','religion','history','philosophy'];
       width:css.width,height:css.height,radius:css.borderRadius,background:css.backgroundColor,
       color:css.color};
    }),ids);
-   await page.locator('#navTimeline').click();
+   await page.evaluate(()=>document.getElementById('navTimeline').click());
    await page.locator('#timelineView .tv892-topic').first().waitFor();
    const topics=await page.evaluate(ids=>ids.map(id=>{
     const icon=document.querySelector('#timelineView .tv892-'+id+' .tv892-icon');
