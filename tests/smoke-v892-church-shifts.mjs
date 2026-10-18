@@ -15,7 +15,7 @@ const window={TidensReview2BibleLink:ref=>'<a href="https://www.bible.com/sv/bib
 vm.runInNewContext(dataSource,{window});
 const data=window.TIDENS_CHURCH_SHIFTS;
 assert.equal(data.topics.length,12);
-assert.equal(data.events.length,19);
+assert.equal(data.events.length,23);
 assert.deepEqual([...new Set(data.events.map(x=>x.lane))].sort(),['church','science','society']);
 assert.equal(new Set(data.events.map(x=>x.id)).size,data.events.length);
 assert.ok(data.events.every(e=>Number.isInteger(e.year)&&e.year>=1&&e.year<=2026));
@@ -26,6 +26,7 @@ assert.ok(data.events.find(e=>e.year===1960)?.title.includes('kvinnliga präster
 assert.ok(data.events.find(e=>e.year===2005)?.title.includes('partnerskapsvälsignelse'));
 assert.ok(data.events.find(e=>e.year===2009)?.title.includes('samkönade'));
 assert.ok(data.events.some(e=>e.year===1944&&e.lane==='society'));
+assert.equal(new Set(data.events.map(e=>e.topic)).size,12,'Every theme must have at least one chronological anchor');
 assert.ok(css.includes('max-width:790px')&&css.includes('max-width:520px'),'Responsive layouts missing');
 let exists=false;
 const fields={tvcsTopics:'',tvcsTimeline:'',tvcsReading:'',tvcsWorld:{checked:true}};
@@ -65,4 +66,4 @@ listeners.click(event(['[data-tvcs-topic]',{tvcsTopic:'women'}]));
 assert.ok(fields.tvcsTimeline.includes('1958'));
 assert.ok(!fields.tvcsTimeline.includes('1973'));
 assert.equal(replacements,1,'Module must be installed once');
-console.log('V8.92 PASS – 19 source-backed milestones, 12 themes, scripture, filters, source details and responsive layout');
+console.log('V8.92 PASS – 23 source-backed milestones, 12 themes, scripture, filters, source details and responsive layout');
