@@ -62,6 +62,8 @@ jobs:
           node tests/smoke-v885.mjs
           node tests/smoke-v886.mjs
           node tests/smoke-v8861.mjs
+          node tests/smoke-granskning-2.mjs
+          node tests/smoke-v891-research.mjs
           node tests/smoke-neutral-start-v887.mjs
           node tests/c6-integrity-v887.mjs
           node tests/c6-h042-h054.mjs
