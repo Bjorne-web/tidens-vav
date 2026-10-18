@@ -16,19 +16,23 @@ const groups=[
 {heading:'Kyrkans historia och etiska omprövningar',sub:'Vilka kyrkor ändrade sin tolkning, och vad hände samtidigt i världen?',keys:['sexuality','slavery','women','baptism','freedom','antisemitism','colonialism','divorce','usury']}
 ];
 const counts=new Map(data.topics.map(t=>[t.id,data.events.filter(e=>e.topic===t.id).length]));
+const datedQuestions=window.TIDENS_BIG_QUESTIONS_TIMELINE?.events||[];
+for(const name of ['afterlife','good','will'])counts.set(name,datedQuestions.filter(e=>e.topics.includes(name)).length);
+counts.set('bridge',datedQuestions.filter(e=>e.topics.includes('good')||e.topics.includes('will')).length);
 for(const group of groups)if(group.keys)group.cards=group.keys.map(id=>{
 const topic=data.topics.find(t=>t.id===id);
 return{id,label:topic.label,desc:topic.description,target:'tvChurchShifts',badge:counts.get(id)+' historiska händelser'};
 });
 // Behåll direkta postlänkar som öppnas från tidslinje och sökresultat.
 const incoming=typeof window.location?.search==='string'?window.location.search:'';
+for(const c of groups[0].cards)c.badge=counts.get(c.id)+' daterade milstolpar';
 let selected=/(?:[?&])tv_id=/.test(incoming)?'legacy':'overview';
 const known=new Set(['tvResearchHub','v890Nav','tvChurchShifts','v888Track','v889-good','v889-will','v890Bridge']);
 const cards=groups.flatMap(g=>g.cards);
 const labels=Object.fromEntries(cards.map(c=>[c.id,c.label]));
 labels.all='Alla historiska händelser';
 labels.legacy='Övriga forskningstexter och granskningsregister';
-const nTotal=data.events.length;
+const nTotal=data.events.length+datedQuestions.length;
 function overview(){
 return '<div class="tvhub-hero"><span class="v888-kicker">FÖRDJUPNINGAR · FORSKNINGSBIBLIOTEK</span><h2>Utforska historia, Bibeln och människan</h2><p>Alla fördjupningar finns nu på ett ställe. Välj ett ämne för att läsa dess forskningsgenomgång, se daterade händelser och följa källorna. Du kan också jämföra vad som hände i kyrkan, samhället och vetenskapen samtidigt.</p><div class="tvhub-stats"><span><b>'+cards.length+'</b> forskningsfördjupningar</span><span><b>'+nTotal+'</b> källanknutna händelser</span><span><b>3</b> perspektiv på tidslinjen</span></div><div class="tvhub-tools"><label for="tvhubSearch">Sök bland forskningsområden</label><input id="tvhubSearch" type="search" placeholder="Sök t.ex. dop, homosexualitet, helvete ..." autocomplete="off"></div></div>'+
 groups.map((g,i)=>'<section class="tvhub-group" aria-label="'+esc(g.heading)+'"><h3>'+esc(g.heading)+'</h3><p>'+esc(g.sub)+'</p><div class="tvhub-grid">'+g.cards.map(c=>'<button type="button" class="tvhub-card" data-tvhub-open="'+esc(c.id)+'"><strong>'+esc(c.label)+'</strong><span>'+esc(c.desc)+'</span><small>'+esc(c.badge)+' <span aria-hidden="true">↗</span></small></button>').join('')+'</div></section>').join('')+
