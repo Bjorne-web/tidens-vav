@@ -10,6 +10,7 @@ const groups=[
 {id:'afterlife',label:'Himmel, helvete och livet efter döden',desc:'Från Sheol via uppståndelse och dom till senare kristna modeller.',target:'v888Track',badge:'Historisk fördjupning'},
 {id:'good',label:'Är Gud god?',desc:'Job, gudomlig rättvisa, lidande och moralfilosofiska svar.',target:'v889-good',badge:'Historisk fördjupning'},
 {id:'will',label:'Den fria viljan',desc:'Antika tänkare, Paulus, Augustinus och modern frihetsdebatt.',target:'v889-will',badge:'Historisk fördjupning'},
+{id:'nihilism',label:'Nihilismen – finns det en mening med livet?',desc:'Från Jacobi och Kierkegaard till Nietzsche och Camus. Historiska årtal, filosofi och religionskritik.',target:'v892NihilismTrack',badge:'Historisk fördjupning'},
 {id:'bridge',label:'När frågorna möts',desc:'Hur möts gudomlig godhet, mänskligt ansvar och slutligt straff?',target:'v890Bridge',badge:'Jämförande fördjupning'}
 ]},
 {heading:'Bibel, vetenskap och tolkning',sub:'När nya forskningsmetoder förändrar läsningen av Bibeln',keys:['heliocentrism','evolution','criticism']},
@@ -17,7 +18,7 @@ const groups=[
 ];
 const counts=new Map(data.topics.map(t=>[t.id,data.events.filter(e=>e.topic===t.id).length]));
 const datedQuestions=window.TIDENS_BIG_QUESTIONS_TIMELINE?.events||[];
-for(const name of ['afterlife','good','will'])counts.set(name,datedQuestions.filter(e=>e.topics.includes(name)).length);
+for(const name of ['afterlife','good','will','nihilism'])counts.set(name,datedQuestions.filter(e=>e.topics.includes(name)).length);
 counts.set('bridge',datedQuestions.filter(e=>e.topics.includes('good')||e.topics.includes('will')).length);
 for(const group of groups)if(group.keys)group.cards=group.keys.map(id=>{
 const topic=data.topics.find(t=>t.id===id);
@@ -27,7 +28,7 @@ return{id,label:topic.label,desc:topic.description,target:'tvChurchShifts',badge
 const incoming=typeof window.location?.search==='string'?window.location.search:'';
 for(const c of groups[0].cards)c.badge=counts.get(c.id)+' daterade milstolpar';
 let selected=/(?:[?&])tv_id=/.test(incoming)?'legacy':'overview';
-const known=new Set(['tvResearchHub','v890Nav','tvChurchShifts','v888Track','v889-good','v889-will','v890Bridge']);
+const known=new Set(['tvResearchHub','v890Nav','tvChurchShifts','v888Track','v889-good','v889-will','v890Bridge','v892NihilismTrack']);
 const cards=groups.flatMap(g=>g.cards);
 const labels=Object.fromEntries(cards.map(c=>[c.id,c.label]));
 labels.all='Alla historiska händelser';
