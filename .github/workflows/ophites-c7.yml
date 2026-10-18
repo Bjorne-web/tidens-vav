@@ -4,6 +4,13 @@ on:
     paths:
       - 'data/c7-religionshistorisk-betydelse.v890.js'
       - 'tests/browser-ophites-c7.cjs'
+      - 'tests/browser-c7-links-v899.cjs'
+      - 'v899-c7-reader-links.js'
+      - 'v899-c7-reader-links.css'
+      - 'v858-book-reader.js'
+      - 'v839-reader-unified.js'
+      - 'v838-reader-reflow.js'
+      - 'index.html'
       - 'tests/smoke-c7.mjs'
       - 'tests/new-post-religion-gate.mjs'
       - '.github/workflows/ophites-c7.yml'
@@ -23,3 +30,4 @@ jobs:
       - run: npm install --no-save --no-package-lock playwright@1.56.1
       - run: npx playwright install --with-deps chromium
       - run: node tests/browser-ophites-c7.cjs
+      - run: node tests/browser-c7-links-v899.cjs
