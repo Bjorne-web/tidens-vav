@@ -110,6 +110,26 @@ window.TIDENS_CHURCH_SHIFTS = {
       "source": "https://www.britannica.com/biography/Galileo-Galilei"
     },
     {
+      "id": "CS020",
+      "year": 1745,
+      "lane": "church",
+      "topic": "usury",
+      "title": "Benedictus XIV publicerar Vix Pervenit om ocker",
+      "detail": "Den katolska encyklikan fördömer ocker som uppstår ur själva låneförhållandet, samtidigt som den behandlar möjliga andra rättmätiga kontraktsgrunder för vinst. Belägg för en historisk katolsk moralposition – inte för att all kyrklig syn på ränta ändrades 1745.",
+      "certainty": "Vatikanens primärtext daterad 1 november 1745",
+      "source": "https://www.vatican.va/content/benedictus-xiv/it/documents/enciclica--i-vix-pervenit--i---1-novembre-1745--poiche-e-venuto-.html"
+    },
+    {
+      "id": "CS021",
+      "year": 1753,
+      "lane": "science",
+      "topic": "criticism",
+      "title": "Jean Astruc publicerar Conjectures om Moseböckernas källor",
+      "detail": "Astruc jämför bland annat skilda gudsnamn och parallellstoff i Genesis och föreslår att flera skriftliga källor kan ligga bakom. Det är en viktig föregångare till den senare källkritiska forskningen, men hans egen modell motsvarar inte dagens samlade forskningsläge.",
+      "certainty": "Publiceringsår och forskningshistorik belagda i Jewish Encyclopedia",
+      "source": "https://www.jewishencyclopedia.com/articles/5705-elohist"
+    },
+    {
       "id": "CS004",
       "year": 1807,
       "lane": "society",
@@ -128,6 +148,16 @@ window.TIDENS_CHURCH_SHIFTS = {
       "detail": "On the Origin of Species publiceras. Den biologiska utvecklingsläran utlöser inte ett enda kyrkligt svar: kristna reaktioner skiljer sig mellan tider, teologer och samfund.",
       "certainty": "Smithsonians uppgift om första utgåvan",
       "source": "https://library.si.edu/digital-library/book/onoriginofspec00darw"
+    },
+    {
+      "id": "CS022",
+      "year": 1910,
+      "lane": "church",
+      "topic": "colonialism",
+      "title": "Världsmissionskonferensen i Edinburgh",
+      "detail": "Missionärer och kyrkorepresentanter, främst knutna till västerländska missionssällskap, samlas för att diskutera gemensam mission och samarbete. Konferensen är central i ekumenikens historia men visar också hur global kristendom länge talades om genom ett västerländskt perspektiv.",
+      "certainty": "Kyrkornas världsråds historiska material",
+      "source": "https://www.oikoumene.org/news/world-mission-conference-begins-in-edinburgh"
     },
     {
       "id": "CS019",
@@ -238,6 +268,16 @@ window.TIDENS_CHURCH_SHIFTS = {
       "detail": "Sverige inför registrerat partnerskap för samkönade par. Det är ett samhällsrättsligt steg, skilt från senare beslut om kyrklig vigsel.",
       "certainty": "Svenska regeringen, rättighetshistorik",
       "source": "https://www.regeringen.se/regeringens-politik/hbtq-personers-lika-rattigheter-och-mojligheter/historik-om-utvecklingen-av-hbtqi-personers-rattigheter-i-sverige/"
+    },
+    {
+      "id": "CS023",
+      "year": 2002,
+      "lane": "church",
+      "topic": "divorce",
+      "title": "Church of England öppnar i undantagsfall för kyrkligt omgifte",
+      "detail": "Generalsynoden erkänner att kyrklig vigsel efter skilsmässa kan ske under särskilda omständigheter medan kyrkan behåller ett ideal om livslångt äktenskap. Beslutet är ett specifikt exempel på pastoral och kyrkorättslig tillämpning, inte en universell ändring av kristen äktenskapsteologi.",
+      "certainty": "Church of Englands egna kyrkorättsliga dokument",
+      "source": "https://www.churchofengland.org/about/leadership-and-governance/legal-resources/canons-church-england/supplementary-material"
     },
     {
       "id": "CS016",
