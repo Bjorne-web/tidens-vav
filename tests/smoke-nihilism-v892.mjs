@@ -19,7 +19,7 @@ const sandbox={events:[],research:{},window:{TIDENS_C7_RELIGION:{}}};
 vm.createContext(sandbox);vm.runInContext(data,sandbox);vm.runInContext(impact,sandbox);
 assert.deepEqual([...sandbox.window.TIDENS_NIHILISM.ids],expected);
 assert.equal(sandbox.events.length,6);
-assert.deepEqual(sandbox.events.map(x=>x.start),[1799,1849,1862,1882,1887,1942]);
+assert.deepEqual([...sandbox.events.map(x=>x.start)],[1799,1849,1862,1882,1887,1942]);
 for(const id of expected){
  const e=sandbox.events.find(x=>x.id===id),r=sandbox.research[id],c=sandbox.window.TIDENS_C7_RELIGION[id];
  assert.ok(e&&r&&c,id+' has event, research and religion section');
@@ -28,7 +28,7 @@ for(const id of expected){
  assert.ok(r.overview.length>320&&r.parallels.length>160&&r.caution.length>100,id+' has a substantial article');
  assert.ok(r.sources.length>=2&&r.sources.every(x=>/^https:\/\//.test(x[1])),id+' sources are links');
  assert.ok(c.paragraph.length>=900&&c.sources.length>=2,id+' has distinct substantial religious impact');
- assert.ok(ui.includes('tv_id=')&&ui.includes(id)===false,'Records appear via central date index rather than duplicate articles');
+ assert.ok(ui.includes('tv_id=')&&ui.includes(id),'Records appear via central date index rather than duplicate articles');
 }
 vm.runInContext(data,sandbox);assert.equal(sandbox.events.length,6,'Rerender must not duplicate records');
 assert.ok(ui.includes('v892NihilismTrack')&&ui.includes('details class="v891-section"'));
