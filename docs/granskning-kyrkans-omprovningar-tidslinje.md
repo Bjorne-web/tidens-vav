@@ -101,3 +101,31 @@ Utveckling från planen sker på en gren baserad på aktuell `main` för att bev
 **Ej publiceringsgodkänt:** Förhandsvisning och tester ska godkännas före sammanslagning i `main`.
 
 - Kompletterande milstolpar representerar nu **alla tolv teman** (Vix Pervenit 1745, Astruc 1753, Edinburgh 1910, Church of England 2002), var och en förankrad i en särskild primär- eller etablerad historisk källa. Ett historiskt ankare är inte liktydigt med att en full omprövning skedde då.
+
+## V8.93 – samlat forskningsbibliotek, djupare texter och fler händelser
+
+Den första preview-versionen V8.92 visade för många separata block och var för tunn i elva av tolv ämnen. Denna etapp är en strukturell och innehållslig korrigering efter användarens granskning, inte ett nytt huvudområde i Väven.
+
+**Överblick**
+- En samlad biblioteksvy med **16 ingångar**: tre tidigare forskningsspår (Himmel/helvete; Är Gud god?; Den fria viljan), deras jämförande mötespunkt samt 12 teman om kyrkans omprövningar och tolkningshistoria.
+- Tre övergripande grupper, sökning bland teman, val av ett synligt ämne åt gången, återgång till biblioteket och bevarad länk till ursprungliga granskningsregister. Det gamla innehållet raderas inte.
+- Djup­länkar från befintliga forskningsposter (URL med `tv_id`) ska inte skymmas av den nya överblicken.
+- Den äldre extra menyn för de tre existentiella frågorna döljs för att undvika konkurrerande navigeringssystem.
+
+**Fördjupning**
+- `data/church-longform.v893.js` kompletterar 11 tidigare alltför korta områden med **33 källbelagda underkapitel och 66 analysstycken**. Samkönade relationer behåller fem långa forskningsavsnitt från V8.92 och de fyra äldre forskningsspåren bibehåller sina tidigare vetenskapliga översikter.
+- Varje avsnitt har källor, historiskt sammanhang, metodiska reservationer och när de är relevanta bibelhänvisningar via existerande Bibel 2000-länksystem.
+- Gamla förklaringar används endast som fallback om de nya källtexterna saknas.
+
+**Kronologi**
+- `data/church-shifts.v892.js` utökas till **61 individuella daterade, källhänvisade historiska hållpunkter**. Varje nytt tema har minst tre. Händelser separeras i kyrka/teologi, samhälle/politik och vetenskap/kunskap; en gemensam tidsaxel kan döljas för att fokusera på ett område.
+- Årtalen avser dokumenterade publikationer, beslut eller händelser, inte påstådda enhetliga ”datum då kyrkan ändrade uppfattning”.
+- Vissa källänkar är primärdokument; andra är akademiska eller institutionella översikter. De har skilda funktioner. Fullständig URL- och faktakontroll av varje enskild sekundärkälla återstår före slutlig vetenskaplig C6-granskning.
+
+**Tester**
+- `tests/smoke-v892-church-shifts.mjs` kräver numera minst tre milstolpar per ämne och 61 totalt.
+- `tests/smoke-v893-research-hub.mjs` verifierar 16 ingångar, mängd och struktur på källtexterna, separata visningar och åtkomst till gamla register.
+- Appens originaldata och C6-granskningsjournal är oförändrade. Allt ligger på separat Cloudflare-gren före användarens godkännande.
+
+### Etisk och hermeneutisk avgränsning
+Författarens v4.2-dokument är en personlig och teologisk argumentation. Härled inte att dess egen slutsats är en religionsvetenskaplig konsensus. Utred historisk reception, grundtext, moralfilosofiska argument, moderna vetenskapliga fynd och kyrkospecifika beslut på olika evidensnivåer. Visa genomgående starka seriösa argument från flera läsningar. De historiska analogierna bevisar inte den ena sidans slutsats i den nutida samkönade relationsfrågan.
