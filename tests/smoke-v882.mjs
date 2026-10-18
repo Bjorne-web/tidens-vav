@@ -18,7 +18,7 @@ assert.ok(g.includes("[['Bibelns böcker','Bibelns böcker']]"));
 assert.ok(b.includes("lane.className=(compact?'v7group':'v813-chartgroup')"));
 assert.ok(b.includes("body.className=compact?'v813-cardgrid':'v813-chartrows'"));
 assert.ok(b.includes('v815RenderCategorySummary(summaryEntries'));
-assert.ok(b.includes('v815Collapsed.has(CATEGORY)'));
+assert.ok(b.includes('v815Collapsed.has(cat)'), 'Both canonical and apocryphal lanes use their own collapsed-category state');
 assert.ok(b.includes('v815-toggle'));
 assert.ok(b.includes('v813-list-item research v882-bible-card'));
 assert.ok(b.includes('lane.append(body)'));
