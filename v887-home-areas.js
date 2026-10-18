@@ -24,7 +24,9 @@
     wrap.className='tv887-areas';
     wrap.setAttribute('aria-label','Fyra historiska kunskapsområden');
     wrap.innerHTML='<div class="tv887-areas-heading"><h2>Välj vad du vill utforska</h2><p>Börja i Bibeln – och följ sambanden till religioner, världshistorien och filosofins utveckling.</p></div><div class="tv887-area-grid">'+areas.map(a=>'<button type="button" class="tv887-area tv887-'+a.id+'" data-tv887-area="'+a.id+'"'+(a.target==='none'?' disabled title="Den filosofiska ämneslinjen får poster efter källgranskning"':'')+'><span class="tv887-icon" aria-hidden="true">'+iconSvg[a.id]+'</span><span class="tv887-area-copy"><strong>'+a.name+'</strong><small>'+a.summary+'</small><em>'+a.label+' →</em></span></button>').join('')+'</div><p class="tv887-method"><strong>En ingång – fyra jämställda perspektiv.</strong> Varje post får på sikt ett primärt huvudområde men kan ha belagda kopplingar till de andra. Befintliga kategorier och forskningsstatus är ännu inte omklassificerade.</p>';
-    hero.insertAdjacentElement('afterend',wrap);
+    hero.appendChild(wrap);
+    const intro=hero.querySelector('.tv876-lead');
+    if(intro)intro.textContent='Utforska hur Bibeln och kristendomen växte fram genom människorna, kulturerna och idéerna i sin historiska omvärld.';
     wrap.querySelectorAll('[data-tv887-area]:not(:disabled)').forEach(btn=>btn.addEventListener('click',()=>{
       const target=areas.find(a=>a.id===btn.dataset.tv887Area).target;
       if(target==='books'){
