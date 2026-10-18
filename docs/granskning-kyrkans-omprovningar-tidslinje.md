@@ -77,7 +77,7 @@ Skapa en separat **kronologisk vy** med tre synkroniserade spår, klickbara mils
 ## Första körbara förhandsvisning (V8.92)
 Utveckling från planen sker på en gren baserad på aktuell `main` för att bevara befintlig V8.91 och Granskning 2.
 
-- `data/church-shifts.v892.js`: 19 källmarkerade, individuellt daterade milstolpar som visas i tre separata jämförbara fält.
+- `data/church-shifts.v892.js`: 23 källmarkerade, individuellt daterade milstolpar som visas i tre separata jämförbara fält.
 - `v892-church-shifts.js` + `v892-church-shifts.css`: interaktiv tidslinje med filter för 12 områden, valfri omvärld, expanderande primärhändelser och fördjupning om samkönade relationer. Andra forskningsspår har endast inledande beskrivningar och ska byggas ut källnära i senare etapper.
 - `tests/smoke-v892-church-shifts.mjs`: kontroll av datering, händelse-ID, käll-URL, filter, vald milstolpe, omvärldsknapp och mobilstil.
 - Dateringarna är ankare till dokumenterade händelser, inte tillskrivna teologiska övergångsdatum. Händelserna har separata `CS*`-identifierare endast *inne i jämförelsemodulen*. De skapar inte forskningsposter i Vävens centrala händelseregister.
@@ -99,3 +99,5 @@ Utveckling från planen sker på en gren baserad på aktuell `main` för att bev
 - Biskopsmötets förtydligande 2026: https://www.svenskakyrkan.se/nyheter/vagar-framat--om-vigsel-och-samkonade-relationer.
 
 **Ej publiceringsgodkänt:** Förhandsvisning och tester ska godkännas före sammanslagning i `main`.
+
+- Kompletterande milstolpar representerar nu **alla tolv teman** (Vix Pervenit 1745, Astruc 1753, Edinburgh 1910, Church of England 2002), var och en förankrad i en särskild primär- eller etablerad historisk källa. Ett historiskt ankare är inte liktydigt med att en full omprövning skedde då.
