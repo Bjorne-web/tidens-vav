@@ -42,7 +42,7 @@ assert.ok(data.B051.paragraph.includes('Kolosserbrevet och Efesierbrevet'),'Lite
 assert.ok(data.B053.paragraph.includes('författarskapet är omstritt'),'2 Thessalonians uncertainty');
 assert.ok(data.B054.paragraph.includes('1 Tim 2:11–15'),'Women teaching passage addressed');
 assert.ok(data.B054.paragraph.includes('inte i sig ett bevis'),'Avoid unsupported local-cult certainty');
-assert.ok(data.B055.paragraph.includes('inte fullständigt eniga'),'Distinct 2 Timothy authorship assessment');
+assert.ok(data.B055.paragraph.includes('inte är fullständigt eniga'),'Distinct 2 Timothy authorship assessment');
 assert.ok(data.B055.paragraph.includes('slutligt avgränsad kanon'),'Do not assume modern New Testament canon');
 assert.ok(data.B056.paragraph.includes('förslavade personer'),'Slavery and household codes addressed');
 assert.ok(data.B058.paragraph.includes('inte talar för direkt författarskap av Paulus'),"Hebrews is not demonstrably Pauline");
