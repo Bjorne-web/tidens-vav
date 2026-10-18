@@ -1,4 +1,4 @@
-/* V8.94 – tidigare forskningsfrågor får en källbelagd historisk tidsaxel. */
+/* V8.94 – historisk tidsaxel, delade händelser har ett gemensamt ID. */
 window.TIDENS_BIG_QUESTIONS_TIMELINE = {
   "status": "research-not-c6-final",
   "description": "Separata årtal för verkliga skrifter och teologiska diskussioner, osäkra årtal markeras som ungefärliga; berättad tid skiljs från textens komposition.",
@@ -293,22 +293,6 @@ window.TIDENS_BIG_QUESTIONS_TIMELINE = {
       "detail": "Luthers De servo arbitrio riktar ett kraftfullt svar mot Erasmus. Luther skiljer bland annat vardagliga handlingsområden från människans möjlighet att själv avgöra sin frälsning. Tvisten visar varför ordet fri vilja behöver definieras innan man jämför ståndpunkter.",
       "certainty": "SEP: Martin Luther and Free Will",
       "source": "https://plato.stanford.edu/entries/luther/",
-      "precision": "exact",
-      "relatedPostId": null
-    },
-    {
-      "id": "IQ021",
-      "year": 1710,
-      "topics": [
-        "will",
-        "good",
-        "bridge"
-      ],
-      "lane": "philosophy",
-      "title": "1710 · Leibniz förenar försyn, frihet och ondska",
-      "detail": "Théodicée behandlar just Guds godhet, människans frihet och det ondas ursprung. Samma bok tillhör därför både forskningsspåret om Guds godhet och fri vilja. Den ska ha ett enda ID men kunna visas i två tematiska sammanhang.",
-      "certainty": "SEP: Leibniz on the Problem of Evil",
-      "source": "https://plato.stanford.edu/entries/leibniz-evil/",
       "precision": "exact",
       "relatedPostId": null
     },
