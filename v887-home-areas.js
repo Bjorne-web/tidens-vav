@@ -15,6 +15,8 @@
     history:'<svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-3 3-4 6-4 9s1 6 4 9M12 3c3 3 4 6 4 9s-1 6-4 9"/></svg>',
     philosophy:'<svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a4 4 0 0 0-5 5 4 4 0 0 0-3 5 4 4 0 0 0 4 5v-5M12 3a4 4 0 0 1 5 5 4 4 0 0 1 3 5 4 4 0 0 1-4 5v-5M12 3v18M8 8c1 0 3 1 4 3M16 8c-1 0-3 1-4 3M8 18c1-1 3-1 4-2M16 18c-1-1-3-1-4-2"/></svg>'
   };
+  // Kanonisk SVG-kalla for startsidan och amnesnavigeringen.
+  window.TidensAreaIcons=Object.freeze(iconSvg);
   const previous=window.v812Start;
   window.v812Start=function(){
     previous();
@@ -23,7 +25,7 @@
     const wrap=document.createElement('section');
     wrap.className='tv887-areas';
     wrap.setAttribute('aria-label','Fyra historiska kunskapsområden');
-    wrap.innerHTML='<div class="tv887-areas-heading"><h2>Välj vad du vill utforska</h2><p>Börja i Bibeln – och följ sambanden till religioner, världshistorien och filosofins utveckling.</p></div><div class="tv887-area-grid">'+areas.map(a=>'<button type="button" class="tv887-area tv887-'+a.id+'" data-tv887-area="'+a.id+'"'+(a.target==='none'?' disabled title="Den filosofiska ämneslinjen får poster efter källgranskning"':'')+'><span class="tv887-icon" aria-hidden="true">'+iconSvg[a.id]+'</span><span class="tv887-area-copy"><strong>'+a.name+'</strong><small>'+a.summary+'</small><em>'+a.label+' →</em></span></button>').join('')+'</div><p class="tv887-method"><strong>En ingång – fyra jämställda perspektiv.</strong> Varje post får på sikt ett primärt huvudområde men kan ha belagda kopplingar till de andra. Befintliga kategorier och forskningsstatus är ännu inte omklassificerade.</p>';
+    wrap.innerHTML='<div class="tv887-areas-heading"><h2>Välj vad du vill utforska</h2><p>Börja i Bibeln – och följ sambanden till religioner, världshistorien och filosofins utveckling.</p></div><div class="tv887-area-grid">'+areas.map(a=>'<button type="button" class="tv887-area tv887-'+a.id+'" data-tv887-area="'+a.id+'"'+(a.target==='none'?' disabled title="Den filosofiska ämneslinjen får poster efter källgranskning"':'')+'><span class="tv887-icon tv887-shared-icon" aria-hidden="true">'+iconSvg[a.id]+'</span><span class="tv887-area-copy"><strong>'+a.name+'</strong><small>'+a.summary+'</small><em>'+a.label+' →</em></span></button>').join('')+'</div><p class="tv887-method"><strong>En ingång – fyra jämställda perspektiv.</strong> Varje post får på sikt ett primärt huvudområde men kan ha belagda kopplingar till de andra. Befintliga kategorier och forskningsstatus är ännu inte omklassificerade.</p>';
     hero.appendChild(wrap);
     const intro=hero.querySelector('.tv876-lead');
     if(intro)intro.textContent='Utforska hur Bibeln och kristendomen växte fram genom människorna, kulturerna och idéerna i sin historiska omvärld.';
