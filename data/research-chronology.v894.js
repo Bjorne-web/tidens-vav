@@ -140,7 +140,7 @@ window.TIDENS_BIG_QUESTIONS_TIMELINE = {
       ],
       "lane": "church",
       "title": "413–426 · Augustinus Om Gudsstaten",
-      "detail": "Augustinus skrev De civitate Dei under flera årtionden av romersk politisk oro. Bok XXI argumenterar bland annat för evigt straff. Dess väldiga betydelse för västkyrkans efterlivslära får inte göras till hela den tidiga kristendomens enda ståndpunkt.",
+      "detail": "Augustinus skrev De civitate Dei under mer än ett årtionde av romersk politisk oro. Bok XXI argumenterar bland annat för evigt straff. Dess väldiga betydelse för västkyrkans efterlivslära får inte göras till hela den tidiga kristendomens enda ståndpunkt.",
       "certainty": "Augustinus, Om Gudsstaten, bok XXI",
       "source": "https://www.newadvent.org/fathers/120121.htm",
       "precision": "range",
