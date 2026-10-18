@@ -1,0 +1,14 @@
+name: Granskning 6 – kyrkohistorisk tidslinje
+on:
+  pull_request:
+jobs:
+  timeline:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/smoke-church-shifts-v892.mjs
