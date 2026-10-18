@@ -32,6 +32,10 @@ assert.ok(m.events.some(e=>e.year===2009&&e.topic==='same-sex'&&e.lane==='church
 assert.ok(m.events.some(e=>e.year===2009&&e.topic==='same-sex'&&e.lane==='world'));
 assert.ok(m.events.some(e=>e.year===2023&&e.title.includes('Fiducia')));
 assert.ok(m.events.some(e=>e.year===2023&&e.title.includes('Church of England')));
+const mainTheme=m.topics.find(t=>t.id==='same-sex');
+assert.equal(mainTheme.sections?.length,7,'Sexuality research needs seven fully described subtopics');
+assert.ok(mainTheme.sections.every(s=>s.title&&s.body.length>=170),'Missing nuanced text');
+assert.ok(js.includes('v892-chapter-list'),'Extra research chapters must be presented');
 assert.match(js,/Tidsankarna är daterade händelser/);
 assert.ok(js.includes('data-event')&&js.includes('data-choose-topic')&&js.includes('scrollIntoView'));
 assert.ok(js.includes('www.bible.com/sv/bible/154'));
