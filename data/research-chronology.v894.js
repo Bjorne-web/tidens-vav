@@ -1,8 +1,38 @@
-/* V8.94 – historisk tidsaxel, delade händelser har ett gemensamt ID. */
+/* V8.94 – litterära och kyrkohistoriska händelser, delade ID mellan ämnen. */
 window.TIDENS_BIG_QUESTIONS_TIMELINE = {
   "status": "research-not-c6-final",
   "description": "Separata årtal för verkliga skrifter och teologiska diskussioner, osäkra årtal markeras som ungefärliga; berättad tid skiljs från textens komposition.",
   "events": [
+    {
+      "id": "IQ009",
+      "year": -380,
+      "topics": [
+        "good",
+        "bridge"
+      ],
+      "lane": "philosophy",
+      "title": "ca 380 f.Kr. · Platons Euthyfron",
+      "detail": "Dialogen ställer en grundfråga om förhållandet mellan gudarnas gillande och det godas självständighet. Den är inte skriven för kristen teologi, men den senare frågan om Guds vilja och moral kan jämföras med dess argument. Precist år för författandet är osäkert.",
+      "certainty": "SEP: Religion and Morality in Western Philosophy",
+      "source": "https://plato.stanford.edu/entries/religion-morality/",
+      "precision": "approx",
+      "relatedPostId": null
+    },
+    {
+      "id": "IQ016",
+      "year": -340,
+      "topics": [
+        "will",
+        "bridge"
+      ],
+      "lane": "philosophy",
+      "title": "ca 340 f.Kr. · Aristoteles om frivillig handling",
+      "detail": "I Nikomachiska etiken diskuterar Aristoteles tvång, okunskap och frivilligt moraliskt ansvar. Han använder inte ett färdigt modernt ordpar mellan determinism och libertariansk frihet. Tillkomstår och verkets redaktionshistoria är ungefärliga.",
+      "certainty": "SEP: Free Will historical background",
+      "source": "https://plato.stanford.edu/entries/freewill/",
+      "precision": "approx",
+      "relatedPostId": null
+    },
     {
       "id": "IQ001",
       "year": -250,
@@ -88,6 +118,21 @@ window.TIDENS_BIG_QUESTIONS_TIMELINE = {
       "relatedPostId": null
     },
     {
+      "id": "IQ017",
+      "year": 390,
+      "topics": [
+        "will",
+        "bridge"
+      ],
+      "lane": "church",
+      "title": "ca 390 e.Kr. · Augustinus Om den fria viljan",
+      "detail": "Augustinus författade De libero arbitrio i flera etapper ungefär 388–395. Verket utforskar synd, vilja, gudomlig försyn och ansvar. Hans senare resonemang om nåd förändrades under konflikterna med pelagianska ståndpunkter.",
+      "certainty": "SEP: Augustine of Hippo",
+      "source": "https://plato.stanford.edu/entries/augustine/",
+      "precision": "approx",
+      "relatedPostId": null
+    },
+    {
       "id": "IQ007",
       "year": 413,
       "topics": [
@@ -99,6 +144,36 @@ window.TIDENS_BIG_QUESTIONS_TIMELINE = {
       "certainty": "Augustinus, Om Gudsstaten, bok XXI",
       "source": "https://www.newadvent.org/fathers/120121.htm",
       "precision": "range",
+      "relatedPostId": null
+    },
+    {
+      "id": "IQ010",
+      "year": 413,
+      "topics": [
+        "good",
+        "bridge"
+      ],
+      "lane": "church",
+      "title": "413 · Augustinus börjar Om Gudsstaten",
+      "detail": "Augustinus diskuterar det ondas ursprung, synd, makt och Guds rättvisa i ett omfattande verk som utarbetas under en längre period. Hans resonemang om ondskan som brist är ett filosofiskt-teologiskt försök, inte ett empiriskt fastställande av varför lidande inträffar.",
+      "certainty": "SEP: Augustine of Hippo",
+      "source": "https://plato.stanford.edu/entries/augustine/",
+      "precision": "range",
+      "relatedPostId": null
+    },
+    {
+      "id": "IQ018",
+      "year": 529,
+      "topics": [
+        "will",
+        "bridge"
+      ],
+      "lane": "church",
+      "title": "529 · Synoden i Orange om nåd och vilja",
+      "detail": "Synoden i Orange behandlar nådens nödvändighet och människans frihet. Det är ett regionalt västligt kyrkomöte och inte ett slutgiltigt avgörande för all kristen teologi. Dess teologiska ställningstaganden påverkade senare debatter.",
+      "certainty": "Encyclopedia.com, Council of Orange",
+      "source": "https://www.encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/orange-councils",
+      "precision": "exact",
       "relatedPostId": null
     },
     {
@@ -116,34 +191,48 @@ window.TIDENS_BIG_QUESTIONS_TIMELINE = {
       "relatedPostId": null
     },
     {
-      "id": "IQ009",
-      "year": -380,
+      "id": "IQ019",
+      "year": 1524,
       "topics": [
-        "good",
-        "bridge"
-      ],
-      "lane": "philosophy",
-      "title": "ca 380 f.Kr. · Platons Euthyfron",
-      "detail": "Dialogen ställer en grundfråga om förhållandet mellan gudarnas gillande och det godas självständighet. Den är inte skriven för kristen teologi, men den senare frågan om Guds vilja och moral kan jämföras med dess argument. Precist år för författandet är osäkert.",
-      "certainty": "SEP: Religion and Morality in Western Philosophy",
-      "source": "https://plato.stanford.edu/entries/religion-morality/",
-      "precision": "approx",
-      "relatedPostId": null
-    },
-    {
-      "id": "IQ010",
-      "year": 413,
-      "topics": [
-        "good",
+        "will",
         "bridge"
       ],
       "lane": "church",
-      "title": "413 · Augustinus börjar Om Gudsstaten",
-      "detail": "Augustinus diskuterar det ondas ursprung, synd, makt och Guds rättvisa i ett omfattande verk som utarbetas under en längre period. Hans resonemang om ondskan som brist är ett filosofiskt-teologiskt försök, inte ett empiriskt fastställande av varför lidande inträffar.",
-      "certainty": "SEP: Augustine of Hippo",
-      "source": "https://plato.stanford.edu/entries/augustine/",
-      "precision": "range",
+      "title": "1524 · Erasmus om den fria viljan",
+      "detail": "Erasmus publicerar De libero arbitrio och argumenterar för en annan förståelse av människans val och förhållande till nåden än Luther. Diskussionen handlar särskilt om frälsningen, inte om huruvida människor gör vardagliga val.",
+      "certainty": "SEP: Martin Luther",
+      "source": "https://plato.stanford.edu/entries/luther/",
+      "precision": "exact",
       "relatedPostId": null
+    },
+    {
+      "id": "IQ020",
+      "year": 1525,
+      "topics": [
+        "will",
+        "bridge"
+      ],
+      "lane": "church",
+      "title": "1525 · Luther svarar om den trälbundna viljan",
+      "detail": "Luthers De servo arbitrio riktar ett kraftfullt svar mot Erasmus. Luther skiljer bland annat vardagliga handlingsområden från människans möjlighet att själv avgöra sin frälsning. Tvisten visar varför ordet fri vilja behöver definieras innan man jämför ståndpunkter.",
+      "certainty": "SEP: Martin Luther and Free Will",
+      "source": "https://plato.stanford.edu/entries/luther/",
+      "precision": "exact",
+      "relatedPostId": null
+    },
+    {
+      "id": "IQ023",
+      "relatedPostId": null,
+      "year": 1563,
+      "topics": [
+        "afterlife"
+      ],
+      "lane": "church",
+      "title": "1563 · Tridentinska konciliet om skärselden",
+      "detail": "Vid sitt 25:e möte i december 1563 föreskriver Tridentinska kyrkomötet att läran om skärselden ska undervisas och att böner för de döda ska upprätthållas. Beslutet kodifierar en specifik katolsk ordning under reformationens konflikter; det är varken den första förekomsten av tanken eller ett gemensamt protestantiskt beslut.",
+      "certainty": "Tridentinska kyrkomötets dekret 4 december 1563",
+      "source": "https://www.papalencyclicals.net/councils/trent/twenty-fifth-session.htm",
+      "precision": "exact"
     },
     {
       "id": "IQ011",
@@ -207,6 +296,21 @@ window.TIDENS_BIG_QUESTIONS_TIMELINE = {
       "relatedPostId": null
     },
     {
+      "id": "IQ025",
+      "relatedPostId": null,
+      "year": 1966,
+      "topics": [
+        "good",
+        "bridge"
+      ],
+      "lane": "philosophy",
+      "title": "1966 · John Hick formulerar en själutvecklingsteodicé",
+      "detail": "I Evil and the God of Love jämför John Hick traditionella svar på lidandets problem och utvecklar en modern version av tanken att världen kan vara en miljö för mänsklig mognad. En invändning är att svårt lidande ofta förstör snarare än utvecklar människor. Bokens årtal är dokumenterat, men teorins hållbarhet är en filosofisk fråga.",
+      "certainty": "Open British National Bibliography, originalupplaga 1966",
+      "source": "https://obnb.uk/p9010919-evil-and-the-god-of-love",
+      "precision": "exact"
+    },
+    {
       "id": "IQ015",
       "year": 1974,
       "topics": [
@@ -222,79 +326,19 @@ window.TIDENS_BIG_QUESTIONS_TIMELINE = {
       "relatedPostId": null
     },
     {
-      "id": "IQ016",
-      "year": -340,
+      "id": "IQ026",
+      "relatedPostId": null,
+      "year": 1979,
       "topics": [
-        "will",
+        "good",
         "bridge"
       ],
       "lane": "philosophy",
-      "title": "ca 340 f.Kr. · Aristoteles om frivillig handling",
-      "detail": "I Nikomachiska etiken diskuterar Aristoteles tvång, okunskap och frivilligt moraliskt ansvar. Han använder inte ett färdigt modernt ordpar mellan determinism och libertariansk frihet. Tillkomstår och verkets redaktionshistoria är ungefärliga.",
-      "certainty": "SEP: Free Will historical background",
-      "source": "https://plato.stanford.edu/entries/freewill/",
-      "precision": "approx",
-      "relatedPostId": null
-    },
-    {
-      "id": "IQ017",
-      "year": 390,
-      "topics": [
-        "will",
-        "bridge"
-      ],
-      "lane": "church",
-      "title": "ca 390 e.Kr. · Augustinus Om den fria viljan",
-      "detail": "Augustinus författade De libero arbitrio i flera etapper ungefär 388–395. Verket utforskar synd, vilja, gudomlig försyn och ansvar. Hans senare resonemang om nåd förändrades under konflikterna med pelagianska ståndpunkter.",
-      "certainty": "SEP: Augustine of Hippo",
-      "source": "https://plato.stanford.edu/entries/augustine/",
-      "precision": "approx",
-      "relatedPostId": null
-    },
-    {
-      "id": "IQ018",
-      "year": 529,
-      "topics": [
-        "will",
-        "bridge"
-      ],
-      "lane": "church",
-      "title": "529 · Synoden i Orange om nåd och vilja",
-      "detail": "Synoden i Orange behandlar nådens nödvändighet och människans frihet. Det är ett regionalt västligt kyrkomöte och inte ett slutgiltigt avgörande för all kristen teologi. Dess teologiska ställningstaganden påverkade senare debatter.",
-      "certainty": "Encyclopedia.com, Council of Orange",
-      "source": "https://www.encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/orange-councils",
-      "precision": "exact",
-      "relatedPostId": null
-    },
-    {
-      "id": "IQ019",
-      "year": 1524,
-      "topics": [
-        "will",
-        "bridge"
-      ],
-      "lane": "church",
-      "title": "1524 · Erasmus om den fria viljan",
-      "detail": "Erasmus publicerar De libero arbitrio och argumenterar för en annan förståelse av människans val och förhållande till nåden än Luther. Diskussionen handlar särskilt om frälsningen, inte om huruvida människor gör vardagliga val.",
-      "certainty": "SEP: Martin Luther",
-      "source": "https://plato.stanford.edu/entries/luther/",
-      "precision": "exact",
-      "relatedPostId": null
-    },
-    {
-      "id": "IQ020",
-      "year": 1525,
-      "topics": [
-        "will",
-        "bridge"
-      ],
-      "lane": "church",
-      "title": "1525 · Luther svarar om den trälbundna viljan",
-      "detail": "Luthers De servo arbitrio riktar ett kraftfullt svar mot Erasmus. Luther skiljer bland annat vardagliga handlingsområden från människans möjlighet att själv avgöra sin frälsning. Tvisten visar varför ordet fri vilja behöver definieras innan man jämför ståndpunkter.",
-      "certainty": "SEP: Martin Luther and Free Will",
-      "source": "https://plato.stanford.edu/entries/luther/",
-      "precision": "exact",
-      "relatedPostId": null
+      "title": "1979 · William Rowes evidentiella ondskeargument",
+      "detail": "William Rowe publicerar The Problem of Evil and Some Varieties of Atheism och utvecklar argumentet att vissa former av till synes meningslöst lidande utgör evidens mot en allsmäktig och allgod Gud. Han skiljer ett sannolikhetsargument från kravet att visa en strikt logisk motsägelse. Olika teistiska kritiker har ifrågasatt bedömningen av vad vi kan veta om möjliga goda skäl.",
+      "certainty": "American Philosophical Quarterly 16:4 (1979), bibliografiskt dokumenterad",
+      "source": "https://philpapers.org/versions/ROWTPO-3",
+      "precision": "exact"
     },
     {
       "id": "IQ022",
@@ -310,6 +354,20 @@ window.TIDENS_BIG_QUESTIONS_TIMELINE = {
       "source": "https://plato.stanford.edu/entries/freewill/",
       "precision": "exact",
       "relatedPostId": null
+    },
+    {
+      "id": "IQ024",
+      "relatedPostId": null,
+      "year": 1992,
+      "topics": [
+        "afterlife"
+      ],
+      "lane": "church",
+      "title": "1992 · Katolska kyrkans katekes om livet efter döden",
+      "detail": "Johannes Paulus II promulguerar Katolska kyrkans katekes, som sammanfattar läran om bland annat himmel, helvete, dom och skärseld. Det är en modern officiell katolsk text som visar kontinuitet och precisering, inte ett bevis för att samtliga kristna delar tolkningen eller att föreställningarna skapades 1992.",
+      "certainty": "Vatikanens katekes och officiell historik",
+      "source": "https://www.vatican.va/content/catechism/en/part_one/section_two/chapter_three/article_12/iii_the_final_purification%2C_or_purgatory.html",
+      "precision": "exact"
     }
   ]
 };
