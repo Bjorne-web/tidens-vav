@@ -10,7 +10,7 @@ function link(url,label){
 }
 const bibleCodes={'Jos':'JOS','Ps':'PSA','Ef':'EPH','Filem':'PHM','Gal':'GAL','1 Tim':'1TI','1 Kor':'1CO','2 Mos':'EXO','5 Mos':'DEU','Apg':'ACT','Matt':'MAT','Rom':'ROM','Joh':'JHN','1 Mos':'GEN','Mark':'MRK','Luk':'LUK','3 Mos':'LEV'};
 function bible(reference){
- const m=/^((?:[1-5]\s+)?[\p{L}]+)\s+(\d+)(?::(\d+))?(?:[–-]\d+)?$/u.exec(reference);
+ const m=/^((?:[1-5]\s+)?[\p{L}]+)\s+(\d+)(?:[–-]\d+)?(?::(\d+)(?:[–-]\d+)?)?$/u.exec(reference);
  if(!m)return '<span class="v892-unlinked">'+safe(reference)+'</span>';
  const code=bibleCodes[m[1]];if(!code)return '<span class="v892-unlinked">'+safe(reference)+'</span>';
  const url='https://www.bible.com/sv/bible/154/'+code+'.'+m[2]+(m[3]?'.'+m[3]:'')+'.B2000';
