@@ -1,6 +1,6 @@
 /* V8.58 – same right-hand research reader for canonical books. */
 (function(){
- const books=window.TIDENS_BIBLE_BOOKS||[];
+ const books=[...(window.TIDENS_BIBLE_BOOKS||[]),...(window.TIDENS_APOCRYPHA_BOOKS||[])];
  if(!books.length)return;
  const bookById=new Map(books.map(b=>[b.id,b]));
  const researchLinks={B001:'H020',B027:'H023',B043:'H034'};
@@ -19,16 +19,17 @@
   if(widthControls)root.append(widthControls);
   const article=make('article');article.className='tv-book-reader v86-article v839-unified-article';
   root.classList.add('v839-unified-reader');
-  const kicker=make('div','TIDENS VÄV · BIBELBOK · FORSKNINGSPOST '+b.id);kicker.className='kicker';article.append(kicker);
+  const kicker=make('div','TIDENS VÄV · '+(b.apocryphal?'APOKRYFISK SKRIFT':'BIBELBOK')+' · FORSKNINGSPOST '+b.id);kicker.className='kicker';article.append(kicker);
   article.append(make('h2',b.title));
-  const status=make('p','Bibelbok och textens tillkomst. Preliminärt forskningsunderlag, inte fullständigt vetenskapligt slutgranskad.');status.className='v839-unified-status';article.append(status);
+  const status=make('p',(b.apocryphal?'Apokryfisk skrift i Bibel 2000 – ':'Bibelbok – ')+'preliminärt forskningsunderlag om textens tillkomst, inte vetenskapligt slutgranskat.');status.className='v839-unified-status';article.append(status);
   article.append(make('h3','Vad var det?'));
-  article.append(make('p',b.title+' är en biblisk skrift inom '+b.genre+'. Bokposten avser textens tillkomst och bearbetning, inte att händelser som skildras därmed är historiskt verifierade.'));
+  article.append(make('p',b.title+' är '+(b.apocryphal?'en skrift i Bibel 2000:s Tillägg till Gamla testamentet':'en biblisk skrift')+' inom '+b.genre+'. Bokposten avser textens tillkomst och bearbetning, inte att händelser som skildras därmed är historiskt verifierade.'));
   article.append(make('h3','Historiskt sammanhang'));
   article.append(make('p',b.critical));
+  const profile=window.TIDENS_APOCRYPHA_RESEARCH?.[b.id]||window.TIDENS_BIBLE_BOOK_RESEARCH?.[b.id];
   article.append(make('h3','Konsekvenser och betydelse'));
-  article.append(make('p','Textens betydelse inom religiösa traditioner ska skiljas från belagda historiska följder. En individuell konsekvensanalys återstår.'));
-  const c7=window.TIDENS_C7_RELIGION?.[b.id];
+  article.append(make('p',profile?.impact||'Textens betydelse inom religiösa traditioner ska skiljas från belagda historiska följder. En individuell konsekvensanalys återstår.'));
+  const c7=window.TIDENS_APOCRYPHA_RELIGION?.[b.id]||window.TIDENS_C7_RELIGION?.[b.id];
   if(c7){
    article.append(make('h3','Betydelse för Israels religion, judendomen och kristendomen'));
    article.append(make('p',c7.level),make('p',c7.paragraph));
@@ -45,18 +46,18 @@
    }
   }
   article.append(make('h3','Osäkerheter och viktiga preciseringar'));
-  article.append(make('p','Författartillskrivningen är traditionshistorisk. Föreslagen texttillkomst är en forskningsrekonstruktion med osäkerheter och möjlig flerstegskomposition.'));
+  article.append(make('p',profile?.limits||'Författartillskrivningen är traditionshistorisk. Föreslagen texttillkomst är en forskningsrekonstruktion med osäkerheter och möjlig flerstegskomposition.'));
   const dl=make('dl');dl.className='tv-book-reader-facts';
   const fields=[
    ['Traditionell författartillskrivning',b.attributed],
    ['Historisk-kritisk bedömning',b.critical],
    ['Föreslagen tillkomst/redaktion',fmt(b.start)+' – '+fmt(b.end)],
    ['Berättad tid',b.narrativeTime],
+   ...(b.apocryphal?[['Kanonisk ställning',b.canon],['Textens typ',b.kind]]:[]),
    ['Vetenskaplig granskningsstatus','Preliminär; individuell forskningsgranskning återstår']
   ];
   for(const [label,value] of fields){dl.append(make('dt',label),make('dd',value));}
   article.append(dl);
-  const profile=window.TIDENS_BIBLE_BOOK_RESEARCH?.[b.id];
   if(profile){
    article.append(make('h3','Forskningsfördjupning'));
    article.append(make('p',profile.composition));
@@ -98,7 +99,7 @@
   const caveat=make('p','Ett enskilt källstöd eller en dateringsmodell innebär inte att boken är fullständigt historisk-kritiskt granskad.');caveat.className='v839-unified-caveat';article.append(caveat);
   const links=make('section');links.className='v827-reader-rel';
   links.append(make('h3','Historiska samband'));
-  const related=researchLinks[b.id];
+  const related=researchLinks[b.id]||b.related||null;
   links.append(make('p',related?
     'Boken har en avgränsad koppling till en befintlig forskningspost om textens tillkomst. Temaspår visar de samband som faktiskt är dokumenterade för den posten.':
     'Ännu ingen individuellt källkontrollerad koppling till de befintliga Temaspåren. Öppna Temaspår för att undersöka relaterade historiska sammanhang.'));
@@ -106,7 +107,8 @@
   action.addEventListener('click',()=>{
    // The existing origin-post workflow now understands B-IDs through its data adapter.
    // Do not construct a second Bible-only timeline, relation panel or state model.
-   if(typeof v827ShowRelations==='function')v827ShowRelations(b.id);
+   if(related && typeof v827ShowRelations==='function')v827ShowRelations(related);
+   else if(typeof view==='function')view('explore');
   });
   links.append(action);article.append(links);root.append(article);
   if(typeof v84DecorateReader==='function')v84DecorateReader();
