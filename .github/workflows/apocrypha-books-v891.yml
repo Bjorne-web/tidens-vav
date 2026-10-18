@@ -1,0 +1,37 @@
+name: V8.91 apokryfiska bokposter och tidslinje
+on:
+  pull_request:
+    paths:
+      - 'data/apocrypha-books-v891.js'
+      - 'v858-book-reader.js'
+      - 'v859-book-gantt.js'
+      - 'v881-gantt-category-controls.js'
+      - 'v879-timeline-layout.js'
+      - 'v835-deeplinks.js'
+      - 'index.html'
+      - 'tests/*apocrypha-books-v891*'
+      - 'tests/smoke-v858.mjs'
+      - 'tests/smoke-c7-v891.mjs'
+      - '.github/workflows/apocrypha-books-v891.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  book-timeline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Kontrollera 77 bokposter och vetenskapliga uppgifter
+        run: |
+          node tests/smoke-apocrypha-books-v891.mjs
+          node tests/smoke-v858.mjs
+          node tests/smoke-c7-v891.mjs
+      - name: Installera Chromium for integrationstester
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Testa desktop och mobil
+        run: node tests/browser-apocrypha-books-v891.cjs
