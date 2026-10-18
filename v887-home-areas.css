@@ -30,7 +30,7 @@
 #startView .tv876-hero{
   min-height:480px;display:flex;flex-direction:column;justify-content:center;
   background-image:linear-gradient(90deg,rgba(15,36,60,.93) 0%,rgba(17,45,71,.87) 40%,rgba(20,54,77,.30) 100%),
-    url("https://commons.wikimedia.org/wiki/Special:FilePath/Jerusalem_from_the_Mount_of_Olives_%2853714451089%29.jpg?width=1600");
+    url("https://url("./start-hero.png")/wiki/Special:FilePath/Jerusalem_from_the_Mount_of_Olives_%2853714451089%29.jpg?width=1600");
   background-position:center,center 48%;
   background-size:cover;
   border-radius:22px;
@@ -51,7 +51,7 @@
 #startView .tv887-area-copy em{font-size:13px}
 #startView .tv887-method{border-left:3px solid #8daabb;padding:11px 15px;margin-top:17px;background:#eef4f8;border-radius:0 9px 9px 0}
 @media(max-width:900px){#startView .tv876-hero{min-height:410px}#startView .tv887-area-grid{gap:12px}}
-@media(max-width:600px){#startView .tv876-hero{min-height:480px;padding:26px;background-position:center,60% center;background-image:linear-gradient(90deg,rgba(15,36,60,.93),rgba(17,45,71,.67)),url("https://commons.wikimedia.org/wiki/Special:FilePath/Jerusalem_from_the_Mount_of_Olives_%2853714451089%29.jpg?width=1600")}#startView .tv876-hero h1{font-size:clamp(34px,9vw,46px)}#startView .tv887-area{padding:16px;min-height:235px}#startView .tv887-icon{width:52px;height:52px}#startView .tv887-area-copy strong{font-size:14px}#startView .tv887-area-copy small{font-size:12px}}
+@media(max-width:600px){#startView .tv876-hero{min-height:480px;padding:26px;background-position:center,60% center;background-image:linear-gradient(90deg,rgba(15,36,60,.93),rgba(17,45,71,.67)),url("https://url("./start-hero.png")/wiki/Special:FilePath/Jerusalem_from_the_Mount_of_Olives_%2853714451089%29.jpg?width=1600")}#startView .tv876-hero h1{font-size:clamp(34px,9vw,46px)}#startView .tv887-area{padding:16px;min-height:235px}#startView .tv887-icon{width:52px;height:52px}#startView .tv887-area-copy strong{font-size:14px}#startView .tv887-area-copy small{font-size:12px}}
 @media(prefers-reduced-motion:reduce){#startView .tv887-area{transition:none}}
 
 /* V8.87 wide landing page redesign. Scoped to the real start view. */
