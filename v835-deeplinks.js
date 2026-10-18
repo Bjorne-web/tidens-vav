@@ -10,7 +10,7 @@
 
   function recordFor(id) {
     if(typeof id!=='string' || !ID_PATTERN.test(id))return null;
-    return (typeof idEvent==='function' ? idEvent(id) : null) || null;
+    return (typeof idEvent==='function' ? idEvent(id) : null) || (window.TIDENS_APOCRYPHA_BOOKS||[]).find(b=>b.id===id) || null;
   }
 
   function parse(search) {
@@ -45,6 +45,9 @@
 
   function openRoute(route) {
     if(!route || route.error || !recordFor(route.id) || !ALLOWED.has(route.view))return false;
+    if((window.TIDENS_APOCRYPHA_BOOKS||[]).some(b=>b.id===route.id)){
+      view('timeline');return window.TidensOpenBookV858?.(route.id)||false;
+    }
     if(route.view==='explore'){
       v829Focus.id=route.id;
       v827RelationFocus=route.id;
