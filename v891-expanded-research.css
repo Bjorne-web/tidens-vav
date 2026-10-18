@@ -1,0 +1,19 @@
+/* V8.91 reading layer, accessible details and linked biblical references */
+.v891-intro{line-height:1.65;max-width:83ch;padding:12px 0 15px;margin:0;color:var(--muted,inherit);font-size:.94rem}
+.v891-expanded{border-top:1px solid var(--line,#9aa9b2);border-bottom:1px solid var(--line,#9aa9b2);margin-top:17px;margin-bottom:22px}
+.v891-section{padding:0!important;border-top:1px solid var(--line,#aab5bd)!important}
+.v891-section:first-of-type{border-top:0!important}
+.v891-section>summary{font-size:clamp(1.03rem,1.55vw,1.2rem)!important;font-weight:750;padding:17px 4px 17px 2px;line-height:1.45}
+.v891-reading{padding:0 3px 20px 3px;line-height:1.78;max-width:84ch}
+.v891-reading p{margin:0 0 17px;font-size:1rem;line-height:1.78}
+.v891-reading a.v891-verse{color:var(--accent,#267692)!important;text-decoration:underline!important;text-decoration-thickness:1.5px;text-underline-offset:3px;font-weight:650;white-space:normal}
+.v891-reading a.v891-verse:hover{text-decoration-thickness:2px!important}
+.v891-reading a.v891-verse:focus-visible{outline:2px solid var(--accent,#267692);outline-offset:3px}
+.v891-verse span{font-weight:500;font-size:.74em}
+.v891-assessment{border-left:3px solid var(--accent,#67888b);padding:8px 0 8px 14px;margin:18px 0!important;font-size:.94rem!important;background:transparent}
+.v891-sourcebox{padding:11px 15px;border:1px solid var(--line,#a3afb9);border-radius:11px;margin-top:8px}
+.v891-sourcebox strong{font-size:.91rem}
+.v891-sourcebox ul{padding-left:20px;margin:8px 0 0}
+.v891-sourcebox li{line-height:1.5;margin:6px 0;overflow-wrap:anywhere}
+.v891-sourcebox a{color:var(--accent,#267692)!important}
+@media(max-width:720px){.v891-intro{font-size:.9rem}.v891-section>summary{font-size:1.02rem!important}.v891-reading p{font-size:.96rem;line-height:1.7}.v891-reading{padding:0 0 14px}}
