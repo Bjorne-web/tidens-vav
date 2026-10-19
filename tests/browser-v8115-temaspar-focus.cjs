@@ -63,8 +63,13 @@ const server=http.createServer((req,res)=>{
    assert.match(await searchPanel.innerText(),/Gilgamesheposet/);
    assert.doesNotMatch(await searchPanel.innerText(),/Inga matchande poster/);
    await searchPanel.locator('[data-v827-result]').first().click();
-   assert.equal(await page.locator('#v833PostSelect').inputValue(),'O067',width+'px: search result must open selected O067 in Temaspår');
-   assert.match(await page.locator('.v839-focus-row').innerText(),/Gilgamesheposet/);
+   const opened=await page.evaluate(()=>({id:state.selected,view:state.view,reader:document.querySelector('#detail')?.innerText||'',button:[...document.querySelectorAll('#detail button')].some(b=>b.textContent.includes('Visa sambanden i Temaspår'))}));
+   assert.equal(opened.id,'O067',width+'px: search result must select O067');
+   assert.equal(opened.view,'timeline',width+'px: search result must remain in reader/timeline, not force Temaspår');
+   assert.match(opened.reader,/Gilgamesheposet/);
+   assert.equal(opened.button,true,width+'px: reader must offer the optional Temaspår action');
+   await page.evaluate(()=>[...document.querySelectorAll('#detail button')].find(b=>b.textContent.includes('Visa sambanden i Temaspår')).click());
+   assert.equal(await page.locator('#v833PostSelect').inputValue(),'O067',width+'px: explicit Temaspår action must retain selected O067');
    assert.deepEqual(errors,[],width+'px: Javascript errors');
    await page.close();
   }
