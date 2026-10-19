@@ -77,6 +77,7 @@ jobs:
           node tests/smoke-v894-research-gantt.mjs
           node tests/smoke-v895-research-visuals.mjs
           node tests/smoke-v899-topic-icons.mjs
+          node tests/smoke-v900-timeline-landscape.mjs
           node tests/smoke-neutral-start-v887.mjs
           node tests/c6-integrity-v887.mjs
           node tests/c6-h042-h054.mjs
