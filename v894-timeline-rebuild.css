@@ -1,0 +1,110 @@
+/* V8.94 revision 2 — ordered, aligned, and minimal controls. */
+#timelineView,#timelineView>.tv895-timeline-hero,#timelineView>.v843-sticky-controls,#timelineView>.timeline-card,#timelineView>#v881CategoryStrip{width:100%!important;max-width:none!important;min-width:0;box-sizing:border-box;margin-left:0!important;margin-right:0!important}
+#timelineView .tv895-timeline-caption{display:none!important}
+body[data-v827-view="timeline"] #timelineView .v843-sticky-controls.v894-layout{display:flex!important;flex-direction:column!important;position:relative!important;top:auto!important;gap:5px!important;width:100%!important;padding:0!important;margin:0 0 4px!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:transparent!important;overflow:visible}
+/* Slim time navigation; remains below the approved Ordning row. */
+body[data-v827-view="timeline"] #timelineView .v894-layout>#v827PanControls{order:2;position:static!important;display:flex!important;align-items:center!important;flex-wrap:nowrap!important;gap:5px!important;width:100%!important;max-width:none!important;height:24px!important;min-height:24px!important;margin:0!important;padding:1px 6px!important;border:1px solid #e3eaf0!important;border-radius:5px!important;background:#fbfcfe!important;box-shadow:none!important}
+body[data-v827-view="timeline"] #timelineView .v894-layout>#v827PanControls[hidden]{display:none!important}
+#timelineView .v894-layout>#v827PanControls .v827-pantop{flex:0 0 auto!important;display:flex!important;align-items:center!important;margin:0!important;padding:0!important;line-height:1!important}
+#timelineView .v894-layout>#v827PanControls .v827-pantop b{font-size:9px!important;font-weight:600!important;line-height:1!important}
+#timelineView .v894-layout>#v827PanControls .v827-pantop small,#timelineView .v894-layout>#v827PanControls>small{display:none!important}
+#timelineView .v894-layout>#v827PanControls .v827-panrow{flex:1 1 auto!important;display:flex!important;align-items:center!important;gap:4px!important;min-width:0!important;margin:0!important;padding:0!important}
+#timelineView .v894-layout>#v827PanControls .v827-panrow button{font-size:9px!important;line-height:1!important;min-height:19px!important;height:19px!important;padding:1px 5px!important;white-space:nowrap;border-color:#dbe5ee!important;background:#fff!important}
+#timelineView .v894-layout>#v827PanControls input[type="range"]{flex:1 1 auto!important;min-width:40px!important;width:100%!important;height:10px!important;margin:0!important;accent-color:#718ca6}
+body[data-v827-view="timeline"] #timelineView .v894-layout>#v7toolbar{order:1;display:flex!important;align-items:center!important;flex-wrap:wrap!important;gap:5px 8px!important;width:100%!important;min-height:36px!important;margin:0!important;padding:5px 8px!important;border:1px solid #dce7ed!important;border-radius:8px!important;background:#f6f9fc!important;box-sizing:border-box}
+body[data-v827-view="timeline"] #timelineView #v894PanToggle{display:inline-flex!important;align-items:center;justify-content:center;position:relative!important;flex:0 0 auto!important;margin-left:auto!important;min-height:27px!important;padding:4px 10px!important;cursor:pointer!important;background:#fff!important;border:1px solid #b5cee3!important;border-radius:7px;z-index:2}
+body[data-v827-view="timeline"] #timelineView .v894-layout>#axis{order:4;position:relative!important;grid-row:auto!important;grid-column:auto!important;width:100%!important;max-width:none!important;box-sizing:border-box}
+#timelineView>.timeline-card{margin-top:0!important}
+/* Categories follow the full timeline chart, restoring V8.81's existing category colors. */
+body[data-v827-view="timeline"] #timelineView .v894-layout>#v881CategoryStrip.v894-category-restored{display:flex!important;flex-wrap:wrap!important;gap:6px!important;width:100%!important;max-width:none!important;margin:7px 0 10px!important;padding:9px!important;border:1px solid #cbdbea!important;border-radius:9px!important;background:#f8fbff!important}
+body[data-v827-view="timeline"] #timelineView .v894-layout>#v881CategoryStrip.v894-category-restored button{border:1px solid var(--v881-cat-color,#7794b0)!important;border-left:5px solid var(--v881-cat-color,#7794b0)!important;background:#fff!important;color:#173c5a!important;border-radius:7px!important;padding:5px 9px!important;font-size:11px!important;box-shadow:inset 0 0 0 1px #ffffffaa}
+body[data-v827-view="timeline"] #timelineView .v894-layout>#v881CategoryStrip.v894-category-restored button[aria-pressed="false"]{opacity:.5!important;text-decoration:line-through;background:#e9edf1!important}
+@media(max-width:700px){body[data-v827-view="timeline"] #timelineView .v894-layout>#v827PanControls{gap:4px!important;padding:2px 4px!important}#timelineView .v894-layout>#v827PanControls .v827-pantop b{font-size:9px!important}#timelineView .v894-layout>#v827PanControls .v827-panrow button{font-size:9px!important;padding:2px 4px!important}body[data-v827-view="timeline"] #timelineView #v894PanToggle{margin-left:auto!important}}
+
+
+/* Keep the existing category color styling while it sits between pan and scale. */
+body[data-v827-view="timeline"] #timelineView .v894-layout>#v881CategoryStrip.v894-category-restored{order:3!important;flex:0 0 auto!important}
+/* V8.94: style the ACTUAL v832 interval, not the obsolete v827 input. */
+body[data-v827-view="timeline"] #timelineView .v894-layout #v827PanSlider,
+body[data-v827-view="timeline"] #timelineView .v894-layout #v827PanSlider[hidden]{display:none!important}
+body[data-v827-view="timeline"] #timelineView .v894-layout #v832Interval{
+  position:relative!important;flex:1 1 0%!important;min-width:100px!important;
+  width:auto!important;height:18px!important;min-height:18px!important;
+  padding:0!important;margin:0!important;touch-action:none
+}
+/* Override original inline v832 geometry; preserve its listeners. */
+body[data-v827-view="timeline"] #timelineView .v894-layout #v832Interval>div:first-child{
+  top:8px!important;height:2px!important;background:#cbdbe9!important;
+  border-radius:9px!important
+}
+body[data-v827-view="timeline"] #timelineView .v894-layout #v832Window{
+  top:8px!important;height:2px!important;background:#8eabc7!important;
+  border-radius:9px!important;min-width:0!important
+}
+body[data-v827-view="timeline"] #timelineView .v894-layout #v832Left,
+body[data-v827-view="timeline"] #timelineView .v894-layout #v832Right{
+  top:3px!important;width:11px!important;height:11px!important;
+  margin-left:3.5px!important;box-sizing:border-box!important;
+  border:1px solid #87a5c0!important;background:#fff!important;
+  border-radius:50%!important;box-shadow:0 0 0 1px #fff!important;
+  padding:0!important;min-height:0!important;cursor:ew-resize!important
+}
+body[data-v827-view="timeline"] #timelineView .v894-layout #v832Interval:focus-within #v832Left:focus-visible,
+body[data-v827-view="timeline"] #timelineView .v894-layout #v832Interval:focus-within #v832Right:focus-visible{
+  outline:2px solid #2b6cad!important;outline-offset:2px
+}
+
+/* V8.94 pan fix: retain approved 2px appearance, but give the existing
+   movable interval a larger transparent pointer hit-area. */
+body[data-v827-view="timeline"] #timelineView .v894-layout #v832Window{
+ top:0!important;height:18px!important;background:transparent!important;
+ cursor:grab!important;touch-action:none!important;z-index:1!important
+}
+body[data-v827-view="timeline"] #timelineView .v894-layout #v832Window::before{
+ content:"";position:absolute;left:0;right:0;top:8px;height:2px;
+ background:#8eabc7;border-radius:9px;pointer-events:none
+}
+body[data-v827-view="timeline"] #timelineView .v894-layout #v832Window:active{cursor:grabbing!important}
+body[data-v827-view="timeline"] #timelineView .v894-layout #v832Left,
+body[data-v827-view="timeline"] #timelineView .v894-layout #v832Right{z-index:2!important}
+
+/* V8.94 scale repair — axis uses the same plot width as each mode's bars.
+   Overrides the old width:100% + important-margin combination. */
+body[data-v827-view="timeline"] #timelineView.v828-chrono-gantt .v894-layout>#axis{
+  margin-left:217px!important;margin-right:131px!important;
+  width:calc(100% - 348px)!important;max-width:none!important;
+  min-width:0!important;overflow:visible!important
+}
+body[data-v827-view="timeline"] #timelineView.v815-hierarchical:not(.v828-chrono-gantt) .v894-layout>#axis,
+body[data-v827-view="timeline"] #timelineView.v814-scale-mode:not(.v828-chrono-gantt) .v894-layout>#axis{
+  margin-left:12px!important;margin-right:126px!important;
+  width:calc(100% - 138px)!important;min-width:0!important
+}
+@media(max-width:900px){
+ body[data-v827-view="timeline"] #timelineView.v828-chrono-gantt .v894-layout>#axis,
+ body[data-v827-view="timeline"] #timelineView.v815-hierarchical .v894-layout>#axis,
+ body[data-v827-view="timeline"] #timelineView.v814-scale-mode .v894-layout>#axis{
+  margin-left:8px!important;margin-right:8px!important;
+  width:calc(100% - 16px)!important
+ }
+}
+
+/* V8.94: chronological Gantt vertical tick guides; share scale tick positions. */
+body[data-v827-view="timeline"] #timelineView.v828-chrono-gantt .v828-gantt-track{
+  position:relative;isolation:isolate;
+}
+body[data-v827-view="timeline"] #timelineView.v828-chrono-gantt .v828-gantt-track>.v894-gantt-guide{
+  position:absolute;top:0;bottom:0;width:1px;transform:translateX(-.5px);
+  background:#d7e2ec;opacity:.9;pointer-events:none;z-index:0;
+}
+body[data-v827-view="timeline"] #timelineView.v828-chrono-gantt .v828-gantt-track>.v828-period,
+body[data-v827-view="timeline"] #timelineView.v828-chrono-gantt .v828-gantt-track>.v828-point{
+  z-index:1;
+}
+
+/* V8.94: remove legacy fixed 20%-grid from Gantt plots.
+   Only the timeline-tick-synchronized .v894-gantt-guide lines remain. */
+body[data-v827-view="timeline"] #timelineView.v828-chrono-gantt .v828-gantt-track{
+  background-image:none!important;
+  background-size:auto!important;
+}
