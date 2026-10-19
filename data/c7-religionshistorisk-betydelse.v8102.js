@@ -110,5 +110,5 @@ const additions={
     ]
   }
 };
-window.TIDENS_C7_RELIGION=Object.assign(window.TIDENS_C7_RELIGION||{},additions);
+window.TIDENS_C7_RELIGION=Object.freeze(Object.assign({},window.TIDENS_C7_RELIGION||{},additions));
 })();
