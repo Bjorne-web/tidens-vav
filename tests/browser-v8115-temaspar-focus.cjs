@@ -17,7 +17,7 @@ const server=http.createServer((req,res)=>{
    const page=await browser.newPage({viewport:{width,height:850}});
    const errors=[];page.on('pageerror',e=>errors.push(e.message));
    await page.goto('http://127.0.0.1:'+server.address().port+'/',{waitUntil:'domcontentloaded'});
-   await page.locator('#navExplore').click();
+   await page.evaluate(()=>document.getElementById('navExplore').click());
    await page.locator('#v833PostSelect').waitFor();
    await page.selectOption('#v833PostSelect','H045');
    await page.locator('.v839-focus-row .v839-focus-card').waitFor();
