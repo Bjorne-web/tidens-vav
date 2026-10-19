@@ -12,3 +12,5 @@
 #tvQuickDialog button.tvq-primary{background:#245f9e;color:#fff;border-color:#245f9e}
 #tvQuickDialog .tvq-pill{background:#e8eff8;border-radius:6px;padding:4px 8px;display:inline-block;font-size:12px}
 @media(max-width:600px){#tvQuickDialog{padding:18px}#tvQuickPilot{bottom:72px;right:10px}}
+
+#tvQuickDialog .tvq-sources{padding-left:20px;margin:8px 0 18px}#tvQuickDialog .tvq-sources a{color:#245f9e;text-decoration:underline}
