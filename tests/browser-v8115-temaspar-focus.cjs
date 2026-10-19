@@ -56,6 +56,7 @@ const server=http.createServer((req,res)=>{
     if(id==='O067')assert.match(await page.locator('.v839-focus-row').innerText(),/Gilgamesheposet/);
    }
    // Verkliga globala sökfältet: O067 måste hittas och leda till vald post i Temaspår.
+   await page.evaluate(()=>view('timeline'));
    await page.locator('#search').fill('O067');
    const searchPanel=page.locator('#v827SearchResults');
    await searchPanel.locator('[data-v827-result]').first().waitFor();
