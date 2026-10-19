@@ -1,0 +1,14 @@
+/* PR pilot: isolated H045 quick research preview; no legacy reader changes. */
+#tvQuickPilot{position:fixed;right:20px;bottom:22px;z-index:300;padding:10px 14px;background:#244e79;color:white;border:1px solid #fff;border-radius:12px;box-shadow:0 4px 18px #18354c55;cursor:pointer;font:600 13px system-ui}
+#tvQuickOverlay[hidden],#tvQuickPilot[hidden]{display:none!important}
+#tvQuickOverlay{position:fixed;inset:0;background:#10283a80;z-index:310;display:flex;align-items:center;justify-content:center;padding:16px}
+#tvQuickDialog{background:#fff;color:#19304a;border-radius:18px;width:min(680px,100%);max-height:90vh;overflow:auto;box-shadow:0 14px 55px #112b46aa;padding:24px;font:15px/1.5 system-ui}
+#tvQuickDialog header{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
+#tvQuickDialog h2{font:700 clamp(23px,3vw,30px) Georgia,serif;margin:8px 0}
+#tvQuickDialog .tvq-muted{color:#62788d;font-size:12px}
+#tvQuickDialog .tvq-summary{font-size:15px;line-height:1.7}
+#tvQuickDialog .tvq-actions{display:flex;gap:12px;justify-content:flex-end;flex-wrap:wrap;margin-top:20px}
+#tvQuickDialog button{border:1px solid #b4c6d8;background:#f3f7fc;border-radius:9px;padding:9px 14px;cursor:pointer}
+#tvQuickDialog button.tvq-primary{background:#245f9e;color:#fff;border-color:#245f9e}
+#tvQuickDialog .tvq-pill{background:#e8eff8;border-radius:6px;padding:4px 8px;display:inline-block;font-size:12px}
+@media(max-width:600px){#tvQuickDialog{padding:18px}#tvQuickPilot{bottom:72px;right:10px}}
