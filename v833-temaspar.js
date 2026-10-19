@@ -140,7 +140,7 @@
     study.querySelector('#v833PostSelect').onchange=e=>{
       v829Focus.id = e.target.value || null;
       v827RelationFocus = e.target.value || v827RelationFocus;
-      if(v829Focus.id){if(v829Focus.id.startsWith('B')&&typeof window.TidensOpenBookV858==='function'){window.TidensOpenBookV858(v829Focus.id);renderExplore();}else setSelected(v829Focus.id);} else renderExplore();
+      if(v829Focus.id){if(v829Focus.id.startsWith('B')&&typeof window.TidensOpenBookV858==='function'){window.TidensOpenBookV858(v829Focus.id);renderExplore();}else { setSelected(v829Focus.id); renderExplore(); }} else renderExplore();
     };
     const read = study.querySelector('#v833Read');
     if(read)read.onclick=()=>{if(focus.bibleBook&&typeof window.TidensOpenBookV858==='function')window.TidensOpenBookV858(focus.id);else setSelected(focus.id);if(window.innerWidth<=900 && typeof v84OpenReader==='function')v84OpenReader()};
