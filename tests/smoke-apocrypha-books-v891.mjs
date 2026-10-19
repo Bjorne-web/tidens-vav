@@ -26,7 +26,7 @@ assert.equal(apoc.find(b=>b.id==='D003').title,'Ester enligt den grekiska texten
 assert.equal(apoc.find(b=>b.id==='D009').title,'Jeremias brev');
 assert.equal(apoc.find(b=>b.id==='D010').title,'Tillägg till Daniel');
 assert(gantt.includes("AP_CATEGORY='Apokryferna'")&&gantt.includes("tvOnlyApocrypha")&&gantt.includes('bookCategory(b)===cat')&&gantt.includes('state.cat.has(bookCategory(b))'));
-assert(reader.includes('TIDENS_APOCRYPHA_RESEARCH')&&reader.includes('TIDENS_APOCRYPHA_RELIGION')&&reader.includes('v827ShowRelations(related)'));
+assert(reader.includes('TIDENS_APOCRYPHA_RESEARCH')&&reader.includes('TIDENS_APOCRYPHA_RELIGION')&&reader.includes('v827ShowRelations(b.id)'));
 assert(controls.includes("['Apokryferna','Apokryferna']"));
 assert(links.includes('TIDENS_APOCRYPHA_BOOKS')&&links.includes("TidensOpenBookV858?.(route.id)"));
 assert(html.includes('apokryfer-granskning3.v888.js'),'Retain six AP thematic research entries');
