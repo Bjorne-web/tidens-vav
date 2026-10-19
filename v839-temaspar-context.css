@@ -52,3 +52,11 @@
 .v839-enhanced+.v835-extra-context[hidden]{display:none!important}
 @media(max-width:1000px){.v839-category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.v839-category-grid{grid-template-columns:minmax(0,1fr)}.v839-toolbar h3{font-size:15px}.v839-undated{flex-direction:column;align-items:flex-start;gap:3px}.v839-list-item{align-items:flex-start;flex-direction:column}.v839-list-item button{width:100%}}
+
+/* V8.115 – tydlig utgångspost även där arkivets datering inte har källprövats. */
+.v839-focus-row .v839-undated{display:flex;flex-direction:column;align-items:flex-start;gap:5px;top:7px;left:8px;right:8px;padding:9px 12px;border:2px dashed #3575aa;background:#eef6fe;line-height:1.35}
+.v839-undated-kicker{font-size:10px;letter-spacing:.045em;font-weight:800;color:#245e99}
+.v839-undated b{font-size:13px;color:#173f65}
+.v839-undated span{font-size:11px;line-height:1.35;color:#375a77}
+.v839-undated button{font-size:11px;font-weight:700;color:#165b91;background:#fff;border:1px solid #94bada;border-radius:5px;padding:4px 9px;cursor:pointer}
+.v839-undated button:focus-visible{outline:2px solid #245e99;outline-offset:2px}

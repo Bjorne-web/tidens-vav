@@ -113,8 +113,9 @@
   action.addEventListener('click',()=>{
    // The existing origin-post workflow now understands B-IDs through its data adapter.
    // Do not construct a second Bible-only timeline, relation panel or state model.
-   if(related && typeof v827ShowRelations==='function')v827ShowRelations(related);
-   else if(typeof view==='function')view('explore');
+   // Always pass the clicked book as origin, never its optional research link.
+   if(typeof v827ShowRelations==='function')v827ShowRelations(b.id);
+   else if(typeof view==='function'){if(typeof v829Focus!=='undefined')v829Focus.id=b.id;view('explore');if(typeof renderExplore==='function')renderExplore();}
   });
   links.append(action);article.append(links);
   window.TidensC7Ui?.decorate(article);

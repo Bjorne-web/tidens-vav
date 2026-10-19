@@ -1,0 +1,23 @@
+name: Temaspår – vald utgångspost
+on:
+  pull_request:
+    paths:
+      - 'v833-temaspar.js'
+      - 'v839-temaspar-context.js'
+      - 'v839-temaspar-context.css'
+      - 'tests/browser-v8115-temaspar-focus.cjs'
+      - '.github/workflows/temaspar-focus.yml'
+  workflow_dispatch:
+jobs:
+  check-focus:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save --no-package-lock playwright@1.56.1
+      - run: npx playwright install --with-deps chromium
+      - run: node tests/browser-v8115-temaspar-focus.cjs

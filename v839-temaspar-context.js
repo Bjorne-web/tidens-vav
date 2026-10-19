@@ -122,7 +122,7 @@
     return `<span class="v839-tick" style="left:${(i/6*100).toFixed(2)}%">${esc(fmt(Math.round(val)))}</span>`;
   }).join('');
   const focusRows=model.segments.length?datedRows(model.segments,range):{
-   height:96,cards:`<div class="v839-undated" role="note"><b>${esc(focus.title)} · ${esc(focus.id)}</b><span>Ingen källförsvarbar datering. Visas utan markör på tidsaxeln.</span></div>`
+   height:116,cards:`<div class="v839-undated" role="note" aria-label="Vald utgångspost utan separat granskad datering"><div class="v839-undated-kicker">VALD UTGÅNGSPOST · ${esc(focus.id)}</div><b>${esc(focus.title)}</b><span>Datumet i originalarkivet är ännu inte separat källprövat. Posten visas därför utan tidsmarkör, men används som utgångspunkt för jämförelsen.</span><button type="button" data-v839-read="${esc(focus.id)}">Läs vald post →</button></div>`
   };
   const rows=[{label:'UTGÅNGSPOST',id:'focus',color:'#245e99',...focusRows},
     ...model.groups.map(g=>({label:g.label,id:g.id,color:g.color,...datedRows(g.entries,range)}))];
