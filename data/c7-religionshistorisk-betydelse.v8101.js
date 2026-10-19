@@ -30,7 +30,7 @@
     "paragraph": "Vid Kuntillet Ajrud, en plats i nordöstra Sinai från ungefär 800-talet f.Kr., har man på kärl och väggfragment funnit välsignelseformler som knyter Jahve till Samaria respektive Teman och nämner 'hans asherah'. Detta är ett sällsynt utombibliskt vittnesbörd om hur Jahves namn användes i en faktisk israelitisk/judeisk kulturmiljö. Däremot är inte uttryckets exakta betydelse fastslagen. En tolkning identifierar Asherah med en gudinna som kan ha uppfattats som Jahves partner; en annan ser en kultsymbol, exempelvis ett heligt föremål eller ett associerat helgedomsmotiv. Även den grammatiska possessivändelsen och förhållandet mellan text och bilder diskuteras. Flera av de avbildade gestalterna har tolkats som egyptiskt influerade Bes-figurer, inte säkra porträtt av Jahve och en gudinna. En forskningsstudie av platsens inskrifter föreslår dessutom en lärd skrivarmiljö snarare än ett självklart tempel. Jämför 5 Mos 16:21 och 2 Kung 23:4–7, som förbjuder eller beskriver avlägsnandet av asherah-relaterade kultföremål. Dessa lagar är bevarade i senare litterära former och får inte automatiskt projiceras som enhetligt efterlevd religion tillbaka på varje hushåll omkring 800 f.Kr. Fyndet belyser därför en verklig mångfald i tidig Jahvekult och hur senare judiska och kristna läsningar av de kanoniska texterna förhåller sig till material som deras författare och redaktörer kan ha velat kritisera.",
     "sources": [
       [
-        "Schniedewind m.fl. – Religion at Kuntillet ʿAjrud (Religions 2019)",
+        "Smoak & Schniedewind – Religion at Kuntillet ʿAjrud (Religions 2019)",
         "https://www.mdpi.com/2077-1444/10/3/211"
       ],
       [
