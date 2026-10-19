@@ -67,3 +67,7 @@
  #timelineView>.tv895-timeline-caption{display:block}
  #timelineView>.tv895-timeline-caption span{display:block;margin-top:3px}
 }
+
+#timelineView>#v7toolbar #tv895PanToggle{margin-left:auto!important;flex:0 0 auto;white-space:nowrap;font-size:11px;padding:5px 10px;border-radius:7px}
+#timelineView>#v827PanControls.tv895-pan-inline[hidden],
+#timelineView>#v827PanControls.tv895-pan-inline.tv895-pan-hidden{display:none!important}
