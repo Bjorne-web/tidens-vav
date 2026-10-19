@@ -15,12 +15,12 @@ const after=sandbox.window.TIDENS_C7_RELIGION;
 assert.deepEqual(Object.keys(after).filter(k=>!(k in before)).sort(),ids);
 assert.equal(Object.keys(after).length,86);
 for(const [id,v] of Object.entries(before)){assert.equal(after[id].paragraph,v.paragraph);assert.equal(after[id].level,v.level)}
-const events=JSON.parse(read('data/data.generated.js').match(/let events=(\\[[\\s\\S]*?\\]);/)[1]);
+const events=JSON.parse(read('data/data.generated.js').match(/let events=(\[[\s\S]*?\]);/)[1]);
 for(const id of ids){
  assert.ok(events.some(e=>e.id===id),id+' missing in historical base');
- const x=after[id];assert.ok(x.paragraph.split(/\\s+/).length>=175,id+' too brief');
+ const x=after[id];assert.ok(x.paragraph.split(/\s+/).length>=175,id+' too brief');
  assert.ok(x.sources.length>=3 && x.sources.some(s=>s[1].includes('bible.com')),id+' sources');
- for(const [label,url] of x.sources){assert.ok(label&&/^https:\\/\\//.test(url),id+' broken source shape')}
+ for(const [label,url] of x.sources){assert.ok(label&&/^https:\/\//.test(url),id+' broken source shape')}
 }
 const html=read('index.html');assert.ok(html.includes('<script src="'+path+'"></script>'));
 assert.ok(html.indexOf('v8101.js')<html.indexOf('v8102.js'));
