@@ -34,6 +34,8 @@ jobs:
           node tests/smoke-c7-v895.mjs
           node tests/smoke-c7-v896.mjs
           node tests/smoke-c7-v897.mjs
+          node tests/smoke-c7-v898.mjs
+          node tests/smoke-c7-reader-links-v899.mjs
           node tests/new-post-religion-gate.mjs
           node tests/smoke-v840.mjs
           node tests/smoke-v841.mjs
@@ -74,6 +76,8 @@ jobs:
           node tests/smoke-v893-research-hub.mjs
           node tests/smoke-v894-research-gantt.mjs
           node tests/smoke-v895-research-visuals.mjs
+          node tests/smoke-v899-topic-icons.mjs
+          node tests/smoke-v900-timeline-landscape.mjs
           node tests/smoke-neutral-start-v887.mjs
           node tests/c6-integrity-v887.mjs
           node tests/c6-h042-h054.mjs

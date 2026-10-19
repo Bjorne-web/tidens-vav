@@ -1,0 +1,30 @@
+/* C7: consistent blue significance card for H, O, canonical books and apocrypha. */
+#detail .tv-book-reader .v838-faith-impact,
+#detail .v839-unified-article .v838-faith-impact{
+  margin:16px 0 12px;padding:12px 13px;background:#eef6fb;
+  border-left:3px solid #417e9f;border-radius:0 9px 9px 0;color:#284b66;
+}
+#detail .tv-book-reader .v838-faith-impact h3,
+#detail .v839-unified-article .v838-faith-impact h3{
+  color:#234e70;font-size:14px;line-height:1.45;margin:0 0 9px;
+}
+#detail .v838-faith-impact .v838-faith-level{font-size:12px;font-weight:800;color:#315f7e;margin:4px 0 9px}
+#detail .v838-faith-impact .v839-unified-sources{margin-top:8px}
+#detail .v838-faith-impact a,
+#detail .v86-article .tv-c7-bible-ref{
+ color:#185b92;text-decoration:underline;text-underline-offset:2px;
+ text-decoration-thickness:1px;
+}
+#detail .v86-article a:focus-visible{
+ outline:3px solid #f0a53c;outline-offset:3px;border-radius:3px;
+}
+#detail .v86-article .tv-c7-bible-ref{font-weight:650}
+#detail .v86-article .tv-c7-source-fallback{
+ font-size:11px;color:#355a77;font-weight:600;white-space:normal;
+}
+#detail .v86-article a:hover{text-decoration-thickness:2px}
+@media(max-width:760px){
+ #detail .tv-book-reader .v838-faith-impact,
+ #detail .v839-unified-article .v838-faith-impact{padding:10px}
+ #detail .v86-article .tv-c7-source-fallback{display:inline-block;padding:3px 0}
+}

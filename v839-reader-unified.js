@@ -148,6 +148,7 @@
    article.innerHTML=buildArticle(e);
    root.append(article);
   }
+  window.TidensC7Ui?.decorate(article);
   const overview=makeOverview(root,e);
   reorder(root,article,overview);
  }

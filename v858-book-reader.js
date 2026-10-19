@@ -31,19 +31,25 @@
   article.append(make('p',profile?.impact||'Textens betydelse inom religiösa traditioner ska skiljas från belagda historiska följder. En individuell konsekvensanalys återstår.'));
   const c7=window.TIDENS_APOCRYPHA_RELIGION?.[b.id]||window.TIDENS_C7_RELIGION?.[b.id];
   if(c7){
-   article.append(make('h3','Betydelse för Israels religion, judendomen och kristendomen'));
-   article.append(make('p',c7.level),make('p',c7.paragraph));
+   // Samma markerade C7-ruta används för historiska poster och bibelböcker.
+   const section=make('section');section.className='v838-faith-impact v839-faith-context';
+   section.setAttribute('aria-label','Betydelse för religiös historia');
+   section.append(make('h3','Betydelse för Israels religion, judendomen och kristendomen'));
+   const level=make('p',c7.level);level.className='v838-faith-level';section.append(level);
+   section.append(make('p',c7.paragraph));
    if(c7.sources?.length){
-    const label=make('p','Källor för denna bedömning:');article.append(label);
-    const citeList=make('ul');
+    const label=make('p');label.className='v838-faith-sources';
+    label.append(make('strong','Källor för denna bedömning:'));section.append(label);
+    const citeList=make('ul');citeList.className='v839-unified-sources tv-c7-sources';
     for(const [title,url] of c7.sources){
      if(!/^https:\/\//.test(url))continue;
-     const li=make('li'),a=make('a',title);
+     const li=make('li'),a=make('a',title+' ↗');
      a.href=url;a.target='_blank';a.rel='noopener noreferrer';
      li.append(a);citeList.append(li);
     }
-    article.append(citeList);
+    section.append(citeList);
    }
+   article.append(section);
   }
   article.append(make('h3','Osäkerheter och viktiga preciseringar'));
   article.append(make('p',profile?.limits||'Författartillskrivningen är traditionshistorisk. Föreslagen texttillkomst är en forskningsrekonstruktion med osäkerheter och möjlig flerstegskomposition.'));
@@ -66,7 +72,7 @@
    if(profile.passageNotes?.length){for(const n of profile.passageNotes){article.append(make('h4',n.passage),make('p',n.note));const sourceLink=make('a','Forskningskälla ↗');sourceLink.href=n.source;sourceLink.target='_blank';sourceLink.rel='noopener noreferrer';article.append(sourceLink);}}
    if(profile.sources?.length){
     article.append(make('h3','Källor och läsvägar'));
-    const list=make('ul');
+    const list=make('ul');list.className='v839-unified-sources tv-research-sources';
     for(const item of profile.sources){const li=make('li'),a=make('a',item.title);a.href=item.url;a.target='_blank';a.rel='noopener noreferrer';li.append(a);list.append(li);}
     article.append(list);
    }
@@ -110,7 +116,9 @@
    if(related && typeof v827ShowRelations==='function')v827ShowRelations(related);
    else if(typeof view==='function')view('explore');
   });
-  links.append(action);article.append(links);root.append(article);
+  links.append(action);article.append(links);
+  window.TidensC7Ui?.decorate(article);
+  root.append(article);
   if(typeof v84DecorateReader==='function')v84DecorateReader();
  }
  const previous=renderDetail;
