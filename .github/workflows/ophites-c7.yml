@@ -15,6 +15,9 @@ on:
       - 'v900-timeline-landscape.css'
       - 'tests/smoke-v900-timeline-landscape.mjs'
       - 'tests/browser-v899-topic-icons.cjs'
+      - 'data/c7-religionshistorisk-betydelse.v8101.js'
+      - 'tests/browser-c7-v8101.cjs'
+      - 'tests/smoke-c7-v8101.mjs'
       - 'v858-book-reader.js'
       - 'v839-reader-unified.js'
       - 'v838-reader-reflow.js'
@@ -40,3 +43,4 @@ jobs:
       - run: node tests/browser-ophites-c7.cjs
       - run: node tests/browser-c7-links-v899.cjs
       - run: node tests/browser-v899-topic-icons.cjs
+      - run: node tests/browser-c7-v8101.cjs
