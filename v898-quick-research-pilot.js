@@ -24,7 +24,7 @@ function show(requestedId){
  const src=el('p','tvq-muted',data.sources.length?data.sources.length+' tillgängliga källhänvisningar · granska i full forskningsvy':'Källhänvisningar behöver granskas i full forskningsvy');panel.append(src);
  if(data.sources.length){const list=el('ul','tvq-sources');for(const source of data.sources.slice(0,3)){const li=el('li');const a=el('a',null,source.title);a.href=source.url;a.target='_blank';a.rel='noopener noreferrer';li.append(a);list.append(li)}panel.append(list)}
  const nav=el('div','tvq-actions'),cancel=el('button',null,'Tillbaka till tidslinjen'),full=el('button','tvq-primary','Öppna befintlig fördjupning →');
- cancel.onclick=close;full.onclick=()=>{close();if(typeof view==='function')view('research');if((data.subtype==='bible-book'||data.subtype==='apocrypha-book')&&typeof window.TidensOpenBookV858==='function')window.TidensOpenBookV858(id);else if(typeof setSelected==='function')setSelected(id);if(typeof v84OpenReader==='function'&&window.innerWidth<=900)v84OpenReader();};
+ cancel.onclick=close;full.onclick=()=>{close();if(typeof view==='function')view('timeline');if((data.subtype==='bible-book'||data.subtype==='apocrypha-book')&&typeof window.TidensOpenBookV858==='function')window.TidensOpenBookV858(id);else if(typeof setSelected==='function')setSelected(id);if(typeof v84OpenReader==='function'&&window.innerWidth<=900)v84OpenReader();};
  nav.append(cancel,full);panel.append(nav);overlay.hidden=false;exit.focus();
 }
 btn.onclick=()=>show();overlay.addEventListener('click',e=>{if(e.target===overlay)close()});doc.addEventListener('keydown',e=>{if(!overlay.hidden&&e.key==='Escape')close()});
