@@ -37,13 +37,31 @@
  const note=document.createElement('div');
  note.className='tv895-timeline-caption';
  note.innerHTML='<strong>Tidslinje</strong><span>Välj område ovan eller utforska den samlade historien med filter och tidsreglage nedan.</span>';
- const toolbar=root.querySelector('.v7toolbar');
- if(toolbar)toolbar.insertAdjacentElement('beforebegin',note);
+ const toolbar=root.querySelector('#v7toolbar');
  const pan=document.getElementById('v827PanControls');
- const timeCaption=root.querySelector('.tv895-timeline-caption');
- if(pan&&timeCaption){
-   timeCaption.insertAdjacentElement('afterend',pan);
+ const strip=document.getElementById('v881CategoryStrip');
+ const card=root.querySelector('.timeline-card');
+ const actionbar=root.querySelector('.v884-timeline-actionbar');
+ if(toolbar&&pan&&card){
    pan.classList.add('tv895-pan-inline');
+   root.insertBefore(note,toolbar);
+   const order=[hero,note,toolbar,strip,pan,card].filter(Boolean);
+   const arrange=()=>{
+     // Restore the requested order without cloning any inputs or attaching new handlers.
+     for(let i=0;i<order.length;i++){
+       const node=order[i];if(node.parentElement!==root)root.appendChild(node);
+       const prev=i?order[i-1]:null;
+       if(prev && node.previousElementSibling!==prev)prev.insertAdjacentElement('afterend',node);
+       if(!prev && root.firstElementChild!==node)root.insertBefore(node,root.firstElementChild);
+     }
+     if(actionbar && actionbar.parentElement===root && actionbar.previousElementSibling!==card){
+       card.insertAdjacentElement('afterend',actionbar);
+     }
+   };
+   arrange();
+   const observer=new MutationObserver(()=>{
+     if(order.some((n,i)=>n.parentElement!==root || (i>0&&n.previousElementSibling!==order[i-1])))arrange();
+   });
+   observer.observe(root,{childList:true});
  }
-
 })();
