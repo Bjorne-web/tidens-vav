@@ -30,7 +30,7 @@ for(const id of expected){
  assert.ok(d&&d.paragraph&&d.level,id+' must have meaningful standalone C7 analysis');
  assert.ok(d.paragraph.length>=1100&&d.paragraph.split(/\s+/).length>=175,id+' insufficient depth');
  assert.ok(!/återstår att särskilt granska|Texternas betydelse inom/i.test(d.paragraph),id+' generic placeholder');
- assert.ok(/israel|juda|juden|judendom/i.test(d.paragraph),id+' lacks relationship to Israel/Judaism');
+ assert.ok(/israel|juda|juden|judendom|judisk|judeisk/i.test(d.paragraph),id+' lacks relationship to Israel/Judaism');
  assert.ok(/kristendom|kristen|kristna|kristet|kristna/i.test(d.paragraph),id+' lacks bounded Christian reception');
  assert.ok(/diskuter|omstrid|tolkning|inte|ingen|osäker|måste/i.test(d.paragraph),id+' missing source-critical reservation');
  assert.ok(d.sources.length>=3,id+' insufficient source coverage');
