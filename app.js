@@ -1552,7 +1552,8 @@ function v878SearchEntries(){
  const base=v827Index.filter(e=>e.type!=='archive');
  const originals=originalEvents.map(e=>({type:'archive',id:e.id,title:e.title,sub:[e.id,e.description||'',e.dating||''].join(' '),target:'explore',badge:'Originalpost · datering ej slutgranskad'}));
  const books=(window.TIDENS_BIBLE_BOOKS||[]).map(b=>({type:'book',id:b.id,title:b.title,sub:[b.id,b.attributed,b.critical].filter(Boolean).join(' '),badge:'Bibelns böcker · forskningsprofil'}));
- return [...base,...originals,...books];
+ const apocrypha=(window.TIDENS_APOCRYPHA_BOOKS||[]).map(b=>({type:'book',id:b.id,title:b.title,sub:[b.id,b.attributed,b.critical,b.genre,b.canon].filter(Boolean).join(' '),badge:'Apokryferna · bokprofil'}));
+ return [...base,...originals,...books,...apocrypha];
 }
 
 function v827RenderSearch(){const query=v827SearchInput.value.trim().toLocaleLowerCase('sv');if(query.length<2){v827SearchPanel.hidden=true;return}
