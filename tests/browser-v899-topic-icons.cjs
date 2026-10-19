@@ -34,6 +34,30 @@ const ids=['bible','religion','history','philosophy'];
    }),ids);
    await page.evaluate(()=>document.getElementById('navTimeline').click());
    await page.locator('#timelineView .tv892-topic').first().waitFor();
+   const landscape=await page.evaluate(async()=>{
+    const timeline=document.querySelector('#timelineView');
+    const hero=document.querySelector('#tv895TimelineHero');
+    const topics=document.querySelector('#tv892Topics');
+    const caption=document.querySelector('.tv895-timeline-caption');
+    const pan=document.querySelector('#v827PanControls');
+    const image=hero?getComputedStyle(hero).backgroundImage:'';
+    const response=await fetch('Start-hero.png',{method:'HEAD'});
+    return {heroFirst:timeline.firstElementChild===hero,
+      topicsInHero:hero?.contains(topics),
+      src:image.includes('Start-hero.png'),
+      imageStatus:response.status,
+      timeCaption:caption?.querySelector('strong')?.textContent,
+      controlAfterCaption:caption?.nextElementSibling===pan,
+      inlineClass:pan?.classList.contains('tv895-pan-inline')};
+   });
+   assert.equal(landscape.heroFirst,true,width+': photo hero must precede Timeline');
+   assert.equal(landscape.topicsInHero,true,width+': cards must stay over photo');
+   assert.equal(landscape.src,true,width+': approved landscape asset missing');
+   assert.equal(landscape.imageStatus,200,width+': photo file must load');
+   assert.equal(landscape.timeCaption,'Tidslinje',width+': title must exist below photo');
+   assert.equal(landscape.controlAfterCaption,true,width+': minimalist Flytta i tiden directly under Tidslinje');
+   assert.equal(landscape.inlineClass,true,width+': narrow timeline slider styling must be enabled');
+
    const topics=await page.evaluate(ids=>ids.map(id=>{
     const icon=document.querySelector('#timelineView .tv892-'+id+' .tv892-icon');
     if(!icon)throw Error('Missing topic icon '+id);
