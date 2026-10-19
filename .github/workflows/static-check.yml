@@ -50,6 +50,7 @@ jobs:
           node tests/smoke-c7-v8113.mjs
           node tests/smoke-c7-v8114.mjs
           node tests/smoke-c7-v8115.mjs
+          node tests/smoke-c7-v8116.mjs
           node tests/smoke-c7-reader-links-v899.mjs
           node tests/new-post-religion-gate.mjs
           node tests/smoke-v840.mjs
