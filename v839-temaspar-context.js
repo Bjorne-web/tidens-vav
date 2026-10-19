@@ -52,6 +52,11 @@
   return [...curated,...adopted,...segmented,...bible].filter(finite);
  }
  function focusSegments(focus,pool){
+  // O095–O098 är bibelberättelser med importerade, ej slutgranskade datum.
+  // Äldre kronologilager återanvände O096/O098 för helt andra händelser,
+  // och O095/O097 gäller möjliga TEXTtillkomster, inte berättade händelser.
+  // Visa aldrig dessa som granskade tidskort för utgångsposten.
+  if(['O095','O096','O097','O098'].includes(focus.id))return [];
   const fixed=independent[focus.id];
   if(fixed)return fixed.periods.map((p,i)=>({...focus,...p,id:focus.id,original:true,reviewedTime:true,segmentIndex:i}));
   return pool.filter(e=>e.id===focus.id).map(e=>({...e,reviewedTime:true}));
