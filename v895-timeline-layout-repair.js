@@ -44,6 +44,22 @@
  const actionbar=root.querySelector('.v884-timeline-actionbar');
  if(toolbar&&pan&&card){
    pan.classList.add('tv895-pan-inline');
+   // The old disclosure must not remain as an empty button after relocating the pan tool.
+   const oldDisclosure=document.getElementById('v879PanDisclosure');
+   if(oldDisclosure){oldDisclosure.remove();}
+   const toggle=document.createElement('button');
+   toggle.type='button';toggle.id='tv895PanToggle';toggle.className='tv895-pan-toggle';
+   toggle.setAttribute('aria-controls','v827PanControls');
+   toggle.setAttribute('aria-expanded','true');
+   toggle.textContent='Dölj tidsreglage';
+   toolbar.appendChild(toggle);
+   toggle.addEventListener('click',()=>{
+     const hidden=!pan.hidden;
+     pan.hidden=hidden;
+     pan.classList.toggle('tv895-pan-hidden',hidden);
+     toggle.setAttribute('aria-expanded',String(!hidden));
+     toggle.textContent=hidden?'Visa tidsreglage':'Dölj tidsreglage';
+   });
    root.insertBefore(note,toolbar);
    const order=[hero,note,toolbar,strip,pan,card].filter(Boolean);
    const arrange=()=>{
