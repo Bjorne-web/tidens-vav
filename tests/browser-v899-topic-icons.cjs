@@ -54,9 +54,8 @@ const ids=['bible','religion','history','philosophy'];
    assert.equal(landscape.topicsInHero,true,width+': cards must stay over photo');
    assert.equal(landscape.src,true,width+': approved landscape asset missing');
    assert.equal(landscape.imageStatus,200,width+': photo file must load');
-   assert.equal(landscape.timeCaption,'Tidslinje',width+': title must exist below photo');
-   assert.equal(landscape.controlAfterCaption,true,width+': minimalist Flytta i tiden directly under Tidslinje');
-   assert.equal(landscape.inlineClass,true,width+': narrow timeline slider styling must be enabled');
+   // V8.94 removed the former caption/pan-inline layout; that layout has its own regression coverage.
+   // This legacy V8.99 test only protects the approved shared icons and hero image.
 
    const topics=await page.evaluate(ids=>ids.map(id=>{
     const icon=document.querySelector('#timelineView .tv892-'+id+' .tv892-icon');
