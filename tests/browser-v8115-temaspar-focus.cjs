@@ -55,6 +55,15 @@ const server=http.createServer((req,res)=>{
     assert.equal(await page.locator('#v833PostSelect').inputValue(),id,width+'px: research picker must match clicked reader origin');
     if(id==='O067')assert.match(await page.locator('.v839-focus-row').innerText(),/Gilgamesheposet/);
    }
+   // Verkliga globala sökfältet: O067 måste hittas och leda till vald post i Temaspår.
+   await page.locator('#search').fill('O067');
+   const searchPanel=page.locator('#v827SearchResults');
+   await searchPanel.locator('[data-v827-result]').first().waitFor();
+   assert.match(await searchPanel.innerText(),/Gilgamesheposet/);
+   assert.doesNotMatch(await searchPanel.innerText(),/Inga matchande poster/);
+   await searchPanel.locator('[data-v827-result]').first().click();
+   assert.equal(await page.locator('#v833PostSelect').inputValue(),'O067',width+'px: search result must open selected O067 in Temaspår');
+   assert.match(await page.locator('.v839-focus-row').innerText(),/Gilgamesheposet/);
    assert.deepEqual(errors,[],width+'px: Javascript errors');
    await page.close();
   }
