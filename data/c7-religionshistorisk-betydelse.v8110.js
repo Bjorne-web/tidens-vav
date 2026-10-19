@@ -27,11 +27,11 @@
         "https://www.britannica.com/topic/The-Book-of-Job"
       ],
       [
-        "Job 3 – Jobs klagan",
+        "Jobs bok kapitel 3 – klagan",
         "https://www.bible.com/sv/bible/1223/JOB.3.SFB15"
       ],
       [
-        "Job 38 – gudstalen",
+        "Jobs bok kapitel 38 – gudstalen",
         "https://www.bible.com/sv/bible/1223/JOB.38.SFB15"
       ]
     ]
