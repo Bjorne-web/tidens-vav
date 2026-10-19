@@ -1546,7 +1546,14 @@ function v827Entries(){return [
 ]}
 const v827Index=v827Entries();
 // Bible-book data loads after app.js; read it at query time rather than during initial index creation.
-function v878SearchEntries(){return [...v827Index,...(window.TIDENS_BIBLE_BOOKS||[]).map(b=>({type:'book',id:b.id,title:b.title,sub:[b.id,b.attributed,b.critical].filter(Boolean).join(' '),badge:'Bibelns böcker · forskningsprofil'}))]}
+function v878SearchEntries(){
+ // Shared ID-aware search: archived O-records remain findable even when an older
+ // adapter filtered cached v827Index. Deduplicate by canonical ID and type.
+ const base=v827Index.filter(e=>e.type!=='archive');
+ const originals=originalEvents.map(e=>({type:'archive',id:e.id,title:e.title,sub:[e.id,e.description||'',e.dating||''].join(' '),target:'explore',badge:'Originalpost · datering ej slutgranskad'}));
+ const books=(window.TIDENS_BIBLE_BOOKS||[]).map(b=>({type:'book',id:b.id,title:b.title,sub:[b.id,b.attributed,b.critical].filter(Boolean).join(' '),badge:'Bibelns böcker · forskningsprofil'}));
+ return [...base,...originals,...books];
+}
 
 function v827RenderSearch(){const query=v827SearchInput.value.trim().toLocaleLowerCase('sv');if(query.length<2){v827SearchPanel.hidden=true;return}
  const results=v878SearchEntries().map(e=>({e,score:e.id.toLocaleLowerCase('sv')===query?5:e.title.toLocaleLowerCase('sv').includes(query)?3:e.sub.toLocaleLowerCase('sv').includes(query)?1:0})).filter(x=>x.score).sort((a,b)=>b.score-a.score||a.e.title.localeCompare(b.e.title,'sv')).slice(0,16);
