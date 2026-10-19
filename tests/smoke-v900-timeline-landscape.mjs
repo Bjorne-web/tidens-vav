@@ -1,0 +1,25 @@
+// V8.100: accepted landscape restored above Gantt without regressing approved icons.
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+const read=p=>fs.readFileSync(new URL('../'+p,import.meta.url),'utf8');
+const html=read('index.html'),js=read('v900-timeline-landscape.js'),css=read('v900-timeline-landscape.css');
+const icons=read('v892-topic-navigation.js'),start=read('v887-home-areas.js');
+assert.ok(html.includes('v900-timeline-landscape.css'),'Landscapes stylesheet must load');
+assert.ok(html.includes('<script src="v900-timeline-landscape.js"></script>'),'Missing landscape component');
+assert.ok(html.indexOf('v892-topic-navigation.js')<html.indexOf('v900-timeline-landscape.js'),'Icon navigation must exist before header');
+assert.ok(html.indexOf('v892-topic-navigation.css')<html.indexOf('v900-timeline-landscape.css'),'Layout CSS must be loaded after card CSS');
+assert.doesNotThrow(()=>new vm.Script(js));
+assert.match(js,/root\.insertBefore\(hero,root\.firstElementChild\)/,'Image must be the first element in Timeline');
+assert.match(js,/hero\.appendChild\(topics\)/,'Four cards must overlay the landscape, not sit outside it');
+assert.match(js,/timeCaption\.insertAdjacentElement\('afterend',pan\)/,'Time control must follow Tidslinje caption');
+assert.match(css,/url\("\.\/Start-hero\.png"\)/,'Reuse approved picture; never replace it');
+assert.match(css,/width:100%;max-width:none/,'Header and cards should use entire width');
+assert.ok(!css.includes('var(--topic)'), 'Use Start accent colors');
+assert.ok(!css.includes('#timelineView #tv892Topics .tv892-icon{'),'No independent icon sizing overrides');
+assert.ok(!js.includes('iconSvg=')&&!js.includes("svgKeys="),'Never redefine SVGs inside landscape');
+assert.ok(icons.includes('window.TidensAreaIcons[x[0]]'),'Cards must use Start icon source');
+assert.ok(start.includes('window.TidensAreaIcons=Object.freeze(iconSvg)'),'Original SVG source must remain');
+assert.ok(html.includes('v899-c7-reader-links.js'),'Preserve C7 links fixes');
+assert.ok(html.includes('v892-nihilism-research.js'),'Preserve separately published research work');
+console.log('V8.100 PASS: original landscape restored first, shared Start icons retained, minimalist time control follows Tidslinje.');
