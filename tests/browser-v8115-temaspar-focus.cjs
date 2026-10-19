@@ -36,6 +36,25 @@ const server=http.createServer((req,res)=>{
    await page.selectOption('#v833PostSelect','B039');
    await page.locator('.v839-focus-row .v839-focus-card').waitFor();
    assert.match(await page.locator('.v839-focus-row').innerText(),/Malaki/);
+   // Regression av den faktiska knappen i läsfönstret, inte bara väljaren.
+   for(const id of ['H045','O067','B039','B001']){
+    const result=await page.evaluate(id=>{
+     // Börja på en annan vy och välj posten via dess normala läsfönster.
+     view('timeline');
+     if(id.startsWith('B'))window.TidensOpenBookV858(id);
+     else setSelected(id);
+     const reader=document.querySelector('#detail');
+     const btn=[...reader.querySelectorAll('button')].find(b=>b.textContent.includes('Visa sambanden i Temaspår'));
+     if(!btn)return {error:'Saknar knapp',id,reader:reader.innerText.slice(0,250)};
+     btn.click();
+     return {focus:v829Focus.id,view:state.view};
+    },id);
+    assert.equal(result.focus,id,width+'px: actual reader button must preserve '+id+' as origin: '+JSON.stringify(result));
+    assert.equal(result.view,'explore',width+'px: reader button must navigate to Temaspår');
+    await page.locator('#v833Study h2').waitFor();
+    assert.equal(await page.locator('#v833PostSelect').inputValue(),id,width+'px: research picker must match clicked reader origin');
+    if(id==='O067')assert.match(await page.locator('.v839-focus-row').innerText(),/Gilgamesheposet/);
+   }
    assert.deepEqual(errors,[],width+'px: Javascript errors');
    await page.close();
   }
