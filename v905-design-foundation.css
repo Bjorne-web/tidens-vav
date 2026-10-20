@@ -1,0 +1,60 @@
+/* Tidens väv · Etapp B / version 1
+   Gemensamt, begränsat designsystem. Påverkar INTE #startView eller #timelineView.
+   Ingen navigation eller JavaScript-funktionalitet ändras. */
+:root{
+  --tv-design-ink:#17304a;
+  --tv-design-muted:#64788b;
+  --tv-design-blue:#276397;
+  --tv-design-line:#dce5ee;
+  --tv-design-radius:14px;
+  --tv-design-gap:16px;
+  --tv-design-panel:#fff;
+  --tv-design-shadow:0 6px 22px rgba(25,51,74,.055);
+}
+:is(#mapView,#exploreView,#compareView,#aboutView,#recordsView){
+  color:var(--tv-design-ink);
+  font-family:Inter,Segoe UI,Arial,sans-serif;
+  line-height:1.58;
+}
+:is(#mapView,#exploreView,#compareView,#aboutView,#recordsView) :is(h1,h2,h3){
+  color:var(--tv-design-ink);
+  line-height:1.25;
+  overflow-wrap:anywhere;
+}
+:is(#mapView,#exploreView,#compareView,#aboutView,#recordsView) h1{
+  font-family:Georgia,serif;
+  font-size:clamp(26px,2.5vw,35px);
+  letter-spacing:-.025em;
+  margin-block:0 16px;
+}
+:is(#mapView,#exploreView,#compareView,#aboutView,#recordsView) h2{
+  font-family:Georgia,serif;
+  font-size:clamp(21px,2vw,27px);
+}
+:is(#mapView,#exploreView,#compareView,#aboutView,#recordsView) h3{font-size:16px}
+:is(#mapView,#exploreView,#compareView,#aboutView,#recordsView) :is(.card,.footcard,.map-card,.timeline-card,.muted-box){
+  border-radius:var(--tv-design-radius);
+  border-color:var(--tv-design-line);
+  box-shadow:var(--tv-design-shadow);
+}
+:is(#mapView,#exploreView,#compareView,#aboutView,#recordsView) :is(p,li){
+  overflow-wrap:break-word;
+}
+:is(#mapView,#exploreView,#compareView,#aboutView,#recordsView) :is(button,select,input,textarea):focus-visible{
+  outline:3px solid #4389c7;
+  outline-offset:2px;
+}
+:is(#mapView,#exploreView,#compareView,#aboutView,#recordsView) :is(button,select,input:not([type=checkbox]),textarea){
+  border-radius:9px;
+}
+:is(#mapView,#exploreView,#compareView,#aboutView,#recordsView) a:focus-visible{
+  outline:3px solid #4389c7;
+  outline-offset:3px;
+}
+@media(max-width:700px){
+ :is(#mapView,#exploreView,#compareView,#aboutView,#recordsView) :is(h1,h2,h3){
+  hyphens:auto;
+ }
+}
+/* Scope deliberately excludes old research/archaeology and the approved hero/Gantt
+   until navigation and view ownership have been harmonized in a later step. */
