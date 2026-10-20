@@ -1,0 +1,2 @@
+/* O107–O110: originalens miljöetiketter hålls isär från bibliska ämnen. */
+(function(){'use strict';const names={"O107":"Saul blir kung","O108":"David och Goljat","O109":"Salomos tempel","O110":"Rikets delning"};const legacy={};for(const [id,name] of Object.entries(names)){const e=originalEvents.find(x=>x.id===id);if(!e)throw Error('Saknar post '+id);legacy[id]={title:e.title,start:e.start,end:e.end,dating:e.dating};e.legacyTitle=e.title;e.title=name;e.subject=name;}window.TIDENS_O107_O110_IDENTITY=Object.freeze({names,legacy});})();
