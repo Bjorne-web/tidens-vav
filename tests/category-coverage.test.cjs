@@ -5,7 +5,7 @@ const root=path.resolve(__dirname,'..'),data=path.join(root,'data');
 const model=require('../v915-category-read-model.js');
 const source=fs.readFileSync(path.join(data,'data.generated.js'),'utf8');
 function read(name){const match=new RegExp('(?:let|const)\\s+'+name+'=').exec(source);assert(match,'Missing '+name);return JSON.parse(source.slice(match.index+match[0].length,source.indexOf(';\n',match.index)))}
-function objects(file,globalName){const text=fs.readFileSync(path.join(data,file),'utf8');const match=new RegExp('(?:window\\.)?'+globalName+'\\s*=\\s*Object\\.freeze\\(\\s*(\\[)').exec(text);assert(match,'Missing '+globalName);const start=text.indexOf('[',match.index),end=text.lastIndexOf(']');assert(end>start,'Missing end '+globalName);return JSON.parse(text.slice(start,end+1))}
+function objects(file,globalName){const text=fs.readFileSync(path.join(data,file),'utf8');const match=new RegExp('(?:window\\.)?'+globalName+'\\s*=\\s*Object\\.freeze\\(\\s*(\\[)').exec(text);assert(match,'Missing '+globalName);const start=text.indexOf('[',match.index),end=text.indexOf(']);',start);assert(end>start,'Missing end '+globalName);return JSON.parse(text.slice(start,end+1))}
 const sources={
  H:read('events'),O:read('originalEvents'),
  B:objects('bible-books-v857.js','TIDENS_BIBLE_BOOKS'),
