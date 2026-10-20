@@ -11,7 +11,7 @@ const entries=vm.runInContext('originalEvents.map(e=>({id:e.id,title:e.title,sub
 const byId=new Map();
 for(const e of entries){assert(!byId.has(e.id),'Duplicated original ID '+e.id);byId.set(e.id,e);}
 const audit=mapping.entries.filter(e=>/^O(0(9[5-9])|1([0-2][0-9]|30))$/.test(e.id));
-const approvedNames={O112:'Assyriens erövring av Israel',O117:'Hemvändandet och andra templet',O126:'Jesu korsfästelse'};
+const approvedNames={O124:'Jesu födelse',O125:'Jesu offentliga verksamhet',O112:'Assyriens erövring av Israel',O117:'Hemvändandet och andra templet',O126:'Jesu korsfästelse'};
 const corrected=[],pending=[],legacyProposals=[];
 for(const rec of audit){
  const event=byId.get(rec.id);assert(event,'Missing '+rec.id);
