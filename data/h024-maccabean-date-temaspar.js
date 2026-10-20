@@ -12,5 +12,5 @@ const record={
  undated:'Flerårigt konfliktförlopp med separat tempelåterinvigning. Tidsintervallet är inte en datering av Makkabeerböckernas författande.',
  sources:[sourceA,sourceB]
 };
-root.TIDENS_C7_DATING_PILOT=Object.freeze(Object.assign({},root.TIDENS_C7_DATING_PILOT||{H024:record}));
+root.TIDENS_C7_DATING_PILOT=Object.freeze(Object.assign({},root.TIDENS_C7_DATING_PILOT||{},{H024:record}));
 })(window);
