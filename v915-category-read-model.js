@@ -3,6 +3,12 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ AP001:{primaryArea:'religions',relatedAreas:['bible'],contentTypes:['canon-history','text-tradition'],timeKinds:['reception']},
+ AP002:{primaryArea:'bible',relatedAreas:['religions'],contentTypes:['text-comparison','apocrypha-theme'],timeKinds:['composition']},
+ AP003:{primaryArea:'bible',relatedAreas:['religions','ideas'],contentTypes:['text-comparison','apocrypha-theme'],timeKinds:['composition']},
+ AP004:{primaryArea:'bible',relatedAreas:['religions'],contentTypes:['text-comparison','apocrypha-theme'],timeKinds:['composition','translation']},
+ AP005:{primaryArea:'bible',relatedAreas:['religions'],contentTypes:['text-comparison','apocrypha-theme'],timeKinds:['composition']},
+ AP006:{primaryArea:'bible',relatedAreas:['religions'],contentTypes:['text-comparison','apocrypha-theme'],timeKinds:['reception']},
  B001:{primaryArea:'bible',relatedAreas:['religions','ideas'],contentTypes:['bible-book','text'],timeKinds:['composition']},
  H045:{primaryArea:'world',relatedAreas:['bible','religions'],contentTypes:['event','inscription'],timeKinds:['historical-event']},
  O067:{primaryArea:'religions',relatedAreas:['bible','world'],contentTypes:['text','narrative'],timeKinds:['composition']},
@@ -22,7 +28,7 @@ function classify(post){
  contentTypes:Object.freeze(entry?[...entry.contentTypes]:[]),
  timeKinds:Object.freeze(entry?[...entry.timeKinds]:[]),
  researchStatus:'unknown',
- classificationStatus:isApocryphaBook?'structural-apocrypha-identity':isCanonicalBibleBook&&!overrides[post.id]?'structural-book-identity':entry?'pilot-proposal':'unclassified',
+ classificationStatus:post.id.startsWith('AP')&&overrides[post.id]?'pilot-proposal':isApocryphaBook?'structural-apocrypha-identity':isCanonicalBibleBook&&!overrides[post.id]?'structural-book-identity':entry?'pilot-proposal':'unclassified',
  source:isApocryphaBook?'B2.3 D-series apocrypha book identity, not canon or research sign-off':isCanonicalBibleBook&&!overrides[post.id]?'B2.3 B-series book identity, not research sign-off':'B2.3 manual example mapping; not research sign-off'
  });
 }
