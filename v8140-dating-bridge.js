@@ -1,0 +1,2 @@
+/* C7 O064: add independently qualified Nan Madol periods to existing Temaspår. */
+(function(){'use strict';window.TIDENS_C7_DATING_PILOT=Object.freeze(Object.assign({},window.TIDENS_C7_DATING_PILOT||{},window.TIDENS_C7_DATING_NANMADOL||{}));})();
