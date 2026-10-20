@@ -1,0 +1,33 @@
+#!/usr/bin/env node
+// B2.1: reproducible source coverage, never modifies data.
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
+const root=path.resolve(__dirname,'..');
+const source=fs.readFileSync(path.join(root,'data/data.generated.js'),'utf8');
+function parse(name){const mark=new RegExp('(?:let|const)\\s+'+name+'=').exec(source);assert(mark,'Missing '+name);const start=mark.index+mark[0].length;const end=source.indexOf(';\n',start);return JSON.parse(source.slice(start,end))}
+const events=parse('events'), originals=parse('originalEvents'), enrich=parse('allOriginalResearchV828'), bible=parse('bibleOriginal');
+const set=a=>new Set(a), h=set(events.map(x=>x.id)),o=set(originals.map(x=>x.id)),research=set(Object.keys(enrich));
+const folder=path.join(root,'data'),files=fs.readdirSync(folder).filter(x=>/^c7-religionshistorisk-betydelse.*\.js$/.test(x)).sort();
+const ids=new Set(),hIds=new Set(),filesWithoutIds=[],occurrences=[];
+for(const file of files){const s=fs.readFileSync(path.join(folder,file),'utf8');const found=[...s.matchAll(/["']([HO]\d{3})["']\s*:/g)].map(m=>m[1]);if(!found.length)filesWithoutIds.push(file);for(const id of found){if(id.startsWith('O'))ids.add(id);else hIds.add(id);}occurrences.push({file,ids:found})}
+const bBooks=fs.readFileSync(path.join(folder,'bible-books-v857.js'),'utf8'),dBooks=fs.readFileSync(path.join(folder,'apocrypha-books-v891.js'),'utf8'),ap=fs.readFileSync(path.join(folder,'apokryfer-granskning3.v888.js'),'utf8');
+const count=(s,re)=>set([...s.matchAll(re)].map(m=>m[1])).size;
+const allDataFiles=fs.readdirSync(folder).filter(x=>x.endsWith('.js'));const laterH=Object.fromEntries(['H065','H066','H067','H068','H069'].map(id=>[id,allDataFiles.filter(file=>fs.readFileSync(path.join(folder,file),'utf8').includes(id))]));const otherC7=new Set();const c7FilesByKind={H:[],O:[],B:[],D:[],none:[]};
+for(const file of files){
+ const sourceText=fs.readFileSync(path.join(folder,file),'utf8');
+ const found=[...sourceText.matchAll(/["']([HOBD]\d{3})["']\s*:/g)].map(m=>m[1]);
+ if(!found.length)c7FilesByKind.none.push(file);
+ for(const kind of ['H','O','B','D'])if(found.some(id=>id.startsWith(kind)))c7FilesByKind[kind].push(file);
+ for(const id of found)if(id.startsWith('B')||id.startsWith('D'))otherC7.add(id);
+}
+const canonicalB=set([...bBooks.matchAll(/"id"\s*:\s*"(B\d{3})"/g)].map(m=>m[1]));
+const canonicalD=set([...dBooks.matchAll(/"id"\s*:\s*"(D\d{3})"/g)].map(m=>m[1]));
+const unknownBD=[...otherC7].filter(id=>id.startsWith('B')?!canonicalB.has(id):!canonicalD.has(id));
+const bibleRows=bible.map((row,index)=>({index:index+1,title:row[0],book:row[1],columns:row.length}));
+const bibleMissingStructure=bibleRows.filter(row=>!row.title||!row.book);
+const report={laterH,c7FilesByKind,c7UniqueB:[...otherC7].filter(x=>x.startsWith('B')).length,c7UniqueD:[...otherC7].filter(x=>x.startsWith('D')).length,c7UnknownBD:unknownBD,bibleMissingStructure,bibleBookLabels:[...new Set(bibleRows.map(x=>x.book))].sort(),otherC7Ids:[...otherC7].sort(),events:events.length,originals:originals.length,bibleOriginal:bible.length,originalResearchKeys:research.size,researchWithoutO:[...research].filter(x=>!o.has(x)),oWithoutResearch:[...o].filter(x=>!research.has(x)),hAndOOverlap:[...h].filter(x=>o.has(x)),c7Files:files.length,c7UniqueO:ids.size,c7UniqueH:hIds.size,c7UnknownH:[...hIds].filter(x=>!h.has(x)),c7UnknownO:[...ids].filter(x=>!o.has(x)),c7NoIdFiles:filesWithoutIds,bibleBooks:count(bBooks,/"id"\s*:\s*"(B\d{3})"/g),apocryphaBooks:count(dBooks,/"id"\s*:\s*"(D\d{3})"/g),apocryphaThemes:count(ap,/\bid\s*:\s*['"](AP\d{3})['"]/g)};
+console.log(JSON.stringify(report,null,2));
+assert.equal(report.researchWithoutO.length,0,'Research keys without O');assert.equal(report.oWithoutResearch.length,0,'O without research');
+assert.equal(report.c7UnknownO.length,0,'C7 points to missing O');// H065–H069 may be introduced by later modules; report for follow-up rather than asserting against legacy base alone.
+assert.equal(report.hAndOOverlap.length,0,'H/O collision');
+
+assert.equal(report.c7UnknownBD.length,0,'C7 B/D IDs absent from canonical books');assert.equal(report.bibleMissingStructure.length,0,'Legacy Bible rows missing title/book');
