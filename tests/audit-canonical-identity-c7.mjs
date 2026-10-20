@@ -11,16 +11,19 @@ const entries=vm.runInContext('originalEvents.map(e=>({id:e.id,title:e.title,sub
 const byId=new Map();
 for(const e of entries){assert(!byId.has(e.id),'Duplicated original ID '+e.id);byId.set(e.id,e);}
 const audit=mapping.entries.filter(e=>/^O(0(9[5-9])|1([0-2][0-9]|30))$/.test(e.id));
-const corrected=[],pending=[];
+const approvedNames={O112:'Assyriens erövring av Israel',O117:'Hemvändandet och andra templet',O126:'Jesu korsfästelse'};
+const corrected=[],pending=[],legacyProposals=[];
 for(const rec of audit){
  const event=byId.get(rec.id);assert(event,'Missing '+rec.id);
- const normalized=event.title===rec.biblical_subject;
+ const expected=approvedNames[rec.id]||rec.biblical_subject;
+ if(expected!==rec.biblical_subject)legacyProposals.push({id:rec.id,oldProposal:rec.biblical_subject,canonical:expected});
+ const normalized=event.title===expected;
  if(normalized){
    corrected.push(rec.id);
-   assert.equal(event.subject,rec.biblical_subject,rec.id+' subject');
+   assert.equal(event.subject,expected,rec.id+' subject');
    assert(typeof event.legacyTitle==='string'&&event.legacyTitle.length>0,rec.id+' missing legacy title');
  } else pending.push({id:rec.id,current:event.title,expected:rec.biblical_subject});
 }
 assert(corrected.includes('O123')&&corrected.includes('O126')&&corrected.includes('O127')&&corrected.includes('O130'));
 const html=read('index.html');for(const file of imports)assert(html.includes('data/'+file),'Missing script '+file);
-console.log(JSON.stringify({count:entries.length,corrected:corrected.length,pending},null,2));
+console.log(JSON.stringify({count:entries.length,corrected:corrected.length,pending,legacyProposals},null,2));
