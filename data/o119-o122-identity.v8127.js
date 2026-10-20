@@ -1,0 +1,2 @@
+/* C7 35: kanoniska ämnesnamn, originalets redaktionsmiljö bevaras. */
+(function(){'use strict';const names={"O119":"Jobs bok","O120":"Psaltaren","O121":"Ordspråksboken","O122":"Jona"};const legacy={};for(const [id,name] of Object.entries(names)){const e=originalEvents.find(x=>x.id===id);if(!e)throw Error('Saknar '+id);legacy[id]={title:e.title,start:e.start,end:e.end,dating:e.dating};e.legacyTitle=e.title;e.title=name;e.subject=name;}window.TIDENS_O119_O122_IDENTITY=Object.freeze({names,legacy});})();
