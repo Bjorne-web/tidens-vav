@@ -1,0 +1,19 @@
+name: H032 sourced Temaspår date
+on:
+  pull_request:
+    paths:
+      - 'data/h032-historical-date-temaspar.js'
+      - 'index.html'
+      - 'tests/h032-temaspar-date.test.cjs'
+      - '.github/workflows/h032-temaspar-date.yml'
+  workflow_dispatch:
+jobs:
+  h032:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/h032-temaspar-date.test.cjs
+      - run: node tests/category-read-model.test.cjs
