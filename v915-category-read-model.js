@@ -3,6 +3,14 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ H023:{primaryArea:'bible',relatedAreas:["religions"],contentTypes:["text-redaction","apocalyptic-literature"],timeKinds:["composition"]},
+ H024:{primaryArea:'world',relatedAreas:["religions","bible"],contentTypes:["historical-event","political-conflict"],timeKinds:["historical-event"]},
+ H025:{primaryArea:'religions',relatedAreas:["bible","ideas"],contentTypes:["text-tradition","apocalyptic-literature"],timeKinds:["composition"]},
+ H026:{primaryArea:'world',relatedAreas:["religions","bible"],contentTypes:["historical-event","political-history"],timeKinds:["historical-event"]},
+ H027:{primaryArea:'bible',relatedAreas:["religions","world"],contentTypes:["biblical-narrative","historical-reconstruction"],timeKinds:["historical-reconstruction"]},
+ H028:{primaryArea:'world',relatedAreas:["religions","bible"],contentTypes:["historical-person","historical-reconstruction"],timeKinds:["historical-reconstruction"]},
+ H029:{primaryArea:'world',relatedAreas:["religions","bible"],contentTypes:["historical-event","historical-reconstruction"],timeKinds:["historical-reconstruction"]},
+ H030:{primaryArea:'bible',relatedAreas:["religions"],contentTypes:["text","epistle"],timeKinds:["composition"]},
  H014:{primaryArea:'world',relatedAreas:['bible','religions'],contentTypes:['historical-period','kingdoms'],timeKinds:['historical-period']},
  H015:{primaryArea:'world',relatedAreas:['bible','religions'],contentTypes:['historical-event','military-conflict'],timeKinds:['historical-event']},
  H016:{primaryArea:'world',relatedAreas:['bible','religions'],contentTypes:['historical-event','military-conflict'],timeKinds:['historical-event']},
