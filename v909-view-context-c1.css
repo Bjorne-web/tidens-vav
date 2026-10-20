@@ -1,0 +1,4 @@
+/* Endast synlig när användaren väljer ?contextdebug=1 */
+#tvC1Diagnostics{position:fixed;right:16px;bottom:16px;width:min(390px,calc(100vw - 32px));max-height:70vh;overflow:auto;z-index:950;background:#fff;border:2px solid #276397;border-radius:14px;box-shadow:0 10px 35px #1a344f40;padding:14px;color:#17304a;font:13px system-ui}
+#tvC1Diagnostics button{display:block;margin:10px 0;border:1px solid #98b7d1;background:#f0f6fc;border-radius:8px;padding:6px 12px}
+#tvC1Diagnostics pre{white-space:pre-wrap;overflow-wrap:anywhere;font:11px/1.5 ui-monospace,monospace}
