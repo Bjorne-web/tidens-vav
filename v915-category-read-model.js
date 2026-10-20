@@ -11,7 +11,8 @@ const overrides=Object.freeze({
 function classify(post){
  if(!post||typeof post.id!=='string'||!post.id.trim())return null;
  const isCanonicalBibleBook=/^B(?:0(?:0[1-9]|[1-5][0-9]|6[0-6]))$/.test(post.id);
- const entry=overrides[post.id]||(isCanonicalBibleBook?{primaryArea:'bible',relatedAreas:[],contentTypes:['bible-book','text'],timeKinds:['composition']}:null);
+ const isApocryphaBook=/^D0(?:0[1-9]|1[01])$/.test(post.id);
+ const entry=overrides[post.id]||(isApocryphaBook?{primaryArea:'bible',relatedAreas:[],contentTypes:['apocryphal-book','text'],timeKinds:['composition']}:null)||(isCanonicalBibleBook?{primaryArea:'bible',relatedAreas:[],contentTypes:['bible-book','text'],timeKinds:['composition']}:null);
  const primary=entry?entry.primaryArea:'unclassified';
  return Object.freeze({
  id:post.id,
@@ -21,8 +22,8 @@ function classify(post){
  contentTypes:Object.freeze(entry?[...entry.contentTypes]:[]),
  timeKinds:Object.freeze(entry?[...entry.timeKinds]:[]),
  researchStatus:'unknown',
- classificationStatus:isCanonicalBibleBook&&!overrides[post.id]?'structural-book-identity':entry?'pilot-proposal':'unclassified',
- source:isCanonicalBibleBook&&!overrides[post.id]?'B2.3 B-series book identity, not research sign-off':'B2.3 manual example mapping; not research sign-off'
+ classificationStatus:isApocryphaBook?'structural-apocrypha-identity':isCanonicalBibleBook&&!overrides[post.id]?'structural-book-identity':entry?'pilot-proposal':'unclassified',
+ source:isApocryphaBook?'B2.3 D-series apocrypha book identity, not canon or research sign-off':isCanonicalBibleBook&&!overrides[post.id]?'B2.3 B-series book identity, not research sign-off':'B2.3 manual example mapping; not research sign-off'
  });
 }
 const api=Object.freeze({areas:AREAS,get:classify,hasPilot:id=>Object.prototype.hasOwnProperty.call(overrides,id)});
