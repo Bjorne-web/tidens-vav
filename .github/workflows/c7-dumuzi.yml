@@ -1,0 +1,14 @@
+name: C7 Dumuzi material witness
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  dumuzi:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/smoke-c7-dumuzi-o074.mjs
