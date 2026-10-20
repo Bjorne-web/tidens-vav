@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';import vm from 'node:vm';
+const read=p=>fs.readFileSync(p,'utf8');const ctx={window:{}};vm.createContext(ctx);
+vm.runInContext(read('data/c7-dating-retro-pumapunku-o063.js'),ctx);
+vm.runInContext(read('v8139-dating-bridge.js'),ctx);
+const post=ctx.window.TIDENS_C7_DATING_PILOT.O063;
+assert(post&&post.undated.includes('forskningsmodell'));
+assert.equal(post.phases.length,1);
+const phase=post.phases[0];assert.equal(phase.start,580);assert.equal(phase.end,710);assert.equal(phase.evidence,'B');assert.equal(phase.timeType,'historical-event');assert(phase.sources.length>=3);assert(phase.reason.includes('bayesiansk'));
+const html=read('index.html');assert(html.indexOf('data/c7-dating-retro-pumapunku-o063.js')<html.indexOf('v8139-dating-bridge.js'));assert(html.indexOf('v8139-dating-bridge.js')<html.indexOf('v839-temaspar-context.js'));
+console.log('PASS C7 O063 Pumapunku Bayesian date with caveats');
