@@ -975,7 +975,9 @@ const v812EarlierRenderDetail=renderDetail;
 renderDetail=function(){
  v812EarlierRenderDetail();
  const e=idEvent(state.selected), d=v812Find(state.selected);
- if(!e?.original)return;
+ // Original-ID O095–O098 är bibliska ämnen; historisk exil och textredaktion
+ // får inte injiceras som samma posts daterade händelse.
+ if(!e?.original || ['O095','O096','O097','O098'].includes(state.selected))return;
  const note=document.createElement('div');note.className='v812-flag';
  const additional=d?`<p><b>Redaktionell bedömning:</b> ${enc(d.title)} · ${enc(d.period)}.</p><p>${enc(d.correction)}</p><button data-v812jump type="button">Läs dateringskontrollen →</button>`:
    (e.category==='Bibelberättelser'?'<p>Äldre originaluppgift. För bibelberättelser kan årtalet avse en föreslagen texttillkomst i stället för när händelsen utspelar sig.</p>':'<p>Äldre originaluppgift. Den ursprungliga dateringen kan sammanföra skilda dynastier, händelser eller tidsperioder. Se tidslinjens separata källbedömningar för en mer precis tolkning.</p>');
@@ -1087,6 +1089,7 @@ function v813Timeline(){
 renderTimeline=v813Timeline;
 function v813RefreshSourceNote(){
  const originalId=state.selected;
+ if(['O095','O096','O097','O098'].includes(originalId))return;
  const phases=timelinePhasesV813.filter(x=>x.id===originalId), note=v813EditorialMap.get(originalId);
  if(!phases.length&&!note)return;
  const box=document.createElement('section');box.className='v813-reader-note';
