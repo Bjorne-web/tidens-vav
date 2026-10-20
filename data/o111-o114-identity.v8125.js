@@ -1,0 +1,2 @@
+/* O111–O114: separat berättelseämne och historisk miljö. O112:s bedömda kronologi behålls. */
+(function(){'use strict';const names={"O111":"Elia och Elisha","O112":"Assyriens erövring av Israel","O113":"Jesaja","O114":"Jeremias varningar"};const legacy={};for(const [id,name] of Object.entries(names)){const e=originalEvents.find(x=>x.id===id);if(!e)throw Error('Saknat O-ID '+id);legacy[id]={title:e.title,start:e.start,end:e.end,dating:e.dating};e.legacyTitle=e.title;e.title=name;e.subject=name;}window.TIDENS_O111_O114_IDENTITY=Object.freeze({names,legacy});})();
