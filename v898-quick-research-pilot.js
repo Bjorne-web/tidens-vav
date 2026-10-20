@@ -17,8 +17,13 @@ function show(requestedId){
  returnFocus=doc.activeElement;panel.replaceChildren();
  const header=el('header'),intro=el('div'),label=el('div','tvq-muted','TIDENS VÄV · FORSKNINGSPOST '+id);
  const title=el('h2',null,data.title);title.id='tvQuickTitle';
- const time=el('div','tvq-muted',data.dateType||(data.temporal?.start!=null?(data.temporal.start<0?Math.abs(data.temporal.start)+' f.Kr.':data.temporal.start+' e.Kr.')+' · Kontrollera datering i forskningsvyn':'Historisk datering – se full forskningsvy'));
- intro.append(label,title,time);
+ const formatYear=y=>y<0?Math.abs(y)+' f.Kr.':y===0?'omkring år 1':y+' e.Kr.';
+ const start=data.temporal?.start,end=data.temporal?.end;
+ const hasStart=Number.isFinite(start),hasEnd=Number.isFinite(end);
+ const period=hasStart&&hasEnd?(start===end?formatYear(start):formatYear(start)+' – '+formatYear(end)):hasStart?formatYear(start):'Datering ej fastställd';
+ const time=el('div','tvq-muted',period);intro.append(label,title,time);
+ if(data.dateType){const dateLabel=el('div','tvq-muted','Dateringstyp: '+data.dateType);intro.append(dateLabel)}
+ if(data.narrativeTime){const narrative=el('div','tvq-muted','Berättad tid: '+data.narrativeTime);intro.append(narrative)}
  const exit=el('button',null,'Stäng ×');exit.type='button';exit.onclick=close;header.append(intro,exit);panel.append(header);
  const heading=el('h3','tvq-heading','Överblick');panel.append(heading);
  const summary=el('p','tvq-summary',data.summary||'Sammanfattning saknas i den gemensamma läsmodellen. Se den befintliga forskningsvyn.');summary.id='tvQuickSummary';panel.append(summary);
