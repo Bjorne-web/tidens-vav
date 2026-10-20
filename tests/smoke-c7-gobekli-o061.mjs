@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';import vm from 'node:vm';
+const read=p=>fs.readFileSync(p,'utf8');const ctx={window:{}};vm.createContext(ctx);
+vm.runInContext(read('data/c7-dating-retro-gobekli-o061.js'),ctx);
+vm.runInContext(read('v8137-dating-bridge.js'),ctx);
+const p=ctx.window.TIDENS_C7_DATING_PILOT.O061;
+assert.equal(p.phases.length,1);const phase=p.phases[0];
+assert.equal(phase.start,-9600);assert.equal(phase.end,-8200);
+assert.equal(phase.evidence,'B');assert.equal(phase.timeType,'historical-event');
+assert(phase.sources.length>=2);assert(phase.reason.length>100);assert(p.undated.includes('tempel'));
+const html=read('index.html');assert(html.indexOf('data/c7-dating-retro-gobekli-o061.js')<html.indexOf('v8137-dating-bridge.js'));assert(html.indexOf('v8137-dating-bridge.js')<html.indexOf('v839-temaspar-context.js'));
+console.log('PASS O061 Göbekli Tepe archaeological dating and source notes');

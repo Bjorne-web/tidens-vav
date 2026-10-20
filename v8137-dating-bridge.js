@@ -1,0 +1,2 @@
+/* C7: add review-qualified Göbekli Tepe period. */
+(function(){'use strict';window.TIDENS_C7_DATING_PILOT=Object.freeze(Object.assign({},window.TIDENS_C7_DATING_PILOT||{},window.TIDENS_C7_DATING_GOBEKLI||{}));})();
