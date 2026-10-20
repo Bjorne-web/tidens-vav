@@ -10,7 +10,8 @@ const overrides=Object.freeze({
 });
 function classify(post){
  if(!post||typeof post.id!=='string'||!post.id.trim())return null;
- const isCanonicalBibleBook=/^B(?:0(?:0[1-9]|[1-5][0-9]|6[0-6]))$/.test(post.id);\n const entry=overrides[post.id]||(isCanonicalBibleBook?{primaryArea:'bible',relatedAreas:[],contentTypes:['bible-book','text'],timeKinds:['composition']}:null);
+ const isCanonicalBibleBook=/^B(?:0(?:0[1-9]|[1-5][0-9]|6[0-6]))$/.test(post.id);
+ const entry=overrides[post.id]||(isCanonicalBibleBook?{primaryArea:'bible',relatedAreas:[],contentTypes:['bible-book','text'],timeKinds:['composition']}:null);
  const primary=entry?entry.primaryArea:'unclassified';
  return Object.freeze({
  id:post.id,
