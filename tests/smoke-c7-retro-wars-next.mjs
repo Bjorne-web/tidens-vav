@@ -5,8 +5,8 @@ vm.runInContext(read('data/c7-dating-retro-wars-o049-o052-o054.js'),ctx);
 vm.runInContext(read('v8134-dating-bridge.js'),ctx);
 const d=ctx.window.TIDENS_C7_DATING_PILOT;
 assert.deepEqual(Object.keys(d).sort(),['O049','O052','O053','O054']);
-assert.deepEqual(d.O049.phases.map(x=>x.start),[-264,-218,-149]);
-assert.deepEqual(d.O049.phases.map(x=>x.end),[-241,-201,-146]);
+assert.deepEqual(Array.from(d.O049.phases,x=>x.start),[-264,-218,-149]);
+assert.deepEqual(Array.from(d.O049.phases,x=>x.end),[-241,-201,-146]);
 assert.equal(d.O052.phases[0].start,1861);assert.equal(d.O053.phases[0].end,1918);assert.equal(d.O054.phases[0].end,1945);
 for(const [id,v] of Object.entries(d)){
  assert(v.undated&&v.phases.length,id);
