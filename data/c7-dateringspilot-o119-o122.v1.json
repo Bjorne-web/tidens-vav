@@ -1,0 +1,139 @@
+{
+  "schema": "tidens-vav-c7-dating-review-v1",
+  "status": "forskningspilot-ej-publicerbar-tidsplacering",
+  "principle": "Datera en historiskt belagd källa eller litterär fas; förväxla aldrig med berättad tid.",
+  "entries": {
+    "O119": {
+      "subject": "Jobs bok",
+      "storyTime": {
+        "status": "not-verifiable",
+        "note": "Ingen bekräftad historisk biografi kan tidsdateras."
+      },
+      "phases": [
+        {
+          "type": "text-composition",
+          "range": null,
+          "confidence": "C",
+          "display": false,
+          "assessment": "Flera litterära skikt och skilda dateringsförslag. Ingen tillräckligt avgränsad konsensus för automatiskt daterat kort i denna granskning."
+        }
+      ],
+      "sources": [
+        {
+          "name": "Job 1, ramberättelse",
+          "url": "https://www.bible.com/sv/bible/417/JOB.1.B2000D"
+        },
+        {
+          "name": "Job 38, poetisk dialog",
+          "url": "https://www.bible.com/sv/bible/417/JOB.38.B2000D"
+        }
+      ],
+      "next": "Sök särskild kritisk kommentar om Jobs poetiska del och ramberättelse."
+    },
+    "O120": {
+      "subject": "Psaltaren",
+      "storyTime": {
+        "status": "not-applicable",
+        "note": "Samling av hymner, böner och poesi; ingen enskild historisk händelse."
+      },
+      "phases": [
+        {
+          "type": "manuscript-witness",
+          "range": null,
+          "confidence": "B",
+          "display": false,
+          "assessment": "Dödahavsrullarna belägger flera psalmsamlingar och varierande textformer under senare andra tempelperioden. Individuella handskrifters dateringar ska hämtas ur arkeologisk katalog innan exakta intervall visas."
+        },
+        {
+          "type": "collection-redaction",
+          "range": null,
+          "confidence": "C",
+          "display": false,
+          "assessment": "Olika psalmer och samlingar har långa, överlappande tillkomsthistorier. Forskningen diskuterar när en femdelad samling fick en mer etablerad form; Qumranmaterialet försvårar en enda slutdatering."
+        }
+      ],
+      "sources": [
+        {
+          "name": "Peter W. Flint, Unrolling the Dead Sea Psalms Scrolls, Oxford Handbook (2014)",
+          "url": "https://academic.oup.com/edited-volume/35006/chapter-abstract/298742067"
+        },
+        {
+          "name": "David Willgren Davage, A Book of Psalms in 4QMidrEschata.b?, SJOT 33 (2019)",
+          "url": "https://www.tandfonline.com/doi/abs/10.1080/09018328.2019.1686285"
+        }
+      ],
+      "next": "Välj individuellt identifierade psalmhandskrifter från Qumran och katalogdateringar för första daterade vittnesfas."
+    },
+    "O121": {
+      "subject": "Ordspråksboken",
+      "storyTime": {
+        "status": "not-applicable",
+        "note": "Vishetsantologi snarare än ett daterat händelseförlopp."
+      },
+      "phases": [
+        {
+          "type": "text-composition",
+          "range": null,
+          "confidence": "C",
+          "display": false,
+          "assessment": "Olika antologidelar kan ha sammanställts och redigerats under olika sekler. Inga enskilda schablonår godtas utan separat prövning."
+        },
+        {
+          "type": "literary-comparison",
+          "range": null,
+          "confidence": "B",
+          "display": false,
+          "assessment": "Parallellerna till Amenemopes undervisning är väl påvisade och ger en relativ litteraturhistorisk jämförelse, men är inte i sig tillräckliga för en exakt datering av Ordspråksbokens slutredaktion."
+        }
+      ],
+      "sources": [
+        {
+          "name": "Michael V. Fox, From Amenemope to Proverbs (2014), ZAW",
+          "url": "https://www.degruyterbrill.com/document/doi/10.1515/zaw-2014-0006/html"
+        },
+        {
+          "name": "The Book of Proverbs in Social and Theological Context, Cambridge (2006)",
+          "url": "https://www.cambridge.org/core/books/abs/book-of-proverbs-in-social-and-theological-context/social-contexts-in-proverbs-22173131/2252D8D658419FB8D65429F8C619A03B"
+        }
+      ],
+      "next": "Pröva avgränsade litterära delblock i Ordspråksboken med två kommentarer."
+    },
+    "O122": {
+      "subject": "Jona",
+      "storyTime": {
+        "status": "not-verifiable",
+        "note": "Jona 1–4 behandlas som litterär berättelse, inte daterad resa i fisk."
+      },
+      "phases": [
+        {
+          "type": "literary-composition",
+          "range": {
+            "start": -500,
+            "end": -200
+          },
+          "confidence": "C",
+          "display": false,
+          "assessment": "Efterexilisk datering inom ungefär 500–200 f.Kr. diskuteras i forskningen, men bredden och metodernas skilda utfall gör att intervallet ännu inte kvalificerar för visad A/B-tidsfas."
+        },
+        {
+          "type": "historical-reference",
+          "range": null,
+          "confidence": "B",
+          "display": false,
+          "assessment": "Jona son till Amittai nämns i 2 Kung 14:25 i en berättelse om Jerobeam II; det är inte ett belägg för att Jonaboken skrevs då."
+        }
+      ],
+      "sources": [
+        {
+          "name": "Book of Jonah, Encyclopedia of the Bible – dateringsöversikt",
+          "url": "https://www.biblegateway.com/resources/encyclopedia-of-the-bible/Book-Jonah"
+        },
+        {
+          "name": "2 Kung 14:25, äldre Jonaomnämnande",
+          "url": "https://www.bible.com/sv/bible/417/2KI.14.B2000D"
+        }
+      ],
+      "next": "Pröva modern peer-reviewed kommentar till Jonabokens dateringsargument innan eventuell C/B-klassad texttidsmarkör."
+    }
+  }
+}
