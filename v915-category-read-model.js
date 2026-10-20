@@ -3,6 +3,14 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ H030:{primaryArea:'bible',relatedAreas:['religions','world'],contentTypes:['epistle-collection','text-composition'],timeKinds:['composition']},
+ H031:{primaryArea:'bible',relatedAreas:['religions','world'],contentTypes:['gospel','text-composition'],timeKinds:['composition']},
+ H032:{primaryArea:'world',relatedAreas:['religions','bible'],contentTypes:['historical-event','military-conflict','temple-history'],timeKinds:['historical-event']},
+ H033:{primaryArea:'bible',relatedAreas:['religions','world'],contentTypes:['gospels','text-composition'],timeKinds:['composition']},
+ H034:{primaryArea:'bible',relatedAreas:['religions'],contentTypes:['gospel','text-redaction'],timeKinds:['composition']},
+ H035:{primaryArea:'bible',relatedAreas:['religions','ideas'],contentTypes:['apocalyptic-literature','text-composition'],timeKinds:['composition']},
+ H036:{primaryArea:'world',relatedAreas:['religions'],contentTypes:['historical-event','military-conflict'],timeKinds:['historical-period']},
+
  H023:{primaryArea:'bible',relatedAreas:['religions','world'],contentTypes:['text-redaction','apocalyptic-literature'],timeKinds:['composition']},
  H024:{primaryArea:'world',relatedAreas:['religions','bible'],contentTypes:['historical-event','military-conflict'],timeKinds:['historical-period']},
  H025:{primaryArea:'religions',relatedAreas:['bible','ideas'],contentTypes:['text-collection','apocalyptic-literature'],timeKinds:['composition','text-tradition']},
