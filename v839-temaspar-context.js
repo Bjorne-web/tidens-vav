@@ -56,7 +56,7 @@
   // Äldre kronologilager återanvände O096/O098 för helt andra händelser,
   // och O095/O097 gäller möjliga TEXTtillkomster, inte berättade händelser.
   // Visa aldrig dessa som granskade tidskort för utgångsposten.
-  if(['O095','O096','O097','O098','O099','O100','O101','O102'].includes(focus.id))return [];
+  if(['O095','O096','O097','O098','O099','O100','O101','O102','O103','O104','O105','O106'].includes(focus.id))return [];
   const fixed=independent[focus.id];
   if(fixed)return fixed.periods.map((p,i)=>({...focus,...p,id:focus.id,original:true,reviewedTime:true,segmentIndex:i}));
   return pool.filter(e=>e.id===focus.id).map(e=>({...e,reviewedTime:true}));
