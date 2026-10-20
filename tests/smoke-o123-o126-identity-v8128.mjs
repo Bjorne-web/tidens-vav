@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+const sandbox={window:{}};
+vm.createContext(sandbox);
+vm.runInContext(fs.readFileSync('data/data.generated.js','utf8'),sandbox);
+const before=vm.runInContext('originalEvents.filter(x=>x.id >= "O123" && x.id <= "O126").map(x=>({id:x.id,title:x.title,start:x.start,end:x.end}))',sandbox);
+vm.runInContext(fs.readFileSync('data/o123-o126-identity.v8128.js','utf8'),sandbox);
+const after=vm.runInContext('originalEvents.filter(x=>x.id >= "O123" && x.id <= "O126")',sandbox);
+const names=['Makkaberupproret','Jesu födelse','Jesu offentliga verksamhet','Jesu korsfästelse'];
+assert.equal(after.length,4);
+after.forEach((x,i)=>{assert.equal(x.title,names[i]);assert.equal(x.legacyTitle,before[i].title);assert.equal(x.start,before[i].start);assert.equal(x.end,before[i].end);});
+console.log('C7 identity checks passed');
