@@ -1,0 +1,21 @@
+name: B2.3 narrated versus historical time
+on:
+  pull_request:
+    paths:
+      - 'v915-category-read-model.js'
+      - 'tests/b2-h-narrated-time.test.cjs'
+      - 'tests/b2-h-records-first.test.cjs'
+      - '.github/workflows/b2-3-h-narrated.yml'
+  workflow_dispatch:
+jobs:
+  narrated-time:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/b2-h-narrated-time.test.cjs
+      - run: node tests/b2-h-records-first.test.cjs
+      - run: node tests/category-read-model.test.cjs
+      - run: node tests/category-coverage.test.cjs
