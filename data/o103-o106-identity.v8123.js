@@ -1,0 +1,2 @@
+/* C7 omgång 31 – originaltitlarna är miljöetiketter, inte posternas ämnen. */
+(function(){'use strict';const names={"O103":"Sinai och lagen","O104":"Ökenvandringen","O105":"Josuas erövringar","O106":"Domartiden"};const legacy={};for(const [id,title] of Object.entries(names)){const e=originalEvents.find(x=>x.id===id);if(!e)throw Error('Saknad originalpost '+id);legacy[id]={title:e.title,start:e.start,end:e.end,dating:e.dating};e.legacyTitle=e.title;e.title=title;e.subject=title;}window.TIDENS_O103_O106_IDENTITY=Object.freeze({names,legacy});})();
