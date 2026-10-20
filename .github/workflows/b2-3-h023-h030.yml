@@ -1,0 +1,20 @@
+name: B2.3 H023 H030
+on:
+  pull_request:
+    paths:
+      - 'v915-category-read-model.js'
+      - 'tests/b2-h023-h030.test.cjs'
+      - 'tests/b2-h014-h022.test.cjs'
+      - '.github/workflows/b2-3-h023-h030.yml'
+  workflow_dispatch:
+jobs:
+  h023-h030:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/b2-h023-h030.test.cjs
+      - run: node tests/b2-h014-h022.test.cjs
+      - run: node tests/category-coverage.test.cjs
