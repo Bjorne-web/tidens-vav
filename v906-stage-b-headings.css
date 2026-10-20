@@ -1,0 +1,13 @@
+/* Etapp B2: reusable content headers. Approved start and timeline excluded. */
+:is(#mapView,#exploreView,#compareView,#aboutView) > .tvb-view-intro{
+ border:1px solid var(--tv-design-line,#dce5ee);
+ border-radius:var(--tv-design-radius,14px);
+ padding:clamp(17px,2.5vw,27px);
+ margin:0 0 20px;
+ background:linear-gradient(130deg,#fff 0%,#f1f6fa 100%);
+ box-shadow:var(--tv-design-shadow,0 6px 22px rgba(25,51,74,.055));
+}
+.tvb-view-intro .tvb-eyebrow{display:block;letter-spacing:.095em;color:#53728d;font-size:11px;font-weight:750;margin-bottom:5px}
+.tvb-view-intro h2{font:700 clamp(25px,3vw,35px)/1.22 Georgia,serif!important;margin:0 0 7px!important;color:#17304a}
+.tvb-view-intro p{font:14px/1.6 Inter,Segoe UI,Arial,sans-serif;color:#546a80;margin:0;max-width:72ch}
+@media(max-width:700px){.tvb-view-intro h2{font-size:26px!important}}
