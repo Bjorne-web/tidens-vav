@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';import vm from 'node:vm';
+const read=p=>fs.readFileSync(p,'utf8'),ctx={window:{}};vm.createContext(ctx);
+vm.runInContext(read('data/c7-dating-retro-longyou-o065.js'),ctx);
+vm.runInContext(read('v8141-dating-bridge.js'),ctx);
+const p=ctx.window.TIDENS_C7_DATING_PILOT.O065;
+assert.equal(p.evidence,'C');assert.equal(p.phases.length,0);
+assert(p.undated.includes('direkt datering')&&p.undated.includes('206 f.Kr.')&&p.undated.includes('Ingen daterad byggfas'));
+assert(p.sources.length>=3);
+const html=read('index.html');assert(html.indexOf('data/c7-dating-retro-longyou-o065.js')<html.indexOf('v8141-dating-bridge.js'));assert(html.indexOf('v8141-dating-bridge.js')<html.indexOf('v839-temaspar-context.js'));
+console.log('PASS C7 O065 documented uncertainty without invented chronology');
