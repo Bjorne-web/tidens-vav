@@ -1,0 +1,14 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const sandbox={window:{TIDENS_C7_DATING_PILOT:{H032:{phases:[{start:70,end:70}]}}}};
+vm.runInNewContext(fs.readFileSync('data/h026-pompey-date-temaspar.js','utf8'),sandbox);
+const dates=sandbox.window.TIDENS_C7_DATING_PILOT;
+assert.equal(dates.H032.phases[0].start,70,'other C7 dates preserved');
+assert.equal(dates.H026.phases[0].start,-63);
+assert.equal(dates.H026.phases[0].end,-63);
+assert.equal(dates.H026.phases[0].timeType,'historical-event');
+assert(dates.H026.phases[0].reason.includes('64 f.Kr.'),'research dispute explained');
+assert(dates.H026.phases[0].sources.length>=2);
+const index=fs.readFileSync('index.html','utf8');
+assert(index.indexOf('data/h026-pompey-date-temaspar.js')<index.indexOf('v839-temaspar-context.js'));
+assert(index.includes('data/h032-historical-date-temaspar.js'));
+console.log('H026 dates, source qualification and preservation passed.');
