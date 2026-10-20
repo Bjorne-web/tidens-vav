@@ -1,0 +1,19 @@
+name: H026 historical dating in Temaspår
+on:
+  pull_request:
+    paths:
+      - 'data/h026-pompey-date-temaspar.js'
+      - 'index.html'
+      - 'tests/h026-temaspar-date.test.cjs'
+      - '.github/workflows/h026-temaspar-date.yml'
+  workflow_dispatch:
+jobs:
+  h026:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/h026-temaspar-date.test.cjs
+      - run: node tests/h032-temaspar-date.test.cjs
