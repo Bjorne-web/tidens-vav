@@ -1,0 +1,16 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const context={window:{TIDENS_C7_DATING_PILOT:{O999:{phases:[]}}}};
+vm.runInNewContext(fs.readFileSync('data/h032-historical-date-temaspar.js','utf8'),context);
+const dates=context.window.TIDENS_C7_DATING_PILOT;
+assert(dates.O999,'must preserve prior dating entries');
+assert.equal(dates.H032.phases.length,1);
+assert.equal(dates.H032.phases[0].start,70);
+assert.equal(dates.H032.phases[0].end,70);
+assert.equal(dates.H032.phases[0].timeType,'historical-event');
+assert(dates.H032.phases[0].sources.length>=2);
+const index=fs.readFileSync('index.html','utf8');
+assert(index.indexOf('data/h032-historical-date-temaspar.js')>index.indexOf('v8148-dating-bridge.js'));
+assert(index.indexOf('data/h032-historical-date-temaspar.js')<index.indexOf('v839-temaspar-context.js'));
+const source=fs.readFileSync('v839-temaspar-context.js','utf8');
+assert(source.includes('window.TIDENS_C7_DATING_PILOT?.[focus.id]'));
+console.log('H032 date and Temaspår load-order regression checks pass');
