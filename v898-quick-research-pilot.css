@@ -32,3 +32,7 @@
 #tvQuickDialog .tvq-warning{font-size:12px;color:#805d2e;background:#fff7e7;padding:8px 10px;border-radius:8px}
 #tvQuickDialog header{border-bottom:1px solid #e0e9f1;padding-bottom:14px}
 #tvQuickDialog .tvq-actions{position:sticky;bottom:-24px;padding:13px 0 5px;background:#fff;border-top:1px solid #e3ebf3}
+
+/* Keep orientation brief. Expand long overviews only on demand. */
+#tvQuickDialog .tvq-summary.tvq-collapsed{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:5;overflow:hidden}
+#tvQuickDialog .tvq-expand{font-size:12px;color:#245f9e;background:transparent;border:0;padding:3px 0;text-decoration:underline}

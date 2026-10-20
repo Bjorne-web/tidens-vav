@@ -27,6 +27,12 @@ function show(requestedId){
  const exit=el('button',null,'Stäng ×');exit.type='button';exit.onclick=close;header.append(intro,exit);panel.append(header);
  const heading=el('h3','tvq-heading','Överblick');panel.append(heading);
  const summary=el('p','tvq-summary',data.summary||'Sammanfattning saknas i den gemensamma läsmodellen. Se den befintliga forskningsvyn.');summary.id='tvQuickSummary';panel.append(summary);
+ if(summary.textContent.length>420){
+  summary.classList.add('tvq-collapsed');
+  const toggle=el('button','tvq-expand','Visa hela överblicken');toggle.type='button';toggle.setAttribute('aria-controls','tvQuickSummary');toggle.setAttribute('aria-expanded','false');
+  toggle.onclick=()=>{const expanded=summary.classList.toggle('tvq-collapsed')===false;toggle.setAttribute('aria-expanded',String(expanded));toggle.textContent=expanded?'Visa mindre':'Visa hela överblicken'};
+  panel.append(toggle);
+ }
  if(data.context){const sub=el('h3','tvq-heading','Historiskt sammanhang');const p=el('p','tvq-excerpt',data.context);panel.append(sub,p)}
  if(data.impact){const sub=el('h3','tvq-heading','Betydelse och samband');const p=el('p','tvq-excerpt',data.impact);panel.append(sub,p)}
  if(data.reviewStatus==='preliminary'){panel.append(el('p','tvq-warning','Forskningsuppgifterna är preliminära och kan komma att justeras.'))}
