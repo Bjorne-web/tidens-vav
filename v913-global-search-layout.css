@@ -1,0 +1,5 @@
+/* The same original global search field is visible on every main tab.
+   Override legacy rule: body.v812-start .top .search {display:none!important}. */
+body.v812-start .top input#search.search,
+body.v812-chronology .top input#search.search{display:block!important}
+body > #v827SearchResults{z-index:2147483000!important;position:fixed}
