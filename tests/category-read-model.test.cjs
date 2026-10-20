@@ -14,8 +14,8 @@ for(const input of examples){
  assert(Object.isFrozen(c));assert(Object.isFrozen(c.relatedAreas));
  assert(!c.relatedAreas.includes(c.primaryArea));
 }
-assert.equal(model.get(examples[4]).primaryArea,'unclassified');
+assert.equal(model.get(examples[4]).primaryArea,'world');
 assert.equal(model.get(examples[4]).researchStatus,'unknown');
 assert.equal(JSON.stringify(examples),snapshot,'Legacy data mutated');
 assert.equal(model.get(null),null);
-console.log('B2.3: 5 records classified read-only, 4 pilot mappings, unknowns preserved.');
+console.log('B2.3 read-only mappings preserve legacy data and research status.');

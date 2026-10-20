@@ -3,6 +3,13 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ H001:{primaryArea:'world',relatedAreas:[],contentTypes:['archaeological-site'],timeKinds:['historical-event']},
+ H002:{primaryArea:'world',relatedAreas:[],contentTypes:['society'],timeKinds:['historical-event']},
+ H003:{primaryArea:'world',relatedAreas:[],contentTypes:['monument','historical-period'],timeKinds:['historical-event']},
+ H004:{primaryArea:'religions',relatedAreas:['bible'],contentTypes:['text','narrative'],timeKinds:['composition']},
+ H005:{primaryArea:'religions',relatedAreas:['bible'],contentTypes:['text','narrative'],timeKinds:['composition']},
+ H006:{primaryArea:'religions',relatedAreas:['bible'],contentTypes:['text','narrative'],timeKinds:['composition']},
+ H007:{primaryArea:'world',relatedAreas:[],contentTypes:['historical-person','reign'],timeKinds:['historical-event']},
  AP001:{primaryArea:'religions',relatedAreas:['bible'],contentTypes:['canon-history','text-tradition'],timeKinds:['reception']},
  AP002:{primaryArea:'bible',relatedAreas:['religions'],contentTypes:['text-comparison','apocrypha-theme'],timeKinds:['composition']},
  AP003:{primaryArea:'bible',relatedAreas:['religions','ideas'],contentTypes:['text-comparison','apocrypha-theme'],timeKinds:['composition']},
