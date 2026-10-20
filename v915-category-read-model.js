@@ -3,6 +3,15 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ H014:{primaryArea:'world',relatedAreas:['bible','religions'],contentTypes:['historical-period','kingdoms'],timeKinds:['historical-period']},
+ H015:{primaryArea:'world',relatedAreas:['bible','religions'],contentTypes:['historical-event','military-conflict'],timeKinds:['historical-event']},
+ H016:{primaryArea:'world',relatedAreas:['bible','religions'],contentTypes:['historical-event','military-conflict'],timeKinds:['historical-event']},
+ H017:{primaryArea:'world',relatedAreas:['religions'],contentTypes:['historical-event','empire'],timeKinds:['historical-event']},
+ H018:{primaryArea:'religions',relatedAreas:['bible','world'],contentTypes:['temple-history','historical-event'],timeKinds:['historical-tradition']},
+ H019:{primaryArea:'bible',relatedAreas:['religions'],contentTypes:['text-redaction'],timeKinds:['composition']},
+ H020:{primaryArea:'bible',relatedAreas:['religions'],contentTypes:['text-redaction','biblical-narrative'],timeKinds:['composition']},
+ H021:{primaryArea:'bible',relatedAreas:['religions','world'],contentTypes:['text-redaction','historiography'],timeKinds:['composition']},
+ H022:{primaryArea:'world',relatedAreas:['religions'],contentTypes:['historical-event','empire'],timeKinds:['historical-event']},
  H008:{primaryArea:'bible',relatedAreas:['religions'],contentTypes:['biblical-narrative'],timeKinds:['narrated-hypothetical']},
  H009:{primaryArea:'world',relatedAreas:['religions'],contentTypes:['historical-period'],timeKinds:['historical-period']},
  H010:{primaryArea:'bible',relatedAreas:['religions'],contentTypes:['biblical-narrative'],timeKinds:['narrated-hypothetical']},
