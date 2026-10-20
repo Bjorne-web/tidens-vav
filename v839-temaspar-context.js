@@ -56,6 +56,8 @@
   // Äldre kronologilager återanvände O096/O098 för helt andra händelser,
   // och O095/O097 gäller möjliga TEXTtillkomster, inte berättade händelser.
   // Visa aldrig dessa som granskade tidskort för utgångsposten.
+  const pilot=window.TIDENS_C7_DATING_PILOT?.[focus.id];
+  if(pilot)return pilot.phases.map((p,i)=>({...focus,...p,id:focus.id,original:true,reviewedTime:true,segmentIndex:i}));
   if(['O095','O096','O097','O098','O099','O100','O101','O102','O103','O104','O105','O106','O107','O108','O109','O110','O111','O113','O114','O116','O118','O119','O120','O121','O122'].includes(focus.id))return [];
   const fixed=independent[focus.id];
   if(fixed)return fixed.periods.map((p,i)=>({...focus,...p,id:focus.id,original:true,reviewedTime:true,segmentIndex:i}));
@@ -107,10 +109,11 @@
     slots[slot]=xCard+170;
     const y=slot*76+10;
     const title=esc(e.title);
+    const datingLabel=e.typeLabel?' · '+e.typeLabel+' · evidens '+e.evidence:'';
     const original=e.original&&e.reviewedTime?' · separat daterad originalpost':e.original?' · redaktionellt bedömd originalpost':'';
     return `<div class="v839-duration" style="left:${x.toFixed(1)}px;width:${Math.max(3,xe-x).toFixed(1)}px"></div>
       <span class="v839-point" style="left:${x.toFixed(1)}px"></span>
-      <button class="v839-card ${e.id===modelFocusId?'v839-focus-card':''}" style="left:${xCard.toFixed(1)}px;top:${y}px" type="button" data-v839-read="${esc(e.id)}"><strong>${title}</strong><small>${esc(fmt(e.start))}${e.end===e.start?'':' – '+esc(fmt(e.end))}${esc(original)}</small></button>`;
+      <button class="v839-card ${e.id===modelFocusId?'v839-focus-card':''}" style="left:${xCard.toFixed(1)}px;top:${y}px" type="button" data-v839-read="${esc(e.id)}"><strong>${title}</strong><small>${esc(fmt(e.start))}${e.end===e.start?'':' – '+esc(fmt(e.end))}${esc(original)}${esc(datingLabel)}</small></button>`;
   }).join('');
   return {cards,height:Math.max(91,slots.length*76+20)};
  }
@@ -127,7 +130,7 @@
     return `<span class="v839-tick" style="left:${(i/6*100).toFixed(2)}%">${esc(fmt(Math.round(val)))}</span>`;
   }).join('');
   const focusRows=model.segments.length?datedRows(model.segments,range):{
-   height:116,cards:`<div class="v839-undated" role="note" aria-label="Vald utgångspost utan separat granskad datering"><div class="v839-undated-kicker">VALD UTGÅNGSPOST · ${esc(focus.id)}</div><b>${esc(focus.title)}</b><span>Datumet i originalarkivet är ännu inte separat källprövat. Posten visas därför utan tidsmarkör, men används som utgångspunkt för jämförelsen.</span><button type="button" data-v839-read="${esc(focus.id)}">Läs vald post →</button></div>`
+   height:116,cards:`<div class="v839-undated" role="note" aria-label="Vald utgångspost utan separat granskad datering"><div class="v839-undated-kicker">VALD UTGÅNGSPOST · ${esc(focus.id)}</div><b>${esc(focus.title)}</b><span>${esc(window.TIDENS_C7_DATING_PILOT?.[focus.id]?.undated || 'Datumet i originalarkivet är ännu inte separat källprövat. Posten visas därför utan tidsmarkör, men används som utgångspunkt för jämförelsen.')}</span><button type="button" data-v839-read="${esc(focus.id)}">Läs vald post →</button></div>`
   };
   const rows=[{label:'UTGÅNGSPOST',id:'focus',color:'#245e99',...focusRows},
     ...model.groups.map(g=>({label:g.label,id:g.id,color:g.color,...datedRows(g.entries,range)}))];
@@ -150,8 +153,9 @@
   const options=definitions.map(c=>`<label class="v839-category-option"><input type="checkbox" data-v839-cat="${esc(c.id)}" ${selected.has(c.id)?'checked':''}/><span class="v839-category-dot" style="background:${c.color}"></span><span>${esc(c.label)}</span></label>`).join('');
   const period=model.window;
   const valid=!!model.segments.length;
+  const pilot=window.TIDENS_C7_DATING_PILOT?.[model.focus.id];
   const caution=!period?'Ingen jämförbar tidsperiod kan fastställas för denna post.':
-   valid?'Utgångspostens tidsläge är separat bedömt; övriga poster är kronologiska jämförelser, inte bevisade samband.':
+   valid?'Visad fas har separat bedömd tidstyp och källor; övriga poster är kronologiska jämförelser, inte bevisade samband.':
    'Utgångsposten har ingen separat källbedömd datering. Originalarkivets årtal används ENBART för att söka möjliga jämförelseposter – utgångsposten placeras utan tidsmarkör.';
   return `<section class="v839-contemporaries" aria-label="Vald post och samtidiga kategorier">
    <div class="v839-toolbar"><div><h3>Den valda posten i världens samtid</h3><p>${esc(caution)}</p></div>
@@ -160,6 +164,7 @@
      <div class="v839-category-grid">${options}</div><p class="v839-filter-note">Utgångsposten visas alltid, även om dess kategori inte är ikryssad. Endast redaktionellt daterade jämförelseposter visas på axeln.</p>
    </details>
    ${mode==='list'?listFor(model):graphFor(model)}
+   ${pilot?'<div class="v839-footnote"><strong>Källgranskad dateringspilot:</strong> '+esc(pilot.undated)+' '+(pilot.phases||[]).map(p=>'<p><strong>'+esc(p.typeLabel)+' ('+esc(p.evidence)+')</strong> '+esc(p.reason)+' '+p.sources.map(src=>'<a target="_blank" rel="noopener noreferrer" href="'+esc(src.url)+'">'+esc(src.title)+' ↗</a>').join(' · ')+'</p>').join('')+(pilot.sources||[]).map(src=>'<a target="_blank" rel="noopener noreferrer" href="'+esc(src.url)+'">'+esc(src.title)+' ↗</a>').join(' · ')+'</div>':''}
    <p class="v839-footnote">Kronologisk samtidighet innebär inte belagt inflytande på Israels religion, judendomen eller kristendomen. Läs varje posts källor för att bedöma sambanden.</p>
   </section>`;
  }
