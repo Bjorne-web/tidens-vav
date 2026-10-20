@@ -14,10 +14,13 @@ const list=document.createElement('div');list.className='tv-legacy-list';
 const keep=new Set(choices.map(c=>c[1]));
 for(const btn of [...old.querySelectorAll('button.tab')]){
  if(keep.has(btn.id))continue;
- const item=document.createElement('button');item.type='button';item.textContent=btn.textContent;item.onclick=()=>{btn.click();more.open=false;refresh()};list.append(item);
+ const item=document.createElement('button');item.type='button';item.textContent=btn.textContent;item.dataset.legacyTarget=btn.id;item.onclick=()=>{btn.click();more.open=false;refresh()};list.append(item);
 }
 more.append(list);nav.append(more);old.after(nav);old.classList.add('tv-original-nav-hidden');
-function refresh(){for(const [id,btn] of links){const active=document.getElementById(id)?.classList.contains('active');btn.classList.toggle('active',!!active);if(active)btn.setAttribute('aria-current','page');else btn.removeAttribute('aria-current')}}
+function refresh(){for(const [id,btn] of links){const active=document.getElementById(id)?.classList.contains('active');btn.classList.toggle('active',!!active);if(active)btn.setAttribute('aria-current','page');else btn.removeAttribute('aria-current')}
+ let legacyActive=false;for(const item of list.querySelectorAll('[data-legacy-target]')){const active=!!document.getElementById(item.dataset.legacyTarget)?.classList.contains('active');item.classList.toggle('active',active);if(active){item.setAttribute('aria-current','page');legacyActive=true}else item.removeAttribute('aria-current')}
+ more.classList.toggle('active',legacyActive);summary.textContent=legacyActive?'Fler vyer · vald':'Fler vyer';}
+more.addEventListener('keydown',event=>{if(event.key==='Escape'&&more.open){event.preventDefault();more.open=false;summary.focus()}});
 refresh();
 document.addEventListener('click',()=>queueMicrotask(refresh));
 new MutationObserver(refresh).observe(old,{subtree:true,attributes:true,attributeFilter:['class']});

@@ -11,3 +11,6 @@
 #tvLegacyViews .tv-legacy-list button{display:block;text-align:left;width:100%;border:0;border-radius:7px;background:white;padding:10px;color:#314b63}
 #tvLegacyViews .tv-legacy-list button:hover{background:#eef4fa}
 @media(max-width:1000px){#tvPrimaryNav{order:3;width:100%;margin-left:0}.top{flex-wrap:wrap}}
+
+#tvLegacyViews.active summary{background:#e9f2fc;color:#174f87;font-weight:700}
+#tvLegacyViews .tv-legacy-list button.active{background:#e9f2fc;color:#174f87;font-weight:700}
