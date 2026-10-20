@@ -1,0 +1,14 @@
+name: C7 omgång 37 research and chronology
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  c7-batch37:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/smoke-c7-v8131.mjs
