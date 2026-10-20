@@ -1,0 +1,8 @@
+/* C2.1: modest contextual link strip, no layout overrides for approved Gantt */
+.tvc2-context-bar[hidden]{display:none!important}
+.tvc2-context-bar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:0 0 12px;padding:9px 12px;border:1px solid #dbe4ef;border-radius:11px;background:#f7fafd;color:#254b6a;font:12px/1.45 Inter,Segoe UI,Arial,sans-serif}
+.tvc2-selected{font-weight:700;overflow-wrap:anywhere}
+.tvc2-links{display:flex;flex-wrap:wrap;gap:6px}
+.tvc2-links button{background:#fff;color:#225e91;border:1px solid #c9d8e6;border-radius:7px;padding:6px 8px;font-size:12px;cursor:pointer}
+.tvc2-links button:focus-visible{outline:3px solid #4389c7;outline-offset:2px}
+@media(max-width:650px){.tvc2-context-bar{align-items:stretch}.tvc2-links{width:100%}}
