@@ -1,0 +1,19 @@
+name: B2.3 first H classifications
+on:
+  pull_request:
+    paths:
+      - 'v915-category-read-model.js'
+      - 'tests/b2-h-records-first.test.cjs'
+      - '.github/workflows/b2-3-h-records.yml'
+  workflow_dispatch:
+jobs:
+  h-records:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/b2-h-records-first.test.cjs
+      - run: node tests/category-read-model.test.cjs
+      - run: node tests/category-coverage.test.cjs
