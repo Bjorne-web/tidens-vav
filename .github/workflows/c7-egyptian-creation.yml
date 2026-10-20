@@ -1,0 +1,14 @@
+name: C7 Egyptian creation witnesses
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  egyptian-creation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/smoke-c7-egyptian-creation-o071.mjs
