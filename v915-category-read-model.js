@@ -3,6 +3,12 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ H008:{primaryArea:'bible',relatedAreas:['religions'],contentTypes:['biblical-narrative'],timeKinds:['narrated-hypothetical']},
+ H009:{primaryArea:'world',relatedAreas:['religions'],contentTypes:['historical-period'],timeKinds:['historical-period']},
+ H010:{primaryArea:'bible',relatedAreas:['religions'],contentTypes:['biblical-narrative'],timeKinds:['narrated-hypothetical']},
+ H011:{primaryArea:'world',relatedAreas:['bible','religions'],contentTypes:['inscription','historical-evidence'],timeKinds:['historical-source']},
+ H012:{primaryArea:'world',relatedAreas:['religions'],contentTypes:['archaeological-context'],timeKinds:['archaeological-period']},
+ H013:{primaryArea:'bible',relatedAreas:['world','religions'],contentTypes:['biblical-narrative'],timeKinds:['narrated-debated']},
  H001:{primaryArea:'world',relatedAreas:[],contentTypes:['archaeological-site'],timeKinds:['historical-event']},
  H002:{primaryArea:'world',relatedAreas:[],contentTypes:['society'],timeKinds:['historical-event']},
  H003:{primaryArea:'world',relatedAreas:[],contentTypes:['monument','historical-period'],timeKinds:['historical-event']},
