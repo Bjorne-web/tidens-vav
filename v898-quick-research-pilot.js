@@ -20,7 +20,11 @@ function show(requestedId){
  const time=el('div','tvq-muted',data.dateType||(data.temporal?.start!=null?(data.temporal.start<0?Math.abs(data.temporal.start)+' f.Kr.':data.temporal.start+' e.Kr.')+' · Kontrollera datering i forskningsvyn':'Historisk datering – se full forskningsvy'));
  intro.append(label,title,time);
  const exit=el('button',null,'Stäng ×');exit.type='button';exit.onclick=close;header.append(intro,exit);panel.append(header);
+ const heading=el('h3','tvq-heading','Överblick');panel.append(heading);
  const summary=el('p','tvq-summary',data.summary||'Sammanfattning saknas i den gemensamma läsmodellen. Se den befintliga forskningsvyn.');panel.append(summary);
+ if(data.context){const sub=el('h3','tvq-heading','Historiskt sammanhang');const p=el('p','tvq-excerpt',data.context);panel.append(sub,p)}
+ if(data.impact){const sub=el('h3','tvq-heading','Betydelse och samband');const p=el('p','tvq-excerpt',data.impact);panel.append(sub,p)}
+ if(data.reviewStatus==='preliminary'){panel.append(el('p','tvq-warning','Forskningsuppgifterna är preliminära och kan komma att justeras.'))}
  const src=el('p','tvq-muted',data.sources.length?data.sources.length+' tillgängliga källhänvisningar · granska i full forskningsvy':'Källhänvisningar behöver granskas i full forskningsvy');panel.append(src);
  if(data.sources.length){const list=el('ul','tvq-sources');for(const source of data.sources.slice(0,3)){const li=el('li');const a=el('a',null,source.title);a.href=source.url;a.target='_blank';a.rel='noopener noreferrer';li.append(a);list.append(li)}panel.append(list)}
  const nav=el('div','tvq-actions'),cancel=el('button',null,'Tillbaka till tidslinjen'),full=el('button','tvq-primary','Öppna befintlig fördjupning →');

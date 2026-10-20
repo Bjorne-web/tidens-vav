@@ -24,3 +24,11 @@
  #tvQuickOverlay{align-items:flex-end;justify-content:center;padding:0}
  #tvQuickDialog{width:100%;height:auto;max-height:72dvh;border-radius:20px 20px 0 0;border-bottom:0;box-shadow:0 -12px 34px #10294255}
 }
+
+/* Research hierarchy without introducing a competing third reading view */
+#tvQuickDialog .tvq-heading{font:650 14px/1.35 system-ui;margin:18px 0 5px;color:#244e79}
+#tvQuickDialog .tvq-summary{margin:8px 0 12px}
+#tvQuickDialog .tvq-excerpt{font-size:13px;line-height:1.55;color:#40566a;margin:5px 0 12px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+#tvQuickDialog .tvq-warning{font-size:12px;color:#805d2e;background:#fff7e7;padding:8px 10px;border-radius:8px}
+#tvQuickDialog header{border-bottom:1px solid #e0e9f1;padding-bottom:14px}
+#tvQuickDialog .tvq-actions{position:sticky;bottom:-24px;padding:13px 0 5px;background:#fff;border-top:1px solid #e3ebf3}
