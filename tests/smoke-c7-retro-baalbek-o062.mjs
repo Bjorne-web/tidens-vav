@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';import vm from 'node:vm';
+const read=p=>fs.readFileSync(p,'utf8'),ctx={window:{}};vm.createContext(ctx);
+vm.runInContext(read('data/c7-dating-retro-baalbek-o062.js'),ctx);
+vm.runInContext(read('v8138-dating-bridge.js'),ctx);
+const post=ctx.window.TIDENS_C7_DATING_PILOT.O062;
+assert(post&&post.undated.length>100);
+assert.equal(post.phases.length,3);
+const periods=[[15,60],[60,160],[200,260]];
+post.phases.forEach((p,i)=>{assert.equal(p.start,periods[i][0]);assert.equal(p.end,periods[i][1]);assert.equal(p.timeType,'historical-event');assert.equal(p.evidence,'B');assert(p.sources.length>=2);assert(p.reason.length>100);});
+const html=read('index.html');
+assert(html.indexOf('data/c7-dating-retro-baalbek-o062.js')<html.indexOf('v8138-dating-bridge.js'));
+assert(html.indexOf('v8138-dating-bridge.js')<html.indexOf('v839-temaspar-context.js'));
+console.log('PASS C7 O062 phased Baalbek chronology');
