@@ -70,6 +70,19 @@ const server=http.createServer((req,res)=>{
    assert.equal(opened.button,true,width+'px: reader must offer the optional Temaspår action');
    await page.evaluate(()=>[...document.querySelectorAll('#detail button')].find(b=>b.textContent.includes('Visa sambanden i Temaspår')).click());
    assert.equal(await page.locator('#v833PostSelect').inputValue(),'O067',width+'px: explicit Temaspår action must retain selected O067');
+   // Identitet i Temaspår: alla fyra ursprungliga O-ID ska vara odaterade ämnesposter.
+   for(const [id,title] of [['O095','Skapelsen'],['O096','Syndafallet'],['O097','Noas ark'],['O098','Babels torn']]){
+    await page.selectOption('#v833PostSelect',id);
+    const focus=page.locator('.v839-focus-row');
+    await focus.locator('.v839-undated').waitFor();
+    assert.match(await focus.innerText(),new RegExp(title));
+    assert.equal(await focus.locator('.v839-focus-card').count(),0,id+' får inte visa falskt daterad utgångspost');
+    assert.equal(await focus.locator('.v839-point').count(),0,id+' får inte få tidsmarkör');
+    const detail=await page.evaluate(id=>{setSelected(id);return document.querySelector('#detail')?.innerText||'';},id);
+    assert.match(detail,new RegExp(title==='Noas ark'?'Noaberättelsen':title==='Skapelsen'?'Skapelseberättelserna':title==='Syndafallet'?'Edenberättelsen':'Babelberättelsen'));
+    if(id==='O096')assert.doesNotMatch(detail,/Judas exil: deportationer/);
+    if(id==='O098')assert.doesNotMatch(detail,/Återvändande och återuppbyggnad under persisk tid/);
+   }
    assert.deepEqual(errors,[],width+'px: Javascript errors');
    await page.close();
   }
