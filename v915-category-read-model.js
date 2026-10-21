@@ -3,6 +3,12 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ O007:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['human-evolution','fossil-evidence','hominin-species'],timeKinds:['evolutionary-period']},
+ O008:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['human-evolution','stone-tool-tradition','hominin-species'],timeKinds:['evolutionary-period','archaeological-period']},
+ O009:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['human-evolution','migration-history','hominin-species'],timeKinds:['evolutionary-period','migration-period']},
+ O010:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['human-evolution','hominin-taxonomy'],timeKinds:['evolutionary-period']},
+ O011:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['human-evolution','archaeological-evidence','hominin-species'],timeKinds:['evolutionary-period']},
+ O012:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['human-evolution','fossil-evidence','hominin-species'],timeKinds:['evolutionary-period']},
  O001:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['human-migration','population-history'],timeKinds:['migration-period']},
  O002:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['indigenous-peoples','population-history'],timeKinds:['historical-period']},
  O003:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['linguistic-group','migration-history'],timeKinds:['ethnolinguistic-tradition']},
