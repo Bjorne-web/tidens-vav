@@ -3,6 +3,12 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ O091:{primaryArea:'ideas',relatedAreas:['bible','religions','world'],contentTypes:['babylonian-theodicy','wisdom-literature','literary-comparison'],timeKinds:['composition','material-witness','reception']},
+ O092:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['ninurta-traditions','oannes-traditions','contested-fish-hero-comparison'],timeKinds:['composition','material-witness','reception']},
+ O093:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['babel-narrative','ziggurat-architecture','literary-comparison'],timeKinds:['composition','material-witness','reception']},
+ O094:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['samson-narrative','herakles-comparison','hero-motif'],timeKinds:['narrated-time','composition','reception']},
+ O095:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['creation-narrative','exilic-context','biblical-literary-history'],timeKinds:['composition','reception']},
+ O096:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['eden-narrative','exilic-context','biblical-literary-history'],timeKinds:['composition','reception']},
  O085:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['dionysos-traditions','contested-twelve-followers-claim','literary-comparison'],timeKinds:['material-witness','reception']},
  O086:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['herakles-labours','hero-cycle','literary-comparison'],timeKinds:['composition','material-witness','reception']},
  O087:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['zoroastrian-eschatology','cosmic-dualism','judgment-traditions'],timeKinds:['composition','material-witness','reception']},
