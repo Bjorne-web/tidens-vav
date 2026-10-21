@@ -3,6 +3,12 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ O049:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['punic-wars','armed-conflict','war-series'],timeKinds:['historical-period']},
+ O050:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['hundred-years-war','armed-conflict','multi-phase-war'],timeKinds:['historical-period']},
+ O051:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['thirty-years-war','armed-conflict','religious-politics'],timeKinds:['historical-period']},
+ O052:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['american-civil-war','armed-conflict'],timeKinds:['historical-event']},
+ O053:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['world-war-one','armed-conflict'],timeKinds:['historical-event']},
+ O054:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['world-war-two','armed-conflict'],timeKinds:['historical-event']},
  O043:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['persian-empires','imperial-history'],timeKinds:['historical-period']},
  O044:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['roman-empire','imperial-history'],timeKinds:['historical-period']},
  O045:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['byzantine-empire','imperial-history'],timeKinds:['historical-period']},
