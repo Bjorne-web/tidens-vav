@@ -3,6 +3,12 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ O067:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['gilgamesh-flood','ancient-near-eastern-literature','flood-narrative'],timeKinds:['composition','material-witness','reception']},
+ O068:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['atrahasis-flood','ancient-near-eastern-literature','flood-narrative'],timeKinds:['composition','material-witness','reception']},
+ O069:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['enuma-elish','mesopotamian-cosmogony','creation-narrative'],timeKinds:['composition','material-witness','reception']},
+ O070:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['sumerian-creation-traditions','clay-creation-motif','creation-narrative'],timeKinds:['composition','material-witness','reception']},
+ O071:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['egyptian-cosmogonies','creation-narrative','religious-literature'],timeKinds:['composition','material-witness','reception']},
+ O072:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['adapa-narrative','mortality-motif','ancient-near-eastern-literature'],timeKinds:['composition','material-witness','reception']},
  O061:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['gobekli-tepe','neolithic-monument','archaeological-site'],timeKinds:['archaeological-period']},
  O062:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['baalbek','temple-complex','architectural-phases'],timeKinds:['archaeological-period']},
  O063:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['puma-punku','tiwanaku-architecture','archaeological-site'],timeKinds:['archaeological-period']},
@@ -145,7 +151,7 @@ const overrides=Object.freeze({
  AP006:{primaryArea:'bible',relatedAreas:['religions'],contentTypes:['text-comparison','apocrypha-theme'],timeKinds:['reception']},
  B001:{primaryArea:'bible',relatedAreas:['religions','ideas'],contentTypes:['bible-book','text'],timeKinds:['composition']},
  H045:{primaryArea:'world',relatedAreas:['bible','religions'],contentTypes:['event','inscription'],timeKinds:['historical-event']},
- O067:{primaryArea:'religions',relatedAreas:['bible','world'],contentTypes:['text','narrative'],timeKinds:['composition']},
+
  O123:{primaryArea:'world',relatedAreas:['religions','bible'],contentTypes:['event','political-history'],timeKinds:['historical-event']}
 });
 function classify(post){
