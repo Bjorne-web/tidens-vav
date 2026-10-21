@@ -3,6 +3,12 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ O043:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['persian-empires','imperial-history'],timeKinds:['historical-period']},
+ O044:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['roman-empire','imperial-history'],timeKinds:['historical-period']},
+ O045:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['byzantine-empire','imperial-history'],timeKinds:['historical-period']},
+ O046:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['medieval-europe','regional-history'],timeKinds:['historical-period']},
+ O047:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['modern-europe','regional-history'],timeKinds:['historical-period']},
+ O048:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['peloponnesian-war','armed-conflict'],timeKinds:['historical-event']},
  O037:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['mesopotamian-civilizations','urban-history'],timeKinds:['historical-period']},
  O038:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['ancient-egypt','dynastic-history'],timeKinds:['historical-period']},
  O039:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['indus-civilization','archaeological-culture'],timeKinds:['archaeological-period']},
