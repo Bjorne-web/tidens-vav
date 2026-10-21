@@ -13,5 +13,20 @@ heading.append(eyebrow,title,desc);hero.append(top,heading);
 const caption=document.createElement('div');caption.className='tvb-map-caption';
 const label=document.createElement('strong');label.textContent='Karta';
 const helper=document.createElement('span');helper.textContent='Utforska platser och regioner med kartans befintliga kontroller.';
-caption.append(label,helper);root.prepend(caption);root.prepend(hero);
+caption.append(label,helper);
+// Reuse the actual approved topic cards/SVGs; do not create replacement icons.
+const original=document.querySelector('#timelineView #tv892Topics .tv892-grid');
+if(original){
+ const grid=original.cloneNode(true);
+ grid.classList.add('tvb-map-topic-grid');
+ grid.querySelectorAll('[id]').forEach(el=>el.removeAttribute('id'));
+ grid.addEventListener('click',event=>{
+  const target=event.target.closest('button[data-tv892-action]');
+  if(!target || target.disabled)return;
+  const source=original.querySelector('button[data-tv892-action="'+target.dataset.tv892Action+'"]');
+  source?.click();
+ });
+ hero.append(grid);
+}
+root.prepend(caption);root.prepend(hero);
 })();
