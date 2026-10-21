@@ -1,0 +1,20 @@
+name: C7 H024 Maccabean historical dates
+on:
+  pull_request:
+    paths:
+      - 'data/h024-maccabean-date-temaspar.js'
+      - 'index.html'
+      - 'tests/h024-date.test.cjs'
+      - '.github/workflows/h024-date.yml'
+  workflow_dispatch:
+jobs:
+  h024:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/h024-date.test.cjs
+      - run: node tests/h026-temaspar-date.test.cjs
+      - run: node tests/h032-temaspar-date.test.cjs
