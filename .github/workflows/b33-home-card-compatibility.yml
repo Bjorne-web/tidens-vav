@@ -1,0 +1,19 @@
+name: B3.3 home cards integration compatibility
+on:
+  pull_request:
+    paths:
+      - 'v914-home-paths-c3.js'
+      - 'tests/b33-home-card-events.test.cjs'
+      - 'docs/b33-home-card-compatibility.md'
+      - '.github/workflows/b33-home-card-compatibility.yml'
+  workflow_dispatch:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/b33-home-card-events.test.cjs
+      - run: node tests/b33-existing-home-navigation.test.cjs
