@@ -206,7 +206,7 @@ const overrides=Object.freeze({
  B001:{primaryArea:'bible',relatedAreas:['religions','ideas'],contentTypes:['bible-book','text'],timeKinds:['composition']},
  H045:{primaryArea:'world',relatedAreas:['bible','religions'],contentTypes:['event','inscription'],timeKinds:['historical-event']},
 
- O123:{primaryArea:'world',relatedAreas:['religions','bible'],contentTypes:['event','political-history'],timeKinds:['historical-event']}
+
 });
 function classify(post){
  if(!post||typeof post.id!=='string'||!post.id.trim())return null;
