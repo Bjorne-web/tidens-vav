@@ -1,0 +1,12 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const ctx={window:{TIDENS_C7_DATING_PILOT:{H032:{phases:[{start:70}]},H026:{phases:[{start:-63}]}}}};
+vm.runInNewContext(fs.readFileSync('data/h024-maccabean-date-temaspar.js','utf8'),ctx);
+const d=ctx.window.TIDENS_C7_DATING_PILOT;
+assert.equal(d.H032.phases[0].start,70);
+assert.equal(d.H026.phases[0].start,-63);
+assert.equal(d.H024.phases[0].start,-167);
+assert.equal(d.H024.phases[0].end,-160);
+assert.equal(d.H024.phases[1].start,-164);
+const html=fs.readFileSync('index.html','utf8');
+assert(html.indexOf('data/h024-maccabean-date-temaspar.js')<html.indexOf('v839-temaspar-context.js'));
+console.log('H024 date check passed.');
