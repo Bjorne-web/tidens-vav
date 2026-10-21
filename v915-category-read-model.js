@@ -3,6 +3,12 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ O097:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['noah-flood-narrative','exilic-literary-context','biblical-narrative'],timeKinds:['narrated-time','composition','reception']},
+ O098:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['tower-of-babel','exilic-literary-context','biblical-narrative'],timeKinds:['narrated-time','composition','reception']},
+ O099:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['abraham-traditions','patriarchal-narrative','exilic-literary-context'],timeKinds:['narrated-time','composition','reception']},
+ O100:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['isaac-jacob-traditions','patriarchal-narrative','exilic-literary-context'],timeKinds:['narrated-time','composition','reception']},
+ O101:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['joseph-narrative','egypt-narrative','exilic-literary-context'],timeKinds:['narrated-time','composition','reception']},
+ O102:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['exodus-tradition','moses-narrative','postexilic-identity'],timeKinds:['narrated-time','composition','reception']},
  O091:{primaryArea:'ideas',relatedAreas:['bible','religions','world'],contentTypes:['babylonian-theodicy','wisdom-literature','literary-comparison'],timeKinds:['composition','material-witness','reception']},
  O092:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['ninurta-traditions','oannes-traditions','contested-fish-hero-comparison'],timeKinds:['composition','material-witness','reception']},
  O093:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['babel-narrative','ziggurat-architecture','literary-comparison'],timeKinds:['composition','material-witness','reception']},
