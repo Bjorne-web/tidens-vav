@@ -28,6 +28,9 @@ home.addEventListener('click',event=>{
  if(!card||card.disabled)return;
  const id=card.dataset.tv887Area;
  if(!['bible','religion','history'].includes(id))return;
+ // If the target navigation is unavailable, leave the card's existing handler alone.
+ const navId=id==='religion'?'navExplore':'navTimeline';
+ if(!document.getElementById(navId))return;
  event.preventDefault();
  event.stopImmediatePropagation();
  open(id);
