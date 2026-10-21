@@ -1,0 +1,18 @@
+name: B2.3 complete H and O coverage audit
+on:
+  pull_request:
+    paths:
+      - 'tests/b23-ho-full-audit.test.cjs'
+      - '.github/workflows/b23-ho-full-audit.yml'
+      - 'v915-category-read-model.js'
+  workflow_dispatch:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/b23-ho-full-audit.test.cjs
+      - run: node tests/category-coverage.test.cjs
