@@ -29,7 +29,7 @@ window.TIDENS_C7_DATING_HORUS_BIRTH=Object.freeze({
         "timeType": "text-composition",
         "typeLabel": "SEN ANTIK LITTERÄR TOLKNING – inte äldsta egyptiska källa",
         "evidence": "B",
-        "reason": "Plutarchos skildring i De Iside et Osiride (kring slutet av 100-talet/början av 200-talet e.Kr. i bred approximation) beskriver skilda Horustraditioner och Osiris-Isis-relationen. Intervallet är en grov arbetsdatering för litterär redaktion; verket dateras inte med ett exakt år och får inte projiceras ordagrant på äldre egyptisk religion.",
+        "reason": "Plutarchos skildring i De Iside et Osiride (ungefär kring övergången mellan första och andra århundradet e.Kr. i bred approximation) beskriver skilda Horustraditioner och Osiris-Isis-relationen. Intervallet är en grov arbetsdatering för litterär redaktion; verket dateras inte med ett exakt år och får inte projiceras ordagrant på äldre egyptisk religion.",
         "sources": [
           {
             "title": "Perseus – Plutarchos, Isis och Osiris, avsnitt 12",
