@@ -1,0 +1,25 @@
+name: B2 O037 O042 civilizations
+on:
+  pull_request:
+    paths:
+      - 'v915-category-read-model.js'
+      - 'tests/b2-o037-o042.test.cjs'
+      - '.github/workflows/b2-o037-o042.yml'
+  workflow_dispatch:
+jobs:
+  classify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/b2-o037-o042.test.cjs
+      - run: node tests/b2-o031-o036.test.cjs
+      - run: node tests/b2-o025-o030.test.cjs
+      - run: node tests/b2-o019-o024.test.cjs
+      - run: node tests/b2-o013-o018.test.cjs
+      - run: node tests/b2-o007-o012.test.cjs
+      - run: node tests/b2-o001-o006.test.cjs
+      - run: node tests/category-read-model.test.cjs
+      - run: node tests/category-coverage.test.cjs
