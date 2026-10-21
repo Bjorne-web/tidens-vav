@@ -1,0 +1,14 @@
+name: C7 Babylonian exile historical chronology
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  exile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/smoke-c7-babylonian-exile-o115.mjs
