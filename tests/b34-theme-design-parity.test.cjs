@@ -5,4 +5,5 @@ assert.match(css,/#exploreView>\.tvb-theme-hero/);assert.match(css,/Start-hero\.
 assert.match(css,/\.tvb-theme-topic-grid/);assert.match(css,/--tv887-accent-religion/);
 assert.match(js,/getElementById\('exploreView'\)/);assert.match(js,/cloneNode\(true\)/);
 assert.doesNotMatch(js,/innerHTML/);assert.doesNotMatch(js,/getElementById\('timelineView'\)/);
+assert.match(js,/MutationObserver/);assert.match(js,/root\.contains\(hero\)/);assert.match(js,/queueMicrotask\(ensureShell\)/);
 console.log('B3.4 Temaspår design parity static checks: PASS');
