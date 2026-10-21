@@ -1,0 +1,17 @@
+const fs=require('node:fs');const assert=require('node:assert/strict');
+const html=fs.readFileSync('index.html','utf8');
+const css=fs.readFileSync('v915-map-design-parity.css','utf8');
+const js=fs.readFileSync('v915-map-design-parity.js','utf8');
+assert.match(html,/href="v915-map-design-parity.css"/);
+assert.match(html,/src="v915-map-design-parity.js"/);
+assert.match(css,/#mapView>\.tvb-map-hero/);
+assert.match(css,/Start-hero\.png/);
+assert.match(css,/#mapView>\.tvb-view-intro/);
+assert.match(js,/getElementById\('mapView'\)/);
+assert.doesNotMatch(js,/getElementById\('timelineView'\)/);
+assert.doesNotMatch(js,/innerHTML/);
+assert.match(js,/cloneNode\(true\)/);
+assert.match(js,/source\?\.click\(\)/);
+assert.match(css,/\.tvb-map-topic-grid/);
+assert.match(css,/grid-template-columns:repeat\(4,minmax\(0,1fr\)\)/);
+console.log('B3.4 map design contract: PASS');
