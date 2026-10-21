@@ -3,6 +3,12 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ O079:{primaryArea:'world',relatedAreas:['bible','religions','ideas'],contentTypes:['hammurabi-law-collection','ancient-law','royal-ideology'],timeKinds:['composition','material-witness','reception']},
+ O080:{primaryArea:'world',relatedAreas:['bible','religions','ideas'],contentTypes:['ancient-near-eastern-treaties','covenant-forms','comparative-legal-history'],timeKinds:['historical-period','material-witness','reception']},
+ O081:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['horus-traditions','divine-parentage-motif','contested-virgin-birth-claim'],timeKinds:['material-witness','reception']},
+ O082:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['herakles-traditions','divine-parentage-motif','hero-cult'],timeKinds:['composition','material-witness','reception']},
+ O083:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['perseus-traditions','divine-parentage-motif','contested-virgin-birth-claim'],timeKinds:['composition','material-witness','reception']},
+ O084:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['dionysos-traditions','divine-parentage-motif','ritual-meal-comparison'],timeKinds:['composition','material-witness','reception']},
  O073:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['sargon-birth-legend','exposed-child-motif','literary-comparison'],timeKinds:['composition','material-witness','reception']},
  O074:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['dumuzi-traditions','death-and-return-motif','literary-comparison'],timeKinds:['composition','material-witness','reception']},
  O075:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['osiris-myths','afterlife-traditions','literary-comparison'],timeKinds:['composition','material-witness','reception']},
