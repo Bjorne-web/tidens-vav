@@ -1,0 +1,20 @@
+name: B3.3 guided visual review
+on:
+  pull_request:
+    paths:
+      - 'previews/b33-isolated-view-preview.html'
+      - 'docs/b33-guided-review.md'
+      - 'tests/b33-guided-review.test.cjs'
+      - '.github/workflows/b33-guided-review.yml'
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/b33-guided-review.test.cjs
+      - run: node tests/b33-visual-review-checklist.test.cjs
+      - run: node tests/b33-user-journey-review.test.cjs
