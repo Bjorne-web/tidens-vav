@@ -1,0 +1,29 @@
+/* B3.4 theme-only visual parity with the approved timeline header. */
+#exploreView{box-sizing:border-box;width:100%;max-width:none;min-width:0}
+#exploreView>.tvb-theme-hero{box-sizing:border-box;width:100%;max-width:none;min-height:340px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;margin:0 0 18px;padding:clamp(22px,3vw,40px);border-radius:17px;overflow:hidden;background:linear-gradient(90deg,rgba(26,37,40,.36),rgba(28,42,48,.03) 80%),url("./Start-hero.png") center 31%/cover no-repeat;color:white}
+#exploreView .tvb-theme-topline{display:flex;flex-direction:column;gap:3px;text-shadow:0 2px 12px #0006}
+#exploreView .tvb-theme-brand{font:700 clamp(28px,3vw,40px) Georgia,serif}
+#exploreView .tvb-theme-subtitle{font:14px Georgia,serif}
+#exploreView .tvb-theme-heading{max-width:730px;padding:12px 16px;background:#18304488;backdrop-filter:blur(4px);border-radius:11px}
+#exploreView .tvb-theme-eyebrow{font-size:10px;letter-spacing:.11em;font-weight:800}
+#exploreView .tvb-theme-heading h2{color:#fff!important;font-size:clamp(23px,3vw,39px)!important;line-height:1.1;margin:8px 0;font-family:Inter,Segoe UI,Arial,sans-serif!important}
+#exploreView .tvb-theme-heading p{color:#fff;font-size:14px;line-height:1.5;margin:0}
+#exploreView>.tvb-view-intro{display:none}
+#exploreView>.tvb-theme-caption{box-sizing:border-box;width:100%;max-width:none;display:flex;align-items:baseline;gap:14px;margin:10px 0 14px;padding:13px 18px;border-radius:12px;background:linear-gradient(95deg,#f9f4eb,#ecf4f7);border:1px solid #dce7ed}
+#exploreView .tvb-theme-caption strong{font:700 23px Georgia,serif;color:#18344f}
+#exploreView .tvb-theme-caption span{font-size:13px;color:#516e82}
+@media(max-width:600px){#exploreView>.tvb-theme-hero{padding:18px;gap:20px;background-position:57% center}#exploreView>.tvb-theme-caption{display:block}#exploreView .tvb-theme-caption span{display:block;margin-top:6px}}
+
+/* Same four real topic cards, SVG icons and responsive grid as the approved timeline. */
+#exploreView .tvb-theme-topic-grid{display:grid!important;width:100%;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:12px}
+#exploreView .tvb-theme-topic-grid .tv892-topic{box-sizing:border-box;display:flex;flex-direction:row;align-items:center;gap:14px;min-width:0;min-height:91px;background:#fffef6ed;color:#18334b;border:1px solid #ffffffbb;border-bottom:3px solid var(--accent);box-shadow:0 8px 24px #0002;border-radius:12px;padding:16px;white-space:normal;text-align:left}
+#exploreView .tvb-theme-topic-grid .tv892-topic strong{font-family:Georgia,serif;font-size:clamp(14px,1.15vw,19px);line-height:1.3;display:block}
+#exploreView .tvb-theme-topic-grid .tv892-topic small{font-size:12px;line-height:1.4;display:block;margin-top:4px;white-space:normal}
+@media(max-width:1050px){#exploreView .tvb-theme-topic-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:600px){#exploreView .tvb-theme-topic-grid{gap:8px}#exploreView .tvb-theme-topic-grid .tv892-topic{flex-direction:column;align-items:flex-start;min-height:145px;padding:10px;gap:7px}}
+
+/* Topic accent variables were originally scoped to #timelineView; restore them for the theme clone. */
+#exploreView .tvb-theme-topic-grid .tv892-topic{--accent:var(--tv887-accent-bible)}
+#exploreView .tvb-theme-topic-grid .tv892-religion{--accent:var(--tv887-accent-religion)}
+#exploreView .tvb-theme-topic-grid .tv892-history{--accent:var(--tv887-accent-history)}
+#exploreView .tvb-theme-topic-grid .tv892-philosophy{--accent:var(--tv887-accent-philosophy)}
