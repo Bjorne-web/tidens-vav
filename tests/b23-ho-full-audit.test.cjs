@@ -7,14 +7,20 @@ function read(n){const m=new RegExp('(?:let|const)\\s+'+n+'=').exec(data);assert
 const originalO=read('originalEvents').filter(x=>/^O\d{3}$/.test(x.id));
 const originalH=read('events').filter(x=>/^H\d{3}$/.test(x.id));
 const keys=[...source.matchAll(/^\s*([HO]\d{3}):\{/gm)].map(m=>m[1]);
-for(const [type,posts,count] of [['O',originalO,129],['H',originalH,69]]){
+for(const [type,posts,count] of [['O',originalO,129],['H',originalH,64]]){
  assert.equal(posts.length,count,type+' source count changed: review explicitly');
  const srcIds=posts.map(x=>x.id);
  assert.equal(new Set(srcIds).size,count,type+' duplicate source ID');
  const ids=keys.filter(id=>id.startsWith(type));
- assert.equal(ids.length,count,type+' override count changed');
- assert.equal(new Set(ids).size,count,type+' duplicate override declaration');
- assert.deepEqual(ids.slice().sort(),srcIds.slice().sort(),type+' missing/orphan overrides');
+ assert.equal(ids.length,type==='H'?69:count,type+' override count changed');
+ assert.equal(new Set(ids).size,ids.length,type+' duplicate override declaration');
+ if(type==='O')assert.deepEqual(ids.slice().sort(),srcIds.slice().sort(),type+' missing/orphan overrides');
+ else {
+  const extra=ids.filter(id=>!srcIds.includes(id)).sort();
+  assert.deepEqual(extra,['H065','H066','H067','H068','H069'],'Undocumented H overrides not found in original events');
+  for(const id of extra){const value=model.get({id});assert(model.hasPilot(id));assert(model.areas.includes(value.primaryArea));assert.equal(value.researchStatus,'unknown');}
+  assert(srcIds.every(id=>ids.includes(id)),'Original H entry missing from classifications');
+ }
  for(const post of posts){
   const before=JSON.stringify(post),result=model.get(post);
   assert(model.hasPilot(post.id),post.id);
