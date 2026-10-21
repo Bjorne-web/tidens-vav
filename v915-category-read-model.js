@@ -3,6 +3,10 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ O127:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['early-jesus-movement','acts-pentecost-narrative','early-church-history'],timeKinds:['narrated-time','historical-period','composition','reception']},
+ O128:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['pauline-letters','early-christian-texts','apostolic-correspondence'],timeKinds:['composition','material-witness','reception']},
+ O129:{primaryArea:'world',relatedAreas:['bible','religions','ideas'],contentTypes:['jerusalem-destruction-70','first-jewish-roman-war','second-temple-history'],timeKinds:['historical-event','reception']},
+ O130:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['book-of-revelation','apocalyptic-literature','imperial-cult-context'],timeKinds:['composition','material-witness','reception']},
  O121:{primaryArea:'bible',relatedAreas:['ideas','religions','world'],contentTypes:['proverbs-collection','wisdom-literature','textual-redaction'],timeKinds:['composition','reception']},
  O122:{primaryArea:'bible',relatedAreas:['religions','ideas','world'],contentTypes:['jonah-narrative','prophetic-literature','universalism-theme'],timeKinds:['narrated-time','composition','reception']},
  O123:{primaryArea:'world',relatedAreas:['bible','religions','ideas'],contentTypes:['maccabean-revolt','hasmonean-history','second-temple-history'],timeKinds:['historical-period','composition','reception']},
