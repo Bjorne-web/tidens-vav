@@ -3,6 +3,11 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ H060:{primaryArea:'world',relatedAreas:['religions','bible'],contentTypes:['historical-person','reign'],timeKinds:['historical-period']},
+ H061:{primaryArea:'world',relatedAreas:['religions','bible'],contentTypes:['historical-person','reign'],timeKinds:['historical-period']},
+ H062:{primaryArea:'world',relatedAreas:['religions','bible'],contentTypes:['coin','archaeological-evidence'],timeKinds:['material-witness']},
+ H063:{primaryArea:'world',relatedAreas:['religions','bible'],contentTypes:['siege','archaeological-evidence'],timeKinds:['historical-event','archaeological-period']},
+ H064:{primaryArea:'religions',relatedAreas:['bible','world'],contentTypes:['temple-history','biblical-tradition','historical-interpretation'],timeKinds:['historical-tradition','historical-event']},
  H053:{primaryArea:'religions',relatedAreas:['world','bible'],contentTypes:['letter','temple-history','religious-practice'],timeKinds:['material-witness']},
  H054:{primaryArea:'world',relatedAreas:['religions','bible'],contentTypes:['inscription','royal-propaganda'],timeKinds:['material-witness','historical-period']},
  H055:{primaryArea:'bible',relatedAreas:['religions','world'],contentTypes:['translation-tradition','scriptural-texts'],timeKinds:['translation']},
