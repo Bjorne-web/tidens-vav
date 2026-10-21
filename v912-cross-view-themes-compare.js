@@ -17,7 +17,7 @@ function onThemes(){
 function onCompare(){
  const s=read(),id=s?.selectedId;if(!id){message('Välj först en forskningspost i Tidslinjen.');return}
  try{
-  if(typeof compareIds!=='undefined'&&!compareIds.includes(id)&&typeof toggleCompare==='function')toggleCompare(id);
+  if(typeof compareIds!=='undefined'&&Array.isArray(compareIds)&&!compareIds.includes(id)&&typeof toggleCompare==='function')toggleCompare(id);
   if(typeof setSelected==='function')setSelected(id);
   message('Jämför · Vald forskningspost: '+id+' · '+(s.selectedPost?.title||''));
  }catch(_){message('Posten kunde inte läggas till i Jämför.')}
