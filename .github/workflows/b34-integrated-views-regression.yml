@@ -1,0 +1,39 @@
+name: B3.4 integrated views regression
+on:
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'v90*-*.js'
+      - 'v91*-*.js'
+      - 'v91*-*.css'
+      - 'v887-home-areas.css'
+      - 'v900-timeline-landscape.css'
+      - 'tests/b33-*'
+      - 'tests/b34-*'
+      - '.github/workflows/b34-integrated-views-regression.yml'
+  workflow_dispatch:
+jobs:
+  integrated-views:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Existing navigation and state regression
+        run: |
+          node tests/b33-existing-home-navigation.test.cjs
+          node tests/b33-home-card-events.test.cjs
+          node tests/b33-cross-view-selection.test.cjs
+          node tests/b33-theme-focus-null.test.cjs
+          node tests/b33-cross-view-message.test.cjs
+      - name: Approved design contracts on all four views
+        run: |
+          node tests/b34-map-design-parity.test.cjs
+          node tests/b34-theme-design-parity.test.cjs
+          node tests/b34-compare-design-parity.test.cjs
+          node tests/b34-about-design-parity.test.cjs
+      - name: Full site asset checks
+        run: |
+          node tests/b33-preview-assets.test.cjs
+          node tests/b33-site-http-smoke.test.cjs
