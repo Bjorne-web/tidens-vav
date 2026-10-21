@@ -3,6 +3,13 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ H046:{primaryArea:'world',relatedAreas:['bible','religions'],contentTypes:['inscription','historical-evidence'],timeKinds:['historical-source','historical-event']},
+ H047:{primaryArea:'religions',relatedAreas:['bible','world'],contentTypes:['religious-text','material-witness'],timeKinds:['material-witness']},
+ H048:{primaryArea:'religions',relatedAreas:['bible','world'],contentTypes:['inscription','religious-practice'],timeKinds:['archaeological-period']},
+ H049:{primaryArea:'religions',relatedAreas:['world','bible'],contentTypes:['archaeological-assemblage','religious-practice'],timeKinds:['archaeological-period']},
+ H050:{primaryArea:'bible',relatedAreas:['religions','ideas'],contentTypes:['prophetic-text','text-redaction'],timeKinds:['composition']},
+ H051:{primaryArea:'world',relatedAreas:['bible','religions'],contentTypes:['chronicle','historical-evidence'],timeKinds:['historical-event','material-witness']},
+ H052:{primaryArea:'world',relatedAreas:['bible','religions'],contentTypes:['ostraca','correspondence'],timeKinds:['material-witness']},
  H030:{primaryArea:'bible',relatedAreas:['religions','world'],contentTypes:['epistle-collection','text-composition'],timeKinds:['composition']},
  H031:{primaryArea:'bible',relatedAreas:['religions','world'],contentTypes:['gospel','text-composition'],timeKinds:['composition']},
  H032:{primaryArea:'world',relatedAreas:['religions','bible'],contentTypes:['historical-event','military-conflict','temple-history'],timeKinds:['historical-event']},
