@@ -3,6 +3,11 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ O061:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['gobekli-tepe','neolithic-monument','archaeological-site'],timeKinds:['archaeological-period']},
+ O062:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['baalbek','temple-complex','architectural-phases'],timeKinds:['archaeological-period']},
+ O063:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['puma-punku','tiwanaku-architecture','archaeological-site'],timeKinds:['archaeological-period']},
+ O064:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['nan-madol','megalithic-site','archaeological-site'],timeKinds:['archaeological-period']},
+ O065:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['longyou-caves','rock-cut-architecture','archaeological-site'],timeKinds:['archaeological-period']},
  O055:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['great-pyramid','monument','architectural-history'],timeKinds:['construction-period']},
  O056:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['colossus-of-rhodes','monument','ancient-literary-witness'],timeKinds:['construction-period','historical-source']},
  O057:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['great-wall-of-china','fortification','construction-phases'],timeKinds:['construction-period']},
