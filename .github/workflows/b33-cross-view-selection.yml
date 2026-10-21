@@ -1,0 +1,19 @@
+name: B3.3 cross-view selection guard
+on:
+  pull_request:
+    paths:
+      - 'v912-cross-view-themes-compare.js'
+      - 'tests/b33-cross-view-selection.test.cjs'
+      - 'docs/b33-cross-view-selection-guard.md'
+      - '.github/workflows/b33-cross-view-selection.yml'
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/b33-cross-view-selection.test.cjs
+      - run: node tests/b33-site-http-smoke.test.cjs
