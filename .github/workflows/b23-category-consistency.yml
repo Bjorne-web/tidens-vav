@@ -1,0 +1,19 @@
+name: B2.3 category consistency review
+on:
+  pull_request:
+    paths:
+      - 'tests/b23-category-consistency.test.cjs'
+      - '.github/workflows/b23-category-consistency.yml'
+      - 'v915-category-read-model.js'
+  workflow_dispatch:
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/b23-category-consistency.test.cjs
+      - run: node tests/b23-semantic-overlap-audit.test.cjs
+      - run: node tests/b23-ho-full-audit.test.cjs
