@@ -1,0 +1,19 @@
+name: B3.3 approved design baseline
+on:
+  pull_request:
+    paths:
+      - 'b33-approved-design-preview.html'
+      - 'docs/b33-approved-design-baseline.md'
+      - 'tests/b33-approved-design-baseline.test.cjs'
+      - '.github/workflows/b33-approved-design-baseline.yml'
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/b33-approved-design-baseline.test.cjs
+      - run: node tests/b32-shared-view-contract.test.cjs
