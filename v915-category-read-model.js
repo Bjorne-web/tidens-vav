@@ -3,6 +3,12 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ O001:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['human-migration','population-history'],timeKinds:['migration-period']},
+ O002:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['indigenous-peoples','population-history'],timeKinds:['historical-period']},
+ O003:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['linguistic-group','migration-history'],timeKinds:['ethnolinguistic-tradition']},
+ O004:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['linguistic-group','population-history'],timeKinds:['ethnolinguistic-tradition']},
+ O005:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['linguistic-group','population-history'],timeKinds:['ethnolinguistic-tradition']},
+ O006:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['migration-history','language-dispersal'],timeKinds:['migration-period']},
  H065:{primaryArea:'religions',relatedAreas:['bible','world'],contentTypes:['mythological-text','comparative-tradition'],timeKinds:['material-witness','composition']},
  H066:{primaryArea:'religions',relatedAreas:['bible','world'],contentTypes:['religious-tradition','reception-history'],timeKinds:['reception','text-tradition']},
  H067:{primaryArea:'religions',relatedAreas:['bible','ideas'],contentTypes:['medieval-legend','reception-history'],timeKinds:['composition','reception']},
