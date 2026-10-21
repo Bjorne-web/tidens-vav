@@ -3,6 +3,12 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ O073:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['sargon-birth-legend','exposed-child-motif','literary-comparison'],timeKinds:['composition','material-witness','reception']},
+ O074:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['dumuzi-traditions','death-and-return-motif','literary-comparison'],timeKinds:['composition','material-witness','reception']},
+ O075:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['osiris-myths','afterlife-traditions','literary-comparison'],timeKinds:['composition','material-witness','reception']},
+ O076:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['baal-cycle','death-and-return-motif','literary-comparison'],timeKinds:['composition','material-witness','reception']},
+ O077:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['adonis-traditions','death-and-return-motif','literary-comparison'],timeKinds:['composition','material-witness','reception']},
+ O078:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['roman-mithraism','ritual-meal-comparison','contested-resurrection-claim'],timeKinds:['material-witness','reception']},
  O067:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['gilgamesh-flood','ancient-near-eastern-literature','flood-narrative'],timeKinds:['composition','material-witness','reception']},
  O068:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['atrahasis-flood','ancient-near-eastern-literature','flood-narrative'],timeKinds:['composition','material-witness','reception']},
  O069:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['enuma-elish','mesopotamian-cosmogony','creation-narrative'],timeKinds:['composition','material-witness','reception']},
