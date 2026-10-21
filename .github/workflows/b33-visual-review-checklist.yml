@@ -1,0 +1,19 @@
+name: B3.3 manual browser review guidance
+on:
+  pull_request:
+    paths:
+      - 'docs/b33-visual-review-checklist.md'
+      - 'tests/b33-visual-review-checklist.test.cjs'
+      - '.github/workflows/b33-visual-review-checklist.yml'
+  workflow_dispatch:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/b33-visual-review-checklist.test.cjs
+      - run: node tests/b33-user-journey-review.test.cjs
+      - run: node tests/b33-interactions-mobile.test.cjs
