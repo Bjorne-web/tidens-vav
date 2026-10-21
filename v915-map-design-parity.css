@@ -21,3 +21,9 @@
 #mapView .tvb-map-topic-grid .tv892-topic small{font-size:12px;line-height:1.4;display:block;margin-top:4px;white-space:normal}
 @media(max-width:1050px){#mapView .tvb-map-topic-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 @media(max-width:600px){#mapView .tvb-map-topic-grid{gap:8px}#mapView .tvb-map-topic-grid .tv892-topic{flex-direction:column;align-items:flex-start;min-height:145px;padding:10px;gap:7px}}
+
+/* Topic accent variables were originally scoped to #timelineView; restore them for the map clone. */
+#mapView .tvb-map-topic-grid .tv892-topic{--accent:var(--tv887-accent-bible)}
+#mapView .tvb-map-topic-grid .tv892-religion{--accent:var(--tv887-accent-religion)}
+#mapView .tvb-map-topic-grid .tv892-history{--accent:var(--tv887-accent-history)}
+#mapView .tvb-map-topic-grid .tv892-philosophy{--accent:var(--tv887-accent-philosophy)}
