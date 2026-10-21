@@ -1,0 +1,20 @@
+name: B2 O067 O072 ANE narratives
+on:
+  pull_request:
+    paths:
+      - 'v915-category-read-model.js'
+      - 'tests/b2-o067-o072.test.cjs'
+      - '.github/workflows/b2-o067-o072.yml'
+  workflow_dispatch:
+jobs:
+  classify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/b2-o067-o072.test.cjs
+      - run: node tests/b2-o061-o065.test.cjs
+      - run: node tests/category-read-model.test.cjs
+      - run: node tests/category-coverage.test.cjs
