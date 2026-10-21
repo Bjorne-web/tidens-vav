@@ -1,6 +1,6 @@
 /* B3.4: inject only the theme view's shared visual shell. No map, routing or research-state modifications. */
 (function(){'use strict';
-const root=document.getElementById('exploreView');if(!root||root.querySelector(':scope > .tvb-theme-hero'))return;
+const root=document.getElementById('exploreView');if(!root)return;
 const hero=document.createElement('section');hero.className='tvb-theme-hero';
 const top=document.createElement('div');top.className='tvb-theme-topline';
 const brand=document.createElement('span');brand.className='tvb-theme-brand';brand.textContent='Tidens väv';
@@ -28,5 +28,21 @@ if(original){
  });
  hero.append(grid);
 }
-root.prepend(caption);root.prepend(hero);
+// Temaspår is rendered again by its own scripts; keep the shell outside those updates.
+let pending=false;
+function ensureShell(){
+ pending=false;
+ if(!root.isConnected)return;
+ if(!root.contains(hero))root.prepend(hero);
+ if(!root.contains(caption))hero.insertAdjacentElement('afterend',caption);
+ if(root.firstElementChild!==hero)root.prepend(hero);
+ if(hero.nextElementSibling!==caption)hero.insertAdjacentElement('afterend',caption);
+}
+function requestEnsure(){if(pending)return;pending=true;queueMicrotask(ensureShell);}
+ensureShell();
+const observer=new MutationObserver(requestEnsure);
+observer.observe(root,{childList:true});
+document.addEventListener('click',event=>{
+ if(event.target.closest?.('#tvPrimaryNav,.tabs,.v84-bottom-nav,[data-v84nav]'))requestEnsure();
+});
 })();
