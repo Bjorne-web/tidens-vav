@@ -3,6 +3,12 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ O115:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['babylonian-exile','biblical-exile-narratives','historical-context'],timeKinds:['historical-period','composition','reception']},
+ O116:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['daniel-lions-den','court-tale','seleucid-literary-context'],timeKinds:['narrated-time','composition','reception']},
+ O117:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['return-from-exile','second-temple','persian-period-history'],timeKinds:['historical-period','composition','reception']},
+ O118:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['esther-narrative','diaspora-identity','biblical-literature'],timeKinds:['narrated-time','composition','reception']},
+ O119:{primaryArea:'bible',relatedAreas:['ideas','religions','world'],contentTypes:['job-literature','theodicy','wisdom-literature'],timeKinds:['narrated-time','composition','reception']},
+ O120:{primaryArea:'bible',relatedAreas:['religions','ideas','world'],contentTypes:['psalms-collection','poetry-and-prayer','textual-redaction'],timeKinds:['composition','reception']},
  O109:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['solomon-temple-narrative','temple-history','biblical-literary-history'],timeKinds:['narrated-time','composition','reception']},
  O110:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['divided-monarchy-narrative','kingdoms-israel-judah','biblical-literary-history'],timeKinds:['narrated-time','composition','reception']},
  O111:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['elijah-elisha-narratives','prophetic-traditions','biblical-literary-history'],timeKinds:['narrated-time','composition','reception']},
