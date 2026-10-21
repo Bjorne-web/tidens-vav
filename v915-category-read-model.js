@@ -3,6 +3,12 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ O019:{primaryArea:'ideas',relatedAreas:['world','religions'],contentTypes:['philosophy','history-of-science'],timeKinds:['intellectual-history-period']},
+ O020:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['medieval-society','political-history','church-history'],timeKinds:['historical-period']},
+ O021:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['industrialization','technology-history','urbanization'],timeKinds:['historical-period']},
+ O022:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['digitalization','globalization','space-age'],timeKinds:['historical-period']},
+ O023:{primaryArea:'religions',relatedAreas:['world','ideas'],contentTypes:['prehistoric-religion','archaeological-interpretation'],timeKinds:['archaeological-period']},
+ O024:{primaryArea:'religions',relatedAreas:['world','bible'],contentTypes:['mesopotamian-religion','religious-history'],timeKinds:['historical-period']},
  O013:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['human-migration','population-history'],timeKinds:['migration-period']},
  O014:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['prehistoric-art','archaeological-evidence'],timeKinds:['archaeological-period']},
  O015:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['agriculture','domestication','social-transformation'],timeKinds:['historical-period']},
