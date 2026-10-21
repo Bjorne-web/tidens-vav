@@ -10,5 +10,5 @@ for(const [id,[area,kind]] of Object.entries(expected)){
  assert.equal(row.classificationStatus,'pilot-proposal',id);
  assert.equal(JSON.stringify(post),snapshot,id);
 }
-assert.equal(model.get({id:'O061'}).primaryArea,'unclassified');
+assert.equal(model.get({id:'O999'}).primaryArea,'unclassified');
 console.log('O019-O024 class proposals passed');

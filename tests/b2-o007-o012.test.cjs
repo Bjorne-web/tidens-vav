@@ -13,5 +13,5 @@ for(let n=7;n<=12;n++){
  assert(!classified.relatedAreas.includes(classified.primaryArea),id);
  assert(Object.isFrozen(classified),id);
 }
-assert.equal(model.get({id:'O061'}).primaryArea,'unclassified');
+assert.equal(model.get({id:'O999'}).primaryArea,'unclassified');
 console.log('O007–O012 category-only proposals pass');
