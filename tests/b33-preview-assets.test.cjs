@@ -1,0 +1,11 @@
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
+const root=process.cwd();const html=fs.readFileSync('index.html','utf8');
+const local=(u)=>!(/^(?:https?:|data:|\/\/|#)/i.test(u));
+const refs=[...html.matchAll(/<(?:script|link)\b[^>]*?\b(?:src|href)\s*=\s*["']([^"']+)["']/gi)].map(m=>m[1]);
+assert(refs.length>20,'Expect complete app with many dependencies');
+const missing=refs.filter(local).filter(u=>!fs.existsSync(path.join(root,decodeURIComponent(u.split(/[?#]/)[0]))));
+assert.deepEqual(missing,[],'Missing local JS/CSS assets: '+missing.join(', '));
+for(const file of ['Start-hero.png','v887-home-areas.css','v900-timeline-landscape.css','v914-home-paths-c3.js','styles.css'])assert(fs.existsSync(file),'Missing key approved-design resource '+file);
+for(const css of ['v887-home-areas.css','v900-timeline-landscape.css'])assert(fs.readFileSync(css,'utf8').includes('Start-hero.png'),'Landscape image reference lost in '+css);
+assert(!fs.existsSync('b33-approved-design-preview.html'),'Do not ship duplicate incomplete preview HTML');
+console.log('B3.3 deploy readiness: '+refs.length+' HTML dependency references, all local files present; original hero/CSS/navigation available');
