@@ -1,0 +1,32 @@
+name: B3.3 navigation integration release gate
+on:
+  pull_request:
+    paths:
+      - 'v912-cross-view-themes-compare.js'
+      - 'v914-home-paths-c3.js'
+      - 'index.html'
+      - 'v887-home-areas.css'
+      - 'v900-timeline-landscape.css'
+      - 'Start-hero.png'
+      - 'tests/b33-**'
+      - '.github/workflows/b33-navigation-release-gate.yml'
+  workflow_dispatch:
+jobs:
+  integrated-navigation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run integrated navigation checks
+        run: |
+          node tests/b33-existing-home-navigation.test.cjs
+          node tests/b33-home-card-events.test.cjs
+          node tests/b33-cross-view-selection.test.cjs
+          node tests/b33-theme-focus-null.test.cjs
+          node tests/b33-cross-view-message.test.cjs
+      - name: Test full-site dependencies
+        run: |
+          node tests/b33-preview-assets.test.cjs
+          node tests/b33-site-http-smoke.test.cjs
