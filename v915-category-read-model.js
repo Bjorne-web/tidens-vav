@@ -151,7 +151,7 @@ const overrides=Object.freeze({
  AP006:{primaryArea:'bible',relatedAreas:['religions'],contentTypes:['text-comparison','apocrypha-theme'],timeKinds:['reception']},
  B001:{primaryArea:'bible',relatedAreas:['religions','ideas'],contentTypes:['bible-book','text'],timeKinds:['composition']},
  H045:{primaryArea:'world',relatedAreas:['bible','religions'],contentTypes:['event','inscription'],timeKinds:['historical-event']},
- O067:{primaryArea:'religions',relatedAreas:['bible','world'],contentTypes:['text','narrative'],timeKinds:['composition']},
+
  O123:{primaryArea:'world',relatedAreas:['religions','bible'],contentTypes:['event','political-history'],timeKinds:['historical-event']}
 });
 function classify(post){
