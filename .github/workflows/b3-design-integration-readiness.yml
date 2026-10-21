@@ -1,0 +1,19 @@
+name: B3 planning-only design handoff
+on:
+  pull_request:
+    paths:
+      - 'docs/b3-design-integration-readiness.md'
+      - 'tests/b3-design-integration-readiness.test.cjs'
+      - '.github/workflows/b3-design-integration-readiness.yml'
+  workflow_dispatch:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/b3-design-integration-readiness.test.cjs
+      - run: node tests/b23-closeout-handoff.test.cjs
+      - run: node tests/b23-ho-full-audit.test.cjs
