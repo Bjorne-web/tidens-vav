@@ -1,0 +1,20 @@
+name: B2.3 closeout handoff gate
+on:
+  pull_request:
+    paths:
+      - 'docs/b23-closeout-and-design-handoff.md'
+      - 'tests/b23-closeout-handoff.test.cjs'
+      - '.github/workflows/b23-closeout-handoff.yml'
+  workflow_dispatch:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/b23-closeout-handoff.test.cjs
+      - run: node tests/b23-category-consistency.test.cjs
+      - run: node tests/b23-ho-full-audit.test.cjs
+      - run: node tests/b23-semantic-overlap-audit.test.cjs
