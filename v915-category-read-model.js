@@ -3,6 +3,14 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ H037:{"primaryArea":"world","relatedAreas":["religions","bible"],"contentTypes":["historical-period","imperial-rule"],"timeKinds":["historical-period"]},
+ H038:{"primaryArea":"world","relatedAreas":["bible","religions"],"contentTypes":["archaeological-site","historical-interpretation"],"timeKinds":["archaeological-period"]},
+ H039:{"primaryArea":"world","relatedAreas":["religions","bible"],"contentTypes":["historical-period","society"],"timeKinds":["historical-period"]},
+ H040:{"primaryArea":"world","relatedAreas":["bible","religions"],"contentTypes":["inscription","historical-evidence","royal-propaganda"],"timeKinds":["historical-source"]},
+ H041:{"primaryArea":"world","relatedAreas":["bible","religions"],"contentTypes":["inscription","historical-evidence"],"timeKinds":["historical-source"]},
+ H042:{"primaryArea":"world","relatedAreas":["bible","religions"],"contentTypes":["historical-event","military-conflict"],"timeKinds":["historical-event"]},
+ H043:{"primaryArea":"world","relatedAreas":["bible","religions"],"contentTypes":["archaeological-site","settlement"],"timeKinds":["archaeological-period"]},
+ H044:{"primaryArea":"world","relatedAreas":["religions","bible"],"contentTypes":["historical-period","kingdoms"],"timeKinds":["historical-period"]},
  H030:{primaryArea:'bible',relatedAreas:['religions','world'],contentTypes:['epistle-collection','text-composition'],timeKinds:['composition']},
  H031:{primaryArea:'bible',relatedAreas:['religions','world'],contentTypes:['gospel','text-composition'],timeKinds:['composition']},
  H032:{primaryArea:'world',relatedAreas:['religions','bible'],contentTypes:['historical-event','military-conflict','temple-history'],timeKinds:['historical-event']},

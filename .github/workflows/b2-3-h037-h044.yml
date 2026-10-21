@@ -1,0 +1,22 @@
+name: B2.3 H037 H044 categories
+on:
+  pull_request:
+    paths:
+      - 'v915-category-read-model.js'
+      - 'tests/b2-h037-h044.test.cjs'
+      - '.github/workflows/b2-3-h037-h044.yml'
+  workflow_dispatch:
+jobs:
+  h037-h044:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/b2-h037-h044.test.cjs
+      - run: node tests/b2-h030-h036.test.cjs
+      - run: node tests/b2-h023-h029.test.cjs
+      - run: node tests/b2-h014-h022.test.cjs
+      - run: node tests/category-read-model.test.cjs
+      - run: node tests/category-coverage.test.cjs

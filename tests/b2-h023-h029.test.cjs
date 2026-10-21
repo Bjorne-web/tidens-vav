@@ -21,5 +21,5 @@ for(const [id,[area,timeKind]] of Object.entries(expected)){
  assert.equal(JSON.stringify(post),before,id+' must remain unmodified');
  assert(Object.isFrozen(result),id);
 }
-assert.equal(model.get({id:'H037'}).primaryArea,'unclassified');
+assert.equal(model.get({id:'H046'}).primaryArea,'unclassified');
 console.log('H023-H029 temporal classification pilot checks passed.');
