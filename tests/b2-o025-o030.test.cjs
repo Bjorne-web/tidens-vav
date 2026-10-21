@@ -10,5 +10,5 @@ for(const [id,kind] of Object.entries(expected)){
  assert.equal(result.classificationStatus,'pilot-proposal',id);
  assert.equal(JSON.stringify(post),before,id);
 }
-assert.equal(model.get({id:'O037'}).primaryArea,'unclassified');
+assert.equal(model.get({id:'O043'}).primaryArea,'unclassified');
 console.log('O025-O030 temporal religion classification passes');
