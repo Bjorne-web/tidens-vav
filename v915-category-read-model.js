@@ -3,6 +3,12 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ O085:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['dionysos-traditions','contested-twelve-followers-claim','literary-comparison'],timeKinds:['material-witness','reception']},
+ O086:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['herakles-labours','hero-cycle','literary-comparison'],timeKinds:['composition','material-witness','reception']},
+ O087:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['zoroastrian-eschatology','cosmic-dualism','judgment-traditions'],timeKinds:['composition','material-witness','reception']},
+ O088:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['roman-mithraism','ritual-meal','literary-comparison'],timeKinds:['material-witness','reception']},
+ O089:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['dionysian-mysteries','wine-ritual','contested-wine-as-blood-claim'],timeKinds:['material-witness','reception']},
+ O090:{primaryArea:'ideas',relatedAreas:['bible','religions','world'],contentTypes:['instruction-of-amenemope','egyptian-wisdom-literature','literary-comparison'],timeKinds:['composition','material-witness','reception']},
  O079:{primaryArea:'world',relatedAreas:['bible','religions','ideas'],contentTypes:['hammurabi-law-collection','ancient-law','royal-ideology'],timeKinds:['composition','material-witness','reception']},
  O080:{primaryArea:'world',relatedAreas:['bible','religions','ideas'],contentTypes:['ancient-near-eastern-treaties','covenant-forms','comparative-legal-history'],timeKinds:['historical-period','material-witness','reception']},
  O081:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['horus-traditions','divine-parentage-motif','contested-virgin-birth-claim'],timeKinds:['material-witness','reception']},
