@@ -11,7 +11,7 @@ window.TIDENS_C7_DATING_SAMSON_HERAKLES=Object.freeze({
         "typeLabel": "BRETT LITTERATURHISTORISKT INTERVALL – INTE SAMSONS LEVNAD",
         "evidence": "B",
         "precision": "Försiktigt arbetsintervall för författar- och redaktionsskikt under första årtusendet f.Kr.",
-        "reason": "Samsonberättelserna är en del av Domarboken och har traditioner som sannolikt formades och redigerades under skilda skeden av första årtusendet f.Kr. En datering till ungefär 700–400 f.Kr. är en bred hypotes om bevarad litterär utformning, inte ett verifierat datum för Samsans historiska liv eller för de ursprungliga muntliga motiven. Texten hör till den komplexa deuteronomistiska och efterexiliska diskussionen om Domarbokens tillkomst.",
+        "reason": "Samsonberättelserna är en del av Domarboken och har traditioner som sannolikt formades och redigerades under skilda skeden av första årtusendet f.Kr. En datering till ungefär 700–400 f.Kr. är en bred hypotes om bevarad litterär utformning, inte ett verifierat datum för Samsons historiska liv eller för de ursprungliga muntliga motiven. Texten hör till den komplexa deuteronomistiska och efterexiliska diskussionen om Domarbokens tillkomst.",
         "sources": [
           {
             "title": "Bible Odyssey – Samson and the Philistines",
@@ -28,7 +28,7 @@ window.TIDENS_C7_DATING_SAMSON_HERAKLES=Object.freeze({
         "start": -750,
         "end": -650,
         "timeType": "text-composition",
-        "typeLabel": "JÄMFÖRELSETEXT – INTE BEVIS FÖR SAMLÅN",
+        "typeLabel": "JÄMFÖRELSETEXT – INTE BEVIS FÖR DIREKT LÅN",
         "evidence": "B",
         "precision": "Bred datering av Theogonins komposition omkring 700 f.Kr.",
         "reason": "Hesiodos Theogonin 943–955 ger ett relativt tidigt litterärt belägg för Herakles som son till Zeus och Alkmene och hans status bland gudarna. Detta belägg visar att grekiska hjältegestalter redan fanns i litteraturen men dokumenterar inte att Samsonförfattaren lånade någon specifik berättelse från Hesiodos. Andra Heraklesbedrifter har andra källor och dateringar.",
