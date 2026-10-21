@@ -16,6 +16,14 @@ for(const [type,posts,count] of [['O',originalO,129],['H',originalH,64]]){
  assert.equal(new Set(ids).size,ids.length,type+' duplicate override declaration');
  if(type==='O')assert.deepEqual(ids.slice().sort(),srcIds.slice().sort(),type+' missing/orphan overrides');
  else {
+  const files={'H065':'data/dilmun-ninti.v887.js','H066':'data/lilith.v888-draft.js','H067':'data/lilith.v888-draft.js','H068':'data/ophites-naghammadi.v889-draft.js','H069':'data/ophites-naghammadi.v889-draft.js'};
+  const html=fs.readFileSync('index.html','utf8');
+  for(const [id,file] of Object.entries(files)){
+   const supplement=fs.readFileSync(file,'utf8');
+   assert(supplement.includes("id:'"+id+"'"),id+' missing in supplemental source '+file);
+   assert(html.includes('src="'+file+'"'),file+' not loaded by index');
+   assert(html.indexOf('data/data.generated.js')<html.indexOf('src="'+file+'"'),file+' loaded before originals');
+  }
   const extra=ids.filter(id=>!srcIds.includes(id)).sort();
   assert.deepEqual(extra,['H065','H066','H067','H068','H069'],'Undocumented H overrides not found in original events');
   for(const id of extra){const value=model.get({id});assert(model.hasPilot(id));assert(model.areas.includes(value.primaryArea));assert.equal(value.researchStatus,'unknown');}
