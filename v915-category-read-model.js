@@ -3,6 +3,12 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ O109:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['solomon-temple-narrative','temple-history','biblical-literary-history'],timeKinds:['narrated-time','composition','reception']},
+ O110:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['divided-monarchy-narrative','kingdoms-israel-judah','biblical-literary-history'],timeKinds:['narrated-time','composition','reception']},
+ O111:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['elijah-elisha-narratives','prophetic-traditions','biblical-literary-history'],timeKinds:['narrated-time','composition','reception']},
+ O112:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['assyrian-conquest-narrative','assyrian-history','biblical-literary-history'],timeKinds:['historical-event','composition','reception']},
+ O113:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['isaiah-traditions','prophetic-literature','biblical-literary-history'],timeKinds:['composition','reception']},
+ O114:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['jeremiah-traditions','prophetic-literature','biblical-literary-history'],timeKinds:['composition','reception']},
  O103:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['sinai-covenant-narrative','torah-law-traditions','exilic-literary-context'],timeKinds:['narrated-time','composition','reception']},
  O104:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['wilderness-narrative','exodus-traditions','exilic-literary-context'],timeKinds:['narrated-time','composition','reception']},
  O105:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['joshua-conquest-narrative','land-traditions','exilic-literary-context'],timeKinds:['narrated-time','composition','reception']},
