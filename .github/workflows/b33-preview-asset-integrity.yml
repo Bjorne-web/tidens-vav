@@ -1,0 +1,21 @@
+name: B3.3 full-site preview asset integrity
+on:
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'Start-hero.png'
+      - 'tests/b33-preview-assets.test.cjs'
+      - 'docs/b33-preview-asset-integrity.md'
+      - '.github/workflows/b33-preview-asset-integrity.yml'
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/b33-preview-assets.test.cjs
+      - run: node tests/b33-existing-home-navigation.test.cjs
+      - run: node tests/b33-home-card-events.test.cjs
