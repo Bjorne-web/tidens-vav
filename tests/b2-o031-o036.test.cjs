@@ -13,5 +13,5 @@ for(const [id,kind] of Object.entries(expected)){
  assert.equal(JSON.stringify(post),before,id);
 }
 assert(model.get({id:'O033'}).contentTypes.includes('daoist-traditions'));
-assert.equal(model.get({id:'O037'}).primaryArea,'unclassified');
+assert.equal(model.get({id:'O043'}).primaryArea,'unclassified');
 console.log('O031-O036 classification passed');
