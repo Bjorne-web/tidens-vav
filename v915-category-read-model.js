@@ -3,6 +3,12 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ O055:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['great-pyramid','monument','architectural-history'],timeKinds:['construction-period']},
+ O056:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['colossus-of-rhodes','monument','ancient-literary-witness'],timeKinds:['construction-period','historical-source']},
+ O057:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['great-wall-of-china','fortification','construction-phases'],timeKinds:['construction-period']},
+ O058:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['colosseum','monument','architectural-history'],timeKinds:['historical-event']},
+ O059:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['hagia-sophia','church-architecture','religious-building'],timeKinds:['historical-event']},
+ O060:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['taj-mahal','mausoleum','architectural-history'],timeKinds:['construction-period']},
  O049:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['punic-wars','armed-conflict','war-series'],timeKinds:['historical-period']},
  O050:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['hundred-years-war','armed-conflict','multi-phase-war'],timeKinds:['historical-period']},
  O051:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['thirty-years-war','armed-conflict','religious-politics'],timeKinds:['historical-period']},
