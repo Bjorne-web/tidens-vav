@@ -3,6 +3,11 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ H065:{primaryArea:'religions',relatedAreas:['bible','world'],contentTypes:['mythological-text','comparative-tradition'],timeKinds:['material-witness','composition']},
+ H066:{primaryArea:'religions',relatedAreas:['bible','world'],contentTypes:['religious-tradition','reception-history'],timeKinds:['reception','text-tradition']},
+ H067:{primaryArea:'religions',relatedAreas:['bible','ideas'],contentTypes:['medieval-legend','reception-history'],timeKinds:['composition','reception']},
+ H068:{primaryArea:'religions',relatedAreas:['bible','ideas'],contentTypes:['religious-movement','heresiological-witness','reception-history'],timeKinds:['historical-source','reception']},
+ H069:{primaryArea:'religions',relatedAreas:['bible','ideas'],contentTypes:['manuscript-collection','gnostic-texts','reception-history'],timeKinds:['material-witness','composition']},
  H060:{primaryArea:'world',relatedAreas:['religions','bible'],contentTypes:['historical-person','reign'],timeKinds:['historical-period']},
  H061:{primaryArea:'world',relatedAreas:['religions','bible'],contentTypes:['historical-person','reign'],timeKinds:['historical-period']},
  H062:{primaryArea:'world',relatedAreas:['religions','bible'],contentTypes:['coin','archaeological-evidence'],timeKinds:['material-witness']},
