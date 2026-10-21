@@ -3,6 +3,12 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ O103:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['sinai-covenant-narrative','torah-law-traditions','exilic-literary-context'],timeKinds:['narrated-time','composition','reception']},
+ O104:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['wilderness-narrative','exodus-traditions','exilic-literary-context'],timeKinds:['narrated-time','composition','reception']},
+ O105:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['joshua-conquest-narrative','land-traditions','exilic-literary-context'],timeKinds:['narrated-time','composition','reception']},
+ O106:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['judges-narratives','tribal-israel-traditions','exilic-literary-context'],timeKinds:['narrated-time','composition','reception']},
+ O107:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['saul-kingship-narrative','israelite-monarchy-traditions','exilic-literary-context'],timeKinds:['narrated-time','composition','reception']},
+ O108:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['david-goliath-narrative','hero-tradition','exilic-literary-context'],timeKinds:['narrated-time','composition','reception']},
  O097:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['noah-flood-narrative','exilic-literary-context','biblical-narrative'],timeKinds:['narrated-time','composition','reception']},
  O098:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['tower-of-babel','exilic-literary-context','biblical-narrative'],timeKinds:['narrated-time','composition','reception']},
  O099:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['abraham-traditions','patriarchal-narrative','exilic-literary-context'],timeKinds:['narrated-time','composition','reception']},
