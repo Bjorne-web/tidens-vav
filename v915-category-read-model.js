@@ -3,6 +3,12 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ O013:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['human-migration','population-history'],timeKinds:['migration-period']},
+ O014:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['prehistoric-art','archaeological-evidence'],timeKinds:['archaeological-period']},
+ O015:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['agriculture','domestication','social-transformation'],timeKinds:['historical-period']},
+ O016:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['technological-change','metallurgy','writing-history'],timeKinds:['historical-period']},
+ O017:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['urbanization','writing-history','irrigation'],timeKinds:['historical-period']},
+ O018:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['iron-age','military-history'],timeKinds:['historical-period']},
  O007:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['human-evolution','fossil-evidence','hominin-species'],timeKinds:['evolutionary-period']},
  O008:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['human-evolution','stone-tool-tradition','hominin-species'],timeKinds:['evolutionary-period','archaeological-period']},
  O009:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['human-evolution','migration-history','hominin-species'],timeKinds:['evolutionary-period','migration-period']},
