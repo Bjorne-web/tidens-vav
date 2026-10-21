@@ -1,0 +1,20 @@
+name: B2 O103 O108 biblical narrative time
+on:
+  pull_request:
+    paths:
+      - 'v915-category-read-model.js'
+      - 'tests/b2-o103-o108.test.cjs'
+      - '.github/workflows/b2-o103-o108.yml'
+  workflow_dispatch:
+jobs:
+  classify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/b2-o103-o108.test.cjs
+      - run: node tests/b2-o097-o102.test.cjs
+      - run: node tests/category-read-model.test.cjs
+      - run: node tests/category-coverage.test.cjs
