@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';import fs from 'node:fs';import vm from 'node:vm';
+const read=p=>fs.readFileSync(p,'utf8'),ctx={window:{}};vm.createContext(ctx);
+vm.runInContext(read('data/c7-dating-o097-noah-flood.js'),ctx);vm.runInContext(read('v8172-dating-bridge.js'),ctx);
+const x=ctx.window.TIDENS_C7_DATING_PILOT.O097;assert(x&&x.phases.length===1);const p=x.phases[0];
+assert.equal(p.timeType,'material-witness');assert.equal(p.start,-700);assert.equal(p.end,-601);assert.equal(p.evidence,'A');
+for(const term of ['Första Moseboken 6:5–9:17','Atrahasis','Carrs studie','600–500 f.Kr.','global flod','O067'])assert(x.undated.includes(term));
+assert(p.reason.includes('daterar inte'));
+const html=read('index.html');assert(html.indexOf('data/c7-dating-o097-noah-flood.js')<html.indexOf('v8172-dating-bridge.js'));assert(html.indexOf('v8172-dating-bridge.js')<html.indexOf('v839-temaspar-context.js'));
+assert(read('data/o095-o098-identity-fix.v8121.js').includes("O097:{title:'Noas ark'"));
+console.log('PASS O097 Noah narrative separated from historical K.3375 witness and older Flood texts');
