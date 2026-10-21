@@ -12,5 +12,5 @@ for(const [id,[contentType,timeKind]] of Object.entries(expectations)){
  assert.equal(JSON.stringify(input),snapshot,id);
  assert(Object.isFrozen(out),id);
 }
-assert.equal(model.get({id:'O031'}).primaryArea,'unclassified');
+assert.equal(model.get({id:'O037'}).primaryArea,'unclassified');
 console.log('O013–O018 classification passed');

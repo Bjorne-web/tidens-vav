@@ -3,6 +3,12 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ O031:{primaryArea:'religions',relatedAreas:['world','ideas'],contentTypes:['vedic-traditions','hindu-history','religious-texts'],timeKinds:['historical-period','composition']},
+ O032:{primaryArea:'religions',relatedAreas:['world','ideas'],contentTypes:['buddhist-traditions','religious-history'],timeKinds:['historical-period','reception']},
+ O033:{primaryArea:'religions',relatedAreas:['ideas','world'],contentTypes:['confucian-traditions','daoist-traditions','philosophy'],timeKinds:['historical-period','reception']},
+ O034:{primaryArea:'religions',relatedAreas:['bible','world','ideas'],contentTypes:['christianity','early-christian-history'],timeKinds:['historical-period','reception']},
+ O035:{primaryArea:'religions',relatedAreas:['world','ideas'],contentTypes:['classical-hindu-traditions','religious-history'],timeKinds:['historical-period','reception']},
+ O036:{primaryArea:'religions',relatedAreas:['world','ideas'],contentTypes:['islam','religious-history'],timeKinds:['historical-period','reception']},
  O025:{primaryArea:'religions',relatedAreas:['world','ideas'],contentTypes:['egyptian-religion','religious-tradition'],timeKinds:['historical-period']},
  O026:{primaryArea:'religions',relatedAreas:['bible','world'],contentTypes:['patriarchal-tradition','biblical-narrative','religious-reception'],timeKinds:['narrated-time','reception']},
  O027:{primaryArea:'religions',relatedAreas:['bible','world'],contentTypes:['israelite-religion','religious-history'],timeKinds:['historical-period']},
