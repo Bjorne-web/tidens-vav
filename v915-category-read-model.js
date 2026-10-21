@@ -3,6 +3,12 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ O121:{primaryArea:'bible',relatedAreas:['ideas','religions','world'],contentTypes:['proverbs-collection','wisdom-literature','textual-redaction'],timeKinds:['composition','reception']},
+ O122:{primaryArea:'bible',relatedAreas:['religions','ideas','world'],contentTypes:['jonah-narrative','prophetic-literature','universalism-theme'],timeKinds:['narrated-time','composition','reception']},
+ O123:{primaryArea:'world',relatedAreas:['bible','religions','ideas'],contentTypes:['maccabean-revolt','hasmonean-history','second-temple-history'],timeKinds:['historical-period','composition','reception']},
+ O124:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['birth-of-jesus-traditions','gospel-infancy-narratives','historical-jesus'],timeKinds:['historical-event','narrated-time','composition','reception']},
+ O125:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['jesus-ministry-traditions','gospel-narratives','historical-jesus'],timeKinds:['historical-period','narrated-time','composition','reception']},
+ O126:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['crucifixion-of-jesus','passion-narratives','historical-jesus'],timeKinds:['historical-event','narrated-time','composition','reception']},
  O115:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['babylonian-exile','biblical-exile-narratives','historical-context'],timeKinds:['historical-period','composition','reception']},
  O116:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['daniel-lions-den','court-tale','seleucid-literary-context'],timeKinds:['narrated-time','composition','reception']},
  O117:{primaryArea:'bible',relatedAreas:['religions','world','ideas'],contentTypes:['return-from-exile','second-temple','persian-period-history'],timeKinds:['historical-period','composition','reception']},
@@ -200,7 +206,7 @@ const overrides=Object.freeze({
  B001:{primaryArea:'bible',relatedAreas:['religions','ideas'],contentTypes:['bible-book','text'],timeKinds:['composition']},
  H045:{primaryArea:'world',relatedAreas:['bible','religions'],contentTypes:['event','inscription'],timeKinds:['historical-event']},
 
- O123:{primaryArea:'world',relatedAreas:['religions','bible'],contentTypes:['event','political-history'],timeKinds:['historical-event']}
+
 });
 function classify(post){
  if(!post||typeof post.id!=='string'||!post.id.trim())return null;
