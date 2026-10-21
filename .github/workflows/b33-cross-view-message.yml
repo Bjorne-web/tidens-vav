@@ -1,0 +1,18 @@
+name: B3.3 cross-view status guard
+on:
+  pull_request:
+    paths:
+      - 'v912-cross-view-themes-compare.js'
+      - 'tests/b33-cross-view-message.test.cjs'
+      - '.github/workflows/b33-cross-view-message.yml'
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/b33-cross-view-message.test.cjs
+      - run: node tests/b33-theme-focus-null.test.cjs

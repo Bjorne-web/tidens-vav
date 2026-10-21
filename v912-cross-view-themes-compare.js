@@ -4,7 +4,7 @@
 'use strict';
 const read=()=>window.TidensViewContextC1?.snapshot?.();
 let lastMessage='';
-function message(value){let node=document.getElementById('tvC23Note');if(!node){node=document.createElement('div');node.id='tvC23Note';node.setAttribute('role','status');node.hidden=true;document.body.append(node)}if(!value){node.hidden=true;return}node.textContent=value;node.hidden=false;lastMessage=value;}
+function message(value){let node=document.getElementById('tvC23Note');if(!value){if(node)node.hidden=true;lastMessage='';return}if(!node){node=document.createElement('div');node.id='tvC23Note';node.setAttribute('role','status');node.hidden=true;document.body.append(node)}node.textContent=value;node.hidden=false;lastMessage=value;}
 function onThemes(){
  const s=read(),id=s?.selectedId;if(!id){message('Välj först en forskningspost i Tidslinjen.');return}
  try{
