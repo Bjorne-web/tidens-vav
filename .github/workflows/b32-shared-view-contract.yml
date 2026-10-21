@@ -1,0 +1,19 @@
+name: B3.2 shared view design contract
+on:
+  pull_request:
+    paths:
+      - 'docs/b32-shared-view-contract.md'
+      - 'tests/b32-shared-view-contract.test.cjs'
+      - '.github/workflows/b32-shared-view-contract.yml'
+  workflow_dispatch:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/b32-shared-view-contract.test.cjs
+      - run: node tests/b3-dependency-map.test.cjs
+      - run: node tests/b23-ho-full-audit.test.cjs
