@@ -1,0 +1,14 @@
+name: C7 Dionysos Euripides literary source
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  dionysos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/smoke-c7-dionysos-o084.mjs
