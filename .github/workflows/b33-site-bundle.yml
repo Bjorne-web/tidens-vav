@@ -1,0 +1,25 @@
+name: B3.3 site bundle
+on:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/b33-preview-assets.test.cjs
+      - name: Package full website
+        run: |
+          mkdir -p /tmp/tidens-vav-site
+          rsync -a --exclude='.git' --exclude='.github' --exclude='tests' --exclude='docs' --exclude='previews' ./ /tmp/tidens-vav-site/
+          test -s /tmp/tidens-vav-site/index.html
+          test -s /tmp/tidens-vav-site/Start-hero.png
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tidens-vav-site-bundle
+          path: /tmp/tidens-vav-site/
+          if-no-files-found: error
+          retention-days: 7
