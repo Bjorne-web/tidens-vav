@@ -10,4 +10,8 @@ assert.match(css,/#mapView>\.tvb-view-intro/);
 assert.match(js,/getElementById\('mapView'\)/);
 assert.doesNotMatch(js,/getElementById\('timelineView'\)/);
 assert.doesNotMatch(js,/innerHTML/);
+assert.match(js,/cloneNode\(true\)/);
+assert.match(js,/source\?\.click\(\)/);
+assert.match(css,/\.tvb-map-topic-grid/);
+assert.match(css,/grid-template-columns:repeat\(4,minmax\(0,1fr\)\)/);
 console.log('B3.4 map design contract: PASS');
