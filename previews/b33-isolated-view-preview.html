@@ -30,6 +30,7 @@ const names={timeline:'Tidslinjen',themes:'Temaspår',compare:'Jämförelse',rea
 const areas={bible:'Bibeln',religions:'Religioner',world:'Världshistoria',ideas:'Idéer & kunskap'};
 const titles={O124:'Jesu födelse',O129:'Jerusalems förstörelse',O119:'Job och lidandets problem'};
 const state={selectedPostId:'O124',originView:'timeline',activeView:'timeline',area:'bible',comparisonIds:['O124'],themeContext:null,timeDimension:'narrated-time',returnContext:[]};
+function saveContext(){state.returnContext.push({view:state.activeView,post:state.selectedPostId,area:state.area,comparisonIds:[...state.comparisonIds]});}
 function draw(){
  document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.view===state.activeView)));
  document.querySelectorAll('[data-area]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.area===state.area)));
@@ -53,7 +54,7 @@ function draw(){
   const tools=document.createElement('div');tools.className='actions';
   for(const [id,title] of Object.entries(titles)){
    const btn=document.createElement('button');btn.type='button';btn.textContent=(state.comparisonIds.includes(id)?'✓ ':'+ ')+id+' · '+title;btn.setAttribute('aria-pressed',String(state.comparisonIds.includes(id)));
-   btn.addEventListener('click',()=>{if(state.comparisonIds.includes(id)){if(state.comparisonIds.length>1)state.comparisonIds=state.comparisonIds.filter(x=>x!==id)}else state.comparisonIds.push(id);draw()});tools.append(btn);
+   btn.addEventListener('click',()=>{if(state.comparisonIds.includes(id)){if(state.comparisonIds.length>1){saveContext();state.comparisonIds=state.comparisonIds.filter(x=>x!==id)}}else{saveContext();state.comparisonIds.push(id)}draw()});tools.append(btn);
   }
   pane.append(tools);
   const grid=document.createElement('div');grid.className='columns';grid.style.marginTop='12px';
@@ -61,10 +62,10 @@ function draw(){
  }
  if(state.activeView==='themes'){const note=document.createElement('div');note.className='read';note.textContent='Tematisk koppling: valfri vy, inte belägg för historisk påverkan.';pane.append(note)}
 }
-document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>{if(state.activeView!==b.dataset.view){state.returnContext.push({view:state.activeView,post:state.selectedPostId,area:state.area});state.originView=state.activeView;state.activeView=b.dataset.view;draw()}}));
-document.querySelectorAll('[data-area]').forEach(b=>b.addEventListener('click',()=>{state.area=b.dataset.area;draw()}));
-document.getElementById('post').addEventListener('change',e=>{state.selectedPostId=e.target.value;if(!state.comparisonIds.includes(state.selectedPostId))state.comparisonIds.push(state.selectedPostId);draw()});
-document.getElementById('back').addEventListener('click',()=>{const prev=state.returnContext.pop();if(prev){state.activeView=prev.view;state.selectedPostId=prev.post;state.area=prev.area;document.getElementById('post').value=prev.post}else state.activeView='timeline';draw()});
+document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>{if(state.activeView!==b.dataset.view){saveContext();state.originView=state.activeView;state.activeView=b.dataset.view;draw()}}));
+document.querySelectorAll('[data-area]').forEach(b=>b.addEventListener('click',()=>{if(state.area!==b.dataset.area){saveContext();state.area=b.dataset.area;draw()}}));
+document.getElementById('post').addEventListener('change',e=>{saveContext();state.selectedPostId=e.target.value;if(!state.comparisonIds.includes(state.selectedPostId))state.comparisonIds.push(state.selectedPostId);draw()});
+document.getElementById('back').addEventListener('click',()=>{const prev=state.returnContext.pop();if(prev){state.activeView=prev.view;state.selectedPostId=prev.post;state.area=prev.area;state.comparisonIds=[...prev.comparisonIds];document.getElementById('post').value=prev.post}else state.activeView='timeline';draw()});
 draw();
 })();
 </script></body></html>
