@@ -8,8 +8,8 @@ function message(value){let node=document.getElementById('tvC23Note');if(!node){
 function onThemes(){
  const s=read(),id=s?.selectedId;if(!id){message('Välj först en forskningspost i Tidslinjen.');return}
  try{
-  if(typeof v829Focus!=='undefined')v829Focus.id=id;
-  if(typeof v827RelationFocus!=='undefined')v827RelationFocus=id;
+  if(typeof v829Focus!=='undefined'&&v829Focus&&typeof v829Focus==='object')v829Focus.id=id;
+  if(typeof v827RelationFocus!=='undefined'&&v827RelationFocus&&typeof v827RelationFocus==='object')v827RelationFocus=id;
   if(typeof setSelected==='function')setSelected(id);
   message('Temaspår · Vald forskningspost: '+id+' · '+(s.selectedPost?.title||''));
  }catch(_){message('Posten kunde inte överföras till Temaspår.')}
