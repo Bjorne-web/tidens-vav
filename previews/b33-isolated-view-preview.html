@@ -14,7 +14,7 @@ button[aria-pressed=true]{background:#e0eced;border-color:var(--brand);font-weig
 .event{padding:14px;border:1px solid var(--edge);border-radius:9px;background:#f8faf8;margin-top:10px}
 .meta{font-size:13px;color:var(--muted)}.read{padding:14px;background:#f2f5f4;border-radius:10px}
 footer{padding:25px;color:var(--muted);text-align:center;font-size:13px}
-@media(max-width:720px){.columns{grid-template-columns:1fr}.panel{padding:15px}}
+@media(max-width:720px){.columns{grid-template-columns:1fr}.panel{padding:15px}nav button,.tabs button{flex:1 1 135px}#post{max-width:100%}.actions button{flex:1 1 160px}}
 </style></head><body>
 <header><p>Isolerad designpilot · B3.3</p><h1>Tidens väv</h1><p>En post, flera perspektiv – utan att tappa sammanhanget.</p></header>
 <main><div class="notice"><strong>Endast visuell prototyp.</strong> Exempelposterna är demonstrationsdata. Inga originalposter, källprövade datum eller befintliga vyer ändras.</div>
@@ -49,11 +49,22 @@ function draw(){
  const p=document.createElement('p');p.textContent=message;
  const m=document.createElement('p');m.className='meta';m.textContent='Demonstration – inga datum eller forskningspåståenden fastställs.';
  e.append(strong,p,m);pane.append(e);
+ if(state.activeView==='compare'){
+  const tools=document.createElement('div');tools.className='actions';
+  for(const [id,title] of Object.entries(titles)){
+   const btn=document.createElement('button');btn.type='button';btn.textContent=(state.comparisonIds.includes(id)?'✓ ':'+ ')+id+' · '+title;btn.setAttribute('aria-pressed',String(state.comparisonIds.includes(id)));
+   btn.addEventListener('click',()=>{if(state.comparisonIds.includes(id)){if(state.comparisonIds.length>1)state.comparisonIds=state.comparisonIds.filter(x=>x!==id)}else state.comparisonIds.push(id);draw()});tools.append(btn);
+  }
+  pane.append(tools);
+  const grid=document.createElement('div');grid.className='columns';grid.style.marginTop='12px';
+  for(const id of state.comparisonIds){const card=document.createElement('article');card.className='read';const name=document.createElement('h3');name.textContent=id+' · '+titles[id];const note=document.createElement('p');note.textContent='Demonstrationspost. Tidsdimension och evidens ej källprövade.';card.append(name,note);grid.append(card)}pane.append(grid);
+ }
+ if(state.activeView==='themes'){const note=document.createElement('div');note.className='read';note.textContent='Tematisk koppling: valfri vy, inte belägg för historisk påverkan.';pane.append(note)}
 }
-document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>{if(state.activeView!==b.dataset.view){state.returnContext.push(state.activeView);state.originView=state.activeView;state.activeView=b.dataset.view;draw()}}));
+document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>{if(state.activeView!==b.dataset.view){state.returnContext.push({view:state.activeView,post:state.selectedPostId,area:state.area});state.originView=state.activeView;state.activeView=b.dataset.view;draw()}}));
 document.querySelectorAll('[data-area]').forEach(b=>b.addEventListener('click',()=>{state.area=b.dataset.area;draw()}));
 document.getElementById('post').addEventListener('change',e=>{state.selectedPostId=e.target.value;if(!state.comparisonIds.includes(state.selectedPostId))state.comparisonIds.push(state.selectedPostId);draw()});
-document.getElementById('back').addEventListener('click',()=>{state.activeView=state.returnContext.pop()||'timeline';draw()});
+document.getElementById('back').addEventListener('click',()=>{const prev=state.returnContext.pop();if(prev){state.activeView=prev.view;state.selectedPostId=prev.post;state.area=prev.area;document.getElementById('post').value=prev.post}else state.activeView='timeline';draw()});
 draw();
 })();
 </script></body></html>
