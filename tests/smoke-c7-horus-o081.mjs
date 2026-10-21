@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';import fs from 'node:fs';import vm from 'node:vm';
+const read=p=>fs.readFileSync(p,'utf8'),ctx={window:{}};vm.createContext(ctx);
+vm.runInContext(read('data/c7-dating-o081-horus-birth.js'),ctx);vm.runInContext(read('v8156-dating-bridge.js'),ctx);
+const x=ctx.window.TIDENS_C7_DATING_PILOT.O081;assert(x&&x.phases.length===2);
+assert.equal(x.phases[0].timeType,'material-witness');assert.equal(x.phases[0].start,-360);assert.equal(x.phases[0].end,-343);assert.equal(x.phases[0].evidence,'A');
+assert.equal(x.phases[1].timeType,'text-composition');assert.equal(x.phases[1].start,75);assert.equal(x.phases[1].end,125);assert.equal(x.phases[1].evidence,'B');
+for(const p of x.phases)assert(p.sources.length>=2&&p.reason.length>100);
+for(const term of ['jungfrufödsel','25 december','tolv lärjungar','tre dagar','direkt textberoende'])assert(x.undated.includes(term));
+const html=read('index.html');assert(html.indexOf('data/c7-dating-o081-horus-birth.js')<html.indexOf('v8156-dating-bridge.js'));assert(html.indexOf('v8156-dating-bridge.js')<html.indexOf('v839-temaspar-context.js'));
+console.log('PASS C7 O081 Horus source phases, categories and false analogy guard');
