@@ -5,6 +5,8 @@
 const home=document.getElementById('startView');
 if(!home)return;
 function open(id){
+ // Unknown or not-yet-integrated areas must never fall through to Tidslinjen.
+ if(!['bible','religion','history'].includes(id))return false;
  const navId=id==='religion'?'navExplore':'navTimeline';
  const nav=document.getElementById(navId);
  if(!nav)return false;
