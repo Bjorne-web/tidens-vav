@@ -3,6 +3,12 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ O037:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['mesopotamian-civilizations','urban-history'],timeKinds:['historical-period']},
+ O038:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['ancient-egypt','dynastic-history'],timeKinds:['historical-period']},
+ O039:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['indus-civilization','archaeological-culture'],timeKinds:['archaeological-period']},
+ O040:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['akkadian-empire','political-history'],timeKinds:['historical-period']},
+ O041:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['chinese-dynasties','political-history'],timeKinds:['historical-period']},
+ O042:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['ancient-greece','political-history'],timeKinds:['historical-period']},
  O031:{primaryArea:'religions',relatedAreas:['world','ideas'],contentTypes:['vedic-traditions','hindu-history','religious-texts'],timeKinds:['historical-period','composition']},
  O032:{primaryArea:'religions',relatedAreas:['world','ideas'],contentTypes:['buddhist-traditions','religious-history'],timeKinds:['historical-period','reception']},
  O033:{primaryArea:'religions',relatedAreas:['ideas','world'],contentTypes:['confucian-traditions','daoist-traditions','philosophy'],timeKinds:['historical-period','reception']},
