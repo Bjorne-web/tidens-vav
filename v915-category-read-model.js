@@ -3,6 +3,12 @@
 'use strict';
 const AREAS=Object.freeze(['bible','religions','world','ideas']);
 const overrides=Object.freeze({
+ O025:{primaryArea:'religions',relatedAreas:['world','ideas'],contentTypes:['egyptian-religion','religious-tradition'],timeKinds:['historical-period']},
+ O026:{primaryArea:'religions',relatedAreas:['bible','world'],contentTypes:['patriarchal-tradition','biblical-narrative','religious-reception'],timeKinds:['narrated-time','reception']},
+ O027:{primaryArea:'religions',relatedAreas:['bible','world'],contentTypes:['israelite-religion','religious-history'],timeKinds:['historical-period']},
+ O028:{primaryArea:'religions',relatedAreas:['bible','world'],contentTypes:['second-temple-judaism','religious-history'],timeKinds:['historical-period']},
+ O029:{primaryArea:'religions',relatedAreas:['bible','world'],contentTypes:['rabbinic-judaism','religious-history','textual-tradition'],timeKinds:['historical-period','reception']},
+ O030:{primaryArea:'religions',relatedAreas:['world','ideas'],contentTypes:['zoroastrianism','religious-history'],timeKinds:['historical-period']},
  O019:{primaryArea:'ideas',relatedAreas:['world','religions'],contentTypes:['philosophy','history-of-science'],timeKinds:['intellectual-history-period']},
  O020:{primaryArea:'world',relatedAreas:['religions','ideas'],contentTypes:['medieval-society','political-history','church-history'],timeKinds:['historical-period']},
  O021:{primaryArea:'world',relatedAreas:['ideas'],contentTypes:['industrialization','technology-history','urbanization'],timeKinds:['historical-period']},
