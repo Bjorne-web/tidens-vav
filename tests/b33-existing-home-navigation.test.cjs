@@ -1,0 +1,15 @@
+const fs=require('node:fs');const vm=require('node:vm');const assert=require('node:assert/strict');
+const src=fs.readFileSync('v914-home-paths-c3.js','utf8');
+const clicks={navTimeline:0,navExplore:0};let checkbox={checked:false,dispatchEvent(){}};
+const elements={startView:{addEventListener(){}},navTimeline:{click(){clicks.navTimeline++}},navExplore:{click(){clicks.navExplore++}},tvOnlyBooks:checkbox,exploreView:{scrollIntoView(){}}};
+const context={window:{},document:{getElementById(id){return elements[id]||null}},Event:class{constructor(type){this.type=type}}};
+vm.runInNewContext(src,context,{filename:'v914-home-paths-c3.js'});
+const open=context.window.TidensHomePathsC3.open;
+assert.equal(open('ideas'),false,'Unimplemented philosophy card should not trigger timeline');
+assert.equal(open('unexpected'),false,'Unknown card should not navigate');
+assert.deepEqual(clicks,{navTimeline:0,navExplore:0});
+assert.equal(open('bible'),true);assert.equal(clicks.navTimeline,1);assert.equal(checkbox.checked,true);
+assert.equal(open('history'),true);assert.equal(clicks.navTimeline,2);assert.equal(checkbox.checked,false);
+assert.equal(open('religion'),true);assert.equal(clicks.navExplore,1);
+assert(!fs.readFileSync('index.html','utf8').includes('b33-approved-design-preview.html'));
+console.log('Existing-home navigation safe; supported areas route and unsupported areas do not');
