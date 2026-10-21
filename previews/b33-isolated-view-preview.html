@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="sv"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tidens väv – B3.3 isolerad designpilot</title>
+<style>
+:root{color-scheme:light;--ink:#183448;--muted:#607584;--bg:#f3f5f2;--edge:#d9e1dd;--brand:#2e6578}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+header{background:linear-gradient(125deg,#244b62,#587968);color:white;padding:24px max(18px,calc((100% - 1060px)/2))}
+header p{margin:0;opacity:.86}h1{margin:6px 0;font-size:clamp(25px,4vw,38px)}main{max-width:1060px;margin:26px auto;padding:0 18px}
+.notice{border-left:4px solid #d29d48;background:#fff7e9;padding:12px 16px;margin-bottom:18px}
+nav,.tabs,.actions{display:flex;gap:8px;flex-wrap:wrap}.chip,button{background:white;border:1px solid var(--edge);border-radius:9px;padding:10px 12px;cursor:pointer;font:inherit;color:var(--ink)}
+button[aria-pressed=true]{background:#e0eced;border-color:var(--brand);font-weight:700}
+.panel{margin-top:16px;background:white;border:1px solid var(--edge);border-radius:14px;padding:20px}
+.columns{display:grid;grid-template-columns:1.1fr .9fr;gap:15px}.muted{color:var(--muted)}h2{margin:0 0 8px}h3{margin:6px 0}
+.event{padding:14px;border:1px solid var(--edge);border-radius:9px;background:#f8faf8;margin-top:10px}
+.meta{font-size:13px;color:var(--muted)}.read{padding:14px;background:#f2f5f4;border-radius:10px}
+footer{padding:25px;color:var(--muted);text-align:center;font-size:13px}
+@media(max-width:720px){.columns{grid-template-columns:1fr}.panel{padding:15px}}
+</style></head><body>
+<header><p>Isolerad designpilot · B3.3</p><h1>Tidens väv</h1><p>En post, flera perspektiv – utan att tappa sammanhanget.</p></header>
+<main><div class="notice"><strong>Endast visuell prototyp.</strong> Exempelposterna är demonstrationsdata. Inga originalposter, källprövade datum eller befintliga vyer ändras.</div>
+<nav aria-label="Huvudområden"><button data-area="bible" aria-pressed="true">Bibeln</button><button data-area="religions">Religioner</button><button data-area="world">Världshistoria</button><button data-area="ideas">Idéer & kunskap</button></nav>
+<section class="panel"><h2>Utforska en post</h2><p class="muted">Välj post och byt vy; samma post-ID följer med hela vägen.</p>
+<label for="post">Utgångspost</label> <select id="post" class="chip"><option value="O124">O124 – Jesu födelse (originaldatum ej faktagranskat)</option><option value="O129">O129 – Jerusalems förstörelse</option><option value="O119">O119 – Job och lidandets problem</option></select>
+<div class="tabs" role="group" aria-label="Välj vy" style="margin-top:14px"><button data-view="timeline" aria-pressed="true">Tidslinjen</button><button data-view="themes">Temaspår</button><button data-view="compare">Jämförelse</button><button data-view="reader">Läsfönstret</button></div></section>
+<div class="columns"><section class="panel" id="workspace" aria-live="polite"></section><aside class="panel"><h2>Gemensamt sammanhang</h2><p><strong>Valt post-ID:</strong> <span id="current"></span></p><p><strong>Aktiv vy:</strong> <span id="view"></span></p><p><strong>Huvudområde:</strong> <span id="area"></span></p><div class="read"><strong>Forskningsstatus</strong><p>Ej fastställd i denna prototyp. Välj alltid separat vilken tidstyp som ska visas.</p></div><p class="meta">Befintligt projekt och C7 lämnas oförändrade.</p><button id="back">Tillbaka till föregående vy</button></aside></div>
+</main><footer>B3.3 – självständig prototyp för granskning; påverkar inte appens huvudnavigation.</footer>
+<script>
+(()=>{'use strict';
+const names={timeline:'Tidslinjen',themes:'Temaspår',compare:'Jämförelse',reader:'Läsfönstret'};
+const areas={bible:'Bibeln',religions:'Religioner',world:'Världshistoria',ideas:'Idéer & kunskap'};
+const titles={O124:'Jesu födelse',O129:'Jerusalems förstörelse',O119:'Job och lidandets problem'};
+const state={selectedPostId:'O124',originView:'timeline',activeView:'timeline',area:'bible',comparisonIds:['O124'],themeContext:null,timeDimension:'narrated-time',returnContext:[]};
+function draw(){
+ document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.view===state.activeView)));
+ document.querySelectorAll('[data-area]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.area===state.area)));
+ document.getElementById('current').textContent=state.selectedPostId+' – '+titles[state.selectedPostId];
+ document.getElementById('view').textContent=names[state.activeView];document.getElementById('area').textContent=areas[state.area];
+ const pane=document.getElementById('workspace');pane.replaceChildren();
+ const h=document.createElement('h2');h.textContent=names[state.activeView];pane.append(h);
+ const e=document.createElement('div');e.className='event';
+ let message='';
+ switch(state.activeView){
+ case 'timeline':message='Kronologisk orientering: visning av historiska händelser, berättad tid och texttillkomst hålls separat.';break;
+ case 'themes':message='Temaspår: besläktade motiv visas som jämförelse, inte som belagd påverkan.';break;
+ case 'compare':message='Jämförelse: flera poster kan jämföras utan att förlora utgångsposten.';break;
+ case 'reader':message='Läsfönster: källuppgift, forskningsstatus och tolkningsförslag visas var för sig.';break;
+ }
+ const strong=document.createElement('h3');strong.textContent=state.selectedPostId+' · '+titles[state.selectedPostId];
+ const p=document.createElement('p');p.textContent=message;
+ const m=document.createElement('p');m.className='meta';m.textContent='Demonstration – inga datum eller forskningspåståenden fastställs.';
+ e.append(strong,p,m);pane.append(e);
+}
+document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>{if(state.activeView!==b.dataset.view){state.returnContext.push(state.activeView);state.originView=state.activeView;state.activeView=b.dataset.view;draw()}}));
+document.querySelectorAll('[data-area]').forEach(b=>b.addEventListener('click',()=>{state.area=b.dataset.area;draw()}));
+document.getElementById('post').addEventListener('change',e=>{state.selectedPostId=e.target.value;if(!state.comparisonIds.includes(state.selectedPostId))state.comparisonIds.push(state.selectedPostId);draw()});
+document.getElementById('back').addEventListener('click',()=>{state.activeView=state.returnContext.pop()||'timeline';draw()});
+draw();
+})();
+</script></body></html>

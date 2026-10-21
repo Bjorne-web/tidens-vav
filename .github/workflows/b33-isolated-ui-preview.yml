@@ -1,0 +1,20 @@
+name: B3.3 isolated visual prototype
+on:
+  pull_request:
+    paths:
+      - 'previews/b33-isolated-view-preview.html'
+      - 'docs/b33-isolated-ui-preview.md'
+      - 'tests/b33-isolated-ui-preview.test.cjs'
+      - '.github/workflows/b33-isolated-ui-preview.yml'
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/b33-isolated-ui-preview.test.cjs
+      - run: node tests/b32-shared-view-contract.test.cjs
+      - run: node tests/b23-ho-full-audit.test.cjs
