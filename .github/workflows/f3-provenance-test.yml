@@ -3,7 +3,7 @@ on:
   pull_request:
     paths:
       - 'tests/f3-provenance-core.cjs'
-      - 'tests/f3-provenance-core.test.cjs'
+      - 'tests/f3-provenance-core.test.cjs'\n      - 'tests/f3-real-source-contract.test.cjs'
       - '.github/workflows/f3-provenance-test.yml'
   workflow_dispatch:
 jobs:
@@ -14,4 +14,4 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node tests/f3-provenance-core.test.cjs
+      - run: node tests/f3-provenance-core.test.cjs\n      - run: node tests/f3-real-source-contract.test.cjs
