@@ -36,3 +36,12 @@
 - Formellt F3-godkännande krävs före merge/aktivering av forskningmodell i produktionsappen.
 
 **GitHub-PR:** #378; dokument och tester ska stanna i arbetsgrenen tills separat godkännande. Ingen befintlig kod i appens `index.html`, `v897` eller C7-data ändras.
+
+## Tillägg: separat speciallager, O030 (Zoroastrismen)
+Den reproducibla kontrollen har utökats med `tests/f3-special-layer-runtime.test.cjs`. Den laddar `data/special-research.v840.js`, `allOriginalResearchV828`, C7:s särskilda religionshistoriska betydelsetexter och O067:s dateringsfil i isolerad VM, och kör verkliga `v897` mot dessa.
+
+- **O030:** `TIDENS_SPECIAL_RESEARCH.O030.summary` och `allOriginalResearchV828.O030.summary` är olika textvärden. Nuvarande `v897` väljer speciallagrets sammanfattning och anger `provenance.summary.layer='special'`, men visar inte originalversionen som alternativ. Detta är ännu **inte** en semantiskt fastställd vetenskaplig motsägelse.
+- **B001:** C7:s religionshistoriska betydelsetext följer med som `religion` men inte med explicit lagernamn i `provenance`.
+- **O067:** C7:s `material-witness`-fas kan laddas och har eget tidsslag, men nuvarande generella `temporal` visar endast grundpostens start/slut.
+
+Tabellens 32 poster och överlappningsantal gäller fortfarande **endast de fem ursprungligen undersökta lagren**. O030 är ett *ytterligare* speciallagerfall och ska inte räknas in i denna tabell utan en ny systematisk helhetskörning. Inget redaktionellt företrädesbeslut har fattats.
