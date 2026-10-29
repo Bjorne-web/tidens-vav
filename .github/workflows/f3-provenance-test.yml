@@ -1,0 +1,17 @@
+name: F3 isolated provenance test pilot
+on:
+  pull_request:
+    paths:
+      - 'tests/f3-provenance-core.cjs'
+      - 'tests/f3-provenance-core.test.cjs'
+      - '.github/workflows/f3-provenance-test.yml'
+  workflow_dispatch:
+jobs:
+  provenance-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/f3-provenance-core.test.cjs
