@@ -48,3 +48,16 @@ function resolveTemporal(entries,rules={}){
  return Object.freeze(results);
 }
 module.exports.resolveTemporal=resolveTemporal;
+
+/* Field rules are deliberately narrow: scoped by post ID, semantic field and
+ * declared source layer. Unspecified fields remain unresolved when conflicting. */
+function resolveScopedField(postId,field,layers,decisions=[]){
+ const rules=decisions.filter(d=>d&&d.postId===postId&&d.field===field&&typeof d.preferOrigin==='string'&&valid(d.rationale));
+ if(rules.length>1)throw new Error('Ambiguous field decisions');
+ const rule=rules[0];
+ const result=resolveField(field,layers,rule?{preferOrigins:[rule.preferOrigin]}:{});
+ if(rule&&result.conflict&&!result.alternatives.some(c=>c.origin===rule.preferOrigin))
+  return Object.freeze({...result,selected:null,decision:'missing-origin',rationale:rule.rationale});
+ return Object.freeze({...result,decision:rule?'explicit':'unresolved',rationale:rule?.rationale||null});
+}
+module.exports.resolveScopedField=resolveScopedField;
