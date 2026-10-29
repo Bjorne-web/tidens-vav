@@ -27,3 +27,24 @@ function resolveRecord(id,layers,rules={},fields=['summary','context','impact','
  return Object.freeze({id,fields:Object.freeze(result)});
 }
 module.exports={resolveField,resolveRecord};
+
+const timeKinds=Object.freeze(['event','composition','narrative','material-witness']);
+function resolveTemporal(entries,rules={}){
+ if(!Array.isArray(entries))throw new TypeError('Temporal entries must be an array');
+ const results={};
+ for(const kind of timeKinds){
+  const group=entries.filter(e=>e&&e.timeType===kind&&typeof e.origin==='string'
+   &&Number.isFinite(e.start)&&Number.isFinite(e.end)&&e.start<=e.end);
+  const candidates=group.map(e=>Object.freeze({origin:e.origin,timeType:kind,start:e.start,end:e.end,
+   certainty:valid(e.certainty),rationale:valid(e.rationale)}));
+  const distinct=[...new Set(candidates.map(e=>e.start+':'+e.end))];
+  const conflict=distinct.length>1;
+  let selected=distinct.length===1?candidates[0]:null;
+  if(conflict&&Array.isArray(rules[kind]?.preferOrigins))
+   for(const origin of rules[kind].preferOrigins){const match=candidates.find(e=>e.origin===origin);
+    if(match){selected=match;break}}
+  results[kind]=Object.freeze({selected,conflict,alternatives:Object.freeze(candidates)});
+ }
+ return Object.freeze(results);
+}
+module.exports.resolveTemporal=resolveTemporal;
