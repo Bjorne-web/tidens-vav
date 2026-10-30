@@ -71,3 +71,19 @@ assert.equal(classifyTextVariants(['En tolkning','Alternativ beskrivning']).kind
 assert.equal(classifyTextVariants(['','']).kind,'missing');
 assert.equal(classifyTextVariants(['Kort','Kortare annan text']).requiresReview,true);
 console.log('F3 textual variation triage: PASS');
+
+const {normalizeTimeType}=require('./f3-provenance-core.cjs');
+assert.equal(normalizeTimeType('historical-event'),'event');
+assert.equal(normalizeTimeType('text-composition'),'composition');
+assert.equal(normalizeTimeType('material-witness'),'material-witness');
+assert.equal(normalizeTimeType('unrecognized-type'),null);
+const realLabels=resolveTemporal([
+ {origin:'c7-history',timeType:'historical-event',start:-167,end:-160},
+ {origin:'c7-text',timeType:'text-composition',start:-500,end:-300},
+ {origin:'c7-unknown',timeType:'unclear-new-type',start:-100,end:-50}
+]);
+assert.equal(realLabels.event.selected.sourceTimeType,'historical-event');
+assert.equal(realLabels.composition.selected.sourceTimeType,'text-composition');
+assert.equal(realLabels.unclassified.length,1);
+assert.equal(realLabels.unclassified[0].sourceTimeType,'unclear-new-type');
+console.log('F3 actual C7 label mapping and unknown preservation: PASS');
