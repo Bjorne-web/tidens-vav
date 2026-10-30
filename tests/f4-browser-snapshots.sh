@@ -46,3 +46,8 @@ check_catalog(){
 }
 check_catalog catalog-approved-desktop 1440 1000
 check_catalog catalog-approved-mobile 390 844
+
+# The rendered DOM is checked above, but must NOT be included in the download.
+# It repeats the base64-embedded original landscape in each screenshot's DOM.
+rm -f out/f4/screenshots/*-dom.html out/f4/snapshot-test.html
+echo "F4 screenshots retained; temporary DOM diagnostics removed from artifact."
