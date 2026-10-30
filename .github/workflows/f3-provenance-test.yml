@@ -1,0 +1,40 @@
+name: F3 isolated provenance test pilot
+on:
+  pull_request:
+    paths:
+      - 'tests/f3-provenance-core.cjs'
+      - 'tests/f3-provenance-core.test.cjs'
+      - 'tests/f3-real-source-contract.test.cjs'
+      - 'tests/f3-real-adapter-runtime.test.cjs'
+      - 'tests/f3-provenance-gap-audit.test.cjs'
+      - 'tests/f3-actual-overlap-audit.test.cjs'
+      - 'tests/f3-special-layer-runtime.test.cjs'
+      - 'tests/f3-all-c7-layer-chain.test.cjs'
+      - 'tests/f3-editorial-variants-real.test.cjs'
+      - 'tests/f3-evidence-assembly.cjs'
+      - 'tests/f3-evidence-assembly.test.cjs'
+      - 'tests/f3-topic-source-contract.cjs'
+      - 'tests/f3-topic-source-contract.test.cjs'
+      - 'tests/f3-unified-research-contract.cjs'
+      - 'tests/f3-unified-research-contract.test.cjs'
+      - '.github/workflows/f3-provenance-test.yml'
+  workflow_dispatch:
+jobs:
+  provenance-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/f3-provenance-core.test.cjs
+      - run: node tests/f3-real-source-contract.test.cjs
+      - run: node tests/f3-real-adapter-runtime.test.cjs
+      - run: node tests/f3-provenance-gap-audit.test.cjs
+      - run: node tests/f3-actual-overlap-audit.test.cjs
+      - run: node tests/f3-special-layer-runtime.test.cjs
+      - run: node tests/f3-all-c7-layer-chain.test.cjs
+      - run: node tests/f3-editorial-variants-real.test.cjs
+      - run: node tests/f3-evidence-assembly.test.cjs
+      - run: node tests/f3-topic-source-contract.test.cjs
+      - run: node tests/f3-unified-research-contract.test.cjs

@@ -1,0 +1,26 @@
+'use strict';
+// F3 audit of real, versioned source files. Static assertions; no browser/runtime integration.
+const assert=require('node:assert/strict'),fs=require('node:fs');
+const read=p=>fs.readFileSync(p,'utf8');
+const bible=read('data/bible-books-v857.js');
+const books=read('data/apocrypha-books-v891.js');
+const ap=read('data/apokryfer-granskning3.v888.js');
+const c7=read('data/c7-dating-o067-gilgamesh.js');
+const base=read('data/data.generated.js');
+const adapter=read('v897-research-read-model.js');
+assert.match(bible,/"id":"B001","title":"Första Moseboken"/);
+assert.match(bible,/"dateType":"föreslagen tillkomst\/redaktion"/);
+assert.match(books,/"id":\s*"D001",\s*"title":\s*"Tobit"/);
+assert.match(books,/"reviewStatus":\s*"preliminary"/);
+assert.match(ap,/id:'AP001'/);
+assert.match(ap,/AP001–AP006/);
+assert.match(base,/"id":"H045","category":"Arkeologi","title":"Ahab i assyrisk inskrift: Qarqar"/);
+assert.match(base,/"id":"O067","category":"Konflikterande berättelser"/);
+assert.match(c7,/"O067":\s*\{/);
+assert.match(c7,/"timeType":\s*"material-witness"/);
+assert.match(c7,/"start":\s*-700/);
+assert.match(c7,/inte berättelsens uppkomst/);
+assert.match(adapter,/TIDENS_BIBLE_BOOKS/);
+assert.match(adapter,/TIDENS_APOCRYPHA_BOOKS/);
+assert.match(adapter,/provenance/);
+console.log('F3 real-source static contracts: PASS (H045, B001, D001, AP001, O067)');
