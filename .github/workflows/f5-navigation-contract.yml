@@ -1,0 +1,24 @@
+name: F5 isolated navigation contract
+on:
+  pull_request:
+    paths:
+      - 'tests/f5-*'
+      - 'docs/f5-*'
+      - '.github/workflows/f5-navigation-contract.yml'
+  workflow_dispatch:
+jobs:
+  f5-navigation-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate existing C1 context and safe return
+        run: node tests/f5-navigation-contract.test.cjs
+      - name: Validate actual v835 legacy deep-link parser compatibility
+        run: node tests/f5-deeplink-compatibility.test.cjs
+      - name: Preserve F4 read-only reader regressions
+        run: node tests/f4-reader-renderer.test.cjs
+      - name: Preserve F3 common post/topic/source model regressions
+        run: node tests/f3-unified-research-contract.test.cjs
