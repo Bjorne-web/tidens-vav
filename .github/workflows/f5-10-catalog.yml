@@ -1,0 +1,37 @@
+name: F5.10 broad research catalog acceptance
+on:
+  pull_request:
+    paths:
+      - 'tests/f5-10-*'
+      - 'docs/f5-10-*'
+      - '.github/workflows/f5-10-catalog.yml'
+  workflow_dispatch:
+jobs:
+  f5-wide-catalog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Render and classify all real historical and book source registers
+        run: node tests/f5-10-catalog-inventory.cjs
+      - name: Open real F4 articles in full-app copy for broad desktop/mobile/map samples
+        run: bash tests/f5-10-wide-browser.sh
+      - name: Retain F5.9 candidate and staging compatibility
+        run: node tests/f5-9-candidate-regression.test.cjs
+      - name: Retain F4 content and F3 provenance regressions
+        run: |
+          node tests/f4-reader-renderer.test.cjs
+          node tests/f3-unified-research-contract.test.cjs
+      - name: Upload broad catalog inventory and browser audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: f5-10-catalog-acceptance
+          path: |
+            out/f5-10/catalog-inventory.json
+            out/f5-10/catalog-all-items.json
+            out/f5-10/browser-samples.json
+            out/f5-10/wide-browser-audit.json
+          if-no-files-found: warn
