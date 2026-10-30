@@ -1,0 +1,28 @@
+name: F5.13 isolated visual review
+on:
+  pull_request:
+    paths:
+      - 'tests/f5-13-*'
+      - '.github/workflows/f5-13-visual-review.yml'
+  workflow_dispatch:
+jobs:
+  review-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Generate standalone review HTML and record manifest
+        run: node tests/f5-13-generate-preview.cjs
+      - name: Confirm F5.12 and F5.11 regressions
+        run: |
+          node tests/f5-12-undated-reader.test.cjs
+          node tests/f5-11-layered-reader.test.cjs
+      - name: Chromium desktop and mobile open-return checks
+        run: bash tests/f5-13-browser-acceptance.sh
+      - name: Upload isolated HTML for desktop and mobile review
+        uses: actions/upload-artifact@v4
+        with:
+          name: f5-13-review-preview
+          path: out/f5-13/
