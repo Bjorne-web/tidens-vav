@@ -18,8 +18,9 @@ for(const file of ['data/bible-books-v857.js','data/apocrypha-books-v891.js'])
 const books=ctx.window.TIDENS_BIBLE_BOOKS,apocrypha=ctx.window.TIDENS_APOCRYPHA_BOOKS;
 const raw=new Map([...events,...originals,...books,...apocrypha].map(x=>[x.id,x]));
 const rows=reportRows.filter(x=>x.c7DateOrigin||x.significanceOrigin);
-const rendered=[],phaseChecks=[],unclassifiedKept=0,emptyPhaseNotPromoted=0,
+const rendered=[],phaseChecks=[],
  missingUndatedInRenderer=[],noSignificanceSource=[],dateTypeDistribution={};
+let unclassifiedKept=0,emptyPhaseNotPromoted=0;
 const f4Kinds=['event','historical-period','composition','textual-chronology','narrative','material-witness'];
 function normSources(values){return (Array.isArray(values)?values:[]).filter(x=>x&&
   (Array.isArray(x)&&typeof x[1]==='string'||typeof x.url==='string'))}
