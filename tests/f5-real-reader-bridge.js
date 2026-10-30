@@ -201,6 +201,24 @@ function autoTest(){
    }
    events.push('Shift+Tab wrapped within modal');
   }
+  if(scenario==='camera-drift'){
+   const before=getCamera();
+   if(!before||!Number.isFinite(before.lat)||!Number.isFinite(before.lng)){
+    report(false,'Leaflet camera unavailable for negative mutation test');return
+   }
+   if(typeof leafletMap==='undefined'||!leafletMap||typeof leafletMap.setView!=='function'){
+    report(false,'Leaflet setView API unavailable');return
+   }
+   leafletMap.setView([before.lat+0.3,before.lng+0.25],before.zoom,{animate:false});
+   events.push('intentional Leaflet camera move while F4 article open');
+   history.back();
+   setTimeout(()=>{
+    const blocked=document.body.dataset.f5RealResult==='BLOCKED'&&session&&
+      issues.some(x=>x.includes('Unsafe return: map-camera-changed'));
+    if(!blocked)report(false,'Moving Leaflet camera was not detected');
+   },400);
+   return;
+  }
   if(scenario==='interrupted'){
    const control=document.getElementById('navCompare');
    control?.click();
