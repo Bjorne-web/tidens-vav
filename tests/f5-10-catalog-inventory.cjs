@@ -27,6 +27,12 @@ function select(item,origin){
  const layers=[];
  if(cards[item.id])layers.push({id:'sourceCardsV86',fields:cards[item.id]});
  if(research[item.id])layers.push({id:'allOriginalResearchV828',fields:research[item.id]});
+ // Original book registers use "critical"; historical events use "description".
+ // These are existing text fields, not fabricated research summaries.
+ const alias=typeof item.critical==='string'&&item.critical.trim()?'critical':
+  typeof item.description==='string'&&item.description.trim()?'description':null;
+ if(alias)layers.push({id:origin+'.'+item.id+'.'+alias+' (sammanfattningsalias)',
+   fields:{summary:item[alias]}});
  layers.push({id:origin,fields:item});
  return layers;
 }
