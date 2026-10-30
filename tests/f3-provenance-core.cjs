@@ -61,3 +61,16 @@ function resolveScopedField(postId,field,layers,decisions=[]){
  return Object.freeze({...result,decision:rule?'explicit':'unresolved',rationale:rule?.rationale||null});
 }
 module.exports.resolveScopedField=resolveScopedField;
+
+/* This is a textual triage tool, not an expert adjudication of historical claims.
+ * A text difference cannot by itself establish a substantive contradiction. */
+function classifyTextVariants(claims){
+ if(!Array.isArray(claims))throw new TypeError('Claims must be an array');
+ const texts=[...new Set(claims.map(c=>valid(typeof c==='string'?c:c?.value)).filter(Boolean))];
+ if(texts.length<2)return Object.freeze({kind:texts.length?'identical':'missing',requiresReview:false,variants:texts.length});
+ const byLength=[...texts].sort((a,b)=>b.length-a.length);
+ if(byLength.slice(1).every(x=>byLength[0].startsWith(x)))
+  return Object.freeze({kind:'editorial-extension-candidate',requiresReview:true,variants:texts.length});
+ return Object.freeze({kind:'requires-semantic-review',requiresReview:true,variants:texts.length});
+}
+module.exports.classifyTextVariants=classifyTextVariants;
