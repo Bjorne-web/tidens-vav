@@ -22,6 +22,8 @@ jobs:
         run: node tests/f5-real-app-api.test.cjs
       - name: Gate return-state integration on explicit capabilities
         run: node tests/f5-restore-capabilities.test.cjs
+      - name: End-to-end host simulation with actual F4 reader and C1 state
+        run: node tests/f5-open-return-harness.test.cjs
       - name: Preserve F4 read-only reader regressions
         run: node tests/f4-reader-renderer.test.cjs
       - name: Preserve F3 common post/topic/source model regressions
