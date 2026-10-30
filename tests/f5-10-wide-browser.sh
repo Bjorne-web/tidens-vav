@@ -25,6 +25,16 @@ for scenario in desktop mobile map; do
   fi
   echo "F5.10 expanded real corpus: PASS ($scenario)"
 done
+"$CHROME" --headless --no-sandbox --disable-dev-shm-usage --disable-gpu --no-first-run \
+ --virtual-time-budget=20000 --window-size=1450,1000 --dump-dom \
+ 'http://127.0.0.1:8772/f5-10-staging-test.html?f510books=1' \
+ >out/f5-10/books-dom.html 2>out/f5-10/books-chrome.log
+if ! grep -q 'data-f510-books="PASS"' out/f5-10/books-dom.html; then
+ echo 'F5.10 existing Bible/apocrypha readers FAIL'
+ grep -A 30 'id="f510BooksReport"' out/f5-10/books-dom.html | head -40 || true
+ exit 1
+fi
+echo 'F5.10 existing Bible/apocrypha readers: PASS'
 node - <<'NODE'
 const fs=require('node:fs');
 const report={kind:'F5.10 actual-app extended corpus browser acceptance',scenarios:[]};
@@ -37,6 +47,12 @@ for(const scenario of ['desktop','mobile','map']){
  if(!x.ok||!x.originalUnchanged||x.missingCamera>0)throw new Error('F5.10 failed verification: '+JSON.stringify(x));
  report.scenarios.push(x);
 }
+const bookHtml=fs.readFileSync('out/f5-10/books-dom.html','utf8');
+const bookRaw=bookHtml.match(/<pre id="f510BooksReport"[^>]*>([\\s\\S]*?)<\\/pre>/);
+if(!bookRaw)throw new Error('Missing actual book reader report');
+const books=JSON.parse(decode(bookRaw[1]));
+if(!books.ok||books.passed<20)throw new Error('Actual special reader did not cover expected books');
+report.bookSpecialReaders={passed:books.passed,total:books.total,checks:books.checks};
 report.totalOpenAndReturn=report.scenarios.reduce((sum,s)=>sum+s.passed,0);
 fs.writeFileSync('out/f5-10/wide-browser-audit.json',JSON.stringify(report,null,2)+'\n');
 console.log('F5.10 total actual browser open/return checks:',report.totalOpenAndReturn);
