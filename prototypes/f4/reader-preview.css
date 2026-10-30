@@ -101,3 +101,14 @@ button,a{font:inherit}button:focus-visible,a:focus-visible{outline:3px solid #c0
  .approved-area-icon{width:42px;height:42px;flex-basis:42px}
  .f4-area-chip strong{font-size:14px}
 }
+
+/* F4.5: source scope and book-metadata legibility without implying proof. */
+.research-metadata{display:grid;grid-template-columns:minmax(145px,1fr) minmax(0,2fr);column-gap:16px;margin:12px 0}
+.research-metadata dt,.research-metadata dd{padding:7px 0;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+.research-metadata dt{font-size:13px;color:var(--muted);font-weight:700}
+.research-metadata dd{margin:0;font-size:14px}
+.evidence-context{border-left:3px solid #789fa2;background:#f3f7f7;padding:13px 18px;margin:12px 0}
+.evidence-context ul{padding-left:20px}.evidence-context li{margin:12px 0}
+.evidence-context li p{font-size:14px;margin:5px 0}
+.evidence-context li small{display:block;margin:4px 0}
+@media(max-width:680px){.research-metadata{display:block}.research-metadata dt{border-bottom:0;padding-bottom:2px}.research-metadata dd{padding-top:0}}
