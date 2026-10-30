@@ -12,7 +12,7 @@ const diagnostic='<script>document.documentElement.dataset.f4Overflow = document
 fs.writeFileSync('out/f4/snapshot-test.html',source.replace('</body>',diagnostic+'</body>'));
 NODE
 check(){
-  local id="$1",label="$2",w="$3",h="$4",encoded,uri
+  local id="$1" label="$2" w="$3" h="$4" encoded uri
   encoded="$(node -e 'process.stdout.write(encodeURIComponent(process.argv[1]))' "$id")"
   uri="file://$PWD/out/f4/snapshot-test.html?record=$encoded"
   "$CHROME" --headless --no-sandbox --disable-dev-shm-usage --disable-gpu --hide-scrollbars --no-first-run --virtual-time-budget=1600 --window-size="$w,$h" \
