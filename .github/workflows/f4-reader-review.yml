@@ -1,0 +1,27 @@
+name: F4 isolated full research reader
+on:
+  pull_request:
+    paths:
+      - 'tests/f4-**'
+      - 'prototypes/f4/**'
+      - 'docs/f4-**'
+      - '.github/workflows/f4-reader-review.yml'
+  workflow_dispatch:
+jobs:
+  f4-reader-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify F4 isolated reader on real source data
+        run: node tests/f4-reader-renderer.test.cjs
+      - name: Build self-contained F4 review page
+        run: node tests/f4-generate-review.cjs
+      - name: Export review-only HTML
+        uses: actions/upload-artifact@v4
+        with:
+          name: f4-standalone-review
+          path: out/f4/
+          if-no-files-found: error
