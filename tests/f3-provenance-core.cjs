@@ -32,14 +32,16 @@ const timeTypeAliases=Object.freeze({
  event:'event','historical-event':'event',
  composition:'composition','text-composition':'composition',
  narrative:'narrative','narrated-time':'narrative',
- 'material-witness':'material-witness'
+ 'material-witness':'material-witness',
+ 'historical-period':'historical-period',
+ 'textual-chronology':'textual-chronology'
 });
 function normalizeTimeType(type){
  const key=valid(type);
  return key&&Object.prototype.hasOwnProperty.call(timeTypeAliases,key)?timeTypeAliases[key]:null;
 }
 module.exports.normalizeTimeType=normalizeTimeType;
-const timeKinds=Object.freeze(['event','composition','narrative','material-witness']);
+const timeKinds=Object.freeze(['event','historical-period','composition','textual-chronology','narrative','material-witness']);
 function resolveTemporal(entries,rules={}){
  if(!Array.isArray(entries))throw new TypeError('Temporal entries must be an array');
  const results={};
