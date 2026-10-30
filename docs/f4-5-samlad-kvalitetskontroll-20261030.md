@@ -47,3 +47,9 @@ Källan för **B001:s religionshistoriska betydelse** härleds till den fil som 
 
 ## Ändringsskydd
 PR #379 förblir **draft**, och endast `tests/f4-*`, `prototypes/f4/`, `docs/f4-*` och fristående workflow får ändras i detta steg. **Ingen merge, ingen Cloudflare-publicering, inga produktionsändringar, ingen F5-kod** före beställarens uttryckliga godkännande.
+
+
+## Slutlig avstämning av läsbarhet och fältproveniens
+En separat visuell kontroll av de uppdaterade H045- och D001-skärmbilderna visade att tekniska filvägar under artikelinledningen tog onödigt mycket plats, särskilt på mobil. **F4 bevarar fortfarande exakt per-fält-proveniens, men den ligger nu i ett tillgängligt fällbart avsnitt _Visa textfältens ursprung_ under _Källor och ursprung_.** Samma formulering och struktur tillämpas på alla forskningsobjekt som har sådan metadata. Kontrollen skyddar både vetenskaplig spårbarhet och en sammanhängande läsning. Detta är en förbättring i F4:s fristående renderer, inte i appens befintliga produktionsläsare.
+
+**Efterföljande CI- och skärmbildskörning krävs** för slutligt godkännande av just den här layoutjusteringen.
