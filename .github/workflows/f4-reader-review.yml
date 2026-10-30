@@ -19,6 +19,8 @@ jobs:
         run: node tests/f4-reader-renderer.test.cjs
       - name: Build self-contained F4 review page
         run: node tests/f4-generate-review.cjs
+      - name: Browser-render desktop/mobile previews and check for overflow
+        run: bash tests/f4-browser-snapshots.sh
       - name: Export review-only HTML
         uses: actions/upload-artifact@v4
         with:
