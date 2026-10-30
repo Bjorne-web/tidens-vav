@@ -53,3 +53,12 @@ button,a{font:inherit}button:focus-visible,a:focus-visible{outline:3px solid #c0
  .columns>main{padding:17px 18px}
  .section h2{font-size:25px}
 }
+
+/* F4.3: the original four area colors from v887-home-areas.css (not replacements). */
+.reader[data-area="bible"]{--accent:#347ccb}
+.reader[data-area="religion"]{--accent:#9465bf}
+.reader[data-area="history"]{--accent:#259779}
+.reader[data-area="ideas"]{--accent:#b17929}
+.reader .eyebrow,.reader .back,.reader .columns>nav a,.reader .columns>.mobile-toc a{color:var(--accent)}
+.reader .significance{border-left-color:var(--accent)}
+.reader .record-heading:focus-visible{box-shadow:inset 0 -2px 0 var(--accent)}
