@@ -28,7 +28,7 @@ function renderFullReader(r){
    const values=e.temporal[key]?.alternatives||[];
    if(!values.length)continue;
    chronology+='<div class="time-group"><h3>'+esc(label)+'</h3><ul>'+
-    values.map(c=>'<li><strong>'+esc(range(c.start,c.end))+'</strong><small>'+esc(c.origin)+(c.certainty?' · '+esc(c.certainty):'')+'</small></li>').join('')+'</ul></div>';
+    values.map(c=>'<li><strong>'+esc(range(c.start,c.end))+'</strong><small>'+esc(c.origin)+(c.certainty?' · '+esc(c.certainty):'')+'</small>'+(c.rationale?'<p class="muted">'+esc(c.rationale)+'</p>':'')+'</li>').join('')+'</ul></div>';
   }
   if(e.temporal.unclassified?.length)
    chronology+='<div class="time-group caution"><h3>Ursprungsdatering – tidsbegrepp oklart</h3><ul>'+
@@ -44,6 +44,18 @@ function renderFullReader(r){
    (e.data.religion.level?'<p class="muted">'+esc(e.data.religion.level)+'</p>':'')+
    '<p>'+esc(e.data.religion.value)+'</p><small>Ursprung: '+esc(e.data.religion.origin)+'</small></div>');
  if(r.canon)depth.push('<div class="text-block"><h3>Kanon och tradition</h3><p>'+esc(r.canon)+'</p></div>');
+ if(r.genre||r.traditionAttribution||r.dateBasis){
+  const items=[
+   r.genre?['Genre enligt bokregistret',r.genre]:null,
+   r.traditionAttribution?['Traditionell författarangivelse – inte bevisad författare',r.traditionAttribution]:null,
+   r.dateBasis?['Registrerad dateringsgrund',r.dateBasis]:null
+  ].filter(Boolean);
+  depth.push('<div class="text-block"><h3>Texttradition och datering</h3><dl class="research-metadata">'+
+   items.map(([label,value])=>'<dt>'+esc(label)+'</dt><dd>'+esc(value)+'</dd>').join('')+'</dl></div>');
+ }
+ const topicalLinks=Array.isArray(r.relatedIds)?r.relatedIds:[];
+ if(topicalLinks.length)depth.push('<div class="text-block"><h3>Registrerade tematiska hänvisningar</h3><p>'+
+  topicalLinks.map(id=>esc(id)).join(', ')+'</p><p class="muted">Detta är hänvisningar till separata forskningsposter, inte belagda historiska påverkansvägar.</p></div>');
  for(const [key,f] of Object.entries(fields))if(f.conflict)
   depth.push('<div class="caution"><h3>Olika textversioner: '+esc(key)+'</h3><p>En textskillnad är inte automatiskt en vetenskaplig motsägelse.</p><ul>'+
   f.alternatives.map(c=>'<li>'+esc(c.origin)+': '+esc(c.value)+'</li>').join('')+'</ul></div>');
@@ -52,6 +64,19 @@ function renderFullReader(r){
   refs.map(c=>'<li><a target="_blank" rel="noopener noreferrer" href="'+esc(c.url)+'">'+esc(c.title||c.url)+'</a>'+
   (c.origin?'<small>Registrerad i: '+esc(c.origin)+'</small>':'')+'</li>').join('')+'</ul>':
   '<p class="muted">Inga separata källhänvisningar finns i detta underlag.</p>';
+ const sourceDetails=[...(Array.isArray(r.evidenceNotes)?r.evidenceNotes:[]),
+  ...(Array.isArray(r.sourceNotes)?r.sourceNotes:[])].filter(x=>x&&typeof x==='object');
+ const evidenceContext=sourceDetails.length?
+  '<div class="evidence-context"><h3>Källhänvisningarnas uttryckliga räckvidd</h3><p class="muted">Följande beskrivningar följer originalunderlaget. De utgör inte nya oberoende verifieringar.</p><ul>'+
+  sourceDetails.map(x=>'<li><strong>'+esc(x.name||x.title||'Registrerad källa')+'</strong>'+
+   (x.supports?'<p><b>Registrerat stöd:</b> '+esc(x.supports)+'</p>':'')+
+   (x.scope?'<p><b>Räckvidd eller begränsning:</b> '+esc(x.scope)+'</p>':'')+
+   (x.type?'<small>Källkategori i underlaget: '+esc(x.type)+'</small>':'')+
+   (x.verified?'<small>Registrerad kontrolluppgift: '+esc(x.verified)+' (inte en oberoende granskning här)</small>':'')+
+   '</li>').join('')+'</ul></div>':'';
+ const comparativeText=r.primaryReference?
+  '<p class="muted">Bibelhänvisning som jämförelsetext: '+esc(r.primaryReference)+'. Det innebär inte att denna text styrker den utombibliska uppgiften.</p>':'';
+ const note=r.sourceNote?'<p class="muted">Dateringsanteckning i underlaget: '+esc(r.sourceNote)+'</p>':'';
  const sourceContext=e.kind==='source'?
   '<div class="source-metadata"><h3>Källobjektets registrerade uppgifter</h3>'+
   '<dl><dt>Källans typ i originalregistret</dt><dd>'+esc(e.data.sourceKind||'Inte klassificerad')+'</dd>'+
@@ -69,7 +94,7 @@ function renderFullReader(r){
   if(fields[key]?.selected)sections.push([key,title,'<p>'+esc(fields[key].selected.value)+'</p>']);
  if(sourceContext)sections.push(['source-context','Om källan',sourceContext]);
  if(depth.length)sections.push(['research','Fördjupning',depth.join('')]);
- sections.push(['sources','Källor och ursprung',citations]);
+ sections.push(['sources','Källor och ursprung',note+comparativeText+evidenceContext+citations]);
  return '<div class="reader" data-kind="'+esc(e.kind)+'" data-area="'+esc(r.category||'history')+'" data-record="'+esc(id)+'">'+
  '<div class="toolbar"><button type="button" class="back">← Tillbaka till exemplen</button><span>F4 · Fristående test</span></div>'+
  '<header class="record-head"><div class="record-label"><span class="approved-area-icon" aria-hidden="true">'+approvedIcon+'</span><p class="eyebrow">'+esc(id)+' · '+esc(kindText(e))+'</p></div><h1 tabindex="-1" class="record-heading">'+esc(e.title)+'</h1>'+
