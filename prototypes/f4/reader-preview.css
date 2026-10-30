@@ -112,3 +112,12 @@ button,a{font:inherit}button:focus-visible,a:focus-visible{outline:3px solid #c0
 .evidence-context li p{font-size:14px;margin:5px 0}
 .evidence-context li small{display:block;margin:4px 0}
 @media(max-width:680px){.research-metadata{display:block}.research-metadata dt{border-bottom:0;padding-bottom:2px}.research-metadata dd{padding-top:0}}
+
+/* F4 final reading audit: metadata is discoverable but does not crowd the article lead. */
+.provenance-details{margin-top:20px;border:1px solid var(--line);border-radius:8px;background:#f7f9f7;padding:10px 14px;overflow-wrap:anywhere}
+.provenance-details summary{cursor:pointer;color:var(--accent);font-size:14px;font-weight:700;min-height:34px}
+.provenance-details dl{display:grid;grid-template-columns:minmax(120px,1fr) minmax(0,2fr);gap:0 16px;margin:10px 0}
+.provenance-details dt,.provenance-details dd{padding:8px 0;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+.provenance-details dt{color:var(--muted);font-size:13px}
+.provenance-details dd{margin:0;font-size:13px}
+@media(max-width:680px){.provenance-details dl{display:block}.provenance-details dt{border:0;padding-bottom:2px;font-weight:650}.provenance-details dd{padding-top:0}}
