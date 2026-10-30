@@ -28,6 +28,8 @@ jobs:
         run: bash tests/f5-browser-return.sh
       - name: Real application HTML and navigation smoke test (temporary local copy)
         run: bash tests/f5-live-app-browser.sh
+      - name: Test actual app with test-only F4 full-reader overlay and return
+        run: bash tests/f5-real-reader-browser.sh
       - name: Preserve F4 read-only reader regressions
         run: node tests/f4-reader-renderer.test.cjs
       - name: Preserve F3 common post/topic/source model regressions
