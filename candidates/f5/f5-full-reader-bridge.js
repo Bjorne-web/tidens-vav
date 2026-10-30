@@ -84,15 +84,23 @@ function requestClose(){
 }
 function onHistory(){
  if(!session)return;
+ session.historyPopped=true;
+ if(session.phase==='keep-current-pending'){finish('keep-current');return}
  const reason=changed();if(reason){block(reason);return}
  finish('restored-original');
 }
 function keepCurrent(){
  if(!session||session.phase!=='blocked')return false;
- return finish('keep-current');
+ if(session.historyPopped)return finish('keep-current');
+ session.phase='keep-current-pending';
+ history.back();return true;
 }
 function continueReading(){
  if(!session||session.phase!=='blocked')return false;
+ if(session.historyPopped){
+  history.pushState({f5Candidate:true,serial:++serial},'',session.url);
+  session.historyPopped=false;
+ }
  warning.hidden=true;session.phase='reading';close.focus({preventScroll:true});return true;
 }
 close.addEventListener('click',requestClose);
