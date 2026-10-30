@@ -87,3 +87,13 @@ assert.equal(realLabels.composition.selected.sourceTimeType,'text-composition');
 assert.equal(realLabels.unclassified.length,1);
 assert.equal(realLabels.unclassified[0].sourceTimeType,'unclear-new-type');
 console.log('F3 actual C7 label mapping and unknown preservation: PASS');
+
+const extraC7=resolveTemporal([
+ {origin:'c7-period',timeType:'historical-period',start:-300,end:-100},
+ {origin:'c7-textorder',timeType:'textual-chronology',start:-700,end:-500}
+]);
+assert.equal(extraC7['historical-period'].selected.sourceTimeType,'historical-period');
+assert.equal(extraC7['textual-chronology'].selected.sourceTimeType,'textual-chronology');
+assert.equal(extraC7.event.selected,null,'Historical periods must not silently become events');
+assert.equal(extraC7.composition.selected,null,'Textual sequence must not silently become a composition date');
+console.log('F3 additional C7 semantic time categories: PASS');
