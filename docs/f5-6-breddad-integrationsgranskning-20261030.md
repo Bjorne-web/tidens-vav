@@ -23,6 +23,11 @@ F5.5 visade att fyra verkliga F4-artiklar kunde öppnas och stängas i en tillf�
 5. Den verifierade `v897`-proveniensbuggen, specialläsarnas fulla täckning och bredare C7-granskning är fortfarande kvar. Ingen ny forskningsslutsats eller källdatering har utförts här.
 6. Inga produktionsknappar har ändrats, och HTML-testfilen genereras/raderas inom CI. **F5.6 är ett förstärkt testunderlag, inte slutlig produktionsklarhet.**
 
+## Diagnostik av fullappskörningar
+Ett av de tidiga testförsöken avslutades innan Chrome hann genomföra ett Explore-scenario; dokumentet visade då bara texten `Manuell testvärd redo`. Den efterföljande kompletta körningen passerade samtliga 17 scenarier. F5.6 har därför fått en utökad Chromium-tidsbudget och skriver en **explicit kameraprovningsstatus** till `return-audit.json` för varje lyckad återgång.
+
+Rapporten skiljer på **AVAILABLE** (Leaflet-centrum/zoom kunde faktiskt avläsas och jämföras) och **UNAVAILABLE** (ingen verifierbar kamera, så två `null`-värden får inte betraktas som ett verkligt kartrestore-test). Antalet kameramätningar ska anges från den senaste genomförda körningen, inte antas.
+
 ## Acceptans för den isolerade fasen
 - Senaste F5-workflow + övriga CI måste vara godkända.
 - Varje av de 17 scenarierna ska rapporteras i `return-audit.json`, inklusive att det negativa samtidighetsfallet **blockeras**.
