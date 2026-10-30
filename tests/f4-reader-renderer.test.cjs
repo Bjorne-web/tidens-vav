@@ -124,10 +124,14 @@ console.log('F4.5 provenance and scholarly scope: PASS – historical source sup
 
 const h045Origin=records[0].overviewOrigin;
 assert.equal(h045Origin,'data/data.generated.js:events.H045.description');
-assert(renderFullReader(records[0]).includes('Inledningens ursprung: '+h045Origin),
- 'Historical introduction must expose exact original field provenance');
-assert(renderFullReader(records[0]).includes('Textunderlag: sourceCardsV86'),
- 'Selected historical context and interpretation need their source layer');
+assert(renderFullReader(records[0]).includes('Visa textfältens ursprung'),
+ 'Historical reader must expose an accessible provenance disclosure');
+assert(renderFullReader(records[0]).includes(h045Origin),
+ 'Historical introduction must expose exact origin when details are expanded');
+assert(!renderFullReader(records[0]).includes('Inledningens ursprung: '),
+ 'Technical provenance must not clutter the research article header');
+assert(renderFullReader(records[0]).includes('<dd>sourceCardsV86</dd>'),
+ 'Selected historical context and interpretation must retain the source layer in details');
 assert.equal(records[1].entity.data.religion.origin,'data/c7-religionshistorisk-betydelse.v890.js',
  'C7 provenance must name the actual significance file despite loading the full chain');
 assert(renderFullReader(records[1]).includes('data/c7-religionshistorisk-betydelse.v890.js'));
@@ -141,3 +145,9 @@ assert(another.includes('Ett test av läskontraktet')&&another.includes('Text en
  'Full reader must work for different topic IDs, not just six selected hardcoded IDs');
 assert(!another.includes('Tid och datering'),'Generic philosophical topic has no fabricated event year');
 console.log('F4 quality: full C7 sequence provenance and generic reader test – PASS');
+
+assert(html.includes('class="provenance-details"'),'Field provenance needs a discoverable disclosure');
+assert(html.includes('class="record-heading"'),'Main heading remains accessible after metadata move');
+assert(!renderFullReader(records[2]).includes('Inledningens ursprung: data/'),
+ 'Raw registry paths must not dominate mobile research article lead');
+console.log('F4 final reading audit: field origins retained without intrusive file paths in the header – PASS');
