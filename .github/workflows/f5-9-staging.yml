@@ -1,0 +1,38 @@
+name: F5.9 unpublished staging candidate
+on:
+  pull_request:
+    paths:
+      - 'candidates/f5/**'
+      - 'tests/f5-9-*'
+      - 'docs/f5-9-*'
+      - '.github/workflows/f5-9-staging.yml'
+  workflow_dispatch:
+jobs:
+  staging-candidate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check opt-in production-shaped candidate and unchanged active model
+        run: node tests/f5-9-candidate-regression.test.cjs
+      - name: Re-run vetted provenance candidate comparison
+        run: node tests/f5-8-provenance-candidate.test.cjs
+      - name: Re-run safety state-machine regression
+        run: node tests/f5-8-safe-return.test.cjs
+      - name: Exercise opt-in full reader in copied actual app with Chromium
+        run: bash tests/f5-9-staging-browser.sh
+      - name: Preserve F4 reader quality
+        run: node tests/f4-reader-renderer.test.cjs
+      - name: Preserve F3 common model
+        run: node tests/f3-unified-research-contract.test.cjs
+      - name: Upload staging audit and candidate files
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: f5-9-unpublished-staging-audit
+          path: |
+            out/f5-9/staging-audit.json
+            candidates/f5/
+          if-no-files-found: warn
