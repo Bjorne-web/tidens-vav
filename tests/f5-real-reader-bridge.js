@@ -111,6 +111,9 @@ function finish(reason){
  try{saved.priorFocus?.focus?.({preventScroll:true})}catch(_){}
  const after=normalize(canonical());
  const cam=getCamera();
+ const cameraMeasured=[saved.priorCamera,cam].every(c=>c&&
+  Number.isFinite(c.lat)&&Number.isFinite(c.lng)&&Number.isFinite(c.zoom));
+ events.push('camera measurement '+(cameraMeasured?'AVAILABLE':'UNAVAILABLE'));
  const mapYear=typeof state!=='undefined'?state.mapYear:null;
  const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
  const checks={sameC1:same(after,saved.before),sameScroll:window.scrollY===saved.priorScroll.y,
