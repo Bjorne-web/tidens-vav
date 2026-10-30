@@ -2,6 +2,7 @@
 // Pure F4 renderer. Only consumes F3 model objects and escapes all displayed source text.
 const fs=require('node:fs');
 const {buildFixtures}=require('./f4-reader-fixtures.cjs');
+const {originalAreaIcons,originalHeroDataUri}=require('./f4-original-design-assets.cjs');
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const year=n=>n<0?Math.abs(n)+' f.Kr.':n>0?n+' e.Kr.':'år 0 (astronomisk notation)';
 const range=(a,b)=>a===b?year(a):year(a)+' – '+year(b);
@@ -15,6 +16,8 @@ function sec(key,title,body,id){
 function renderFullReader(r){
  if(!r?.entity?.id)throw new TypeError('F4 reader needs a record');
  const e=r.entity,id=e.id,fields=e.data.fields||{};
+ const area=r.category==='ideas'?'philosophy':r.category||'history';
+ const approvedIcon=originalAreaIcons()[area]||originalAreaIcons().history;
  const intro=e.kind==='topic'?e.data.description:(r.description||fields.summary?.selected?.value||'');
  // A short post must not repeat precisely the same summary in its title and article.
  const distinctSummary=fields.summary?.selected?.value&&
@@ -69,7 +72,7 @@ function renderFullReader(r){
  sections.push(['sources','Källor och ursprung',citations]);
  return '<div class="reader" data-kind="'+esc(e.kind)+'" data-area="'+esc(r.category||'history')+'" data-record="'+esc(id)+'">'+
  '<div class="toolbar"><button type="button" class="back">← Tillbaka till exemplen</button><span>F4 · Fristående test</span></div>'+
- '<header class="record-head"><p class="eyebrow">'+esc(id)+' · '+esc(kindText(e))+'</p><h1 tabindex="-1" class="record-heading">'+esc(e.title)+'</h1>'+
+ '<header class="record-head"><div class="record-label"><span class="approved-area-icon" aria-hidden="true">'+approvedIcon+'</span><p class="eyebrow">'+esc(id)+' · '+esc(kindText(e))+'</p></div><h1 tabindex="-1" class="record-heading">'+esc(e.title)+'</h1>'+
  (e.reviewStatus?'<p class="status">'+esc(e.reviewStatus==='preliminary'?'Preliminärt forskningsunderlag':e.reviewStatus==='draft'?'Forskningsutkast':e.reviewStatus)+'</p>':'')+
  (intro?'<p class="lede">'+esc(intro)+'</p>':'')+
  '<p class="review-note">'+(e.reviewStatus?
@@ -84,7 +87,11 @@ function renderFullReader(r){
  '<p class="muted">Samband är inte automatiskt belagda historiska påverkansvägar.</p></aside></div></div>';
 }
 function renderReviewPage(records=buildFixtures()){
- const css=fs.readFileSync('prototypes/f4/reader-preview.css','utf8');
+ const css=fs.readFileSync('prototypes/f4/reader-preview.css','utf8').replace('__F4_APPROVED_HERO_IMAGE__',originalHeroDataUri());
+ if(css.includes('__F4_APPROVED_HERO_IMAGE__'))throw new Error('Approved landscape image token not replaced');
+ const icons=originalAreaIcons();
+ const areas=[['bible','Bibeln'],['religion','Religioner'],['history','Världshistoria'],['philosophy','Filosofi']];
+ const areasMarkup=areas.map(([id,label])=>'<div class="f4-area-chip f4-area-'+id+'"><span class="approved-area-icon" aria-hidden="true">'+icons[id]+'</span><strong>'+esc(label)+'</strong></div>').join('');
  const options=records.map(r=>'<button class="option" data-open="'+esc(r.entity.id)+'" type="button"><strong>'+esc(r.entity.title)+'</strong><small>'+esc(r.entity.id+' · '+kindText(r.entity))+'</small></button>').join('');
  const panels=records.map(r=>'<div class="panel" data-panel="'+esc(r.entity.id)+'" hidden>'+renderFullReader(r)+'</div>').join('');
  const script="(function(){'use strict';const catalog=document.getElementById('catalog'),panels=[...document.querySelectorAll('.panel')];"+
@@ -101,7 +108,7 @@ function renderReviewPage(records=buildFixtures()){
  '<title>Tidens väv – F4 granskningsprototyp</title><style>'+css+'</style></head><body>'+
  '<header class="top"><strong>Tidens väv</strong><span>F4 · FULLSTÄNDIG FORSKNINGSVY</span></header>'+
  '<div class="notice">Separat granskningsprototyp. Inte en del av den publicerade appen.</div>'+
- '<section id="catalog" class="catalog"><h1>Utforska forskningsvyn</h1><p>Välj en verklig post från befintliga underlag. Granska innehåll, källor och datumtyper. Återgång till tidslinje och appnavigation utvecklas separat i F5.</p>'+
+ '<section id="catalog" class="catalog"><div class="f4-approved-hero"><div class="f4-hero-brand"><strong>Tidens väv</strong><span>Historien, texterna och deras sammanhang</span></div><div class="f4-hero-copy"><p>FORSKNING OCH KÄLLOR</p><h1>Fördjupning utan att tappa sammanhanget</h1><span>En fullständig forskningsvy som visar belägg, dateringar och tolkningar var för sig.</span></div></div><div class="f4-area-key" aria-label="Fyra kunskapsområden">'+areasMarkup+'</div><h2>Utforska forskningsvyn</h2><p>Välj en verklig post från befintliga underlag. Granska innehåll, källor och datumtyper. Återgång till tidslinje och appnavigation utvecklas separat i F5.</p>'+
  '<div class="options">'+options+'</div></section>'+panels+'<script>'+script+'</script></body></html>';
 }
 module.exports={esc,renderFullReader,renderReviewPage};
