@@ -52,18 +52,22 @@ function buildFixtures(){
   key:good.key,label:good.heading,description:good.intro,
   sections:good.sections.map(x=>({...x,origin:'v889-research-tracks.js'})),
   relations:good.links.map(x=>({to:x.id,relationType:'links-post',rationale:x.label,origin:'v889-research-tracks.js'})),
-  references:good.sources.map(x=>({...x,origin:'v889-research-tracks.js'})),reviewStatus:'draft'});
+  references:good.sources.map(x=>({...x,origin:'v889-research-tracks.js'}))});
  const ref=ar.sources[0];assert(ref);
  const source=assembleResearchObject('source',{title:ref.name,url:ref.url,
   provenance:'data/data.generated.js:archaeologyCasesV818.A01.sources',sourceKind:ref.type,
   uses:[{targetId:'archaeology-case:A01',supports:ref.supports,origin:'archaeologyCasesV818.A01.sources'}]});
  const entries=[
-  {entity:h,category:'history',description:ev.description,sourceNote:ev.dating},
-  {entity:b,category:'bible',description:bible.critical,narrative:bible.narrativeTime},
-  {entity:d,category:'bible',description:tobit.critical,narrative:tobit.narrativeTime,canon:tobit.canon},
-  {entity:o,category:'religion',description:old.dating},
+  {entity:h,category:'history',description:ev.description,sourceNote:ev.dating,
+    evidenceNotes:cards.H045.sources,primaryReference:ev.bible},
+  {entity:b,category:'bible',description:bible.critical,narrative:bible.narrativeTime,
+    sourceNotes:bible.sources,genre:bible.genre,traditionAttribution:bible.attributed,dateBasis:bible.dateType},
+  {entity:d,category:'bible',description:tobit.critical,narrative:tobit.narrativeTime,canon:tobit.canon,
+    sourceNotes:tobit.sources,genre:tobit.genre,traditionAttribution:tobit.attributed,
+    dateBasis:tobit.dateType,relatedIds:tobit.related?[tobit.related]:[]},
+  {entity:o,category:'religion',description:old.dating,sourceNotes:research.O067.sources},
   {entity:topic,category:'ideas'},
-  {entity:source,category:'history'}];
+  {entity:source,category:'history',evidenceNotes:ar.sources}];
  return entries;
 }
 module.exports={buildFixtures};
