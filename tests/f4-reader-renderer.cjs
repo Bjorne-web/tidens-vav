@@ -46,6 +46,12 @@ function renderFullReader(r){
   refs.map(c=>'<li><a target="_blank" rel="noopener noreferrer" href="'+esc(c.url)+'">'+esc(c.title||c.url)+'</a>'+
   (c.origin?'<small>Registrerad i: '+esc(c.origin)+'</small>':'')+'</li>').join('')+'</ul>':
   '<p class="muted">Inga separata källhänvisningar finns i detta underlag.</p>';
+ const sourceContext=e.kind==='source'?
+  '<div class="source-metadata"><h3>Källobjektets registrerade uppgifter</h3>'+
+  '<dl><dt>Källans typ i originalregistret</dt><dd>'+esc(e.data.sourceKind||'Inte klassificerad')+'</dd>'+
+  '<dt>Registrerad proveniens</dt><dd>'+esc(e.data.provenance||'Inte angiven')+'</dd>'+
+  '<dt>Vetenskaplig granskning</dt><dd>Inte verifierad genom denna referenspost</dd></dl>'+
+  '<p class="muted">En musei- eller forskningslänk är inte automatiskt bevis för varje påstående den används till.</p></div>':'';
  const related=(e.relations||[]).length?'<ul>'+e.relations.map(x=>
   '<li><strong>'+esc(x.to)+'</strong><p>'+esc(x.rationale||x.relationType)+'</p></li>').join('')+'</ul>':
   '<p class="muted">Inga angivna samband i detta underlag.</p>';
@@ -53,15 +59,21 @@ function renderFullReader(r){
   ['time','Tid och datering',chronology]];
  for(const [key,title] of [['context','Historiskt sammanhang'],['impact','Betydelse och samband'],['limits','Begränsningar']])
   if(fields[key]?.selected)sections.push([key,title,'<p>'+esc(fields[key].selected.value)+'</p>']);
+ if(sourceContext)sections.push(['source-context','Om källan',sourceContext]);
  if(depth.length)sections.push(['research','Fördjupning',depth.join('')]);
  sections.push(['sources','Källor och ursprung',citations]);
  return '<div class="reader" data-kind="'+esc(e.kind)+'" data-record="'+esc(id)+'">'+
  '<div class="toolbar"><button type="button" class="back">← Tillbaka till exemplen</button><span>F4 · Fristående test</span></div>'+
- '<header class="record-head"><p class="eyebrow">'+esc(id)+' · '+esc(kindText(e))+'</p><h1>'+esc(e.title)+'</h1>'+
+ '<header class="record-head"><p class="eyebrow">'+esc(id)+' · '+esc(kindText(e))+'</p><h1 tabindex="-1" class="record-heading">'+esc(e.title)+'</h1>'+
  (e.reviewStatus?'<p class="status">'+esc(e.reviewStatus==='preliminary'?'Preliminärt forskningsunderlag':e.reviewStatus)+'</p>':'')+
- (intro?'<p class="lede">'+esc(intro)+'</p>':'')+'</header>'+
- '<div class="columns"><nav aria-label="Innehåll"><strong>INNEHÅLL</strong>'+
+ (intro?'<p class="lede">'+esc(intro)+'</p>':'')+
+ '<p class="review-note">'+(e.reviewStatus?
+   'Statusen beskriver underlagets registrerade forskningsläge och innebär inte slutlig källgranskning.':
+   'Forskningsstatus är inte uttryckligen fastställd för detta objekt i den gemensamma testmodellen.')+'</p></header>'+
+ '<div class="columns"><nav class="desktop-toc" aria-label="Innehåll"><strong>INNEHÅLL</strong>'+
  sections.map(([k,t])=>'<a href="#'+esc(id+'-'+k)+'">'+esc(t)+'</a>').join('')+'</nav>'+
+ '<details class="mobile-toc"><summary>Välj avsnitt</summary><nav aria-label="Innehåll på mobil">'+
+ sections.map(([k,t])=>'<a href="#'+esc(id+'-'+k)+'">'+esc(t)+'</a>').join('')+'</nav></details>'+
  '<main>'+sections.map(([k,t,h])=>sec(k,t,h,id)).join('')+'</main>'+
  '<aside aria-label="Samband"><h2>Samband</h2>'+related+
  '<p class="muted">Samband är inte automatiskt belagda historiska påverkansvägar.</p></aside></div></div>';
@@ -71,9 +83,15 @@ function renderReviewPage(records=buildFixtures()){
  const options=records.map(r=>'<button class="option" data-open="'+esc(r.entity.id)+'" type="button"><strong>'+esc(r.entity.title)+'</strong><small>'+esc(r.entity.id+' · '+kindText(r.entity))+'</small></button>').join('');
  const panels=records.map(r=>'<div class="panel" data-panel="'+esc(r.entity.id)+'" hidden>'+renderFullReader(r)+'</div>').join('');
  const script="(function(){'use strict';const catalog=document.getElementById('catalog'),panels=[...document.querySelectorAll('.panel')];"+
- "function back(){catalog.hidden=false;panels.forEach(p=>p.hidden=true);window.scrollTo(0,0);document.querySelector('.option')?.focus();}"+
- "for(const b of document.querySelectorAll('.option'))b.addEventListener('click',()=>{catalog.hidden=true;panels.forEach(p=>p.hidden=p.dataset.panel!==b.dataset.open);window.scrollTo(0,0);});"+
- "for(const b of document.querySelectorAll('.back'))b.addEventListener('click',back);back();})();";
+ "let trigger=null,scrollY=0;"+
+ "function show(id,button){const found=panels.find(p=>p.dataset.panel===id);if(!found)return;trigger=button||null;scrollY=window.scrollY;catalog.hidden=true;panels.forEach(p=>p.hidden=p!==found);window.scrollTo(0,0);found.querySelector('.record-heading')?.focus({preventScroll:true});}"+
+ "function back(){panels.forEach(p=>p.hidden=true);catalog.hidden=false;window.scrollTo(0,scrollY);(trigger||document.querySelector('.option'))?.focus({preventScroll:true});}"+
+ "for(const b of document.querySelectorAll('.option'))b.addEventListener('click',()=>show(b.dataset.open,b));"+
+ "for(const b of document.querySelectorAll('.back'))b.addEventListener('click',back);"+
+ "for(const link of document.querySelectorAll('.mobile-toc a'))link.addEventListener('click',()=>{link.closest('details').open=false;});"+
+ "document.addEventListener('keydown',event=>{if(event.key==='Escape'&&catalog.hidden){event.preventDefault();back();}});"+
+ "const params=new URLSearchParams(location.search),requested=params.get('record');if(requested&&panels.some(p=>p.dataset.panel===requested)){show(requested,null);}"+
+ "})();";
  return '<!doctype html><html lang="sv"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'+
  '<title>Tidens väv – F4 granskningsprototyp</title><style>'+css+'</style></head><body>'+
  '<header class="top"><strong>Tidens väv</strong><span>F4 · FULLSTÄNDIG FORSKNINGSVY</span></header>'+
