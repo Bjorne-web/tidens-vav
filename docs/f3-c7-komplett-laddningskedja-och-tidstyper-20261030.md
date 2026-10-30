@@ -22,6 +22,18 @@ Tidigare F3-testkod utgick från `event` och `composition`. Verkliga C7-filer an
 
 **Både originalbeteckning och normaliserad kategori behålls.** Okända `timeType`-värden hamnar i en särskild lista `unclassified` – de kastas inte bort och förvandlas inte automatiskt till historiska händelser. Full täckning kräver inspektion av samtliga råa C7-typer innan produktionskoppling.
 
+## 2.1 Verifierat utfall från verklig GitHub Actions-körning
+Det separata F3-jobbet i PR #378 slutfördes 30 oktober med följande resultat:
+- **37** religionshistoriska C7-filer lästes; **202** unika poster fanns kvar efter kedjan, **0** innehållsöverskrivningar mellan filerna.
+- **78** C7-dateringsfiler lästes; **82** unika post-ID:n identifierades i registren.
+- **78** daterade faser rapporterades. De råa tidsbeteckningarna var: `historical-event` **41**, `historical-period` **2**, `material-witness` **25**, `text-composition` **9**, `textual-chronology` **1**.
+- De två sistnämnda specialfallen `historical-period` och `textual-chronology` har därefter förts in som **egna** semantiska kategorier i F3-testmodellen, inte blandats ihop med händelse- eller tillkomstår. Senaste ändringen kräver egen grön CI-körning.
+- Auditens **202** gäller C7:s sammanfogade betydelseposter, inte en uppskattning av hur många historiska händelser som finns totalt i appen.
+
+**Viktigt fel i befintlig läsmodell:** `v897-research-read-model.js` skapar `postProvenance=Object.freeze({...provenance})` **innan** den anropar `pick()` för sammanfattning, kontext, betydelse och begränsningar. Det exporterade objektet saknar därför fältens faktiskt valda ursprung, även om `pick()` internt registrerar dessa. Felet bekräftades med verkliga O073/O030-poster i det separata F3-testet. Produktionskoden är ännu inte ändrad.
+
+**Ny isolerad F3-pilot:** `tests/f3-evidence-assembly.cjs` bygger ett read-only-forskningsobjekt med separata källanspråk, bevarade omarkerade originaldateringar och typade C7-faser. Tester använder O067, B001 och O030 från aktuella datafiler. Detta är **inte** en fullständig produktionsadapter och läser ännu inte alla objekttyper/fält.
+
 ## 3. Textvariation är inte automatiskt forskningskonflikt
 `classifyTextVariants` i det isolerade testbiblioteket använder tre konservativa utfall:
 1. `identical`: texten är densamma i jämförda lager.
