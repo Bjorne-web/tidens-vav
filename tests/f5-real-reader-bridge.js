@@ -158,7 +158,7 @@ function autoTest(){
  const scenario=params.get('scenario');
  if(!params.has('autotest'))return;
  const mobile=scenario==='mobile';
- const current=scenario==='back'?'map':scenario==='bible'?'timeline':scenario==='apocrypha'?'timeline':scenario;
+ const current=(scenario==='back'||scenario==='camera-drift')?'map':scenario==='bible'?'timeline':scenario==='apocrypha'?'timeline':scenario;
  const expected=['timeline','map','explore','compare','research'].includes(current)?current:'timeline';
  const navButton=document.getElementById('nav'+expected[0].toUpperCase()+expected.slice(1));
  if(!navButton){report(false,'Missing actual app navigation: '+expected);return}
