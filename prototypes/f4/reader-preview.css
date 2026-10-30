@@ -17,7 +17,7 @@ button,a{font:inherit}button:focus-visible,a:focus-visible{outline:3px solid #c0
 [hidden]{display:none!important}
 .columns>.mobile-toc{display:none}
 .review-note{font-size:12px;color:var(--muted);max-width:750px;border-top:1px solid var(--line);padding-top:10px;margin-top:17px}
-.record-heading:focus{outline:2px solid var(--accent);outline-offset:4px}
+.record-heading:focus{outline:none}.record-heading:focus-visible{box-shadow:inset 0 -2px 0 var(--accent)}
 .source-metadata{background:var(--soft);border-left:3px solid #77a49e;padding:16px 20px;overflow-wrap:anywhere}
 .source-metadata dl{display:grid;grid-template-columns:minmax(135px,1fr) minmax(0,1.6fr);column-gap:20px;margin:12px 0}
 .source-metadata dt{font-size:13px;color:var(--muted);padding:8px 0;border-bottom:1px solid var(--line)}
@@ -36,3 +36,20 @@ button,a{font:inherit}button:focus-visible,a:focus-visible{outline:3px solid #c0
  .columns>main,.columns>aside{max-width:100%;min-width:0}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* F4.3 visual review: distinguish content from demonstration chrome */
+.top{padding-top:15px;padding-bottom:15px}
+.record-head{padding-top:20px;padding-bottom:22px}
+.record-head .lede{line-height:1.6;max-width:66ch}
+.record-head .review-note{margin-bottom:0}
+.columns>nav a{border-bottom:1px solid transparent}
+.columns>nav a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media(max-width:680px){
+ .record-head h1{font-size:clamp(28px,8.2vw,34px);line-height:1.17;overflow-wrap:anywhere}
+ .record-head .lede{font-size:16px;line-height:1.6}
+ .record-head .eyebrow{font-size:11px}
+ .record-head{padding:18px 19px}
+ .record-head .review-note{padding-top:9px;margin-top:10px}
+ .columns>main{padding:17px 18px}
+ .section h2{font-size:25px}
+}
