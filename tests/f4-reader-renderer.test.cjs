@@ -81,3 +81,21 @@ for(const color of ['#347ccb','#9465bf','#259779','#b17929']){
 }
 assert(renderFullReader(records[4]).includes('Forskningsutkast'),'Translate legacy draft status to Swedish');
 console.log('F4.3 original area colors and Swedish status: PASS');
+
+const {originalAreaIcons,originalHeroDataUri}=require('./f4-original-design-assets.cjs');
+const originalIcons=originalAreaIcons();
+for(const k of ['bible','religion','history','philosophy']){
+ assert(originalIcons[k].startsWith('<svg '),'Missing approved '+k+' original icon');
+ assert(html.includes(originalIcons[k]),'Approved original SVG not present for '+k);
+}
+const hero=originalHeroDataUri();
+assert(hero.startsWith('data:image/png;base64,'),'Original landscape was not embedded as PNG');
+assert(html.includes(hero),'Review HTML does not contain the original Start-hero.png image');
+assert(!html.includes('__F4_APPROVED_HERO_IMAGE__'),'Hero placeholder must be resolved');
+assert(html.includes('class="f4-approved-hero"'),'Landscape context header missing');
+assert.equal((html.match(/class="f4-area-chip /g)||[]).length,4,'Four real category cards must render');
+assert(html.includes('aria-label="Fyra kunskapsområden"'));
+assert(!html.includes('class="f4-area-chip f4-area-bible" role="button"'),'Area chips should not pretend to be navigational tabs');
+assert(!html.includes('id="tvPrimaryNav"'),'Preview must not create an independent seventh main navigation');
+assert(html.includes('class="record-label"'),'Article should include its original category SVG');
+console.log('F4.4 approved landscape and original SVG icon parity: PASS');
