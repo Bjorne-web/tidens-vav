@@ -6,7 +6,7 @@
 const articles=window.__F5TestOnlyArticles||{};
 const articleCss=window.__F5TestOnlyReaderCss||'';
 const issues=[],events=[];
-const idPattern=/^(H045|O067|B001|D001)$/;
+const supportedId=id=>Object.hasOwn(articles,id)&&typeof articles[id]==='string';
 const canonical=()=>window.TidensViewContextC1?.snapshot?.()||null;
 const report=(ok,message)=>{
  document.body.dataset.f5RealResult=ok?'PASS':'FAIL';
@@ -68,7 +68,7 @@ messages.innerHTML='<strong id="f5RealResult">Manuell testvärd redo</strong><pr
 document.body.append(messages);
 let session=null,sequence=0;
 function open(id){
- if(session||!idPattern.test(id)||typeof articles[id]!=='string')return false;
+ if(session||typeof id!=='string'||!supportedId(id))return false;
  const before=normalize(canonical());
  if(!before)return false;
  const priorFocus=document.activeElement;
@@ -90,6 +90,21 @@ function open(id){
 }
 function finish(reason){
  if(!session)return false;
+ // F5.6 fail-closed: a different underlying app view/selection/filter or
+ // moving Leaflet camera while the article is open must never be reported as
+ // a successful return merely because this test overlay disappears.
+ const actual=normalize(canonical());
+ const actualCamera=getCamera();
+ const sameContext=JSON.stringify(actual)===JSON.stringify(session.before);
+ const sameCamera=JSON.stringify(actualCamera)===JSON.stringify(session.priorCamera);
+ if(!sameContext||!sameCamera){
+  const reasonCode=!sameContext?'app-navigation-changed':'map-camera-changed';
+  issues.push('Unsafe return: '+reasonCode);
+  events.push('blocked '+reasonCode);
+  report(false,'F5.6 blocked return: '+reasonCode);
+  document.body.dataset.f5RealResult='BLOCKED';
+  return false;
+ }
  const saved=session;session=null;
  host.style.display='none';article.replaceChildren();
  window.scrollTo(saved.priorScroll.x,saved.priorScroll.y);
@@ -117,7 +132,20 @@ window.addEventListener('popstate',()=>{
  if(session)finish('popstate');
 });
 document.addEventListener('keydown',event=>{
- if(event.key==='Escape'&&session){event.preventDefault();requestClose()}
+ if(!session)return;
+ if(event.key==='Escape'){event.preventDefault();requestClose();return}
+ if(event.key==='Tab'){
+  const available=[...shadow.querySelectorAll('button:not([disabled]),a[href],input:not([disabled]),[tabindex]:not([tabindex="-1"])')]
+    .filter(el=>el.getClientRects().length>0);
+  if(!available.length){event.preventDefault();closeButton.focus();return}
+  const first=available[0],last=available[available.length-1];
+  const focused=shadow.activeElement;
+  if(event.shiftKey&&(focused===first||!available.includes(focused))){
+   event.preventDefault();last.focus({preventScroll:true});
+  }else if(!event.shiftKey&&(focused===last||!available.includes(focused))){
+   event.preventDefault();first.focus({preventScroll:true});
+  }
+ }
 },true);
 closeButton.addEventListener('click',requestClose);
 launch.addEventListener('click',()=>open('H045'));
@@ -137,13 +165,50 @@ function autoTest(){
  // for asynchronous fitBounds. Wait for those callbacks before recording the
  // user's "starting" camera; otherwise the snapshot races the old tab transition.
  const execute=()=>{
-  const id=scenario==='bible'?'B001':scenario==='apocrypha'?'D001':'H045';
+  const id=scenario==='bible'?'B001':scenario==='apocrypha'?'D001':
+   scenario==='gilgamesh'?'O067':scenario==='topic'?'topic:good':
+   scenario==='source'?'source:https://www.metmuseum.org/art/collection/search/544696':'H045';
   launch.focus({preventScroll:true});
   window.scrollTo(0,100);
+  if(scenario==='invalid'){
+   const urlBefore=location.href,contextBefore=normalize(canonical()),historyBefore=history.length;
+   const refused=!open('BAD/URL')&&!open('H999')&&!open('javascript:alert(1)');
+   const ok=refused&&!session&&host.style.display==='none'&&location.href===urlBefore&&
+     history.length===historyBefore&&JSON.stringify(normalize(canonical()))===JSON.stringify(contextBefore);
+   events.push('invalid ID denied '+ok);
+   report(ok,'Unsupported IDs rejected without navigation or state changes');
+   return;
+  }
   if(!open(id)){report(false,'Could not open F4 article '+id);return}
   if(!article.textContent.includes(id)){report(false,'F4 article not rendered '+id);return}
   if(!shadow.querySelector('.reader[data-record="'+id+'"]')){report(false,'F4 article DOM missing '+id);return}
   events.push('actual app + F4 reader rendered');
+  if(scenario==='double'){
+   if(open('O067')||!session||session.id!=='H045'){
+    report(false,'Nested article was not denied');return
+   }
+   events.push('second article open refused while H045 remains active');
+  }
+  if(scenario==='tab'){
+   const before=shadow.activeElement;
+   document.dispatchEvent(new KeyboardEvent('keydown',{key:'Tab',shiftKey:true,bubbles:true}));
+   const focused=shadow.activeElement;
+   if(!focused||!shadow.contains(focused)||focused===before){
+    report(false,'Keyboard focus not contained in modal');return
+   }
+   events.push('Shift+Tab wrapped within modal');
+  }
+  if(scenario==='interrupted'){
+   const control=document.getElementById('navCompare');
+   control?.click();
+   history.back();
+   setTimeout(()=>{
+    const blocked=document.body.dataset.f5RealResult==='BLOCKED'&&session&&
+     issues.some(x=>x.includes('Unsafe return: app-navigation-changed'));
+    if(!blocked)report(false,'Unsafe app navigation was not blocked');
+   },400);
+   return;
+  }
   if(scenario==='back'){history.back()}
   else if(scenario==='mobile'){document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))}
   else{closeButton.click()}
