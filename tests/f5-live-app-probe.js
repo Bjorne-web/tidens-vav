@@ -29,13 +29,13 @@ function run(){
   }
   try{
    const reader=window.TidensQuickResearchPilot;
-   const beforeQuick=snapshot();
    const keep=c=>({view:c?.view,selectedId:c?.selectedId,
     min:c?.timeRange?.min,max:c?.timeRange?.max,
     categories:[...(c?.filters?.categories||[])],
     evidence:[...(c?.filters?.evidence||[])],
     compareIds:[...(c?.compareIds||[])]});
    document.getElementById('navTimeline')?.click();
+   const beforeQuick=snapshot();
    reader?.open?.('H045');
    const open=reader?.isOpen?.()===true;
    const title=document.getElementById('tvQuickTitle')?.textContent||'';
