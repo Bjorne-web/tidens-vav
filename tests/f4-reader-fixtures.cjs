@@ -69,15 +69,15 @@ function buildFixtures(){
   provenance:'data/data.generated.js:archaeologyCasesV818.A01.sources',sourceKind:ref.type,
   uses:[{targetId:'archaeology-case:A01',supports:ref.supports,origin:'archaeologyCasesV818.A01.sources'}]});
  const entries=[
-  {entity:h,category:'history',description:ev.description,sourceNote:ev.dating,
+  {entity:h,category:'history',description:ev.description,overviewOrigin:'data/data.generated.js:events.H045.description',sourceNote:ev.dating,
     evidenceNotes:cards.H045.sources,primaryReference:ev.bible},
-  {entity:b,category:'bible',description:bible.critical,narrative:bible.narrativeTime,
+  {entity:b,category:'bible',description:bible.critical,overviewOrigin:'data/bible-books-v857.js:B001.critical',narrative:bible.narrativeTime,
     sourceNotes:bible.sources,genre:bible.genre,traditionAttribution:bible.attributed,dateBasis:bible.dateType},
-  {entity:d,category:'bible',description:tobit.critical,narrative:tobit.narrativeTime,canon:tobit.canon,
+  {entity:d,category:'bible',description:tobit.critical,overviewOrigin:'data/apocrypha-books-v891.js:D001.critical',narrative:tobit.narrativeTime,canon:tobit.canon,
     sourceNotes:tobit.sources,genre:tobit.genre,traditionAttribution:tobit.attributed,
     dateBasis:tobit.dateType,relatedIds:tobit.related?[tobit.related]:[]},
-  {entity:o,category:'religion',description:old.dating,sourceNotes:research.O067.sources},
-  {entity:topic,category:'ideas'},
+  {entity:o,category:'religion',description:old.dating,overviewOrigin:'data/data.generated.js:originalEvents.O067.dating',sourceNotes:research.O067.sources},
+  {entity:topic,category:'ideas',overviewOrigin:'v889-research-tracks.js:good.intro'},
   {entity:source,category:'history',evidenceNotes:ar.sources}];
  return entries;
 }
