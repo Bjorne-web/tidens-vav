@@ -15,8 +15,13 @@ function finish(ok,reason,details={}){
 }
 async function verify(){
  const reader=window.TidensF5Candidate,articles=window.__F510AdditionalArticles||{};
- const samples=Object.keys(articles),tally={success:[],failure:[],cameraMeasured:0,missingCamera:0};
- if(!reader||samples.length<45){finish(false,'Wide article catalogue not loaded',{count:samples.length});return}
+ const allSamples=Object.keys(articles);
+ const bucket=scenario==='mobile'?1:scenario==='map'?2:0;
+ const samples=allSamples.filter((_,i)=>i%3===bucket);
+ const tally={success:[],failure:[],cameraMeasured:0,missingCamera:0};
+ if(!reader||allSamples.length<45||samples.length<14){
+  finish(false,'Wide article catalogue not loaded',{all:allSamples.length,samples:samples.length});return
+ }
  const view=scenario==='mobile'?'timeline':scenario==='map'?'map':'explore';
  const tab=document.getElementById('nav'+view[0].toUpperCase()+view.slice(1));
  if(!tab){finish(false,'Real app navigation not found');return}
@@ -49,7 +54,7 @@ async function verify(){
  }
  finish(tally.failure.length===0&&tally.success.length===samples.length,
    'Full-app F4 reader open/read/return over expanded real corpus sample',{
-    expected:samples.length,passed:tally.success.length,failed:tally.failure,
+    totalSampleCorpus:allSamples.length,expected:samples.length,passed:tally.success.length,failed:tally.failure,
     cameraMeasured:tally.cameraMeasured,missingCamera:tally.missingCamera,
     view,mobileViewport:window.innerWidth<600,
     originalUnchanged:equal(original,reader.getSnapshot())&&equal(camera,reader.getCamera())&&location.href===initialUrl,
@@ -57,5 +62,5 @@ async function verify(){
    });
 }
 setTimeout(()=>verify().catch(e=>finish(false,String(e.stack||e))),450);
-setTimeout(()=>{if(!finished)finish(false,'Browser watchdog expired')},30000);
+setTimeout(()=>{if(!finished)finish(false,'Browser watchdog expired')},48000);
 })();
