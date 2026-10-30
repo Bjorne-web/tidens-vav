@@ -1,0 +1,51 @@
+name: F5 isolated navigation contract
+on:
+  pull_request:
+    paths:
+      - 'tests/f5-*'
+      - 'docs/f5-*'
+      - '.github/workflows/f5-navigation-contract.yml'
+  workflow_dispatch:
+jobs:
+  f5-navigation-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate existing C1 context and safe return
+        run: node tests/f5-navigation-contract.test.cjs
+      - name: Validate actual v835 legacy deep-link parser compatibility
+        run: node tests/f5-deeplink-compatibility.test.cjs
+      - name: Test real legacy viewport, map-year, theme and mobile reader API behavior
+        run: node tests/f5-real-app-api.test.cjs
+      - name: Gate return-state integration on explicit capabilities
+        run: node tests/f5-restore-capabilities.test.cjs
+      - name: End-to-end host simulation with actual F4 reader and C1 state
+        run: node tests/f5-open-return-harness.test.cjs
+      - name: Run seven Chromium open/read/return tests in isolated DOM
+        run: bash tests/f5-browser-return.sh
+      - name: Real application HTML and navigation smoke test (temporary local copy)
+        run: bash tests/f5-live-app-browser.sh
+      - name: Test actual app with test-only F4 full-reader overlay and return
+        run: bash tests/f5-real-reader-browser.sh
+      - name: Preserve F4 read-only reader regressions
+        run: node tests/f4-reader-renderer.test.cjs
+      - name: Preserve F3 common post/topic/source model regressions
+        run: node tests/f3-unified-research-contract.test.cjs
+      - name: F5.7 verify source-based acceptance gates and preserve release blockers
+        run: node tests/f5-7-acceptance-gates.test.cjs
+      - name: F5.8 verify unmerged v897 provenance correction against original data
+        run: node tests/f5-8-provenance-candidate.test.cjs
+      - name: F5.8 validate safe history preflight and explicit recovery semantics
+        run: node tests/f5-8-safe-return.test.cjs
+      - name: F5.8 run full app Chromium with substituted provenance candidate
+        run: bash tests/f5-8-real-app-provenance-browser.sh
+      - name: Upload isolated F5 return review page
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: f5-return-isolated-review
+          path: out/f5/
+          if-no-files-found: warn
