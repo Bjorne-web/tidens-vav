@@ -13,6 +13,11 @@ F5.5 skapar en **temporär kopia av riktiga appens `index.html`**, inklusive all
 - `tests/f5-real-reader-browser.sh`: startar den verkliga HTML-kopian på lokal HTTP och provar **nio Chromium-scenarier**: tidslinje, karta, temaspår, Jämför, forskning, mobil, Browser Back, Första Moseboken och Tobit. Alla förutsätter att rätt F4-HTML verkligen öppnats och att uppmätta före-/eftervärden är lika.
 - Separat F5-workflow fortsätter köra F5.1–F5.4, F4 och F3:s regressionstester.
 
+## Riktigt upptäckt kartproblem under F5.5
+Den första fullappskörningen underkändes för kartscenariot trots att C1, scroll, kartår, URL och fokus var identiska före/efter: **kamerans centrum/zoom hade förändrats**. Detta berodde på att appens befintliga `v910-cross-view-c2.js` schemalägger automatisk kartcentrering över **två animation frames** vid byte till kartfliken. Det första testet tog därmed en kamerabild **innan** själva appens pågående kartnavigering var färdig.
+
+Det testbara normalflödet har nu ändrats så att appens två `requestAnimationFrame`-anrop och en kort renderingsbuffert får slutföras före artikelöppningen och före dess kontext fångas. Den senare verkliga Chromium-körningen godkände kartscenariot. **Detta bevisar inte att extremt snabb användarinteraktion mitt under pågående automatcentrering är fullt hanterad.** Framtida riktig integrationsadapter måste förhindra eller koordinera denna övergång, inte enbart förlita sig på en testfördröjning.
+
 ## Designprincip och viktiga avgränsningar
 **F5.5 provar en säkrare möjlig integrationsstrategi: en fullständig forskningsvy som ett överlägg över utgångsvyn, snarare än ett nytt byte av appens globalt valda vy.** Därigenom undviker vi potentiellt förlust av scroll, kartkamera och filter vid själva läsningen. Det betyder inte att vi har löst varje återställningsfall där den underliggande appens globala vy måste bytas.
 
