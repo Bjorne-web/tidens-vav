@@ -63,3 +63,11 @@ const missing=resolveScopedField('B001','summary',layers,[{postId:'B001',field:'
 assert.equal(missing.selected,null);assert.equal(missing.decision,'missing-origin');
 assert.throws(()=>resolveScopedField('B001','summary',layers,[...decisions,...decisions]),/Ambiguous/);
 console.log('F3 scoped provenance decision tests: PASS');
+
+const {classifyTextVariants}=require('./f3-provenance-core.cjs');
+assert.equal(classifyTextVariants(['A','A']).kind,'identical');
+assert.equal(classifyTextVariants(['Text om korg','Text om korg och senare motivjämförelse']).kind,'editorial-extension-candidate');
+assert.equal(classifyTextVariants(['En tolkning','Alternativ beskrivning']).kind,'requires-semantic-review');
+assert.equal(classifyTextVariants(['','']).kind,'missing');
+assert.equal(classifyTextVariants(['Kort','Kortare annan text']).requiresReview,true);
+console.log('F3 textual variation triage: PASS');
