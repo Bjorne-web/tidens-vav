@@ -12,7 +12,22 @@ function table(name){
 }
 function globals(files){
  const ctx=vm.createContext({window:{}});
- for(const f of files)vm.runInContext(read(f),ctx,{filename:f,timeout:2000});
+ const significanceOrigins={};
+ let previous=new Map();
+ for(const file of files){
+  vm.runInContext(read(file),ctx,{filename:file,timeout:2000});
+  if(/^data\/c7-religionshistorisk-betydelse\.v\d+\.js$/.test(file)){
+   const after=ctx.window.TIDENS_C7_RELIGION||{};
+   const updated=new Map();
+   for(const [id,entry] of Object.entries(after)){
+    const value=JSON.stringify(entry);
+    if(previous.get(id)!==value)significanceOrigins[id]=file;
+    updated.set(id,value);
+   }
+   previous=updated;
+  }
+ }
+ ctx.window.__f4SignificanceOrigins=Object.freeze(significanceOrigins);
  return ctx.window;
 }
 // Use the same C7 script order as index.html, not just the earliest significance file.
@@ -42,7 +57,7 @@ function buildFixtures(){
   id:'B001',title:bible.title,reviewStatus:bible.reviewStatus,
   baseTime:{start:bible.start,end:bible.end,timeType:'text-composition',origin:'TIDENS_BIBLE_BOOKS',certainty:bible.reviewStatus},
   sourceLayers:[{id:'TIDENS_BIBLE_BOOKS',fields:{summary:bible.critical}}],
-  significance:w.TIDENS_C7_RELIGION.B001,significanceOrigin:'C7 significance registry (37 files in index.html order)'});
+  significance:w.TIDENS_C7_RELIGION.B001,significanceOrigin:w.__f4SignificanceOrigins.B001});
  const d=assembleResearchObject('post',{
   id:'D001',title:tobit.title,reviewStatus:tobit.reviewStatus,
   baseTime:{start:tobit.start,end:tobit.end,timeType:'text-composition',origin:'TIDENS_APOCRYPHA_BOOKS',certainty:tobit.reviewStatus},
