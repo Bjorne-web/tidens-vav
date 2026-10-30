@@ -15,7 +15,7 @@ function globals(files){
  const significanceOrigins={};
  let previous=new Map();
  for(const file of files){
-  vm.runInContext(read(file),ctx,{filename:file,timeout:2000});
+  vm.runInContext('(function(){\n'+read(file)+'\n})();',ctx,{filename:file,timeout:2000});
   if(/^data\/c7-religionshistorisk-betydelse\.v\d+\.js$/.test(file)){
    const after=ctx.window.TIDENS_C7_RELIGION||{};
    const updated=new Map();
