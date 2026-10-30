@@ -23,7 +23,7 @@ assert(html.includes('Är Gud god?')&&html.includes('Tobit')&&html.includes('Aha
 assert(html.includes('noopener noreferrer'),'External references need safe tab links');
 assert(!html.includes('href="javascript:'),'No executable source URLs');
 for(const r of records)assert(renderFullReader(r).includes('data-record="'+esc(r.entity.id)+'"'));
-const malicious={entity:{...records[0].entity,title:'<script>alert("x")</script>'},...records[0]};
+const malicious={...records[0],entity:{...records[0].entity,title:'<script>alert("x")</script>'}};
 const rendered=renderFullReader(malicious);
 assert(!rendered.includes('<script>alert'),'Untrusted title must be escaped');
 assert(rendered.includes('&lt;script&gt;'),'Unsafe tag must display as text');
