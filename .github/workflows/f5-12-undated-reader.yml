@@ -1,0 +1,18 @@
+name: F5.12 undated explanation candidate audit
+on:
+  pull_request:
+    paths:
+      - 'tests/f5-12-*'
+      - '.github/workflows/f5-12-undated-reader.yml'
+  workflow_dispatch:
+jobs:
+  undated-reader-candidate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/f5-12-undated-reader.test.cjs
+      - run: node tests/f5-11-layered-reader.test.cjs
+      - run: node tests/f4-reader-renderer.test.cjs
