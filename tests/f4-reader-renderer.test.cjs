@@ -121,3 +121,23 @@ const genesis=renderFullReader(records[1]);
 assert(genesis.includes('Traditionell författarangivelse – inte bevisad författare'),'Traditional attribution must not be treated as fact');
 assert(genesis.includes('Mose'),'Retain supplied traditional authorship label as source context');
 console.log('F4.5 provenance and scholarly scope: PASS – historical source support, manuscript limits, apocrypha relations, no fabricated review');
+
+const h045Origin=records[0].overviewOrigin;
+assert.equal(h045Origin,'data/data.generated.js:events.H045.description');
+assert(renderFullReader(records[0]).includes('Inledningens ursprung: '+h045Origin),
+ 'Historical introduction must expose exact original field provenance');
+assert(renderFullReader(records[0]).includes('Textunderlag: sourceCardsV86'),
+ 'Selected historical context and interpretation need their source layer');
+assert.equal(records[1].entity.data.religion.origin,'data/c7-religionshistorisk-betydelse.v890.js',
+ 'C7 provenance must name the actual significance file despite loading the full chain');
+assert(renderFullReader(records[1]).includes('data/c7-religionshistorisk-betydelse.v890.js'));
+assert(!renderFullReader(records[4]).includes('Forskningsutkast'),'No invented topic status');
+const {assembleResearchObject}=require('./f3-unified-research-contract.cjs');
+const sample=assembleResearchObject('topic',{key:'extra-study',label:'Ett test av läskontraktet',
+ description:'Ett ospecifikt forskningsspår',sections:[{title:'Introduktion',body:'Text enligt testunderlag',origin:'test-only'}]});
+const sampleEntry={entity:sample,category:'ideas',overviewOrigin:'test-only'};
+const another=renderFullReader(sampleEntry);
+assert(another.includes('Ett test av läskontraktet')&&another.includes('Text enligt testunderlag'),
+ 'Full reader must work for different topic IDs, not just six selected hardcoded IDs');
+assert(!another.includes('Tid och datering'),'Generic philosophical topic has no fabricated event year');
+console.log('F4 quality: full C7 sequence provenance and generic reader test – PASS');
