@@ -18,9 +18,9 @@ function globals(files){
 // Use the same C7 script order as index.html, not just the earliest significance file.
 function liveC7Scripts(){
  const html=read('index.html');
- const paths=[...html.matchAll(/<script\\s+src="([^"]+)"/g)].map(m=>m[1]);
- const significance=paths.filter(p=>/^data\\/c7-religionshistorisk-betydelse\\.v\\d+\\.js$/.test(p));
- const datings=paths.filter(p=>/^data\\/c7-dating-.+\\.js$/.test(p));
+ const paths=[...html.matchAll(/<script\s+src="([^"]+)"/g)].map(m=>m[1]);
+ const significance=paths.filter(p=>/^data\/c7-religionshistorisk-betydelse\.v\d+\.js$/.test(p));
+ const datings=paths.filter(p=>/^data\/c7-dating-.+\.js$/.test(p));
  assert(significance.length>=37&&datings.length>=78,'Incomplete C7 source list: inspect main app script order');
  return {significance,datings};
 }
