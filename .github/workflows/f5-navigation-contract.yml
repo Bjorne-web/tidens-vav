@@ -24,6 +24,15 @@ jobs:
         run: node tests/f5-restore-capabilities.test.cjs
       - name: End-to-end host simulation with actual F4 reader and C1 state
         run: node tests/f5-open-return-harness.test.cjs
+      - name: Run seven Chromium open/read/return tests in isolated DOM
+        run: bash tests/f5-browser-return.sh
+      - name: Upload isolated F5 return review page
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: f5-return-isolated-review
+          path: out/f5/
+          if-no-files-found: warn
       - name: Preserve F4 read-only reader regressions
         run: node tests/f4-reader-renderer.test.cjs
       - name: Preserve F3 common post/topic/source model regressions
