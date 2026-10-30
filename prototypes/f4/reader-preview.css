@@ -62,3 +62,42 @@ button,a{font:inherit}button:focus-visible,a:focus-visible{outline:3px solid #c0
 .reader .eyebrow,.reader .back,.reader .columns>nav a,.reader .columns>.mobile-toc a{color:var(--accent)}
 .reader .significance{border-left-color:var(--accent)}
 .reader .record-heading:focus-visible{box-shadow:inset 0 -2px 0 var(--accent)}
+
+/* F4.4 uses the SAME approved landscape PNG and area SVGs as main's timeline/start.
+   The landscape is embedded during preview generation for an offline HTML review. */
+.f4-approved-hero{display:flex;flex-direction:column;justify-content:space-between;gap:38px;box-sizing:border-box;min-height:315px;
+ padding:clamp(22px,3vw,40px);border-radius:17px;margin:0 0 18px;color:#fff;overflow:hidden;
+ background:linear-gradient(90deg,rgba(26,37,40,.41),rgba(28,42,48,.05) 80%),
+ url("__F4_APPROVED_HERO_IMAGE__") center 31%/cover no-repeat}
+.f4-hero-brand{display:flex;flex-direction:column;gap:4px;text-shadow:0 2px 12px #0007}
+.f4-hero-brand strong{font:700 clamp(28px,3vw,40px) Georgia,serif}
+.f4-hero-brand span{font:14px Georgia,serif}
+.f4-hero-copy{width:min(720px,100%);padding:14px 17px;background:#183044a6;backdrop-filter:blur(4px);border-radius:11px}
+.f4-hero-copy>p{margin:0;font-size:10px;letter-spacing:.12em;font-weight:800;color:#fff}
+.f4-approved-hero .f4-hero-copy h1{margin:8px 0;color:white;font:700 clamp(23px,3vw,36px)/1.2 system-ui,-apple-system,"Segoe UI",sans-serif}
+.f4-hero-copy>span{font-size:14px;line-height:1.5;color:#fff;display:block}
+.f4-area-key{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:22px}
+.f4-area-chip{--f4-accent:#347ccb;display:flex;align-items:center;gap:13px;min-height:84px;min-width:0;padding:13px;
+ background:#ffffffed;color:#18334b;border:1px solid #ffffffbb;border-bottom:3px solid var(--f4-accent);
+ box-shadow:0 8px 24px #0002;border-radius:12px}
+.f4-area-chip strong{font:700 clamp(14px,1.15vw,19px)/1.3 Georgia,serif}
+.f4-area-chip .approved-area-icon{--accent:var(--f4-accent)}
+.f4-area-religion{--f4-accent:#9465bf}.f4-area-history{--f4-accent:#259779}.f4-area-philosophy{--f4-accent:#b17929}
+.approved-area-icon{display:grid;place-items:center;flex:0 0 49px;width:49px;height:49px;border-radius:14px;
+ color:#fff;background:var(--accent,#259779)}
+.approved-area-icon svg{display:block;width:30px;height:30px}
+.reader .record-label{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.reader .record-label .approved-area-icon{--accent:var(--accent);width:42px;height:42px;flex-basis:42px;border-radius:12px}
+.reader .record-label .approved-area-icon svg{width:26px;height:26px}
+.reader .record-label .eyebrow{margin:0}
+.catalog>h2{font:700 23px Georgia,serif;color:#18344f;margin:12px 0 4px}
+@media(max-width:1050px){.f4-area-key{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){
+ .f4-approved-hero{padding:18px;gap:20px;min-height:275px;background-position:57% center}
+ .f4-hero-copy{padding:12px 13px}
+ .f4-hero-copy>span{font-size:13px}
+ .f4-area-key{gap:8px}
+ .f4-area-chip{flex-direction:column;align-items:flex-start;min-height:112px;padding:10px;gap:7px}
+ .approved-area-icon{width:42px;height:42px;flex-basis:42px}
+ .f4-area-chip strong{font-size:14px}
+}
