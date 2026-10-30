@@ -24,9 +24,9 @@ for(const row of reportRows){
 assert(candidateCount>0,'No C7 undated candidate records found');
 const example=reportRows.find(x=>latestDating[x.id]?.entry?.undated);
 if(example){
- const model=assembleResearchObject('post',{id:'F5-12-escape',title:'HTML escaping',sourceLayers:[]});
+ const model=assembleResearchObject('post',{id:'H999',title:'HTML escaping',sourceLayers:[]});
  const html=renderFullReader({entity:model,category:'history'});
- const output=renderUndatedReason(html,'F5-12-escape','<script>unsafe</script> & literal','testing');
+ const output=renderUndatedReason(html,'H999','<script>unsafe</script> & literal','testing');
  assert(output.includes('&lt;script&gt;unsafe&lt;/script&gt; &amp; literal'));
  assert(!output.includes('<script>unsafe</script>'));
 }
