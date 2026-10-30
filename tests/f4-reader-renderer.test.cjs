@@ -79,7 +79,8 @@ assert(html.includes('data-area="ideas"'),'Philosophical topic must carry origin
 for(const color of ['#347ccb','#9465bf','#259779','#b17929']){
  assert(css.includes(color),'F2-approved area color missing: '+color);
 }
-assert(renderFullReader(records[4]).includes('Forskningsutkast'),'Translate legacy draft status to Swedish');
+assert.equal(records[4].entity.reviewStatus,null,'Do not invent review status for original research topic');
+assert(!renderFullReader(records[4]).includes('Forskningsutkast'),'An undated topic cannot inherit a fabricated draft review status');
 console.log('F4.3 original area colors and Swedish status: PASS');
 
 const {originalAreaIcons,originalHeroDataUri}=require('./f4-original-design-assets.cjs');
@@ -99,3 +100,24 @@ assert(!html.includes('class="f4-area-chip f4-area-bible" role="button"'),'Area 
 assert(!html.includes('id="tvPrimaryNav"'),'Preview must not create an independent seventh main navigation');
 assert(html.includes('class="record-label"'),'Article should include its original category SVG');
 console.log('F4.4 approved landscape and original SVG icon parity: PASS');
+
+const historical=renderFullReader(records[0]);
+assert(historical.includes('Registrerat stöd:'),'Historical source must expose stated support');
+assert(historical.includes('Daterat kungligt föremål och inskrift'),'Preserve H045 source specific supports');
+assert(historical.includes('assyriskt år'),'Preserve original H045 date basis');
+assert(historical.includes('1 Kung 22'),'Keep biblical comparison text');
+assert(historical.includes('inte att denna text styrker'),'Do not conflate biblical and external evidence');
+assert(historical.includes('2026-10-12'),'Retain source-card verification *metadata*');
+assert(historical.includes('inte en oberoende granskning här'),'Do not present verification metadata as independent verification');
+const gilgamesh=renderFullReader(records[3]);
+assert(gilgamesh.includes('Primärtext eller bakgrundskälla'),'Retain O067 source-scope caveat');
+assert(gilgamesh.includes('Originaldatering – ej faktagranskad'),'Retain the unreviewed original dating note');
+const tobit=renderFullReader(records[2]);
+assert(tobit.includes('AP005'),'Keep existing apocrypha topic relation');
+assert(tobit.includes('inte belagda historiska påverkansvägar'),'Do not mislabel thematic links as historical influence');
+assert(tobit.includes('Texttradition och datering'),'Book-specific research details must be visible');
+assert(tobit.includes('Tobit (berättelsens huvudperson; ej belagd författare)'),'Preserve author attribution caveat');
+const genesis=renderFullReader(records[1]);
+assert(genesis.includes('Traditionell författarangivelse – inte bevisad författare'),'Traditional attribution must not be treated as fact');
+assert(genesis.includes('Mose'),'Retain supplied traditional authorship label as source context');
+console.log('F4.5 provenance and scholarly scope: PASS – historical source support, manuscript limits, apocrypha relations, no fabricated review');
