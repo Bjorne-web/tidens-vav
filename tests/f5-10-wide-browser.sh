@@ -48,7 +48,7 @@ for(const scenario of ['desktop','mobile','map']){
  report.scenarios.push(x);
 }
 const bookHtml=fs.readFileSync('out/f5-10/books-dom.html','utf8');
-const bookRaw=bookHtml.match(/<pre id="f510BooksReport"[^>]*>([\\s\\S]*?)<\\/pre>/);
+const bookRaw=bookHtml.match(/<pre id="f510BooksReport"[^>]*>([\s\S]*?)<\/pre>/);
 if(!bookRaw)throw new Error('Missing actual book reader report');
 const books=JSON.parse(decode(bookRaw[1]));
 if(!books.ok||books.passed<20)throw new Error('Actual special reader did not cover expected books');
