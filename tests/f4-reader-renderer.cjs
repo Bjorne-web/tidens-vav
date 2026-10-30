@@ -16,6 +16,9 @@ function renderFullReader(r){
  if(!r?.entity?.id)throw new TypeError('F4 reader needs a record');
  const e=r.entity,id=e.id,fields=e.data.fields||{};
  const intro=e.kind==='topic'?e.data.description:(r.description||fields.summary?.selected?.value||'');
+ // A short post must not repeat precisely the same summary in its title and article.
+ const distinctSummary=fields.summary?.selected?.value&&
+   fields.summary.selected.value.trim()!==String(intro||'').trim()?fields.summary.selected.value:null;
  let chronology='';
  if(e.kind==='post'&&e.temporal){
   for(const [key,label] of Object.entries(types)){
@@ -55,8 +58,10 @@ function renderFullReader(r){
  const related=(e.relations||[]).length?'<ul>'+e.relations.map(x=>
   '<li><strong>'+esc(x.to)+'</strong><p>'+esc(x.rationale||x.relationType)+'</p></li>').join('')+'</ul>':
   '<p class="muted">Inga angivna samband i detta underlag.</p>';
- const sections=[['overview','Översikt',intro?'<p>'+esc(intro)+'</p>':'<p class="muted">Sammanfattning saknas.</p>'],
-  ['time','Tid och datering',chronology]];
+ const sections=[];
+ if(distinctSummary)sections.push(['overview','Översikt','<p>'+esc(distinctSummary)+'</p>']);
+ // Topics and sources are not events and must not display a contrived date section.
+ if(e.kind==='post')sections.push(['time','Tid och datering',chronology]);
  for(const [key,title] of [['context','Historiskt sammanhang'],['impact','Betydelse och samband'],['limits','Begränsningar']])
   if(fields[key]?.selected)sections.push([key,title,'<p>'+esc(fields[key].selected.value)+'</p>']);
  if(sourceContext)sections.push(['source-context','Om källan',sourceContext]);
@@ -68,8 +73,8 @@ function renderFullReader(r){
  (e.reviewStatus?'<p class="status">'+esc(e.reviewStatus==='preliminary'?'Preliminärt forskningsunderlag':e.reviewStatus)+'</p>':'')+
  (intro?'<p class="lede">'+esc(intro)+'</p>':'')+
  '<p class="review-note">'+(e.reviewStatus?
-   'Statusen beskriver underlagets registrerade forskningsläge och innebär inte slutlig källgranskning.':
-   'Forskningsstatus är inte uttryckligen fastställd för detta objekt i den gemensamma testmodellen.')+'</p></header>'+
+   'Käll- och granskningsstatus: ännu inte slutgranskad.':
+   'Sammantagen forskningsstatus är inte angiven i detta underlag.')+'</p></header>'+
  '<div class="columns"><nav class="desktop-toc" aria-label="Innehåll"><strong>INNEHÅLL</strong>'+
  sections.map(([k,t])=>'<a href="#'+esc(id+'-'+k)+'">'+esc(t)+'</a>').join('')+'</nav>'+
  '<details class="mobile-toc"><summary>Välj avsnitt</summary><nav aria-label="Innehåll på mobil">'+
