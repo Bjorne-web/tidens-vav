@@ -3,7 +3,8 @@ on:
   pull_request:
     paths:
       - 'tests/f3-provenance-core.cjs'
-      - 'tests/f3-provenance-core.test.cjs'\n      - 'tests/f3-real-source-contract.test.cjs'
+      - 'tests/f3-provenance-core.test.cjs'
+      - 'tests/f3-real-source-contract.test.cjs'
       - 'tests/f3-real-adapter-runtime.test.cjs'
       - 'tests/f3-provenance-gap-audit.test.cjs'
       - 'tests/f3-actual-overlap-audit.test.cjs'
@@ -20,7 +21,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node tests/f3-provenance-core.test.cjs\n      - run: node tests/f3-real-source-contract.test.cjs
+      - run: node tests/f3-provenance-core.test.cjs
+      - run: node tests/f3-real-source-contract.test.cjs
       - run: node tests/f3-real-adapter-runtime.test.cjs
       - run: node tests/f3-provenance-gap-audit.test.cjs
       - run: node tests/f3-actual-overlap-audit.test.cjs
