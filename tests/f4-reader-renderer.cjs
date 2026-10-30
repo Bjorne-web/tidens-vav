@@ -67,10 +67,10 @@ function renderFullReader(r){
  if(sourceContext)sections.push(['source-context','Om källan',sourceContext]);
  if(depth.length)sections.push(['research','Fördjupning',depth.join('')]);
  sections.push(['sources','Källor och ursprung',citations]);
- return '<div class="reader" data-kind="'+esc(e.kind)+'" data-record="'+esc(id)+'">'+
+ return '<div class="reader" data-kind="'+esc(e.kind)+'" data-area="'+esc(r.category||'history')+'" data-record="'+esc(id)+'">'+
  '<div class="toolbar"><button type="button" class="back">← Tillbaka till exemplen</button><span>F4 · Fristående test</span></div>'+
  '<header class="record-head"><p class="eyebrow">'+esc(id)+' · '+esc(kindText(e))+'</p><h1 tabindex="-1" class="record-heading">'+esc(e.title)+'</h1>'+
- (e.reviewStatus?'<p class="status">'+esc(e.reviewStatus==='preliminary'?'Preliminärt forskningsunderlag':e.reviewStatus)+'</p>':'')+
+ (e.reviewStatus?'<p class="status">'+esc(e.reviewStatus==='preliminary'?'Preliminärt forskningsunderlag':e.reviewStatus==='draft'?'Forskningsutkast':e.reviewStatus)+'</p>':'')+
  (intro?'<p class="lede">'+esc(intro)+'</p>':'')+
  '<p class="review-note">'+(e.reviewStatus?
    'Käll- och granskningsstatus: ännu inte slutgranskad.':
