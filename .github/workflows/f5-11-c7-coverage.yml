@@ -1,0 +1,40 @@
+name: F5.11 C7 source and object coverage audit
+on:
+  pull_request:
+    paths:
+      - 'tests/f5-11-*'
+      - 'docs/f5-11-*'
+      - '.github/workflows/f5-11-c7-coverage.yml'
+  workflow_dispatch:
+jobs:
+  c7-source-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Inventory all C7 date and significance layers and outside-catalog objects
+        run: node tests/f5-11-c7-source-inventory.cjs
+      - name: Build and verify C7-enriched F3/F4 article candidates
+        run: node tests/f5-11-layered-reader.test.cjs
+      - name: Preserve broad base-catalog F5.10 regressions
+        run: node tests/f5-10-catalog-inventory.cjs
+      - name: Preserve F5.9 provenance and safe-return regression
+        run: |
+          node tests/f5-9-candidate-regression.test.cjs
+          node tests/f5-8-safe-return.test.cjs
+      - name: Preserve F3 and F4 research reader
+        run: |
+          node tests/f3-unified-research-contract.test.cjs
+          node tests/f4-reader-renderer.test.cjs
+      - name: Upload source-layer inventory and layered F4 reader audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: f5-11-c7-object-coverage
+          path: |
+            out/f5-11/c7-coverage.json
+            out/f5-11/per-post-c7.json
+            out/f5-11/layered-reader-audit.json
+          if-no-files-found: warn
