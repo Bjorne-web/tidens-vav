@@ -28,14 +28,25 @@ function resolveRecord(id,layers,rules={},fields=['summary','context','impact','
 }
 module.exports={resolveField,resolveRecord};
 
+const timeTypeAliases=Object.freeze({
+ event:'event','historical-event':'event',
+ composition:'composition','text-composition':'composition',
+ narrative:'narrative','narrated-time':'narrative',
+ 'material-witness':'material-witness'
+});
+function normalizeTimeType(type){
+ const key=valid(type);
+ return key&&Object.prototype.hasOwnProperty.call(timeTypeAliases,key)?timeTypeAliases[key]:null;
+}
+module.exports.normalizeTimeType=normalizeTimeType;
 const timeKinds=Object.freeze(['event','composition','narrative','material-witness']);
 function resolveTemporal(entries,rules={}){
  if(!Array.isArray(entries))throw new TypeError('Temporal entries must be an array');
  const results={};
  for(const kind of timeKinds){
-  const group=entries.filter(e=>e&&e.timeType===kind&&typeof e.origin==='string'
+  const group=entries.filter(e=>e&&normalizeTimeType(e.timeType)===kind&&typeof e.origin==='string'
    &&Number.isFinite(e.start)&&Number.isFinite(e.end)&&e.start<=e.end);
-  const candidates=group.map(e=>Object.freeze({origin:e.origin,timeType:kind,start:e.start,end:e.end,
+  const candidates=group.map(e=>Object.freeze({origin:e.origin,timeType:kind,sourceTimeType:e.timeType,start:e.start,end:e.end,
    certainty:valid(e.certainty),rationale:valid(e.rationale)}));
   const distinct=[...new Set(candidates.map(e=>e.start+':'+e.end))];
   const conflict=distinct.length>1;
@@ -45,6 +56,9 @@ function resolveTemporal(entries,rules={}){
     if(match){selected=match;break}}
   results[kind]=Object.freeze({selected,conflict,alternatives:Object.freeze(candidates)});
  }
+ results.unclassified=Object.freeze(entries.filter(e=>e&&typeof e.origin==='string'&&
+  Number.isFinite(e.start)&&Number.isFinite(e.end)&&e.start<=e.end&&!normalizeTimeType(e.timeType))
+  .map(e=>Object.freeze({origin:e.origin,sourceTimeType:e.timeType||null,start:e.start,end:e.end})));
  return Object.freeze(results);
 }
 module.exports.resolveTemporal=resolveTemporal;
