@@ -15,6 +15,8 @@ on:
       - 'tests/f3-evidence-assembly.test.cjs'
       - 'tests/f3-topic-source-contract.cjs'
       - 'tests/f3-topic-source-contract.test.cjs'
+      - 'tests/f3-unified-research-contract.cjs'
+      - 'tests/f3-unified-research-contract.test.cjs'
       - '.github/workflows/f3-provenance-test.yml'
   workflow_dispatch:
 jobs:
@@ -35,3 +37,4 @@ jobs:
       - run: node tests/f3-editorial-variants-real.test.cjs
       - run: node tests/f3-evidence-assembly.test.cjs
       - run: node tests/f3-topic-source-contract.test.cjs
+      - run: node tests/f3-unified-research-contract.test.cjs
