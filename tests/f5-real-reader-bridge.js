@@ -133,18 +133,23 @@ function autoTest(){
  if(!navButton){report(false,'Missing actual app navigation: '+expected);return}
  navButton.click();
  if(canonical()?.view!==expected){report(false,'Wrong real app view '+canonical()?.view+' expected '+expected);return}
- // Exercise full research with a non-synthetic actual H045/B001/D001 article.
- const id=scenario==='bible'?'B001':scenario==='apocrypha'?'D001':'H045';
- launch.focus({preventScroll:true});
- window.scrollTo(0,100);
- if(!open(id)){report(false,'Could not open F4 article '+id);return}
- if(!article.textContent.includes(id)){report(false,'F4 article not rendered '+id);return}
- if(!shadow.querySelector('.reader[data-record="'+id+'"]')){report(false,'F4 article DOM missing '+id);return}
- events.push('actual app + F4 reader rendered');
- if(scenario==='back'){history.back()}
- else if(scenario==='mobile'){document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))}
- else{closeButton.click()}
- setTimeout(()=>{if(document.body.dataset.f5RealResult!=='PASS')report(false,'Browser Back / Escape did not complete')},1600);
+ // In the real app the map tab's C2 handler schedules TWO animation frames
+ // for asynchronous fitBounds. Wait for those callbacks before recording the
+ // user's "starting" camera; otherwise the snapshot races the old tab transition.
+ const execute=()=>{
+  const id=scenario==='bible'?'B001':scenario==='apocrypha'?'D001':'H045';
+  launch.focus({preventScroll:true});
+  window.scrollTo(0,100);
+  if(!open(id)){report(false,'Could not open F4 article '+id);return}
+  if(!article.textContent.includes(id)){report(false,'F4 article not rendered '+id);return}
+  if(!shadow.querySelector('.reader[data-record="'+id+'"]')){report(false,'F4 article DOM missing '+id);return}
+  events.push('actual app + F4 reader rendered');
+  if(scenario==='back'){history.back()}
+  else if(scenario==='mobile'){document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))}
+  else{closeButton.click()}
+  setTimeout(()=>{if(document.body.dataset.f5RealResult!=='PASS')report(false,'Browser Back / Escape did not complete')},1600);
+ };
+ requestAnimationFrame(()=>requestAnimationFrame(()=>setTimeout(execute,120)));
 }
 setTimeout(autoTest,350);
 })();
