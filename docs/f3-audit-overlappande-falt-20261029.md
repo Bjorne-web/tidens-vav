@@ -20,7 +20,7 @@
 **Enda observerade olika textversionen:** `O073` (Sargons födelselegend), fält `summary`: `allOriginalResearchV828` innehåller en längre version som börjar med exakt samma text som den kortare versionen i `sourceCardsV810`. Den längre texten lägger till en jämförelse med Moseberättelsen. Detta är en **redaktionell längd-/omfångsvariant**, inte en i audit belagd saklig motsägelse.
 
 ## Läsmodellens faktiskt observerade beteende
-`v897-research-read-model.js` väljer den längre `O073.summary` från `allOriginalResearchV828` eftersom lagret ligger tidigare i den fasta prioriteringsordningen. Den rapporterar `provenance.summary.layer='original'` och `field='summary'` men ger inte läsaren den kortare alternativa sammanfattningen eller att den finns. Den isolerade F3-konfliktmodellen flaggar två olika strängvärden och kräver separat beslut innan val, men får **inte** tolkas som bevis för innehållslig konflikt.
+`v897-research-read-model.js` väljer den längre `O073.summary` från `allOriginalResearchV828` eftersom lagret ligger tidigare i den fasta prioriteringsordningen. Den väljer texten från `original` enligt sin kodade lagerordning, men **exporterar inte denna fältproveniens**: `postProvenance` skapas innan `pick()` fyller `provenance`. Den ger inte heller läsaren den kortare textvarianten. Den isolerade F3-konfliktmodellen flaggar två olika strängvärden och kräver separat beslut innan val, men får **inte** tolkas som bevis för innehållslig konflikt.
 
 ## Rekommenderad distinktion inför slutlig F3
 1. **Textidentisk dubblering:** behåll båda lagrens ursprung utan konfliktsignal.
@@ -40,7 +40,7 @@
 ## Tillägg: separat speciallager, O030 (Zoroastrismen)
 Den reproducibla kontrollen har utökats med `tests/f3-special-layer-runtime.test.cjs`. Den laddar `data/special-research.v840.js`, `allOriginalResearchV828`, C7:s särskilda religionshistoriska betydelsetexter och O067:s dateringsfil i isolerad VM, och kör verkliga `v897` mot dessa.
 
-- **O030:** `TIDENS_SPECIAL_RESEARCH.O030.summary` och `allOriginalResearchV828.O030.summary` är olika textvärden. Nuvarande `v897` väljer speciallagrets sammanfattning och anger `provenance.summary.layer='special'`, men visar inte originalversionen som alternativ. Detta är ännu **inte** en semantiskt fastställd vetenskaplig motsägelse.
+- **O030:** `TIDENS_SPECIAL_RESEARCH.O030.summary` och `allOriginalResearchV828.O030.summary` är olika textvärden. Nuvarande `v897` väljer speciallagrets sammanfattning men **saknar det utlovade lagernamnet i sitt exporterade `provenance`-objekt**, och visar inte originalversionen som alternativ. Detta är ännu **inte** en semantiskt fastställd vetenskaplig motsägelse.
 - **B001:** C7:s religionshistoriska betydelsetext följer med som `religion` men inte med explicit lagernamn i `provenance`.
 - **O067:** C7:s `material-witness`-fas kan laddas och har eget tidsslag, men nuvarande generella `temporal` visar endast grundpostens start/slut.
 
