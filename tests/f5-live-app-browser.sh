@@ -25,7 +25,8 @@ fs.writeFileSync('out/f5/live/live-app-inventory.json',JSON.stringify(report,nul
 const expected=['actual C1 snapshot','actual v897 has H045','actual v898 quick reader',
  'real timeline tab','real map tab','real explore tab','real compare tab',
  'real research tab','real H045 quick reader open/close',
- 'real book reader B001','real book reader D001'];
+ 'real quick reader preserves C1 context','real book reader B001','real book reader D001',
+ 'real v835 H045 deep-link parser'];
 const names=report.checks.map(c=>c.name);
 for(const name of expected)if(!names.includes(name))throw new Error('F5.4 missing test: '+name);
 for(const c of report.checks)console.log((c.ok?'PASS':'FAIL')+' F5.4 '+c.name+' '+c.detail);
