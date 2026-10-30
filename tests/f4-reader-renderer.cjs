@@ -91,7 +91,8 @@ function renderFullReader(r){
  // Topics and sources are not events and must not display a contrived date section.
  if(e.kind==='post')sections.push(['time','Tid och datering',chronology]);
  for(const [key,title] of [['context','Historiskt sammanhang'],['impact','Betydelse och samband'],['limits','Begränsningar']])
-  if(fields[key]?.selected)sections.push([key,title,'<p>'+esc(fields[key].selected.value)+'</p>']);
+  if(fields[key]?.selected)sections.push([key,title,'<p>'+esc(fields[key].selected.value)+'</p>'+
+   '<p class="field-origin">Textunderlag: '+esc(fields[key].selected.origin)+'</p>']);
  if(sourceContext)sections.push(['source-context','Om källan',sourceContext]);
  if(depth.length)sections.push(['research','Fördjupning',depth.join('')]);
  sections.push(['sources','Källor och ursprung',note+comparativeText+evidenceContext+citations]);
@@ -100,6 +101,7 @@ function renderFullReader(r){
  '<header class="record-head"><div class="record-label"><span class="approved-area-icon" aria-hidden="true">'+approvedIcon+'</span><p class="eyebrow">'+esc(id)+' · '+esc(kindText(e))+'</p></div><h1 tabindex="-1" class="record-heading">'+esc(e.title)+'</h1>'+
  (e.reviewStatus?'<p class="status">'+esc(e.reviewStatus==='preliminary'?'Preliminärt forskningsunderlag':e.reviewStatus==='draft'?'Forskningsutkast':e.reviewStatus)+'</p>':'')+
  (intro?'<p class="lede">'+esc(intro)+'</p>':'')+
+ (intro&&r.overviewOrigin?'<p class="field-origin">Inledningens ursprung: '+esc(r.overviewOrigin)+'</p>':'')+
  '<p class="review-note">'+(e.reviewStatus?
    'Käll- och granskningsstatus: ännu inte slutgranskad.':
    'Sammantagen forskningsstatus är inte angiven i detta underlag.')+'</p></header>'+
