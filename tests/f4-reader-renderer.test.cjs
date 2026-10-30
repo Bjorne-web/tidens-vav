@@ -20,7 +20,9 @@ assert(html.includes('Ursprungsdatering – tidsbegrepp oklart'),'Unclassified o
 assert(html.includes('Betydelse för Israels religion, judendomen och kristendomen'),'C7 significance must be retained');
 assert(html.includes('Berättad tid (inte tillkomstdatum)'),'Narrated time must not be mistaken for composition');
 assert(html.includes('Kanon och tradition'),'Apocryphal tradition must be visible');
-assert(html.includes('Ingen egen säker händelsedatering'),'Topics and source references must stay undated');
+assert(!renderFullReader(records[4]).includes('Tid och datering'),'Philosophical topic must not acquire a time section');
+assert(!renderFullReader(records[5]).includes('Tid och datering'),'Undated source reference must not acquire a time section');
+assert(renderFullReader(records[1]).includes('Textens tillkomst'),'Biblical composition time must remain visible');
 assert(html.includes('Är Gud god?')&&html.includes('Tobit')&&html.includes('Ahab'));
 assert(html.includes('noopener noreferrer'),'External references need safe tab links');
 assert(!html.includes('href="javascript:'),'No executable source URLs');
@@ -50,10 +52,22 @@ assert(html.includes('Välj avsnitt'),'Mobile section selector missing');
 assert(html.includes('data-record="source:https://www.metmuseum.org/art/collection/search/544696"'));
 assert(html.includes('Källobjektets registrerade uppgifter'),'Source must show provenance, not just link');
 assert(html.includes('Vetenskaplig granskning'),'Source verification must be stated');
-assert(html.includes('Forskningsstatus är inte uttryckligen fastställd'),'Unstated status must be explicit');
+assert(html.includes('Sammantagen forskningsstatus är inte angiven'),'Unstated status must be explicit');
 assert(html.includes('record-heading'),'Article must supply focus target');
 assert(html.includes("event.key==='Escape'"),'Standalone review must support Escape to return');
 assert(html.includes("trigger||document.querySelector('.option')"),'Focus should return to source catalog card');
 assert(html.includes("params.get('record')"),'Isolated preview may open a given specimen directly');
 assert(html.includes('scrollY=window.scrollY'),'Local catalog scroll position must be restored');
 console.log('F4.2 accessibility and responsive layout contracts: PASS');
+
+const genesisHtml=renderFullReader(records[1]);
+assert.equal((genesisHtml.match(/Flera traditioner och senare redaktion; Genesis 1–11 skall inte läsas som daterad urhistoria\./g)||[]).length,1,
+ 'Do not repeat a post summary in header and overview');
+const goodnessHtml=renderFullReader(records[4]);
+assert(!goodnessHtml.includes('id="topic:good-overview"'),'Do not duplicate philosophical introduction in overview');
+assert(!goodnessHtml.includes('id="topic:good-time"'),'Topic has no contrived dated-event section');
+const sourceHtml=renderFullReader(records[5]);
+assert(!sourceHtml.includes('id="source:https://www.metmuseum.org/art/collection/search/544696-time"'),
+ 'Source reference must not invent a date section');
+assert(css.includes('record-heading:focus-visible'),'Keep a restrained visible focus cue');
+console.log('F4.3 real screenshot feedback regression: PASS');
