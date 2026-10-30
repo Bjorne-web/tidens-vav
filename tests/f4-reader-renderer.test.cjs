@@ -71,3 +71,13 @@ assert(!sourceHtml.includes('id="source:https://www.metmuseum.org/art/collection
  'Source reference must not invent a date section');
 assert(css.includes('record-heading:focus-visible'),'Keep a restrained visible focus cue');
 console.log('F4.3 real screenshot feedback regression: PASS');
+
+assert(html.includes('data-area="bible"'),'Bibel posts must carry original category accent');
+assert(html.includes('data-area="religion"'),'Religious subjects must carry original category accent');
+assert(html.includes('data-area="history"'),'History and sources must carry original category accent');
+assert(html.includes('data-area="ideas"'),'Philosophical topic must carry original category accent');
+for(const color of ['#347ccb','#9465bf','#259779','#b17929']){
+ assert(css.includes(color),'F2-approved area color missing: '+color);
+}
+assert(renderFullReader(records[4]).includes('Forskningsutkast'),'Translate legacy draft status to Swedish');
+console.log('F4.3 original area colors and Swedish status: PASS');
