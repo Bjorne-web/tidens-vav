@@ -34,6 +34,8 @@ jobs:
         run: node tests/f4-reader-renderer.test.cjs
       - name: Preserve F3 common post/topic/source model regressions
         run: node tests/f3-unified-research-contract.test.cjs
+      - name: F5.7 verify source-based acceptance gates and preserve release blockers
+        run: node tests/f5-7-acceptance-gates.test.cjs
       - name: Upload isolated F5 return review page
         if: always()
         uses: actions/upload-artifact@v4
