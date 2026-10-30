@@ -29,6 +29,12 @@ function run(){
   }
   try{
    const reader=window.TidensQuickResearchPilot;
+   const beforeQuick=snapshot();
+   const keep=c=>({view:c?.view,selectedId:c?.selectedId,
+    min:c?.timeRange?.min,max:c?.timeRange?.max,
+    categories:[...(c?.filters?.categories||[])],
+    evidence:[...(c?.filters?.evidence||[])],
+    compareIds:[...(c?.compareIds||[])]});
    document.getElementById('navTimeline')?.click();
    reader?.open?.('H045');
    const open=reader?.isOpen?.()===true;
@@ -36,6 +42,8 @@ function run(){
    reader?.close?.();
    outcome('real H045 quick reader open/close',open&&reader?.isOpen?.()===false&&title.length>2,
     'title='+title.slice(0,90));
+   outcome('real quick reader preserves C1 context',JSON.stringify(keep(beforeQuick))===JSON.stringify(keep(snapshot())),
+    'C1 view and selected post/filter/compare/time unchanged after open/close');
   }catch(error){outcome('real H045 quick reader open/close',false,error.message)}
   for(const id of ['B001','D001']){
    try{
@@ -47,10 +55,25 @@ function run(){
      'return='+String(result)+', text='+article.slice(0,110));
    }catch(error){outcome('real book reader '+id,false,error.message)}
   }
-  // The real Leaflet instance is not globally exported, so camera restoration
-  // cannot be measured here; treating a map tab as proof would be incorrect.
-  const leaflet=typeof window.L==='object';
-  blockers.push({gap:'Leaflet instance getCenter/getZoom/setView not exposed as a public F5 adapter',leafletLoaded:leaflet});
+  try{
+   const parser=window.TidensVavLinks;
+   const parsed=parser?.parse?.('?tv_id=H045&tv_view=research');
+   outcome('real v835 H045 deep-link parser',parsed?.id==='H045'&&parsed?.view==='research',
+    'legacy deep-link parsing in full app');
+  }catch(error){outcome('real v835 H045 deep-link parser',false,error.message)}
+  // app.js declares leafletMap using "let", visible to later classic scripts
+  // in the same HTML but not exposed as a supported public integration API.
+  const leaflet=typeof window.L==='function'||typeof window.L==='object';
+  let camera=null;try{
+   if(typeof leafletMap!=='undefined'&&leafletMap){
+    const center=leafletMap.getCenter?.(),zoom=leafletMap.getZoom?.();
+    camera={center:center?{lat:center.lat,lng:center.lng}:null,zoom,
+     canRestore:typeof leafletMap.setView==='function'};
+   }
+  }catch(error){camera={error:String(error.message||error)}}
+  blockers.push({gap:'Leaflet camera not exposed as a stable public F5 host adapter; restoration unverified',
+   leafletLoaded:leaflet,cameraReadable:!!camera?.center,cameraCanSet:camera?.canRestore===true});
+
   blockers.push({gap:'Full F4 reader not wired into actual v898 detail controls',verified:!document.querySelector('[data-f5-production-reader]')});
   blockers.push({gap:'Real browser Back + exact map scroll/theme restoration still require dedicated host hooks'});
  }catch(error){outcome('probe crashed',false,error.stack||error.message)}
