@@ -36,6 +36,12 @@ jobs:
         run: node tests/f3-unified-research-contract.test.cjs
       - name: F5.7 verify source-based acceptance gates and preserve release blockers
         run: node tests/f5-7-acceptance-gates.test.cjs
+      - name: F5.8 verify unmerged v897 provenance correction against original data
+        run: node tests/f5-8-provenance-candidate.test.cjs
+      - name: F5.8 validate safe history preflight and explicit recovery semantics
+        run: node tests/f5-8-safe-return.test.cjs
+      - name: F5.8 run full app Chromium with substituted provenance candidate
+        run: bash tests/f5-8-real-app-provenance-browser.sh
       - name: Upload isolated F5 return review page
         if: always()
         uses: actions/upload-artifact@v4
