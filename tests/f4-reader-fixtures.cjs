@@ -15,13 +15,23 @@ function globals(files){
  for(const f of files)vm.runInContext(read(f),ctx,{filename:f,timeout:2000});
  return ctx.window;
 }
+// Use the same C7 script order as index.html, not just the earliest significance file.
+function liveC7Scripts(){
+ const html=read('index.html');
+ const paths=[...html.matchAll(/<script\\s+src="([^"]+)"/g)].map(m=>m[1]);
+ const significance=paths.filter(p=>/^data\\/c7-religionshistorisk-betydelse\\.v\\d+\\.js$/.test(p));
+ const datings=paths.filter(p=>/^data\\/c7-dating-.+\\.js$/.test(p));
+ assert(significance.length>=37&&datings.length>=78,'Incomplete C7 source list: inspect main app script order');
+ return {significance,datings};
+}
 function buildFixtures(){
  const ev=table('events').find(x=>x.id==='H045');
  const old=table('originalEvents').find(x=>x.id==='O067');
  const cards=table('sourceCardsV86'),research=table('allOriginalResearchV828');
  const ar=table('archaeologyCasesV818').find(x=>x.id==='A01');
+ const c7=liveC7Scripts();
  const w=globals(['data/bible-books-v857.js','data/apocrypha-books-v891.js',
-  'data/c7-religionshistorisk-betydelse.v890.js','data/c7-dating-o067-gilgamesh.js']);
+  ...c7.significance,...c7.datings]);
  const bible=w.TIDENS_BIBLE_BOOKS.find(x=>x.id==='B001');
  const tobit=w.TIDENS_APOCRYPHA_BOOKS.find(x=>x.id==='D001');
  assert(ev&&old&&ar&&bible&&tobit&&cards.H045&&research.O067);
@@ -32,12 +42,13 @@ function buildFixtures(){
   id:'B001',title:bible.title,reviewStatus:bible.reviewStatus,
   baseTime:{start:bible.start,end:bible.end,timeType:'text-composition',origin:'TIDENS_BIBLE_BOOKS',certainty:bible.reviewStatus},
   sourceLayers:[{id:'TIDENS_BIBLE_BOOKS',fields:{summary:bible.critical}}],
-  significance:w.TIDENS_C7_RELIGION.B001,significanceOrigin:'data/c7-religionshistorisk-betydelse.v890.js'});
+  significance:w.TIDENS_C7_RELIGION.B001,significanceOrigin:'C7 significance registry (37 files in index.html order)'});
  const d=assembleResearchObject('post',{
   id:'D001',title:tobit.title,reviewStatus:tobit.reviewStatus,
   baseTime:{start:tobit.start,end:tobit.end,timeType:'text-composition',origin:'TIDENS_APOCRYPHA_BOOKS',certainty:tobit.reviewStatus},
   sourceLayers:[{id:'TIDENS_APOCRYPHA_BOOKS',fields:{summary:tobit.critical,sources:tobit.sources,primary:tobit.primary}}]});
- const witness=w.TIDENS_C7_DATING_GILGAMESH.O067;
+ const witness=w.TIDENS_C7_DATING_GILGAMESH?.O067;
+ assert(witness&&Array.isArray(witness.phases),'Latest C7 dating registry missing O067 phases');
  const o=assembleResearchObject('post',{
   id:'O067',title:old.title,
   baseTime:{start:old.start,end:old.end,origin:'originalEvents',timeType:'legacy-unspecified',certainty:old.evidence,rationale:old.dating},
