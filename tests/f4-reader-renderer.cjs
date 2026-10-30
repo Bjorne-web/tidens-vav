@@ -86,22 +86,32 @@ function renderFullReader(r){
  const related=(e.relations||[]).length?'<ul>'+e.relations.map(x=>
   '<li><strong>'+esc(x.to)+'</strong><p>'+esc(x.rationale||x.relationType)+'</p></li>').join('')+'</ul>':
   '<p class="muted">Inga angivna samband i detta underlag.</p>';
+ const originItems=[];
+ if(r.overviewOrigin)originItems.push(['Inledning',r.overviewOrigin]);
+ for(const [key,label] of [['summary','Sammanfattning'],['context','Historiskt sammanhang'],
+  ['impact','Betydelse och samband'],['limits','Begränsningar']]){
+  if(fields[key]?.selected?.origin)originItems.push([label,fields[key].selected.origin]);
+ }
+ if(e.data.religion?.origin)originItems.push(['Religionshistorisk betydelse',e.data.religion.origin]);
+ const provenanceDetails=originItems.length?
+ '<details class="provenance-details"><summary>Visa textfältens ursprung</summary><dl>'+
+ originItems.map(([key,origin])=>'<dt>'+esc(key)+'</dt><dd>'+esc(origin)+'</dd>').join('')+
+ '</dl></details>':'';
  const sections=[];
  if(distinctSummary)sections.push(['overview','Översikt','<p>'+esc(distinctSummary)+'</p>']);
  // Topics and sources are not events and must not display a contrived date section.
  if(e.kind==='post')sections.push(['time','Tid och datering',chronology]);
  for(const [key,title] of [['context','Historiskt sammanhang'],['impact','Betydelse och samband'],['limits','Begränsningar']])
-  if(fields[key]?.selected)sections.push([key,title,'<p>'+esc(fields[key].selected.value)+'</p>'+
-   '<p class="field-origin">Textunderlag: '+esc(fields[key].selected.origin)+'</p>']);
+  if(fields[key]?.selected)sections.push([key,title,'<p>'+esc(fields[key].selected.value)+'</p>']);
  if(sourceContext)sections.push(['source-context','Om källan',sourceContext]);
  if(depth.length)sections.push(['research','Fördjupning',depth.join('')]);
- sections.push(['sources','Källor och ursprung',note+comparativeText+evidenceContext+citations]);
+ sections.push(['sources','Källor och ursprung',note+comparativeText+evidenceContext+citations+provenanceDetails]);
  return '<div class="reader" data-kind="'+esc(e.kind)+'" data-area="'+esc(r.category||'history')+'" data-record="'+esc(id)+'">'+
  '<div class="toolbar"><button type="button" class="back">← Tillbaka till exemplen</button><span>F4 · Fristående test</span></div>'+
  '<header class="record-head"><div class="record-label"><span class="approved-area-icon" aria-hidden="true">'+approvedIcon+'</span><p class="eyebrow">'+esc(id)+' · '+esc(kindText(e))+'</p></div><h1 tabindex="-1" class="record-heading">'+esc(e.title)+'</h1>'+
  (e.reviewStatus?'<p class="status">'+esc(e.reviewStatus==='preliminary'?'Preliminärt forskningsunderlag':e.reviewStatus==='draft'?'Forskningsutkast':e.reviewStatus)+'</p>':'')+
  (intro?'<p class="lede">'+esc(intro)+'</p>':'')+
- (intro&&r.overviewOrigin?'<p class="field-origin">Inledningens ursprung: '+esc(r.overviewOrigin)+'</p>':'')+
+
  '<p class="review-note">'+(e.reviewStatus?
    'Käll- och granskningsstatus: ännu inte slutgranskad.':
    'Sammantagen forskningsstatus är inte angiven i detta underlag.')+'</p></header>'+
