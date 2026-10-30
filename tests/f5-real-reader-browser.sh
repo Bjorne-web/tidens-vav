@@ -14,6 +14,7 @@ done
 for scenario in timeline map explore compare research mobile back bible apocrypha gilgamesh topic source invalid double tab interrupted deeplink; do
   if [[ "$scenario" == "mobile" ]]; then resolution="390,844"; else resolution="1450,1000"; fi
   url="http://127.0.0.1:8766/f5-real-reader-test.html?scenario=$scenario&autotest=1"
+  if [[ "$scenario" == "deeplink" ]]; then url+="&tv_id=H045&tv_view=research"; fi
   "$CHROME" --headless --no-sandbox --disable-dev-shm-usage --disable-gpu --no-first-run \
     --virtual-time-budget=7500 --window-size="$resolution" --dump-dom "$url" \
     >"out/f5/integration/results/$scenario-dom.html" \
