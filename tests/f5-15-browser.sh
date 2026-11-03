@@ -15,7 +15,11 @@ for mode in desktop mobile; do
  "$CHROME" --headless --no-sandbox --disable-dev-shm-usage --disable-gpu --no-first-run --window-size="$size" --virtual-time-budget=65000 --dump-dom "http://127.0.0.1:8795/f5-15-staging-test.html?f515=$mode" >"out/f5-15/$mode-dom.html" 2>"out/f5-15/$mode-chrome.log"
  if ! grep -q 'data-status="PASS"' "out/f5-15/$mode-dom.html"; then
   echo "F5.15 real app C7 staging FAIL ($mode)"
-  grep 'id="f515Report"' "out/f5-15/$mode-dom.html" | tail -c 4000 || true
+  node - "$mode" <<'NODE'
+const fs=require('node:fs');const html=fs.readFileSync('out/f5-15/'+process.argv[2]+'-dom.html','utf8');
+const m=html.match(/<pre id="f515Report"[^>]*>([\\s\\S]*?)<\\/pre>/);
+console.log('F5.15 result:',m?m[1].replace(/&quot;/g,'"').replace(/&amp;/g,'&'):'missing report element');
+NODE
   exit 1
  fi
  echo "F5.15 real app C7 staging PASS ($mode) 33 articles"
