@@ -1,0 +1,31 @@
+name: F5.15 isolated integrated C7 staging
+on:
+  pull_request:
+    paths:
+      - 'tests/f5-15-*'
+      - '.github/workflows/f5-15-staging.yml'
+  workflow_dispatch:
+jobs:
+  integration-staging:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test 33 C7 articles in temporary real-app copy desktop/mobile
+        run: bash tests/f5-15-browser.sh
+      - name: Previous isolated regressions
+        run: |
+          node tests/f5-14-readiness.test.cjs
+          node tests/f5-12-undated-reader.test.cjs
+      - name: Upload test report (not a production release)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: f5-15-integrated-staging-audit
+          path: |
+            out/f5-15/manifest.json
+            out/f5-15/desktop-dom.html
+            out/f5-15/mobile-dom.html
+          if-no-files-found: warn
