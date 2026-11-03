@@ -1,0 +1,10 @@
+'use strict';
+const fs=require('node:fs');
+const assert=require('node:assert/strict');
+const text=fs.readFileSync('docs/f5-14-integrerad-slutgranskning-20261103.md','utf8');
+const gates=Array.from(text.matchAll(/\| (G\d\d) [^\n]* \| (DELVIS|BLOCKERAD) \|/g));
+assert.equal(gates.length,12,'F5.14 must explicitly track twelve nonreleased gates');
+assert.deepEqual(gates.map(x=>x[1]),Array.from({length:12},(_,i)=>'G'+String(i+1).padStart(2,'0')));
+assert(gates.every(x=>x[2]!=='GODKÄND'));
+for(const word of ['#385','#384','#383','#382','#381','#380','#379','F6','Cloudflare'])assert(text.includes(word),'missing dependency '+word);
+console.log('F5.14: 12 explicit release gates tracked; no release claim');

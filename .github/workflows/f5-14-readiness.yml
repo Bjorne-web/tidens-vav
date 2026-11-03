@@ -1,0 +1,19 @@
+name: F5.14 integrated readiness audit
+on:
+  pull_request:
+    paths:
+      - 'docs/f5-14-*'
+      - 'tests/f5-14-*'
+      - '.github/workflows/f5-14-readiness.yml'
+  workflow_dispatch:
+jobs:
+  integrated-readiness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/f5-14-readiness.test.cjs
+      - run: node tests/f5-12-undated-reader.test.cjs
+      - run: node tests/f5-11-layered-reader.test.cjs
