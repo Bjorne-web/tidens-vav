@@ -18,8 +18,9 @@ for mode in desktop mobile; do
   node - "$mode" <<'NODE'
 const fs=require('node:fs');const html=fs.readFileSync('out/f5-15/'+process.argv[2]+'-dom.html','utf8');
 const start=html.indexOf('<pre id="f515Report"');const body=start<0?-1:html.indexOf('>',start);const end=body<0?-1:html.indexOf('</pre>',body);const content=body>=0&&end>=0?html.slice(body+1,end):null;
-console.log('F5.15 result:',content!==null?content.replace(/&quot;/g,'"').replace(/&amp;/g,'&'):'missing report element');
+console.log('F5.15 result:',content!==null?content.replace(/&quot;/g,'"').replace(/&amp;/g,'&'):'missing report element');\nconsole.log('F5.15 DOM bytes:',html.length,'probe present:',html.includes('f5-15-real-app-probe.js'),'candidate present:',html.includes('f5CandidateDialog'),'last 320:',html.slice(-320));
 NODE
+  tail -c 900 "out/f5-15/$mode-chrome.log" || true
   exit 1
  fi
  echo "F5.15 real app C7 staging PASS ($mode) 33 articles"
