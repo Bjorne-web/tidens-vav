@@ -2,7 +2,8 @@
 'use strict';
 const p=new URLSearchParams(location.search);
 if(!p.has('f515'))return;
-const mode=p.get('f515'),wait=n=>new Promise(r=>setTimeout(r,n));\nlet stage='loaded';
+const mode=p.get('f515'),wait=n=>new Promise(r=>setTimeout(r,n));
+let stage='loaded';
 let finished=false;
 function done(ok,failures,checks){
  if(finished)return;finished=true;
@@ -12,19 +13,24 @@ function done(ok,failures,checks){
  document.body.append(pre);
 }
 async function run(){
- stage='initializing';\n const ids=Object.keys(window.__F515UndatedArticles||{});
+ stage='initializing';
+ const ids=Object.keys(window.__F515UndatedArticles||{});
  const reader=window.TidensF5Candidate,failures=[],checks=[];
  const test=(ok,msg)=>{if(!ok)failures.push(msg)};
  test(ids.length===33,'Expected 33 candidate articles, got '+ids.length);
  test(!!reader,'F5 candidate missing');
  if(!reader)return done(false,failures,checks);
- // Exercise the same stable existing Explore view at both viewport sizes;\n // full mobile Timeline integration remains a separate, explicitly open release gate.\n const tab=document.getElementById('navExplore');
+ // Exercise the same stable existing Explore view at both viewport sizes;
+ // full mobile Timeline integration remains a separate, explicitly open release gate.
+ const tab=document.getElementById('navExplore');
  test(!!tab,'Real app navigation button missing');
  if(!tab)return done(false,failures,checks);
- stage='navigating-explore';\n tab.click();
+ stage='navigating-explore';
+ tab.click();
  await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
  await wait(180);
- stage='article-checks';\n const initial=reader.getSnapshot(),camera=reader.getCamera(),url=location.href;
+ stage='article-checks';
+ const initial=reader.getSnapshot(),camera=reader.getCamera(),url=location.href;
  for(const id of ids){
   const before=reader.getSnapshot(),beforeCamera=reader.getCamera();
   if(!reader.open(id)){failures.push('open '+id);break}
