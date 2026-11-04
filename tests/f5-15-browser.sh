@@ -17,8 +17,8 @@ for mode in desktop mobile; do
   echo "F5.15 real app C7 staging FAIL ($mode)"
   node - "$mode" <<'NODE'
 const fs=require('node:fs');const html=fs.readFileSync('out/f5-15/'+process.argv[2]+'-dom.html','utf8');
-const m=html.match(/<pre id="f515Report"[^>]*>([\\s\\S]*?)<\\/pre>/);
-console.log('F5.15 result:',m?m[1].replace(/&quot;/g,'"').replace(/&amp;/g,'&'):'missing report element');
+const start=html.indexOf('<pre id="f515Report"');const body=start<0?-1:html.indexOf('>',start);const end=body<0?-1:html.indexOf('</pre>',body);const content=body>=0&&end>=0?html.slice(body+1,end):null;
+console.log('F5.15 result:',content!==null?content.replace(/&quot;/g,'"').replace(/&amp;/g,'&'):'missing report element');
 NODE
   exit 1
  fi
