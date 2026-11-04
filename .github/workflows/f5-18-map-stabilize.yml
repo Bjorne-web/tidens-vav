@@ -1,0 +1,30 @@
+name: F5.18 isolated map stabilization candidate
+on:
+  pull_request:
+    paths:
+      - 'tests/f5-18-*'
+      - '.github/workflows/f5-18-map-stabilize.yml'
+  workflow_dispatch:
+jobs:
+  map-stabilization:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test map stabilization and fail-closed conflicts on desktop/mobile Chromium
+        run: bash tests/f5-18-browser.sh
+      - name: Earlier C7 research and readiness controls
+        run: |
+          node tests/f5-12-undated-reader.test.cjs
+          node tests/f5-14-readiness.test.cjs
+      - name: Upload scenario evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: f5-18-map-stabilization-audit
+          path: |
+            out/f5-18/scope.json
+            out/f5-18/*.html
+          if-no-files-found: warn
