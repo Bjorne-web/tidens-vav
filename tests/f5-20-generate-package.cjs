@@ -31,6 +31,8 @@ for(const item of ['f5/integration','f5-10','f5-15','f5-19']){
 }
 fs.writeFileSync(path.join(out,'review.html'),html);
 fs.copyFileSync('tests/f5-20-review-controller.js',path.join(out,'review-controller.js'));
+fs.mkdirSync(path.join(out,'tests'),{recursive:true});
+fs.copyFileSync('tests/f5-19-event-open.js',path.join(out,'tests','f5-19-event-open.js'));
 const manifest={phase:'F5.20',type:'offline HTTP-served review package, not deployed',
 entry:'review.html',reviewC7:33,limitations:[
  'No public staging URL or Cloudflare deployment',
