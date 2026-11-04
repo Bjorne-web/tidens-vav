@@ -1,0 +1,30 @@
+name: F5.19 event-driven C2 map ready staging
+on:
+  pull_request:
+    paths:
+      - 'tests/f5-19-*'
+      - '.github/workflows/f5-19-c2-ready.yml'
+  workflow_dispatch:
+jobs:
+  event-ready:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Chromium test event readiness, races and cancellations
+        run: bash tests/f5-19-browser.sh
+      - name: Existing C7 research and readiness regression
+        run: |
+          node tests/f5-12-undated-reader.test.cjs
+          node tests/f5-14-readiness.test.cjs
+      - name: Preserve scope and scenario evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: f5-19-c2-event-audit
+          path: |
+            out/f5-19/scope.json
+            out/f5-19/*.html
+          if-no-files-found: warn
