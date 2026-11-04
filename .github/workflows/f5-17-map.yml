@@ -1,0 +1,30 @@
+name: F5.17 real app map race and conflict audit
+on:
+  pull_request:
+    paths:
+      - 'tests/f5-17-*'
+      - '.github/workflows/f5-17-map.yml'
+  workflow_dispatch:
+jobs:
+  map-conflicts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify Leaflet map navigation conflicts in isolated Chromium app copy
+        run: bash tests/f5-17-browser.sh
+      - name: Previous research and gate regression
+        run: |
+          node tests/f5-12-undated-reader.test.cjs
+          node tests/f5-14-readiness.test.cjs
+      - name: Upload bounded test evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: f5-17-map-conflict-evidence
+          path: |
+            out/f5-17/scope.json
+            out/f5-17/*.html
+          if-no-files-found: warn
