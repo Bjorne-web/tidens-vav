@@ -44,7 +44,7 @@ jobs:
           node -e "const o=require('/tmp/f521_project.json');if(o.success!==true||o.result?.name!=='tidens-vav-f5-review')process.exit(1)"
           echo "ready=true" >> "$GITHUB_OUTPUT"
       - name: Deploy ONLY to the dedicated review project
-        if: github.event_name == 'workflow_dispatch' && steps.preview.outputs.ready == 'true'
+        if: steps.preview.outputs.ready == 'true' && (github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && github.head_ref == 'f5-21-cloudflare-isolated-preview-20261104' && vars.F5_REVIEW_DEPLOY_ENABLED == 'true'))
         shell: bash
         run: |
           set -euo pipefail
