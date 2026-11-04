@@ -10,12 +10,18 @@ const old="mapBtn?.addEventListener('click',()=>requestAnimationFrame(()=>reques
 assert.equal(c2.split(old).length,2);
 const replacement=`mapBtn?.addEventListener('click',()=>{
  const ticket=++mapGeneration;
- requestAnimationFrame(()=>requestAnimationFrame(()=>{
-  if(ticket!==mapGeneration)return;
+ let signaled=false;
+ const complete=()=>{
+  if(signaled||ticket!==mapGeneration||snap()?.view!=='map')return;
+  signaled=true;
   syncToPost();
   lastCompleted=ticket;
   window.dispatchEvent(new CustomEvent('TidensC2MapReady',{detail:{ticket}}));
- }));
+ };
+ requestAnimationFrame(()=>requestAnimationFrame(complete));
+ // Responsive rendering can throttle/suspend nested RAF. The bounded
+ // fallback uses the *same* guarded completion path, and never runs twice.
+ setTimeout(complete,120);
 });
 document.querySelectorAll('[id^="nav"]').forEach(node=>{
  if(node!==mapBtn)node.addEventListener('click',()=>{mapGeneration++;});
