@@ -12,6 +12,10 @@ assert.equal(originalProbe.split(explore).length,2,'Expected Explore selector on
 let timelineProbe=originalProbe.replace(explore,"const tab=document.getElementById('navTimeline');");
 const snapshotNeedle="const initial=reader.getSnapshot(),camera=reader.getCamera(),url=location.href;";
 assert.equal(timelineProbe.split(snapshotNeedle).length,2,'Expected snapshot check once');
+const frameWait="await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));";
+assert.equal(timelineProbe.split(frameWait).length,2,'Expected navigation frame wait exactly once');
+timelineProbe=timelineProbe.replace(frameWait,"await wait(250);");
+// Time-bounded wait avoids an unresolved nested animation frame on responsive navigation.
 timelineProbe=timelineProbe.replace(snapshotNeedle,
  "const initial=reader.getSnapshot(),camera=reader.getCamera(),url=location.href;\n test(initial?.view==='timeline','Expected actual timeline view; got '+initial?.view);");
 assert(!timelineProbe.includes('\\n'),'Unexpected literal backslash-n in probe');
