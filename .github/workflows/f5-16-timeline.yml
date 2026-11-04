@@ -1,0 +1,31 @@
+name: F5.16 actual app timeline desktop and mobile audit
+on:
+  pull_request:
+    paths:
+      - 'tests/f5-16-*'
+      - '.github/workflows/f5-16-timeline.yml'
+  workflow_dispatch:
+jobs:
+  timeline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test actual timeline open-back in Chromium on desktop and mobile widths
+        run: bash tests/f5-16-browser.sh
+      - name: Confirm C7 baseline regression
+        run: |
+          node tests/f5-12-undated-reader.test.cjs
+          node tests/f5-14-readiness.test.cjs
+      - name: Preserve scope and compact output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: f5-16-timeline-browser-audit
+          path: |
+            out/f5-16/scope.json
+            out/f5-16/desktop-dom.html
+            out/f5-16/mobile-dom.html
+          if-no-files-found: warn
