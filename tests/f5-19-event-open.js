@@ -36,6 +36,25 @@ async function openAfterC2(id,options={}){
   if(!readiness.ok)return readiness;
   if(c2.current()!==ticket||!same(reader.getSnapshot(),expected))
    return {ok:false,reason:'context-changed'};
+  // C2 completion does not imply other Leaflet observers have stopped moving.
+  // Wait for a bounded quiet window, reset by Leaflet moveend, before snapshot.
+  const leaflet=typeof leafletMap!=='undefined'?leafletMap:null;
+  const starting=reader.getCamera();
+  if(!starting)return {ok:false,reason:'camera-unavailable'};
+  const quiet=await new Promise(resolve=>{
+   let settled=false;
+   const finish=reason=>{if(settled)return;settled=true;clearTimeout(quietTimer);clearTimeout(limitTimer);
+    leaflet?.off?.('moveend',onMove);document.removeEventListener('click',onNav,true);resolve(reason)};
+   const onMove=()=>{clearTimeout(quietTimer);quietTimer=setTimeout(()=>finish('quiet'),220)};
+   const onNav=e=>{if(e.target?.closest?.('[id^="nav"]'))finish('navigation-interrupted')};
+   let quietTimer=setTimeout(()=>finish('quiet'),220);
+   const limitTimer=setTimeout(()=>finish('camera-timeout'),options.maxWait??2000);
+   leaflet?.on?.('moveend',onMove);
+   document.addEventListener('click',onNav,true);
+  });
+  if(quiet!=='quiet')return {ok:false,reason:quiet};
+  if(c2.current()!==ticket||!same(reader.getSnapshot(),expected))
+   return {ok:false,reason:'context-changed'};
   const ok=reader.open(id);
   return {ok,reason:ok?'opened':'reader-refused',ticket,readiness:readiness.reason};
  }finally{pending=false}
