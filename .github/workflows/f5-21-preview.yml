@@ -28,9 +28,16 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if [[ -z "${CLOUDFLARE_ACCOUNT_ID:-}" || -z "${CLOUDFLARE_API_TOKEN:-}" ]]; then
+          account=present; token=present
+          [[ -n "${CLOUDFLARE_ACCOUNT_ID:-}" ]] || account=missing
+          [[ -n "${CLOUDFLARE_API_TOKEN:-}" ]] || token=missing
+          echo "### F5 staging – publiceringsförutsättningar" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Account ID: $account" >> "$GITHUB_STEP_SUMMARY"
+          echo "- API token: $token" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Explicit opt-in: ${{ vars.F5_REVIEW_DEPLOY_ENABLED == 'true' && 'enabled' || 'disabled' }}" >> "$GITHUB_STEP_SUMMARY"
+          if [[ "$account" == missing || "$token" == missing ]]; then
             echo "ready=false" >> "$GITHUB_OUTPUT"
-            echo "Cloudflare credentials not configured; no deployment attempted." >> "$GITHUB_STEP_SUMMARY"
+            echo "Projektkontroll: ej utförd – uppgifter saknas. Ingen publicering." >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
           response=$(curl -sS -o /tmp/f521_project.json -w '%{http_code}' \
@@ -44,7 +51,7 @@ jobs:
           node -e "const o=require('/tmp/f521_project.json');if(o.success!==true||o.result?.name!=='tidens-vav-f5-review')process.exit(1)"
           echo "ready=true" >> "$GITHUB_OUTPUT"
       - name: Deploy ONLY to the dedicated review project
-        if: steps.preview.outputs.ready == 'true' && (github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && github.head_ref == 'f5-21-cloudflare-isolated-preview-20261104' && vars.F5_REVIEW_DEPLOY_ENABLED == 'true'))
+        if: steps.preview.outputs.ready == 'true' && vars.F5_REVIEW_DEPLOY_ENABLED == 'true' && ((github.event_name == 'workflow_dispatch' && github.ref_name == 'f5-21-cloudflare-isolated-preview-20261104') || (github.event_name == 'pull_request' && github.head_ref == 'f5-21-cloudflare-isolated-preview-20261104'))
         shell: bash
         run: |
           set -euo pipefail
