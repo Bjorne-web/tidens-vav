@@ -1,0 +1,69 @@
+name: F5.21 Cloudflare isolated F5 review preview
+on:
+  pull_request:
+    paths:
+      - 'tests/f5-21-*'
+      - '.github/workflows/f5-21-preview.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  isolated-preview:
+    runs-on: ubuntu-latest
+    env:
+      REVIEW_PROJECT: tidens-vav-f5-review
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Generate complete isolated review package
+        run: |
+          node tests/f5-20-generate-package.cjs
+          node tests/f5-21-preview-guard.cjs
+      - name: Detect Cloudflare credentials and existing isolated project
+        id: preview
+        shell: bash
+        run: |
+          set -euo pipefail
+          account=present; token=present
+          [[ -n "${CLOUDFLARE_ACCOUNT_ID:-}" ]] || account=missing
+          [[ -n "${CLOUDFLARE_API_TOKEN:-}" ]] || token=missing
+          echo "### F5 staging – publiceringsförutsättningar" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Account ID: $account" >> "$GITHUB_STEP_SUMMARY"
+          echo "- API token: $token" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Explicit opt-in: ${{ vars.F5_REVIEW_DEPLOY_ENABLED == 'true' && 'enabled' || 'disabled' }}" >> "$GITHUB_STEP_SUMMARY"
+          if [[ "$account" == missing || "$token" == missing ]]; then
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "Projektkontroll: ej utförd – uppgifter saknas. Ingen publicering." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          response=$(curl -sS -o /tmp/f521_project.json -w '%{http_code}' \
+            -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
+            "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/pages/projects/${REVIEW_PROJECT}")
+          if [[ "$response" != "200" ]]; then
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "The dedicated Cloudflare Pages project is absent or unavailable (HTTP $response); no deployment attempted." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          node -e "const o=require('/tmp/f521_project.json');if(o.success!==true||o.result?.name!=='tidens-vav-f5-review')process.exit(1)"
+          echo "ready=true" >> "$GITHUB_OUTPUT"
+      - name: Deploy ONLY to the dedicated review project
+        if: steps.preview.outputs.ready == 'true' && vars.F5_REVIEW_DEPLOY_ENABLED == 'true' && ((github.event_name == 'workflow_dispatch' && github.ref_name == 'f5-21-cloudflare-isolated-preview-20261104') || (github.event_name == 'pull_request' && github.head_ref == 'f5-21-cloudflare-isolated-preview-20261104'))
+        shell: bash
+        run: |
+          set -euo pipefail
+          npx --yes wrangler@4 pages deploy out/f5-20/site \
+            --project-name="${REVIEW_PROJECT}" --branch="f5-review-20261104" \
+            --commit-dirty=true 2>&1 | tee /tmp/f521_deploy.log
+          echo "Staging deployment completed to separate project. Verify the URL reported by Wrangler before sharing." >> "$GITHUB_STEP_SUMMARY"
+      - name: Preserve complete review package
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: f5-21-review-package
+          path: out/f5-20/site/
+          if-no-files-found: warn
+          retention-days: 14
